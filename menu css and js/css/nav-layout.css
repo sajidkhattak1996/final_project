@@ -1,0 +1,283 @@
+@font-face {
+	font-family: "icon-font";
+	src: url('../fonts/icon-font.eot');
+	src: url('../fonts/icon-font.eot?#iefix') format('eot'), url('../fonts/icon-font.woff') format('woff'), url('../fonts/icon-font.ttf') format('truetype'), url('../fonts/icon-font.svg#icon-font') format('svg');
+}
+#logo{
+	width:130px; height:45px;
+}
+#webhead{ font-size:18px; }
+
+
+.icon-menu-close:before,
+.icon-menu:before,
+.icon-mobile:before,
+.icon-submenu-down:before,
+.icon-submenu-right:before,
+.icon-world:before,
+header h1:before,
+.nav-button:before,
+.nav-close:before,
+.nav .nav-submenu > a:after,
+.nav > ul > .nav-submenu > a:after {
+	font-family: "icon-font";
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	text-decoration: none;
+	text-transform: none;
+	vertical-align: top;
+}
+
+
+
+.icon-menu-close:before {
+	content: "\E002";
+}
+
+.icon-menu:before {
+	content: "\E003";
+}
+
+.icon-mobile:before {
+	content: "\E004";
+}
+
+.icon-submenu-down:before {
+	content: "\E005";
+}
+
+.icon-submenu-right:before {
+	content: "\E006";
+}
+
+.icon-world:before {
+	content: "\E007";
+}
+
+body {
+	padding-top: 4.4rem;
+}
+
+header {
+	display: block;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 901;
+	padding-left: 10px;
+	line-height: 4.4rem;
+	background: #008c7e;
+	color: #fff;
+	height: 50px;
+	padding-bottom: 20px;
+
+
+
+}
+
+header h1 {
+	margin: 0;
+	font-size: 2.7rem;
+	line-height: 4.4rem;
+}
+
+header h1:before {
+
+	margin-right: 8px;
+}
+
+.nav-button,
+.nav-close {
+	position: fixed;
+	top: 0;
+	width: 4.4rem;
+	height: 4.4rem;
+	overflow: hidden;
+	z-index: 902;
+	cursor: pointer;
+	text-decoration: none;
+	line-height: 4.4rem;
+	background: #13bca4;
+	color: #fff;
+}
+
+.nav-button:before,
+.nav-close:before {
+	display: block;
+	text-align: center;
+}
+
+.nav-button {
+	display: block;
+	right: 1rem;
+	font-size: 2.7rem;
+}
+
+.nav-button:before {
+	content: "\E003";
+}
+
+.nav-close {
+	display: none;
+	right: 4rem;
+	font-size: 1.9rem;
+}
+
+.nav-close:before {
+	content: "\E002";
+}
+
+.nav {
+	
+	padding-top: 4.4rem;
+	line-height: 4.4rem;
+	background: #13bca4;
+
+}
+
+
+
+.nav ul {
+	border-radius: 0 0 6px 6px;
+	background: #008c7e;
+	
+}
+
+.nav ul ul {
+	background: #008c7e;
+}
+
+.nav ul ul ul {
+	background: #008c7e;
+}
+
+.nav ul ul ul ul {
+	background: #008c7e;
+}
+
+.nav ul ul ul ul ul {
+	background: #008c7e;
+}
+
+.nav li {
+	border-top: 1px solid #59544F;
+	cursor: pointer;
+}
+
+.nav li:hover > a,
+.nav li.nav-active > a {
+	color: #fff;
+	background: #13bca4;
+}
+
+.nav .nav-submenu > ul {
+	margin-left: 10px;
+}
+
+.nav .nav-submenu > a {
+	padding-right: 30px !important;
+}
+
+.nav a,
+.nav a:hover,
+.nav a:active,
+.nav a:visited {
+	border-radius: 6px;
+	padding: 0 15px 1px;
+	color: #fff;
+	text-decoration: none;
+}
+
+.nav .nav-submenu > a:after {
+	position: absolute;
+	display: block;
+	right: 10px;
+	top: 1px;
+	content: "\E005";
+}
+
+
+
+
+
+
+
+
+
+
+@media only screen and (min-width: 960px) {
+
+#logo{
+	width:140px; height:50px;
+}
+#webhead{ font-size: 30px; }
+
+body {
+	padding: 0 !important;
+}
+
+header {
+	position: relative;
+}
+
+
+
+.nav-button {
+	display: none;
+}
+
+.nav {
+	padding: 0 !important;
+	
+	
+}
+	#menu_ul{
+		padding-left: 140px;
+		
+		
+	}
+
+
+.nav > ul > li {
+	border-top: none;
+	padding-left: 20px;  /* this well move the menu from left*/
+}
+
+.nav li > ul {
+	box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+}
+
+.nav ul ul ul {
+	border-radius: 0 6px 6px 6px;
+	
+}
+
+.nav ul ul ul li:first-child {
+	border-top: none;
+}
+
+.nav .nav-left > ul {
+	border-radius: 6px 0 6px 6px;
+}
+
+.nav .nav-submenu li {
+	min-width: 150px;
+}
+
+.nav .nav-submenu > ul {
+	margin-left: 20px;
+}
+
+.nav > ul > .nav-submenu > a:after {
+	content: "\E005";
+}
+
+.nav .nav-submenu > a:after {
+	content: "\E006";
+}
+
+}

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en" >
+  <head>
+    <meta charset="utf-8">
+    <title>Transparent form </title>
+<style >
+  body{
+    margin: 0;
+    padding: 0;
+    background-image: url(C:/xampp/htdocs/final_project/pic/3.jpg);
+    -webkit-background-size: cover;
+    background-size: cover;
+    font-family: Tahona, sans-serif;
+
+  }
+  .form-area{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width:400px;
+    height: 500px;
+    box-sizing: border-box;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 40px;
+  }
+  h3{
+    margin: 0;
+    padding: 0 0 20px;
+    font-weight: bold;
+    color: #fff;
+  }
+  .form-area p{
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+    color: #fff;
+  }
+  .form-area input,select{
+    margin-bottom: 20px;
+    width: 100%;
+  }
+  .form-area input[type=text],
+  .form-area input[type=Password]{
+  border: none;
+  border-bottom: 1px solid #fff;
+  background-color: Transparent;
+  outline: none;
+  height: 40px;
+  color: #ffffff;
+  display: 16px;
+
+  }
+  ::placeholder{
+    color: #ffffff;
+  }
+  .form-area select{
+    margin-top: 20px;
+    padding: 10px 0;
+  }
+  .form-area input[type=submit]{
+    border:none;
+    height: 40px;
+    outline: none;
+    color: #ffffff;
+    font-size: 15px;
+    background-color: tomato;
+    cursor: pointer;
+    border-radius: 20px;
+  }
+  .form-area input[type=submit];hover{
+    background-color:cyan;
+    color:#ffffff;
+
+  }
+  .form-area a{
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+  }
+
+
+
+</style>
+
+
+
+  </head>
+  <body>
+
+      <div class="form-area">
+        <h3>Login form </h3>
+        <form action="">
+          <p>Email:</p>
+          <input type="text" name="" value="" id="" placeholder="Enter your Email">
+
+          <p>Security question</p>
+          <select class="" name="">
+            <option value="">What is your mother nane</option>
+            <option value="">what is your best friends name</option>
+            <option value="">what is your first school name</option>
+            <option value="">what is your place of birth</option>
+
+          </select>
+          <p></p>
+          <input type="text" name="" value="" placeholder="Your answer">
+          <input type="submit" name="" value="Sign In">
+          <a href="#"> Forgot Password? </a>
+          </form>
+      </div>
+
+
+  </body>
+</html>
