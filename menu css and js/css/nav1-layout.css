@@ -19,10 +19,10 @@
 .icon-submenu-right:before,
 .icon-world:before,
 header h1:before,
-.nav-button:before,
-.nav-close:before,
-.nav .nav-submenu > a:after,
-.nav > ul > .nav-submenu > a:after {
+.nav1-button:before,
+.nav1-close:before,
+.nav1 .nav1-submenu > a:after,
+.nav1 > ul > .nav1-submenu > a:after {
 	font-family: "icon-font";
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
@@ -93,8 +93,8 @@ header h1:before {
 	margin-right: 8px;
 }
 
-.nav-button,
-.nav-close {
+.nav1-button,
+.nav1-close {
 	position: fixed;
 	top: 0;
 	width: 4.4rem;
@@ -108,33 +108,33 @@ header h1:before {
 	color: #fff;
 }
 
-.nav-button:before,
-.nav-close:before {
+.nav1-button:before,
+.nav1-close:before {
 	display: block;
 	text-align: center;
 }
 
-.nav-button {
+.nav1-button {
 	display: block;
 	right: 1rem;
 	font-size: 2.7rem;
 }
 
-.nav-button:before {
+.nav1-button:before {
 	content: "\E003";
 }
 
-.nav-close {
+.nav1-close {
 	display: none;
 	right: 4rem;
 	font-size: 1.9rem;
 }
 
-.nav-close:before {
+.nav1-close:before {
 	content: "\E002";
 }
 
-.nav {
+.nav1 {
 
 	padding-top: 4.4rem;
 	line-height: 4.4rem;
@@ -144,58 +144,58 @@ header h1:before {
 
 
 
-.nav ul {
+.nav1 ul {
 	border-radius: 0 0 6px 6px;
 	background: #008c7e;
 
 }
 
-.nav ul ul {
+.nav1 ul ul {
 	background: #008c7e;
 }
 
-.nav ul ul ul {
+.nav1 ul ul ul {
 	background: #008c7e;
 }
 
-.nav ul ul ul ul {
+.nav1 ul ul ul ul {
 	background: #008c7e;
 }
 
-.nav ul ul ul ul ul {
+.nav1 ul ul ul ul ul {
 	background: #008c7e;
 }
 
-.nav li {
+.nav1 li {
 	border-top: 1px solid #59544F;
 	cursor: pointer;
 }
 
-.nav li:hover > a,
-.nav li.nav-active > a {
+.nav1 li:hover > a,
+.nav1 li.nav1-active > a {
 	color: #fff;
 	background: #13bca4;
 }
 
-.nav .nav-submenu > ul {
+.nav1 .nav1-submenu > ul {
 	margin-left: 10px;
 }
 
-.nav .nav-submenu > a {
+.nav1 .nav1-submenu > a {
 	padding-right: 30px !important;
 }
 
-.nav a,
-.nav a:hover,
-.nav a:active,
-.nav a:visited {
+.nav1 a,
+.nav1 a:hover,
+.nav1 a:active,
+.nav1 a:visited {
 	border-radius: 6px;
 	padding: 0 15px 1px;
 	color: #fff;
 	text-decoration: none;
 }
 
-.nav .nav-submenu > a:after {
+.nav1 .nav1-submenu > a:after {
 	position: absolute;
 	display: block;
 	right: 10px;
@@ -296,7 +296,7 @@ body {
 
 /* below hiden the login button for the desktop size and above view */
 	#lb_for_mobile{visibility: collapse;display: none}
-/* css are ended for the login button in the navagation menu for desktop , here
+/* css are ended for the login button in the nav1agation menu for desktop , here
 	"collapse" are actually remove the white spaces for the removed item  and
 	"display:none" actually free thah white space */
 
@@ -307,11 +307,11 @@ header {
 
 
 
-.nav-button {
+.nav1-button {
 	display: none;
 }
 
-.nav {
+.nav1 {
 	padding: 0 !important;
 
 
@@ -323,41 +323,41 @@ header {
 	}
 
 
-.nav > ul > li {
+.nav1 > ul > li {
 	border-top: none;
 	padding-left: 8px;  /* this well move the menu from left*/
 }
 
-.nav li > ul {
+.nav1 li > ul {
 	box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
 }
 
-.nav ul ul ul {
+.nav1 ul ul ul {
 	border-radius: 0 6px 6px 6px;
 
 }
 
-.nav ul ul ul li:first-child {
+.nav1 ul ul ul li:first-child {
 	border-top: none;
 }
 
-.nav .nav-left > ul {
+.nav1 .nav1-left > ul {
 	border-radius: 6px 0 6px 6px;
 }
 
-.nav .nav-submenu li {
+.nav1 .nav1-submenu li {
 	min-width: 150px;
 }
 
-.nav .nav-submenu > ul {
+.nav1 .nav1-submenu > ul {
 	margin-left: 20px;
 }
 
-.nav > ul > .nav-submenu > a:after {
+.nav1 > ul > .nav1-submenu > a:after {
 	content: "\E005";
 }
 
-.nav .nav-submenu > a:after {
+.nav1 .nav1-submenu > a:after {
 	content: "\E006";
 }
 

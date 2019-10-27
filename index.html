@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="nav-no-js">
+<html lang="en" class="nav1-no-js">
 
 <head>
 <meta http-equiv="refresh" content="3000">
@@ -8,12 +8,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
 
-    <title>Responsive Navigation</title>
+    <title>Responsive navigation</title>
 
     <link rel="stylesheet" href="menu css and js/css/normalize.min.css">
     <link rel="stylesheet" href="menu css and js/css/defaults.min.css">
-    <link rel="stylesheet" href="menu css and js/css/nav-core.min.css">
-    <link rel="stylesheet" href="menu css and js/css/nav-layout.css">
+    <link rel="stylesheet" href="menu css and js/css/nav1-core.css">
+    <link rel="stylesheet" href="menu css and js/css/nav1-layout.css">
     <style type="text/css">
     </style>
     <link href="menu css and js/css/sajid.css" rel="stylesheet" type="text/css">
@@ -29,7 +29,7 @@
 </head>
 
 <body>
-<!-- navagation menu are start from here -->
+<!-- nav1agation menu are start from here -->
 <div id="idheader" style="padding-top:5px; padding-bottom: 0px;background-color: #008c7e">
 <header>
     <h1 style=""><img src="C:\xampp\htdocs\final_project\logo\LOGO2.png"    id="logo">  </h1>
@@ -37,14 +37,14 @@
 
 </header>
 	</div>
-<a href="#" class="nav-button">Menu</a>
+<a href="#" class="nav1-button">Menu</a>
 
-<nav class="nav">
+<nav1 class="nav1">
     <ul id="menu_ul">
         <li><a href="index.html">Home</a></li>
 		<li id="lb_for_mobile"><a href="#">Log in</a></li>  <!-- this button are also hide in the desktop view -->
         <li><a href="javascript:togglediv('ab')"  >About</a></li>
-        <li class="nav-submenu"><a href="#">Create Account </a>
+        <li class="nav1-submenu"><a href="#">Create Account </a>
             <ul>
                 <li><a href="javascript:togglediv('std_Ac')">Student</a></li>
                 <li><a href="javascript:togglediv('t_Ac')">Teacher </a></li>
@@ -67,10 +67,10 @@
 <!--	ended of mobile size cose -->
 
     </ul>
-	</nav>
+	</nav1>
 
-<a href="#" class="nav-close">Close Menu</a>
-<!-- navagation menu are ended here -->
+<a href="#" class="nav1-close">Close Menu</a>
+<!-- nav1agation menu are ended here -->
 
 
 
@@ -151,7 +151,7 @@ document.querySelectorAll(".Tb").forEach(function(div) {
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<script src="menu css and js/js/nav.jquery.min.js"></script>
+<script src="menu css and js/js/nav1.jquery.min.js"></script>
 <script>
-    $('.nav').nav();
+    $('.nav1').nav1();
 </script>
