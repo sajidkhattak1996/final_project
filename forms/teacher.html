@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="js/bootstrap.min.js"></script>
+    <style>
+      body{
+        background: url(A.jpg);
+      }
+      #form{
+        background: #008C7E;
+        height: 100%;
+        margin: 0 auto;
+        margin-top: 30px;
+        padding: 20px 40px 40px 40px;
+      }
+      #top{
+        font-size: 40px;
+        font-family: Agency FB;
+        font-weight: 650;
+        border-bottom-style: ridge;
+
+      }
+      .text{
+        height: 43px;
+      }
+      #dd{
+        color: white;
+      }
+      #ftn{
+        color: white;
+      }
+
+    </style>
+  </head>
+  <body>
+    <div class="container">
+       <div class="row">
+         <div class="col-md-6" id="form">
+           <center><b id="top">Create Account</b></center>
+            <form action="#" onsubmit="return fun1()">
+              <div class="form-group">
+                <label><b>Teacher ID :</b></label>
+                <input type="text" id="tchrID"placeholder="Enter ID" class="form-control text" autocomplete="off">
+                 <span id="tech" class="text-danger font-weight-bold"></span>
+                </div>
+                <div class="form-group">
+                  <label><b>Join Key :</b></label>
+                  <input type="text" id="Jkey" placeholder="Enter join key" class="form-control text" autocomplete="off">
+                   <span id="jkey" class="text-danger font-weight-bold"></span>
+                  </div>
+                  <div class="form-group">
+                    <b id="ftn">User Information</b><br>
+                    <label><b>First Name :</b></label>
+                    <input type="text" id="fname" placeholder="First name" class="form-control text" autocomplete="off">
+                     <span id="fnme" class="text-danger font-weight-bold"></span>
+                    </div>
+                  <div class="form-group">
+                    <label><b>Last Name :</b></label>
+                    <input type="text" id="lname" placeholder="Last name" class="form-control text" autocomplete="off">
+                     <span id="lnme" class="text-danger font-weight-bold"></span>
+                    </div>
+                  <div class="form-group">
+                    <label><b>Email address :</b></label>
+                    <input type="email" id="EM" placeholder="Email" class="form-control text" autocomplete="off">
+                     <span id="Email" class="text-danger font-weight-bold"></span>
+                  </div>
+                  <div class="form-group">
+                    <label><b>Confirm Email :</b></label>
+                    <input type="text" id="CEM" placeholder="Confirm Email" class="form-control text" autocomplete="off">
+                     <span id="conEmail" class="text-danger font-weight-bold"></span>
+                  </div>
+                  <div class="form-group">
+                    <label><b>Password :</b></label>
+                    <input type="password" id="pass" placeholder="Password" class="form-control text" autocomplete="off">
+                     <span id="paswd" class="text-danger font-weight-bold"></span>
+                  </div>
+                  <div class="form-group">
+                    <label><b>Confirm Password :</b></label>
+                    <input type="password" id="conpass" placeholder="Confirm Password" class="form-control text" autocomplete="off">
+                     <span id="conpaswd" class="text-danger font-weight-bold"></span>
+                  </div>
+                  <div class="form-group">
+                    <input type="submit"  value="Create Profile" class="btn btn-outline-info text-light">
+                    <input type="button"  value="Cancel Profile" class="btn btn-outline-info text-light" >
+                  </div>
+            </form>
+         </div>
+       </div>
+    </div>
+  </body>
+  <script>
+     function fun1(){
+       var Tid=document.getElementById('tchrID').value;
+       var joinkey=document.getElementById('Jkey').value;
+       var Fname=document.getElementById('fname').value;
+       var Lname=document.getElementById('lname').value;
+       var email=document.getElementById('EM').value;
+       var conemail=document.getElementById('CEM').value;
+       var pwd=document.getElementById('pass').value;
+       var conpwd=document.getElementById('conpass').value;
+       if(Tid==""){
+         document.getElementById('tech').innerHTML="** Please enter teacher ID";
+         return false;
+       }
+       if(joinkey==""){
+         document.getElementById('jkey').innerHTML="** Please enter join key";
+         return false;
+       }
+       if(Fname==""){
+         document.getElementById('fnme').innerHTML="** Please fill the First name field";
+         return false;
+       }
+       if((Fname.length<=2)|| (Fname.length>20)){
+         document.getElementById('fnme').innerHTML="** Must be greater than 2 and less than 20";
+         return false;
+       }
+       if(!isNaN(Fname)){
+         document.getElementById('fnme').innerHTML="** Only characters are allowed";
+         return false;
+       }
+       if(Lname==""){
+         document.getElementById('lnme').innerHTML="** Please fill the Last name field";
+         return false;
+       }
+       if((Lname.length<=2)|| (Lname.length>20)){
+         document.getElementById('lnme').innerHTML="** Must be greater than 2 and less than 20";
+         return false;
+       }
+       if(!isNaN(Lname)){
+         document.getElementById('lnme').innerHTML="** Only characters are allowed";
+         return false;
+       }
+       if(email==""){
+         document.getElementById('Email').innerHTML="** Please fill the email field";
+         return false;
+       }
+       if(email!=conemail){
+         document.getElementById('conEmail').innerHTML="** Email dose not matching..!";
+         return false;
+       }
+       if(pwd==""){
+         document.getElementById('paswd').innerHTML ="** Please fill the password field";
+         return false;
+       }
+       if((pwd.length<=8) || (pwd.length>20)){
+         document.getElementById('paswd').innerHTML="** password must be greater than 8 character";
+         return false;
+       }
+       if(pwd!=conpwd){
+         document.getElementById('conpaswd').innerHTML ="** Password does not matching..!";
+         return false;
+       }
+     }
+
+  </script>
+</html>

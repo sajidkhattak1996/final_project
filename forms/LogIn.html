@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="js/bootstrap.min.js"></script>
+    <style>
+      body{
+        background: url(A.jpg);
+      }
+      #form{
+        background: #008C7E;
+        height: 580px;
+        margin: 0 auto;
+        margin-top: 30px;
+        padding: 20px 40px 40px 40px;
+      }
+      #top{
+        font-size: 40px;
+        font-family: Agency FB;
+        font-weight: 650;
+        border-bottom-style: ridge;
+
+      }
+      .text{
+        height: 43px;
+      }
+      #dd{
+        color: white;
+      }
+	
+
+    </style>
+  </head>
+  <body>
+    <div class="container">
+       <div class="row">
+         <div class="col-md-6" id="form">
+           <center><b id="top">Login to Class</b></center>
+            <form action="#" onsubmit="return fun()">
+              <div class="form-group">
+                <label><b>Email Address :</b></label>
+                <input type="email" name="email" placeholder="Email" class="form-control text" id="EM" autocomplete="off">
+                <span id="eemail" class="text-danger font-weight-bold"></span>
+                </div>
+                <div class="form-group">
+                  <label><b>Password :</b></label>
+                  <input type="password" name="pwd" placeholder="Password" class="form-control text" id="pass">
+                  <span id="paswd" class="text-danger font-weight-bold"></span>
+                  </div>
+                  <div class="form-group">
+                    <input type="submit"  value="Log In" class="btn btn-outline-info text-light" style="width: 120px;
+			letter-spacing: 1;
+			word-spacing: 2px;
+			font-size: 18px;">
+                  </div>
+                  Forgot your password?<a href="#" id="dd">Click here </a><br>
+                  Need more help? <a href="#" id="dd">Click here</a><br><br>
+                  <b>New User ?</b> <a href="student.html" id="dd">Click here</a><br><br>
+                  <b>Pivacy Policy</b><br>
+                  We take your privacy very seriously.We do not share your detail for marketing purposes
+                  with the external companies.
+
+            </form>
+
+         </div>
+
+       </div>
+    </div>
+  </body>
+</html>
+<script>
+    function fun() {
+    var email=document.getElementById('EM').value;
+    var pwd=document.getElementById('pass').value;
+    if(email==""){
+      document.getElementById('eemail').innerHTML="** Please fill the email field";
+      return false;
+    }
+    if(pwd==""){
+      document.getElementById('paswd').innerHTML ="** Please fill the password field";
+      return false;
+    }
+    if(pwd<=8 || pwd>20){
+      document.getElementById('paswd').innerHTML="** password must be greater than 8 character";
+      return false;
+
+    }
+  }
+</script>

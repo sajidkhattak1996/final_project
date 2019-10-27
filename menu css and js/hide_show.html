@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <!-- <meta http-equiv="refresh" content="100"> -->
+    <meta charset="utf-8">
+    <title>Hide and show element </title>
+<style media="screen">
+  #dd{background: #0099cc; width: 90%; height: 200px;margin-top: 20px;border-radius: 10px;display: none}
+  #bclose{float: right;width: 70px;border-color: pink; background: pink}
+  
+  #dd2{background: lightpink; width: 50%; height: 100px;margin-top: 20px;border-radius: 10px;display: none}
+  
+  
+</style>
+
+    <script type="text/javascript">
+      function fn(x){
+        if (x==0)
+        {
+        document.getElementById('hd').style.display='block';
+        return;
+        }
+        else {
+          document.getElementById('hd').style.display='none';
+          return;
+        }
+      }
+
+
+//script for the slick to show button and close 
+
+function sajid(a) {
+
+  if (a==1) {
+    document.getElementById('dd').style.display="block";
+  }
+  else {
+    document.getElementById('dd').style.display="none";
+  }
+  
+}
+
+function sajid2(a) {
+
+  if (a==1) {
+    document.getElementById('dd2').style.display="block";
+  }
+  else {
+    document.getElementById('dd2').style.display="none";
+  }
+  
+}
+
+    </script>
+
+
+
+  </head>
+  <body>
+<button type="button" name="button" style="background: lightblue;width:200px;height:30px;border:solid 1px green;border-radius: 8px;" onclick="sajid(1)">Click To Show </button>
+<button type="button" name="button" style="background: lightblue;width:200px;height:30px;border:solid 1px green;border-radius: 8px;" onclick="sajid2(1)"> Check button </button>
+    <div id="dd"  style="display:none">
+    
+        <button type="button" name="button" id="bclose" onclick="sajid(0)">Close</button>
+        <h2> klsdf </h2>
+    </div>
+    
+    <div id="dd2"   style="display:none">
+    
+        <button type="button" name="button" id="bclose" onclick="sajid2(0)">Close</button>
+        <h2> klsdfsdfs </h2>
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+<br><br><br>
+
+<input type="radio" name="r"  onclick="return fn(0)"  checked > Show image
+<input type="radio" name="r"  onclick="return fn(1)"> Hide image
+<br><br>
+<div id="hd">
+  slkjflsjajflasaflda slfkslfjlsfflfas
+</div>
+
+<br><br><br>
+<div class="myButtons">
+  <div class="btn-group" id="MatchingEntitiesButtons">
+
+    <button id="Button1" class="roundBtns" onclick="togglediv('NamesTable')" type="button"> List of Names </button>
+
+    <button id="Button2" class="roundBtns" onclick="togglediv('PhoneTable')" type="button"> List of Address </button>
+
+    <button id="Button3" class="roundBtns" onclick="togglediv('AddressTable')" type="button"> List of Phone#</button>
+
+    <button id="Button4" class="roundBtns" onclick="togglediv('GradesTable')" type="button"> List of Grades</button>
+
+    <button id="Button5" class="roundBtns" onclick="togglediv('SchoolTable')" type="button"> List of Schools </button>
+
+  </div>
+</div>
+
+<div id="NamesTable" class="TableBody" style="display:none">Names </div>
+<div id="PhoneTable" class="TableBody" style="display:none">Address </div>
+<div id="AddressTable" class="TableBody" style="display:none">Phone# </div>
+<div id="GradesTable" class="TableBody" style="display:none">Grades </div>
+<div id="SchoolTable" class="TableBody" style="display:none">School </div>
+
+<script
+  src="js/jquery.js"
+  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+  crossorigin="anonymous">
+</script>
+<script type="text/javascript">
+  
+function togglediv(id) {
+document.querySelectorAll(".TableBody").forEach(function(div) {
+  if (div.id == id) {
+    // Toggle specified DIV
+    div.style.display = div.style.display == "none" ? "block" : "none";
+  } else {
+    // Hide other DIVs
+    div.style.display = "none";
+  }
+});
+}
+  
+</script>
+
+
+
+
+
+
+
+  </body>
+</html>

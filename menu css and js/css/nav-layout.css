@@ -6,7 +6,10 @@
 #logo{
 	width:130px; height:45px;
 }
-#webhead{ font-size:18px; }
+#webhead{ font-size:25px; text-align: center;font-family: monotype corsiva,"Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, "sans-serif";margin-left: 40px;word-spacing: 0px;letter-spacing: 1px; }
+
+
+
 
 
 .icon-menu-close:before,
@@ -132,7 +135,7 @@ header h1:before {
 }
 
 .nav {
-	
+
 	padding-top: 4.4rem;
 	line-height: 4.4rem;
 	background: #13bca4;
@@ -144,7 +147,7 @@ header h1:before {
 .nav ul {
 	border-radius: 0 0 6px 6px;
 	background: #008c7e;
-	
+
 }
 
 .nav ul ul {
@@ -200,13 +203,46 @@ header h1:before {
 	content: "\E005";
 }
 
+//background image designe and css for them for the mobile size
+
+#bgdiv {
+
+	/* background-color: red;
+	margin-top: 15px;
+	margin-left: 5px;
+	margin-right: 5px;
+	width: 200px;
+	height: 200px;
+	border: 2px solid #2138EF;
+	border-radius: 15px;
+
+	-webkit-box-shadow: 0px 0px 8px 1px #3634ED;
+	box-shadow: 0px 0px 8px 1px #3634ED; */
+}
+
+.headbox {
+
+	background-image: url(../../pic/Peshawar_University.jpg);
+	width: 100%;
+	height: 350px;
+	background-position: center;
+	background-size: cover;
+
+	border-radius: 8px;
+	margin-top: -10px;
+
+
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+}
+/* background css ended  */
 
 
 
 
 
-
-
+/*screen resulation for the desktop and loptop size */
 
 
 @media only screen and (min-width: 960px) {
@@ -214,11 +250,56 @@ header h1:before {
 #logo{
 	width:140px; height:50px;
 }
-#webhead{ font-size: 30px; }
+#webhead{ font-size: 40px; text-align: center ; font-family: monotype corsiva;word-spacing: 10px;letter-spacing: 3px; }
 
 body {
 	padding: 0 !important;
 }
+/*css for the login system on the menu system	*/
+	#log_h{
+		width: auto;
+
+		overflow: hidden;
+		float: right;
+		margin-right: 20px;
+	}
+
+
+	.log_in_f{
+		width: auto;
+		color:#fff;
+		font-size: 15px;
+		float: right;
+	}
+	.log_in_f input{
+		width: 110px;
+		border:solid #11DFBC 1px;
+		border-radius: 4px;
+		color: #000;
+
+	}
+
+
+	.log_in_f input:hover { background: #73F0DF;color: #000; }
+
+	#log_in_button{
+		margin-left:5px;
+		width: 80px;
+		background: #04C3A2;
+		height: 25px;
+		color: #fff;
+	}
+	#log_in_button:hover {
+		background-color: #04EBC3;color: blueviolet}
+
+/*css ended of the login form inside the menu*/
+
+/* below hiden the login button for the desktop size and above view */
+	#lb_for_mobile{visibility: collapse;display: none}
+/* css are ended for the login button in the navagation menu for desktop , here
+	"collapse" are actually remove the white spaces for the removed item  and
+	"display:none" actually free thah white space */
+
 
 header {
 	position: relative;
@@ -232,19 +313,19 @@ header {
 
 .nav {
 	padding: 0 !important;
-	
-	
+
+
 }
 	#menu_ul{
-		padding-left: 140px;
-		
-		
+		padding-left: 60px;
+
+
 	}
 
 
 .nav > ul > li {
 	border-top: none;
-	padding-left: 20px;  /* this well move the menu from left*/
+	padding-left: 8px;  /* this well move the menu from left*/
 }
 
 .nav li > ul {
@@ -253,7 +334,7 @@ header {
 
 .nav ul ul ul {
 	border-radius: 0 6px 6px 6px;
-	
+
 }
 
 .nav ul ul ul li:first-child {
@@ -280,4 +361,39 @@ header {
 	content: "\E006";
 }
 
+.bgdiv {
+	width: auto;
+	height: 500px;
+	border: 2px solid #2138EF;
+	border-radius: 20px;
+	margin-top: 20px;
+	margin-left: 5px;
+	margin-right: 5px;
+	-webkit-box-shadow: 0px 0px 17px 2px #3634ED;
+	box-shadow: 0px 0px 17px 2px #3634ED;
 }
+
+.headbox {
+	background-image: url(../../pic/Peshawar_University.jpg);
+	width: 100%;
+	height: 498px;
+	background-position: center center;
+	background-size: cover;
+	border-radius: 20px;
+	margin-top: -24px;
+
+
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+}
+
+
+
+
+
+}
+
+
+/*this media query are use for the menu log in input are hideen from the mobile size menu */
+@media(max-width:959px){ #log_h{ visibility:collapse; display: none !important}  }

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title> transparent the div class in css</title>
+<style>
+.maindiv{
+  background-color: #0099cc;
+  width:100%;
+  height:400px;
+  margin-top: 0px;
+}
+
+.subdiv{
+  background-color: lightpink;
+  width:60%;
+  margin-left: 300px;
+
+  height: 200px;
+  opacity: 0.3;
+  border-radius: 10px;
+
+/* Note: IE8 and earlier use filter:alpha(opacity=x). The x can take a value from 0 - 100. A lower value makes the element more transparent */
+filter: alpha(opacity=50); /* For IE8 and earlier */
+
+}
+
+
+
+</style>
+  </head>
+  <body>
+
+<div class="maindiv">
+  <div class="subdiv" >
+    <h3 style="color: #fff;font-size: 30px; font-weight: bold;opacity:1;">welcome to the transparent</h3>
+  </div>
+</div>
+
+
+
+  </body>
+</html>
