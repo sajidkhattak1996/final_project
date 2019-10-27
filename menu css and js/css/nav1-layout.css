@@ -238,8 +238,35 @@ header h1:before {
 }
 /* background css ended  */
 
+/*background for tranparent form display*/
+  .form-area{
+    position: absolute;
+		margin-top: 120px;
+    left: 50%;
+    transform: translate(-50%,-73%);
+    width: 80%;
+    height: auto;
+    box-sizing: border-box;
+    background: rgba(0,166,138,0.82);
+    padding: 10px;  /*it inside increase the padding */
+	border-radius: 10px;
+  }
+	/* css for create profile button */
+	#create_profile_B{
+		width: 120px;
+		background-color: #fff;
+		height: 35px;
+		color: #008c7e;
+		font-size: 12px;
+		border: solid 2px #008c7e;
+		border-radius: 8px;
 
-
+	}
+	#create_profile_B:hover{
+		color: #fff;
+		background-color: #008c7e;
+		border-color: #FFF;
+	}
 
 
 /*screen resulation for the desktop and loptop size */
@@ -388,8 +415,68 @@ header {
 	-o-background-size: cover;
 }
 
+/*background for tranparent form display*/
+  .form-area{
+    position: absolute;
+		margin-top: 130px;
+    left: 50%;
+    transform: translate(-50%,-73%);
+    width: 60%;
+    height: auto;
+    box-sizing: border-box;
+    background: rgba(0,166,138,0.82);
+    padding: 10px;  /*it inside increase the padding */
+	border-radius: 10px;
+  }
 
+/* css for student account creation in a tranparent box
+			this is for the desktop size
+ */
 
+ #form{
+ /*        background: #008C7E;*/
+         height: 100%;
+         margin: 0 auto;
+
+         padding: 20px 40px 40px 40px;
+         width: auto;
+       }
+       #top{
+         font-size: 40px;
+         font-family: Agency FB;
+         font-weight: 650;
+         border-bottom-style: ridge;
+
+       }
+       .text{
+         height: 43px;
+       }
+       #dd{
+         color: white;
+       }
+       #ftn{
+         color: white;
+       }
+       #foutdiv{
+
+       }
+
+			 /* css for create profile button */
+			 #create_profile_B{
+				 width: 250px;
+				 background-color: #fff;
+				 height: 40px;
+				 color: #008c7e;
+				 font-size: 20px;
+				 border: solid 2px #008c7e;
+				 border-radius: 8px;
+
+			 }
+			 #create_profile_B:hover{
+				 color: #fff;
+				 background-color: #008c7e;
+				 border-color: #FFF;
+			 }
 
 
 }
