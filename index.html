@@ -41,24 +41,24 @@
 
 <nav class="nav">
     <ul id="menu_ul">
-        <li><a href="#">Home</a></li>
+        <li><a href="index.html">Home</a></li>
 		<li id="lb_for_mobile"><a href="#">Log in</a></li>  <!-- this button are also hide in the desktop view -->
-        <li><a href="#">About</a></li>
+        <li><a href="javascript:togglediv('ab')"  >About</a></li>
         <li class="nav-submenu"><a href="#">Create Account </a>
             <ul>
-                <li><a href="forms/student.html">Student</a></li>
-                <li><a href="forms/teacher.html">Teacher </a></li>
+                <li><a href="javascript:togglediv('std_Ac')">Student</a></li>
+                <li><a href="javascript:togglediv('t_Ac')">Teacher </a></li>
             </ul>
         </li>
 
-        <li><a href="#">Contact</a></li>
+        <li><a href="javascript:togglediv('contact')">Contact</a></li>
 
 <!--	this below code are hidden in the mobile view size -->
 		<li id="log_h">
 			<div class="log_in_f">
 				<form>
-					Email: <input type="text" name="email" placeholder=" Enter email " > &nbsp;
-					Password: <input type="password" name="pass" placeholder="Enter Password">
+					Email: <input type="email" name="email" placeholder=" Enter email "  onfocus="togglediv('empty')"> &nbsp;
+					Password: <input type="password" name="pass" placeholder="Enter Password" onfocus="togglediv('empty')">
 <!--					<a href="#" style="margin-top: -60px;">Forgot password</a>-->
 					<input type="submit" name="lg" value="Log in" id="log_in_button">
 				</form>
@@ -72,6 +72,9 @@
 <a href="#" class="nav-close">Close Menu</a>
 <!-- navagation menu are ended here -->
 
+
+
+ <!-- background image are present below in the div class by the css property -->
 <div class="bgdiv" id="bgdiv">
 	<br>
 		<div class="headbox">
@@ -82,27 +85,10 @@
 		</div>
 
 </div>
-<br><br>
 
-	<div class="mm">
-		  <div class="kjj" >
 
-			<button id="Button1" class="" onclick="togglediv('ho')" type="button">Home  </button>
-
-			<button id="Button2" class="" onclick="togglediv('ab')" type="button"> about </button>
-
-			<button id="Button3" class="" onclick="togglediv('pr')" type="button"> Account</button>
-
-			<button id="Button4" class="" onclick="togglediv('hl')" type="button"> help </button>
-
-			<button type="button" name="button">extra button</button>
-
-		  </div>
-    </div>
-
-    <div id="ho" class="Tb" style="display:none">Home </div>
-    <div id="ab" class="Tb" style="display:none">about</div>
-    <div id="pr" class="Tb" style="display:none">
+ <!-- below are the form div is transparent  -->
+	<div id="std_Ac" class="Tb" style="display:none">
 
 
 					<div class="form-area">
@@ -130,29 +116,39 @@
 
 
 	</div>
-    <div id="hl" class="Tb" style="display:none">help </div>
+  <br><br><br><br><br>
 
-    <script type="text/javascript">
+                          <!-- reserved div the about teacher ac and contact details -->
+            <div id="ab" class="Tb" style="display:none">about for the page  </div>
+              <div id="t_Ac" class="Tb" style="display:none">div for the teacher account </div>
+                <div id="contact" class="Tb" style="display:none">div for the contact page  </div>
+                  <div id="empty" class="Tb" ></div>  <!-- this div wel clase open div( it well only open the empty div ) !Please donot plase any on them  -->
 
-    function togglediv(id) {
-    document.querySelectorAll(".Tb").forEach(function(div) {
-      if (div.id == id) {
-        // Toggle specified DIV
-        div.style.display = div.style.display == "none" ? "block" : "none";
-      } else {
-        // Hide other DIVs
-        div.style.display = "none";
-      }
-    });
-    }
-
-    </script>
 
 
 
 
 </body>
 </html>
+<script type="text/javascript">
+
+function togglediv(id) {
+document.querySelectorAll(".Tb").forEach(function(div) {
+  if (div.id == id) {
+    // Toggle specified DIV
+    div.style.display = div.style.display == "none" ? "block" : "none";
+  } else {
+    // Hide other DIVs
+    div.style.display = "none";
+  }
+});
+}
+
+</script>
+
+
+
+
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script src="menu css and js/js/nav.jquery.min.js"></script>
