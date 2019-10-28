@@ -1,0 +1,350 @@
+@font-face {
+	font-family: "icon-font";
+	src: url('../fonts/icon-font.eot');
+	src: url('../fonts/icon-font.eot?#iefix') format('eot'), url('../fonts/icon-font.woff') format('woff'), url('../fonts/icon-font.ttf') format('truetype'), url('../fonts/icon-font.svg#icon-font') format('svg');
+}
+
+.icon-desktop:before,
+.icon-menu-close:before,
+.icon-menu:before,
+.icon-mobile:before,
+.icon-submenu-down:before,
+.icon-submenu-right:before,
+.icon-world:before,
+header h1:before,
+.nav1-button:before,
+.nav1-close:before,
+.nav1 .nav1-submenu > a:after,
+.nav1 > ul > .nav1-submenu > a:after {
+	font-family: "icon-font";
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	text-decoration: none;
+	text-transform: none;
+	vertical-align: top;
+}
+
+.icon-desktop:before {
+	content: "\E001";
+}
+
+.icon-menu-close:before {
+	content: "\E002";
+}
+
+.icon-menu:before {
+	content: "\E003";
+}
+
+.icon-mobile:before {
+	content: "\E004";
+}
+
+.icon-submenu-down:before {
+	content: "\E005";
+}
+
+.icon-submenu-right:before {
+	content: "\E006";
+}
+
+.icon-world:before {
+	content: "\E007";
+}
+
+#ddd{
+	background-color: #008c7e;
+	margin-top: -45px;
+	padding-bottom: 20px;
+}
+
+body {
+	padding-top: 4.4rem;
+}
+
+header {
+	display: block;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 901;
+	padding-left: 10px;
+	line-height: 4.4rem;
+	background: #26201C;
+	color: #A69A94;
+}
+
+header h1 {
+	margin: 0;
+	font-size: 1.7rem;
+	line-height: 4.4rem;
+}
+
+header h1:before {
+	content: "\E004";
+	margin-right: 8px;
+}
+
+.nav1-button,
+.nav1-close {
+	position: fixed;
+	top: 0;
+	width: 4.4rem;
+	height: 4.4rem;
+	overflow: hidden;
+	z-index: 902;
+	cursor: pointer;
+	text-decoration: none;
+	line-height: 4.4rem;
+	background: #13bca4;
+	color: #fff;
+}
+
+.nav1-button:before,
+.nav1-close:before {
+	display: block;
+	text-align: center;
+}
+
+.nav1-button {
+	display: block;
+	right: 1rem;
+	font-size: 1.9rem;
+
+}
+
+.nav1-button:before {
+	content: "\E003";
+}
+
+.nav1-close {
+	display: none;
+	right: 4rem;
+	font-size: 1.9rem;
+}
+
+.nav1-close:before {
+	content: "\E002";
+}
+
+.nav1 {
+	padding-top: 4.4rem;
+	line-height: 4.4rem;
+	background: #008c7e;
+	color: #A69A94;
+	width: 250px;    /* it increase and decrease the width of mobile size menu */
+	margin-left: auto;
+	text-align: left;
+
+
+
+}
+
+.nav1 ul {
+	border-radius: 0 0 6px 6px;
+	background: #008c7e;
+	float: right;
+
+
+
+
+
+
+}
+
+.nav1 ul ul {
+	background: #008c7e;
+}
+
+.nav1 ul ul ul {
+	background: #008c7e;
+}
+
+.nav1 ul ul ul ul {
+	background: #40362f;
+}
+
+.nav1 ul ul ul ul ul {
+	background: #008c7e;
+}
+
+.nav1 li {
+	border-top: 1px solid #59544F;
+	cursor: pointer;
+	padding-left: 150px;    /*it increase and decrease line with the mobile size menu  */
+
+	
+
+
+}
+
+.nav1 li:hover > a,
+.nav1 li.nav1-active > a {
+	color: #fff;
+	background: #13bca4;
+}
+
+.nav1 .nav1-submenu > ul {
+	margin-left: 10px;
+}
+
+.nav1 .nav1-submenu > a {
+	padding-right: 30px !important;
+}
+
+.nav1 a,
+.nav1 a:hover,
+.nav1 a:active,
+.nav1 a:visited {
+	border-radius: 6px;
+	padding: 0 15px 1px;
+	color: #fff;
+	text-decoration: none;
+}
+
+.nav1 .nav1-submenu > a:after {
+	position: absolute;
+	display: block;
+	right: 10px;
+	top: 1px;
+	content: "\E005";
+}
+
+/*all classes and other button css for the mobile size screen*/
+	.bttn input{
+		width: 80px;
+		height: 23px;
+		border-left:solid 2px #fff;
+		border-right:solid 2px #fff;
+		border-top:solid 2px #fff;
+		font-size: 11px;
+		font-family: bold;
+		color: #fff;
+		border-radius: 5px;
+	}
+	.bttn input:hover {
+		background-color: #25DCD9;
+		border-left:solid 2px #25dcd9;
+		border-right:solid 2px #25dcd9;
+		border-top:solid 2px #25dcd9;
+		color: #fff;
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media only screen and (min-width: 960px) {
+
+
+
+
+
+
+header {
+	position: relative;
+}
+
+header h1:before {
+	content: "\E001";
+}
+
+#ddd{
+
+	padding-top: 80px;
+}
+#logoid{
+	width: 160px;
+	height: 55px;
+}
+#lgimg{
+	margin-top: -120px;
+}
+
+
+.nav1-button {
+	display: none;
+}
+
+.nav1 {
+	padding-top: 15px !important;
+	float: right;
+	margin-top: -44px;
+	width: 100%;
+
+}
+
+.nav1 > ul > li {
+	border-top: none;
+	float: right;
+	margin-left: -80px;
+}
+
+.nav1 li > ul {
+	box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+}
+
+.nav1 ul ul ul {
+	border-radius: 0 6px 6px 6px;
+}
+
+.nav1 ul ul ul li:first-child {
+	border-top: none;
+}
+
+.nav1 .nav1-left > ul {
+	border-radius: 6px 0 6px 6px;
+}
+
+.nav1 .nav1-submenu li {
+	min-width: 110px;
+}
+
+.nav1 .nav1-submenu > ul {
+	margin: 0;
+}
+
+.nav1 > ul > .nav1-submenu > a:after {
+	content: "\E005";
+}
+
+.nav1 .nav1-submenu > a:after {
+	content: "\E006";
+}
+
+	.bttn input{
+		width: 120px;
+		height: 35px;
+		border-left:solid 2px #fff;
+		border-right:solid 2px #fff;
+		border-top:solid 2px #fff;
+		font-size: 15px;
+		font-family: bold;
+		color: #fff;
+		border-radius: 5px;
+	}
+	.bttn input:hover {
+		background-color: #25DCD9;
+		border-left:solid 2px #25dcd9;
+		border-right:solid 2px #25dcd9;
+		border-top:solid 2px #25dcd9;
+		color: #fff;
+	}
+
+
+
+
+}

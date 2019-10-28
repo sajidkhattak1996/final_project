@@ -55,39 +55,16 @@ header h1:before,
 	content: "\E007";
 }
 
-#ddd{
-	background-color: #008c7e;
-	margin-top: -45px;
-	padding-bottom: 20px;
+#websitename{
+	color: #fff;
+	font-size: 20px;
+	font-style: bold;
+	font-family: monotype corsiva;
+	margin-left: 3%;
+
 }
 
-body {
-	padding-top: 4.4rem;
-}
 
-header {
-	display: block;
-	position: fixed;
-	top: 0;
-	left: 0;
-	right: 0;
-	z-index: 901;
-	padding-left: 10px;
-	line-height: 4.4rem;
-	background: #26201C;
-	color: #A69A94;
-}
-
-header h1 {
-	margin: 0;
-	font-size: 1.7rem;
-	line-height: 4.4rem;
-}
-
-header h1:before {
-	content: "\E004";
-	margin-right: 8px;
-}
 
 .nav1-button,
 .nav1-close {
@@ -102,6 +79,7 @@ header h1:before {
 	line-height: 4.4rem;
 	background: #13bca4;
 	color: #fff;
+	border-radius: 8px;
 }
 
 .nav1-button:before,
@@ -113,8 +91,7 @@ header h1:before {
 .nav1-button {
 	display: block;
 	right: 1rem;
-	font-size: 1.9rem;
-
+	font-size: 2.3rem;
 }
 
 .nav1-button:before {
@@ -135,11 +112,8 @@ header h1:before {
 	padding-top: 4.4rem;
 	line-height: 4.4rem;
 	background: #008c7e;
-	color: #A69A94;
-	width: 250px;    /* it increase and decrease the width of mobile size menu */
-	margin-left: auto;
-	text-align: left
-
+	color: #fff;
+	margin-left: 50%;
 
 
 }
@@ -147,35 +121,32 @@ header h1:before {
 .nav1 ul {
 	border-radius: 0 0 6px 6px;
 	background: #008c7e;
-	float: right;
-
-
-
-
+	border-top:solid 1px #fff;
 
 }
 
 .nav1 ul ul {
-	background: #008c7e;
+	background: #fff;
+
 }
 
 .nav1 ul ul ul {
-	background: #008c7e;
+	background: #fff;
 }
 
 .nav1 ul ul ul ul {
-	background: #40362f;
+	background: #fff;
 }
 
 .nav1 ul ul ul ul ul {
-	background: #008c7e;
+	background: #fff;
 }
-
+/* menu inside width are adjusted for mobile from here */
 .nav1 li {
-	border-top: 1px solid #59544F;
+	border-top: 1px solid #b7eae3;
 	cursor: pointer;
-	padding-left: 150px;    /*it increase and decrease line with the mobile size menu  */
-
+	background-color: #008c7e;
+	margin-left: auto;
 
 
 
@@ -201,7 +172,7 @@ header h1:before {
 .nav1 a:visited {
 	border-radius: 6px;
 	padding: 0 15px 1px;
-	color: #fff;
+	color: #fff;   /*color of the element inside the ul */
 	text-decoration: none;
 }
 
@@ -213,25 +184,6 @@ header h1:before {
 	content: "\E005";
 }
 
-/*all classes and other button css for the mobile size screen*/
-	.bttn input{
-		width: 80px;
-		height: 23px;
-		border-left:solid 2px #fff;
-		border-right:solid 2px #fff;
-		border-top:solid 2px #fff;
-		font-size: 11px;
-		font-family: bold;
-		color: #fff;
-		border-radius: 5px;
-	}
-	.bttn input:hover {
-		background-color: #25DCD9;
-		border-left:solid 2px #25dcd9;
-		border-right:solid 2px #25dcd9;
-		border-top:solid 2px #25dcd9;
-		color: #fff;
-	}
 
 
 
@@ -252,52 +204,36 @@ header h1:before {
 
 
 
-
-header {
-	position: relative;
-}
-
-header h1:before {
-	content: "\E001";
-}
-
-#ddd{
-
-	padding-top: 80px;
-}
-#logoid{
-	width: 160px;
-	height: 55px;
-}
-#lgimg{
-	margin-top: -120px;
-}
-
-
 .nav1-button {
 	display: none;
 }
 
 .nav1 {
-	padding-top: 15px !important;
+	padding: 0 !important;
+	margin-left: 0px;
 	float: right;
-	margin-top: -44px;
-	width: 100%;
 
+	background-color: #13bca4;
 }
 
 .nav1 > ul > li {
+	/*this is the css for the user info and logout area for desktop */
 	border-top: none;
-	float: right;
-	margin-left: -80px;
+	margin-left: auto;
+	margin-right: 40px;
+
+
 }
 
 .nav1 li > ul {
 	box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+
+
 }
 
 .nav1 ul ul ul {
 	border-radius: 0 6px 6px 6px;
+
 }
 
 .nav1 ul ul ul li:first-child {
@@ -323,27 +259,18 @@ header h1:before {
 .nav1 .nav1-submenu > a:after {
 	content: "\E006";
 }
+#websitename{
+	color: #fff;
+	font-size: 28px;
+	font-style: bold;
+	font-family: monotype corsiva;
+	margin-left: 23%;
 
-	.bttn input{
-		width: 120px;
-		height: 35px;
-		border-left:solid 2px #fff;
-		border-right:solid 2px #fff;
-		border-top:solid 2px #fff;
-		font-size: 15px;
-		font-family: bold;
-		color: #fff;
-		border-radius: 5px;
-	}
-	.bttn input:hover {
-		background-color: #25DCD9;
-		border-left:solid 2px #25dcd9;
-		border-right:solid 2px #25dcd9;
-		border-top:solid 2px #25dcd9;
-		color: #fff;
-	}
+}
 
+}
 
-
-
+/*the below media query are use to stractly hide somge from the mobile screen */
+@media (max-width: 960px) {
+	#ssdiv{ display: none;}
 }
