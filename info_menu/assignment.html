@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
 
-    <title>welcome to login </title>
+    <title>Student Assignments </title>
 	<link href="sajid_tcss.css" rel="stylesheet" type="text/css">
 	<link rel="stylesheet" href="css/bootstrap.css">
 
@@ -72,13 +72,20 @@
                 <button class="btn btn-outline-light btn-lg"> All Classes </button>
                 <button class="btn btn-outline-light btn-lg"> Enroll in Class </button>
                 <button class="btn btn-outline-light btn-lg"> Helps </button>
-                <a href="#"><button class="btn btn-outline-light btn-lg"> Back </button></a>
+                <a href="main_table.html"><button class="btn btn-outline-light btn-lg"> Back </button></a>
           </ul>
 	</div>
 
 <div class="about_area">
     <div class="viewing_area">
-      <h5>NOW VIEWING :> <a href=""> All Classes  </a></h5>
+      <h5>
+        NOW VIEWING :>
+        <a href="main_table.html"> All Classes  </a> :>
+        <a href="student_record.html"> Student Records  </a> :>
+        <a href="#">  Assignments </a>
+
+
+      </h5>
     </div>
 
     <div class="about">
@@ -100,46 +107,60 @@
 
   <div class="container-fluid" id="divtable" >
     <div class="tstart" style="padding-top:5px;">
-      <h2 class="text-left">Institute Name: University Of Peshawar </h2>
+      <h2 class="text-left">Student : Assignments </h2>
     </div>
 
-                    		<table class="table table-striped table-bordered table-hover table-sm table-light" >
-                            			<thead class="bg-info">
-                                			<tr>
-                                    				<th scope="col" scope="row">Class ID</th>
-                                    				<th scope="col">Class Name</th>
-                                    				<th scope="col">Teacher</th>
-                                    				<th scope="col">Slide</th>
-                                    				<!-- <th scope="col">Start Date</th> -->
-                                    				<th scope="col">Date</th>
-                                    				<th scope="col">Drop</th>
-                                			</tr>
-                            			</thead>
-                              			<tbody>
-                                    			<tr>
-                                    				<td scope="row">23432</td>
-                                    				<td><a href="studenttable.html">Msc final</a></td>
-                                    				<td>Waheed Rehman</td>
-                                    				<td>AI</td>
-                                    				<!-- <td>15/10/2019</td> -->
-                                    				<td>20/10/2019</td>
-                                    				<td><button class="btn btn-outline-warning text-dark" > remove </button> </td>
-                                    			</tr>
-                                    			<tr>
-                                    				<td scope="row">12345</td>
-                                    				<td><a href="studenttable.html">Msc final</a></td>
-                                    				<td>Haseeb</td>
+    <table class="table table-striped  table-bordered table-hover table-sm">
+      <thead class="bg-info">
+      <tr>
+        <th scope="col" scope="row">Month</th>
+        <th scope="col">Obtained Classes</th>
+        <th scope="col">Total Classes</th>
+        <th scope="col">Percentage</th>
 
-                                    				<td>Algorithm</td>
-                                    				<td>10/12/2019</td>
-                                    				<td > <button class="btn btn-outline-warning text-dark"> remove </button>  </td>
-                                    			</tr>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <th scope="row">January</th>
+        <td>4</td>
+        <td>8</td>
+        <td>50%</td>
 
-                      		          </tbody>
-                    		</table>
-                    <div class="tend">
+      </tr>
+      <tr>
+        <th scope="row">Febuary</th>
+        <td>3</td>
+        <td>7</td>
+        <td>42.8%</td>
 
-                    </div>
+      </tr>
+      <tr>
+        <th scope="row">March</th>
+        <td>8</td>
+        <td>9</td>
+        <td>88.88%</td>
+
+      </tr>
+      <tr>
+        <th scope="row">April</th>
+        <td>5</td>
+        <td>5</td>
+        <td>100%</td>
+
+      </tr>
+      <tr>
+        <th scope="row">May</th>
+        <td>7</td>
+        <td>13</td>
+        <td>53.5%</td>
+
+      </tr>
+
+    </tbody>
+    </table>
+
+            <div class="tend"></div>  <!--it cover and highliting buttom area of the table -->
   </div>
 
   </body>

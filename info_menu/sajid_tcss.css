@@ -36,3 +36,158 @@ padding-bottom: 15px;
 .about p {
 	font-style:oblique;
 }
+
+
+/* Below css is for Enroll in Class html page */
+.enrolldiv{
+	background-image: -webkit-linear-gradient(270deg,rgba(100,201,186,1.00) 0%,rgba(198,231,226,1.00) 11.40%,rgba(180,231,223,1.00) 43.52%,rgba(209,235,231,1.00) 81.87%,rgba(112,204,192,1.00) 100%);
+background-image: -moz-linear-gradient(270deg,rgba(100,201,186,1.00) 0%,rgba(198,231,226,1.00) 11.40%,rgba(180,231,223,1.00) 43.52%,rgba(209,235,231,1.00) 81.87%,rgba(112,204,192,1.00) 100%);
+background-image: -o-linear-gradient(270deg,rgba(100,201,186,1.00) 0%,rgba(198,231,226,1.00) 11.40%,rgba(180,231,223,1.00) 43.52%,rgba(209,235,231,1.00) 81.87%,rgba(112,204,192,1.00) 100%);
+background-image: linear-gradient(180deg,rgba(100,201,186,1.00) 0%,rgba(198,231,226,1.00) 11.40%,rgba(180,231,223,1.00) 43.52%,rgba(209,235,231,1.00) 81.87%,rgba(112,204,192,1.00) 100%);
+
+	width: 40%;
+	margin-left: 3%;
+border-radius: 12px 12px 12px 12px ;
+}
+.enroll_in_Class{
+	background-image: -webkit-linear-gradient(270deg,rgba(6,154,121,1.00) 19.17%,rgba(218,255,250,0.99) 98.45%);
+background-image: -moz-linear-gradient(270deg,rgba(6,154,121,1.00) 19.17%,rgba(218,255,250,0.99) 98.45%);
+background-image: -o-linear-gradient(270deg,rgba(6,154,121,1.00) 19.17%,rgba(218,255,250,0.99) 98.45%);
+background-image: linear-gradient(180deg,rgba(6,154,121,1.00) 19.17%,rgba(218,255,250,0.99) 98.45%);
+	padding-top: 10px;
+	padding-bottom: 20px;
+	padding-left: 20px;
+	border-radius: 12px 12px 0px 0px ;
+}
+.enroll_form{
+
+}
+.inputdiv{
+	padding-left: 20px;
+	padding-top: 30px;
+}
+.inputdiv h5{
+	font-size: 20px;
+	word-spacing: 2px;
+	letter-spacing: 0.5px;
+}
+.inputdiv input{
+	width: 75%;
+	border: solid #13bca4 1px;
+	border-radius: 6px;
+}
+.inputdiv input:hover{border-color: blue}
+
+.submit_btn{
+padding-left: 20px;
+padding-bottom: 20px;
+padding-top: 20px;
+margin-top: 30px;
+background-image: -webkit-linear-gradient(270deg,rgba(230,247,243,1.00) 0%,rgba(121,195,187,1.00) 100%);
+background-image: -moz-linear-gradient(270deg,rgba(230,247,243,1.00) 0%,rgba(121,195,187,1.00) 100%);
+background-image: -o-linear-gradient(270deg,rgba(230,247,243,1.00) 0%,rgba(121,195,187,1.00) 100%);
+background-image: linear-gradient(180deg,rgba(230,247,243,1.00) 0%,rgba(121,195,187,1.00) 100%);
+
+border-radius: 0px 0px 12px 12px ;
+}
+.submit_btn button{
+	width: 40%;
+	height: 35px;
+	border-radius: 8px;
+	border-color: #13bca4;
+	font-size: 20px;
+	font-style: bold;
+	letter-spacing: 1px;
+	color: #000;
+}
+.submit_btn button:hover{
+	background-color: #13bca4;
+	color: #fff;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*desktop and large screeen */
+@media (max-width: 960px) {
+
+	/* Below css is for Enroll in Class html page */
+	.enrolldiv{
+		background-image: -webkit-linear-gradient(270deg,rgba(100,201,186,1.00) 0%,rgba(198,231,226,1.00) 11.40%,rgba(180,231,223,1.00) 43.52%,rgba(209,235,231,1.00) 81.87%,rgba(112,204,192,1.00) 100%);
+	background-image: -moz-linear-gradient(270deg,rgba(100,201,186,1.00) 0%,rgba(198,231,226,1.00) 11.40%,rgba(180,231,223,1.00) 43.52%,rgba(209,235,231,1.00) 81.87%,rgba(112,204,192,1.00) 100%);
+	background-image: -o-linear-gradient(270deg,rgba(100,201,186,1.00) 0%,rgba(198,231,226,1.00) 11.40%,rgba(180,231,223,1.00) 43.52%,rgba(209,235,231,1.00) 81.87%,rgba(112,204,192,1.00) 100%);
+	background-image: linear-gradient(180deg,rgba(100,201,186,1.00) 0%,rgba(198,231,226,1.00) 11.40%,rgba(180,231,223,1.00) 43.52%,rgba(209,235,231,1.00) 81.87%,rgba(112,204,192,1.00) 100%);
+
+		width: 80%;
+		margin-left: 3%;
+	border-radius: 12px 12px 12px 12px ;
+	}
+	.enroll_in_Class{
+		background-image: -webkit-linear-gradient(270deg,rgba(6,154,121,1.00) 19.17%,rgba(218,255,250,0.99) 98.45%);
+	background-image: -moz-linear-gradient(270deg,rgba(6,154,121,1.00) 19.17%,rgba(218,255,250,0.99) 98.45%);
+	background-image: -o-linear-gradient(270deg,rgba(6,154,121,1.00) 19.17%,rgba(218,255,250,0.99) 98.45%);
+	background-image: linear-gradient(180deg,rgba(6,154,121,1.00) 19.17%,rgba(218,255,250,0.99) 98.45%);
+		padding-top: 10px;
+		padding-bottom: 20px;
+		padding-left: 20px;
+		border-radius: 12px 12px 0px 0px ;
+	}
+	.enroll_form{
+
+	}
+	.inputdiv{
+		padding-left: 20px;
+		padding-top: 30px;
+	}
+	.inputdiv h5{
+		font-size: 20px;
+		word-spacing: 2px;
+		letter-spacing: 0.5px;
+	}
+	.inputdiv input{
+		width: 75%;
+		border: solid #13bca4 1px;
+		border-radius: 6px;
+	}
+	.inputdiv input:hover{border-color: blue}
+
+	.submit_btn{
+	padding-left: 20px;
+	padding-bottom: 20px;
+	padding-top: 20px;
+	margin-top: 30px;
+	background-image: -webkit-linear-gradient(270deg,rgba(230,247,243,1.00) 0%,rgba(121,195,187,1.00) 100%);
+	background-image: -moz-linear-gradient(270deg,rgba(230,247,243,1.00) 0%,rgba(121,195,187,1.00) 100%);
+	background-image: -o-linear-gradient(270deg,rgba(230,247,243,1.00) 0%,rgba(121,195,187,1.00) 100%);
+	background-image: linear-gradient(180deg,rgba(230,247,243,1.00) 0%,rgba(121,195,187,1.00) 100%);
+
+	border-radius: 0px 0px 12px 12px ;
+	}
+	.submit_btn button{
+		width: 40%;
+		height: 35px;
+		border-radius: 8px;
+		border-color: #13bca4;
+		font-size: 20px;
+		font-style: bold;
+		letter-spacing: 1px;
+		color: #000;
+	}
+	.submit_btn button:hover{
+		background-color: #13bca4;
+		color: #fff;
+
+	}
+
+
+}

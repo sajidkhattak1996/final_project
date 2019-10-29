@@ -274,3 +274,6 @@ header h1:before,
 @media (max-width: 960px) {
 	#ssdiv{ display: none;}
 }
+
+/* for very small screen mobile */
+@media (max-width: 450px){ #websitename{ display:none} }

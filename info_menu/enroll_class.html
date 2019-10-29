@@ -31,7 +31,7 @@
 <!-- div class for the logo on the left most top -->
 <div class="" style="width: 100%; height: 60px;background: #008c7e;">
     <img src="LOGO2.png" style="width: 140px; height: 50px;margin-top:5px;margin-left: 5px;">
-    <label id="websitename"> Welcome to the Class Room Management</label>
+    <label id="websitename"> Class Room Management</label>
 </div>
 <!-- logo class ended -->
 
@@ -78,15 +78,14 @@
 
 <div class="about_area">
     <div class="viewing_area">
-      <h5>NOW VIEWING :> <a href=""> All Classes  </a></h5>
+      <h5>NOW VIEWING :>  <a href=""> All Classes</a>   :>  <a href=""> Enroll in Class</a>   </h5>
     </div>
 
     <div class="about">
         <h2>About this page </h2>
         <p class="text">
-          This is your Student Homepage. The Homepage show the classes you are enrolled in. To enroll in a new class,
-          click the enroll in a class button. Click a class name to open your class homepage for the class.from the Class Homepage you can see
-          you'r Class records.
+          To Enroll in Class , enter the Class Id and Enrollment Key and Click Submit , If you donot have the Class ID and
+          Enrollment key , Contact your Teacher for this Information.
 
         </p>
 
@@ -94,53 +93,31 @@
 
 </div>
 
+<!-- below where student are enroll in class means form for enroll in class -->
+<div class="enrolldiv">
+      <div class="enroll_in_Class">
+          <h2>Enroll in a Class</h2>
+      </div>
+      <form class="" id="enroll_form">
+          <div class="inputdiv">
+
+            <h5 id="cid">Enter Class ID:</h5>
+            <input type="number" name="class_id" value="" title="enter class id">
+
+            <h5 id="ekey">Enrollment key:</h5>
+            <input type="text" name="erollment_key" value="" title="Enter the Enrollment key ">
+          </div>
+
+          <div class="submit_btn">
+              <button > Submit</button>
+          </div>
+
+      </form>
+</div>
+<!--enrolldiv are ended -->
 
 
 
-
-  <div class="container-fluid" id="divtable" >
-    <div class="tstart" style="padding-top:5px;">
-      <h2 class="text-left">Institute Name: University Of Peshawar </h2>
-    </div>
-
-                    		<table class="table table-striped table-bordered table-hover table-sm table-light" >
-                            			<thead class="bg-info">
-                                			<tr>
-                                    				<th scope="col" scope="row">Class ID</th>
-                                    				<th scope="col">Class Name</th>
-                                    				<th scope="col">Teacher</th>
-                                    				<th scope="col">Slide</th>
-                                    				<!-- <th scope="col">Start Date</th> -->
-                                    				<th scope="col">Date</th>
-                                    				<th scope="col">Drop</th>
-                                			</tr>
-                            			</thead>
-                              			<tbody>
-                                    			<tr>
-                                    				<td scope="row">23432</td>
-                                    				<td><a href="studenttable.html">Msc final</a></td>
-                                    				<td>Waheed Rehman</td>
-                                    				<td>AI</td>
-                                    				<!-- <td>15/10/2019</td> -->
-                                    				<td>20/10/2019</td>
-                                    				<td><button class="btn btn-outline-warning text-dark" > remove </button> </td>
-                                    			</tr>
-                                    			<tr>
-                                    				<td scope="row">12345</td>
-                                    				<td><a href="studenttable.html">Msc final</a></td>
-                                    				<td>Haseeb</td>
-
-                                    				<td>Algorithm</td>
-                                    				<td>10/12/2019</td>
-                                    				<td > <button class="btn btn-outline-warning text-dark"> remove </button>  </td>
-                                    			</tr>
-
-                      		          </tbody>
-                    		</table>
-                    <div class="tend">
-
-                    </div>
-  </div>
 
   </body>
 </html>
