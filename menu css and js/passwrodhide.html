@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>password hide</title>
+	<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+<style>
+	body{
+		margin: 0;
+		padding: 0;
+		background: #ddd;
+		
+	}
+	div{
+		position: absolute;
+		width: 500px;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%,-50%);
+		
+	}
+	input{
+		width: 100%;
+		border: none;
+		border-buttom: 1px solid #333;
+		padding: 7px 0;
+		font-size: 30px;
+		background-color: transparent;
+	}
+	i{
+		position: absolute;
+		right: 0px;
+		top: 0px;
+		font-size: 30px;
+		color: #999;
+		cursor: pointer;
+	}
+		
+	
+</style>
+	
+</head>
+	
+<body>
+	
+	<div> 
+		<input type="password" placeholder="enter password" >
+		<i class="fa fa-eye" aria-hidden="true"></i>
+
+		
+	</div>
+
+<script src="js/jquery.js"></script>
+	
+</body>
+</html>
+<script>
+$(function(){
+	$('i').hover(function(){
+		$('input').attr('type','text');
+	},function(){
+		$('input').attr('type','password');
+	})
+})
+
+
+	
+	
+</script>
+
+
+
+

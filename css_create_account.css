@@ -1,0 +1,576 @@
+@font-face {
+	font-family: "icon-font";
+	src: url('../fonts/icon-font.eot');
+	src: url('../fonts/icon-font.eot?#iefix') format('eot'), url('../fonts/icon-font.woff') format('woff'), url('../fonts/icon-font.ttf') format('truetype'), url('../fonts/icon-font.svg#icon-font') format('svg');
+}
+
+/* css for student account creation in a tranparent box
+			this is for the desktop size
+ */
+ .student_account{
+	height: 500px;
+	width: 100%;
+	margin: 0 auto;
+	border-radius: 20px;
+
+	margin-top: -500px;
+
+}
+
+ /*background for tranparent form display*/
+	 .form-a{
+		 position: absolute;
+		margin-top: 62ex;
+		 left: 50%;
+		 transform: translate(-50%,-56.9%);
+		 width: 100%;
+		 height: auto;
+		 box-sizing: border-box;
+		 background: rgba(0,166,138,0.7);
+		 padding: 10px;  /*it inside increase the padding */
+		border-radius: 20px;
+	 }
+
+#top_head center {
+font-size: 30px;
+font-family: monospace;
+word-spacing: 0.2em;
+letter-spacing: 0.05em;
+
+}
+
+#insidediv{
+margin: 0 auto;
+
+}
+#userinfo{
+font-size: 2em;
+text-align: center;
+
+}
+
+			 /* css for create profile button */
+			 #create_profile_btn{
+				 width: 80px;
+				 background-color: #fff;
+				 height: 35px;
+				 color: #008c7e;
+				 font-size: 11px;
+				 border: solid 1px #008c7e;
+				 border-radius: 8px;
+				 margin-left: 50px;
+
+			 }
+			 #create_profile_btn:hover{
+				 color: #fff;
+				 background-color: #008c7e;
+				 border-color: #FFF;
+			 }
+#exuser{
+	font-size: 12px;
+	margin-left: 30px;
+}
+#cp{
+
+}
+
+
+	/* css for transparent login  form only */
+	#log_in{
+
+		width: 100%;
+		height: 500px;
+		margin: 0 auto;
+		margin-top: -350px;
+		border-radius: 15px;
+	}
+	/*background for tranparent form display*/
+	  .login_form{
+	    position: absolute;
+			/* margin-top: 410px; */
+	    left: 50%;
+	    transform: translate(-50%, 0%);
+	    width: 100%;
+	    height: auto;
+	    box-sizing: border-box;
+	    background: rgba(0,166,138,0.82);
+	    padding: 10px;  /*it inside increase the padding */
+		border-radius: 10px;
+	  }
+
+	#login_heading{
+		font-family: monospace;
+		text-align: center;
+		color: #fff;
+		font-size: 23px;
+		border-color: #fff;
+		border-bottom:solid 1px #fff;
+	}
+	.login_inputdiv{
+		margin-left: 21.5%;
+		padding-top: 0px;
+		padding-bottom: 10px;
+
+	}
+	.login_inputdiv h4{
+		font-size: 20px;
+		color: #fff;
+	}
+	.login_inputdiv input {
+		width: 70%;
+		height: 35px;
+		border-radius: 5px;
+		padding-left: 5px;
+		border:solid 1px #000;
+
+	}
+	.login_inputdiv input:hover{
+		border-color: blue;
+		box-shadow: 0px 0px 5px 0.1px blue;
+	}
+	#login_btn{
+		margin-top: 20px;
+		width: 30%;
+		height: 40px;
+		font-size: 20px;
+		font-family: monospace;
+		border-color: #fff;
+		background-color: #fff;
+	}
+	#login_btn:hover{
+		background-color: #02594f;
+		color: #fff;
+		border: solid 1px #fff;
+	 }
+	.pp{
+		font-size: 1.0em;
+		word-spacing: 0.1em;
+		letter-spacing: 0.04em;
+		color: #fff;
+	}
+	.pp a{ color: blue;}
+	.pp a:hover{color: #fff;font-size: 1.2em;}
+
+	/*ended */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*below css are use for deskop and larger screen and above are use for the mobile screen */
+/*screen resulation for the desktop and loptop size */
+@media only screen and (min-width: 960px) {
+
+  /* css for student account creation in a tranparent box
+  			this is for the desktop size
+   */
+	 .student_account{
+ 		height: 500px;
+ 		width: 100%;
+		margin: 0 auto;
+		border-radius: 20px;
+
+		margin-top: -500px;
+
+ 	}
+
+   /*background for tranparent form display*/
+     .form-a{
+       position: absolute;
+   	 	margin-top: 62ex;
+       left: 50%;
+       transform: translate(-50%,-86.8%);
+       width: 100%;
+       height: auto;
+       box-sizing: border-box;
+       background: rgba(0,166,138,0.7);
+       padding: 10px;  /*it inside increase the padding */
+     	border-radius: 20px;
+     }
+
+#top_head center {
+	font-size: 40px;
+	font-family: monospace;
+	word-spacing: 0.2em;
+	letter-spacing: 0.05em;
+
+}
+
+#insidediv{
+	margin: 0 auto;
+
+}
+#userinfo{
+	font-size: 2.0em;
+	margin-left: 4px;
+
+}
+#exuser{
+	font-size: 1.3em;
+}
+  			 /* css for create profile button */
+  			 #create_profile_btn{
+  				 width: 250px;
+  				 background-color: #fff;
+  				 height: 40px;
+  				 color: #008c7e;
+  				 font-size: 20px;
+  				 border: solid 2px #008c7e;
+  				 border-radius: 8px;
+					 margin-left: 70px;
+  			 }
+  			 #create_profile_btn:hover{
+  				 color: #fff;
+  				 background-color: #008c7e;
+  				 border-color: #FFF;
+  			 }
+
+         /* css for transparent login  form only */
+         #log_in{
+
+         	width: 70%;
+         	height: 500px;
+         	margin: 0 auto;
+         	margin-top: -500px;
+         	border-radius: 15px;
+         }
+         /*background for tranparent form display*/
+           .login_form{
+             position: absolute;
+         		/* margin-top: 410px; */
+             left: 50%;
+             transform: translate(-50%, 0%);
+             width: 60%;
+             height: auto;
+             box-sizing: border-box;
+             background: rgba(0,166,138,0.82);
+             padding: 10px;  /*it inside increase the padding */
+         	border-radius: 10px;
+           }
+         	#login_close{float: right;
+         		margin-top: -5.5ex;
+         		border-radius: 8px;
+         		margin-right: -10px;
+
+         	}
+         #login_heading{
+         	font-family: monospace;
+         	text-align: center;
+         	color: #fff;
+         	font-size: 28px;
+         	border-color: #fff;
+         	border-bottom:solid 1px #fff;
+         }
+         .login_inputdiv{
+         	margin-left: 21.5%;
+         	padding-top: 0px;
+         	padding-bottom: 10px;
+
+         }
+         .login_inputdiv h4{
+         	font-size: 24px;
+         	color: #fff;
+         }
+         .login_inputdiv input {
+         	width: 70%;
+         	height: 35px;
+         	border-radius: 5px;
+         	padding-left: 5px;
+         	border:solid 1px #000;
+
+         }
+         .login_inputdiv input:hover{
+         	border-color: blue;
+         	box-shadow: 0px 0px 5px 0.1px blue;
+         }
+         #login_btn{
+         	margin-top: 20px;
+         	width: 30%;
+         	height: 43px;
+         	font-size: 23px;
+         	font-family: monospace;
+         	border-color: #fff;
+         	background-color: #fff;
+         }
+         #login_btn:hover{
+         	background-color: #02594f;
+         	color: #fff;
+         	border: solid 1px #fff;
+          }
+         .pp{
+         	font-size: 1.1em;
+         	word-spacing: 0.1em;
+         	letter-spacing: 0.04em;
+         	color: #fff;
+         }
+         .pp a{ color: blue;}
+         .pp a:hover{color: #fff;font-size: 1.2em;}
+
+         /*ended */
+
+
+}
+
+
+@media screen and (max-width: 400px) {
+
+
+	/* css for student account creation in a tranparent box
+				this is for the desktop size
+	 */
+	 .student_account{
+		height: auto;
+		width: 100%;
+		margin: 0 auto;
+		border-radius: 12px;
+
+		margin-top: -500px;
+
+	}
+
+	 /*background for tranparent form display*/
+		 .form-a{
+			position: absolute;
+			margin-top: 62ex;
+			 left: 50%;
+			 transform: translate(-50%,-50.8%);
+			 width: 100%;
+			 height: auto;
+			 box-sizing: border-box;
+			 background: rgba(0,166,138,0.8);
+			 padding: 10px;  /*it inside increase the padding */
+			border-radius: 10px;
+		 }
+
+	#top_head center {
+	font-size: 25px;
+	font-family: monospace;
+	word-spacing: 0.2em;
+	letter-spacing: 0.05em;
+
+	}
+
+	#insidediv{
+	margin: 0 auto;
+
+	}
+	#userinfo{
+	font-size: 1.5em;
+
+	}
+#input_labal{
+	font-size: 0.8em;
+}
+
+				 /* css for create profile button */
+				 #create_profile_btn{
+					 width: 80px;
+					 background-color: #fff;
+					 height: 35px;
+					 color: #008c7e;
+					 font-size: 11px;
+					 border: solid 1px #008c7e;
+					 border-radius: 8px;
+					 margin-left: 23px;
+
+				 }
+				 #create_profile_btn:hover{
+					 color: #fff;
+					 background-color: #008c7e;
+					 border-color: #FFF;
+				 }
+	#exuser{
+		font-size: 12px;
+		margin-left: 10px;
+	}
+/*ended */
+
+
+/* css for transparent login  form only */
+#log_in{
+
+	width: 100%;
+	height: 500px;
+	margin: 0 auto;
+	margin-top: -350px;
+	border-radius: 15px;
+}
+/*background for tranparent form display*/
+	.login_form{
+		position: absolute;
+		/* margin-top: 410px; */
+		left: 50%;
+		transform: translate(-50%, 0%);
+		width: 100%;
+		height: auto;
+		box-sizing: border-box;
+		background: rgba(0,166,138,0.82);
+		padding: 10px;  /*it inside increase the padding */
+	border-radius: 10px;
+	}
+
+#login_heading{
+	font-family: monospace;
+	text-align: center;
+	color: #fff;
+	font-size: 20px;
+	border-color: #fff;
+	border-bottom:solid 1px #fff;
+}
+.login_inputdiv{
+	margin-left: 21.5%;
+	padding-top: 0px;
+	padding-bottom: 10px;
+
+}
+.login_inputdiv h4{
+	font-size: 20px;
+	color: #fff;
+}
+.login_inputdiv input {
+	width: 70%;
+	height: 35px;
+	border-radius: 5px;
+	padding-left: 5px;
+	border:solid 1px #000;
+
+}
+.login_inputdiv input:hover{
+	border-color: blue;
+	box-shadow: 0px 0px 5px 0.1px blue;
+}
+#login_btn{
+	margin-top: 20px;
+	width: auto;
+	height: 40px;
+	font-size: 30px;
+	font-family: monospace;
+	border-color: #fff;
+	background-color: #fff;
+}
+#login_btn:hover{
+	background-color: #02594f;
+	color: #fff;
+	border: solid 1px #fff;
+ }
+.pp{
+	font-size: 1.0em;
+	word-spacing: 0.1em;
+	letter-spacing: 0.04em;
+	color: #fff;
+}
+.pp a{ color: blue;}
+.pp a:hover{color: #fff;font-size: 1.2em;}
+
+/*ended */
+
+
+}
+
+
+
+@media screen and (max-width: 365px) {
+
+
+	/* css for student account creation in a tranparent box
+				this is for the desktop size
+	 */
+	 .student_account{
+		height: auto;
+		width: 100%;
+		margin: 0 auto;
+		border-radius: 12px;
+
+		margin-top: -500px;
+
+	}
+
+	 /*background for tranparent form display*/
+		 .form-a{
+			position: absolute;
+			margin-top: 62ex;
+			 left: 50%;
+			 transform: translate(-50%,-56.5%);
+			 width: 100%;
+			 height: auto;
+			 box-sizing: border-box;
+			 background: rgba(0,166,138,0.9);
+			 padding: 10px;  /*it inside increase the padding */
+			border-radius: 10px;
+		 }
+
+	#top_head center {
+	font-size: 25px;
+	font-family: monospace;
+	word-spacing: 0.1em;
+	letter-spacing: 0.02em;
+
+	}
+
+	#insidediv{
+	margin: 0 auto;
+
+	}
+	#userinfo{
+	font-size: 1.4em;
+
+	}
+#input_labal{
+	color: #fff;
+	font-size: 0.6em;
+}
+
+				 /* css for create profile button */
+				 #create_profile_btn{
+					 width: 70px;
+					 background-color: #fff;
+					 height: 30px;
+					 color: #008c7e;
+					 font-size: 10px;
+					 border: solid 1px #008c7e;
+					 border-radius: 8px;
+					 margin-left: 23px;
+
+				 }
+				 #create_profile_btn:hover{
+					 color: #fff;
+					 background-color: #008c7e;
+					 border-color: #FFF;
+				 }
+	#exuser{
+		font-size: 11px;
+		margin-left: 5px;
+	}
+
+
+/*css for the lower size for only login button only  */
+#login_btn{
+	margin-top: 20px;
+	width: 40%;
+	height: 40px;
+	font-size: 20px;
+	font-family: monospace;
+	border-color: #fff;
+	background-color: #fff;
+}
+#login_btn:hover{
+	background-color: #02594f;
+	color: #fff;
+	border: solid 1px #fff;
+ }
+/*  ended */
+
+
+
+}
