@@ -41,7 +41,7 @@
               <div class="col-5" style="margin: 0 auto;">
                 <div class="form-group input-group-lg" style="padding-top: 10px;">
                   <label id="input_labal"><b>First Name :</b></label>
-                  <input type="text" id="fname" placeholder="First name" class="form-control text" autocomplete="off" required pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,20}$" title="First Name must be start with Alphabit " minlength="3" maxlength="20">
+                  <input type="text" id="fname" placeholder="First name" class="form-control text" autocomplete="off" required pattern="^[a-zA-Z][a-zA-Z0-9-_\s.]{1,20}$" title="First Name must be start with Alphabit " minlength="3" maxlength="20">
                   <span id="fnme" class="font-weight-bold" style="color:greenyellow" ></span>
                   </div>
 
@@ -86,7 +86,7 @@
 
 
                     <label id="exuser"><b>All ready have an Account:</b>
-                      <a href="#" class="text-light small">  Click Here </a>
+                      <a href="login.php" class="text-light small">  Click Here </a>
 
                     </label>
 

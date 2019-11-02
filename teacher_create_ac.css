@@ -1,0 +1,326 @@
+@font-face {
+	font-family: "icon-font";
+	src: url('../fonts/icon-font.eot');
+	src: url('../fonts/icon-font.eot?#iefix') format('eot'), url('../fonts/icon-font.woff') format('woff'), url('../fonts/icon-font.ttf') format('truetype'), url('../fonts/icon-font.svg#icon-font') format('svg');
+}
+
+/* css for teacher account creation in a tranparent box
+			this is for the desktop size
+ */
+ .teacher_account{
+	height: 500px;
+	width: 100%;
+	margin: 0 auto;
+	border-radius: 20px;
+
+	margin-top: -470px;
+
+}
+
+ /*background for tranparent form display*/
+	 .form-a{
+		 position: absolute;
+		margin-top: 62ex;
+		 left: 50%;
+		 transform: translate(-50%,-56.9%);
+		 width: 100%;
+		 height: auto;
+		 box-sizing: border-box;
+		 background: rgba(0,166,138,0.7);
+		 padding: 10px;  /*it inside increase the padding */
+		border-radius: 6px;
+	 }
+
+#top_head center {
+font-size: 25px;
+font-family: monospace;
+word-spacing: 0.2em;
+letter-spacing: 0.05em;
+
+}
+
+#insidediv{
+margin: 0 auto;
+
+}
+
+
+
+			 /* css for create profile button */
+			 #create_profile_btn{
+				 width: 90px;
+				 background-color: #fff;
+				 height: 35px;
+				 color: #008c7e;
+				 font-size: 11px;
+				 border: solid 1px #008c7e;
+				 border-radius: 8px;
+				 margin-left: 50px;
+
+			 }
+			 #create_profile_btn:hover{
+				 color: #fff;
+				 background-color: #008c7e;
+				 border-color: #FFF;
+			 }
+#exuser{
+	font-size: 12px;
+	margin-left: 30px;
+}
+#cp{
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*below css are use for deskop and larger screen and above are use for the mobile screen */
+/*screen resulation for the desktop and loptop size */
+@media only screen and (min-width: 960px) {
+
+  /* css for teacher account creation in a tranparent box
+  			this is for the desktop size
+   */
+	 .teacher_account{
+ 		height: 500px;
+ 		width: 100%;
+		margin: 0 auto;
+		border-radius: 20px;
+
+		margin-top: -458px;
+
+ 	}
+
+   /*background for tranparent form display*/
+     .form-a{
+       position: absolute;
+   	 	margin-top: 62ex;
+       left: 50%;
+       transform: translate(-50%,-86.8%);
+       width: 100%;
+       height: auto;
+       box-sizing: border-box;
+       background: rgba(0,166,138,0.7);
+       padding: 10px;  /*it inside increase the padding */
+     	border-radius: 20px;
+     }
+
+#top_head center {
+	font-size: 40px;
+	font-family: monospace;
+	word-spacing: 0.2em;
+	letter-spacing: 0.05em;
+
+}
+
+#insidediv{
+	margin: 0 auto;
+
+}
+/* existing user */
+#exuser{
+	font-size: 1.3em;
+}
+  			 /* css for create profile button */
+  			 #create_profile_btn{
+  				 width: 250px;
+  				 background-color: #fff;
+  				 height: 40px;
+  				 color: #008c7e;
+  				 font-size: 20px;
+  				 border: solid 2px #008c7e;
+  				 border-radius: 8px;
+					 margin-left: 70px;
+  			 }
+  			 #create_profile_btn:hover{
+  				 color: #fff;
+  				 background-color: #008c7e;
+  				 border-color: #FFF;
+  			 }
+
+
+
+}
+
+
+@media screen and (max-width: 400px) {
+
+
+	/* css for teacher account creation in a tranparent box
+				this is for the desktop size
+	 */
+	 .teacher_account{
+		height: auto;
+		width: 100%;
+		margin: 0 auto;
+		border-radius: 12px;
+
+		margin-top: -500px;
+
+	}
+
+	 /*background for tranparent form display*/
+		 .form-a{
+			position: absolute;
+			margin-top: 62ex;
+			 left: 50%;
+			 transform: translate(-50%,-50.8%);
+			 width: 100%;
+			 height: auto;
+			 box-sizing: border-box;
+			 background: rgba(0,166,138,0.8);
+			 padding: 10px;  /*it inside increase the padding */
+			border-radius: 10px;
+		 }
+
+	#top_head center {
+	font-size: 25px;
+	font-family: monospace;
+	word-spacing: 0.2em;
+	letter-spacing: 0.05em;
+
+	}
+
+	#insidediv{
+	margin: 0 auto;
+
+	}
+
+#input_labal{
+	font-size: 0.8em;
+}
+
+				 /* css for create profile button */
+				 #create_profile_btn{
+					 width: 80px;
+					 background-color: #fff;
+					 height: 35px;
+					 color: #008c7e;
+					 font-size: 11px;
+					 border: solid 1px #008c7e;
+					 border-radius: 8px;
+					 margin-left: 23px;
+
+				 }
+				 #create_profile_btn:hover{
+					 color: #fff;
+					 background-color: #008c7e;
+					 border-color: #FFF;
+				 }
+	#exuser{
+		font-size: 12px;
+		margin-left: 10px;
+	}
+/*ended */
+
+
+
+
+}
+
+
+
+@media screen and (max-width: 365px) {
+
+
+	/* css for teacher account creation in a tranparent box
+				this is for the desktop size
+	 */
+	 .teacher_account{
+		height: auto;
+		width: 100%;
+		margin: 0 auto;
+		border-radius: 12px;
+
+		margin-top: -470px;
+
+	}
+
+	 /*background for tranparent form display*/
+		 .form-a{
+			position: absolute;
+			margin-top: 62ex;
+			 left: 50%;
+			 transform: translate(-50%,-56.5%);
+			 width: 100%;
+			 height: auto;
+			 box-sizing: border-box;
+			 background: rgba(0,166,138,0.9);
+			 padding: 10px;  /*it inside increase the padding */
+			border-radius: 10px;
+		 }
+
+	#top_head center {
+	font-size: 20px;
+	font-family: monospace;
+	word-spacing: 0.1em;
+	letter-spacing: 0.02em;
+
+	}
+
+	#insidediv{
+	margin: 0 auto;
+
+	}
+
+#input_labal{
+	color: #fff;
+	font-size: 0.6em;
+}
+
+				 /* css for create profile button */
+				 #create_profile_btn{
+					 width: 70px;
+					 background-color: #fff;
+					 height: 30px;
+					 color: #008c7e;
+					 font-size: 10px;
+					 border: solid 1px #008c7e;
+					 border-radius: 8px;
+					 margin-left: 23px;
+
+				 }
+				 #create_profile_btn:hover{
+					 color: #fff;
+					 background-color: #008c7e;
+					 border-color: #FFF;
+				 }
+	#exuser{
+		font-size: 8px;
+		margin-left: 5px;
+	}
+
+
+/*css for the lower size for only login button only  */
+#login_btn{
+	margin-top: 20px;
+	width: 40%;
+	height: 40px;
+	font-size: 20px;
+	font-family: monospace;
+	border-color: #fff;
+	background-color: #fff;
+}
+#login_btn:hover{
+	background-color: #02594f;
+	color: #fff;
+	border: solid 1px #fff;
+ }
+/*  ended */
+
+
+
+}

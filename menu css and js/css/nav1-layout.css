@@ -294,6 +294,24 @@ body {
 	}
 	#log_in_button:hover {
 		background-color: #04EBC3;color: blueviolet}
+/*below forgot password msg in menu login area  */
+#FPdiv{
+	 background: #008c7e;
+}
+#FPmsg{
+
+	padding-left: 150px;
+	word-spacing: 3px;
+	letter-spacing: 1px;
+}
+#FPmsg a{
+	margin-left: 110px;
+	margin-top: -14px;
+}
+#FPmsg a:hover{
+	color: lightpink;
+}
+
 
 /*css ended of the login form inside the menu*/
 

@@ -50,8 +50,8 @@
         <li><a href="about.php"  >       About     </a></li>
         <li class="nav1-submenu"><a href="#">Create Account </a>
             <ul>
-                <li><a href="">Student      </a></li>
-                <li><a href="">Teacher      </a></li>
+                <li><a href="std_acc.php">Student      </a></li>
+                <li><a href="teacher_profile.php">Teacher      </a></li>
             </ul>
         </li>
 
@@ -61,35 +61,38 @@
 		<li id="log_h">
 			<div class="log_in_f">
 
-				<form >
-					Email: <input type="email" name="email" placeholder=" Enter email "  required> &nbsp;
-					Password: <input type="password" name="pass" placeholder="Enter Password" required>
+				<form name="logform" action="testing.php" method="post" >
+					Email: <input type="email" name="email" placeholder=" Enter email " required onblur="fn()" > &nbsp;
+					Password: <input type="password" name="pass" placeholder="Enter Password" required >
 <!--					<a href="#" style="margin-top: -60px;">Forgot password</a>-->
-					<input type="submit" name="lg" value="Log in" id="log_in_button">
-          <div class="msg">
-              <p> jsklfalj</p>
-          </div>
+					<input type="submit" name="lg" value="Log in" id="log_in_button" >
+            <div id="FPdiv" style="border-radius: 0px 0px 20px 20px;display:none;">
+                  <h5 id="FPmsg">Forgot Password:<a href="login.php" >Click here</a></h5>
+            </div>
 				</form>
 			</div>
 		</li>
-<!--	ended of mobile size cose -->
+    <script>
 
+    function fn(){
+      document.getElementById('FPdiv').style.display='block';
+      setTimeout(f2, 60000)
+    };
+    function f2(){ document.getElementById('FPdiv').style.display='none';};
+
+
+    </script>
+<!--	ended of mobile size cose -->
     </ul>
 	</nav1>
-
 <a href="#" class="nav1-close">Close Menu</a>
 <!-- nav1agation menu are ended here -->
 
 
 
  <!-- background image are present below in the div class by the css property -->
-<div class="bgdiv" id="bgdiv">
-	<br>
-		<div class="headbox">
-		</div>
-
-</div>
-
+<div class="bgdiv" id="bgdiv">	<br>		<div class="headbox"></div>   </div>
+<!--ended  -->
 
 
 
