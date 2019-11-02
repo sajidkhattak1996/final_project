@@ -391,7 +391,19 @@ header {
 	-o-background-size: cover;
 }
 
-
+/*background for tranparent form display*/
+	 .msg{
+		 position: absolute;
+		margin-top: 62ex;
+		 left: 50%;
+		 transform: translate(-50%,-50%);
+		 width: 100%;
+		 height: auto;
+		 box-sizing: border-box;
+		 background: red;
+		 padding: 10px;  /*it inside increase the padding */
+		border-radius: 20px;
+	 }
 
 
 

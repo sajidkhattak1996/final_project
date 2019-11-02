@@ -7,12 +7,13 @@
     <link   rel="stylesheet"   href="css_create_account.css" >
 	<link rel="stylesheet" href="forms/css/bootstrap.css">
 
-<?php include "index.html";  ?>
+
  </head>
   <body>
+<?php include "index.html";  ?>
   <div class="student_account">
     	<div class="form-a"  >
-          <form class="col-12" onsubmit="fn()">
+          <form class="col-12"  onsubmit="fn()" action="www.google.com">
               <div id="top_head" ><center><b>Create Account</b></center><br></div>
               <div class="row" id="insidediv">
 
@@ -74,14 +75,14 @@
 
                   <div class="form-group input-group-lg" style="padding-top: 10px;">
                     <label id="input_labal"><b>Confirm Password :</b></label>
-                    <input type="password"  placeholder="Confirm Password" class="form-control text" autocomplete="off" required minlength="8"  id="p2">
+                    <input type="password"  placeholder="Confirm Password" class="form-control text" autocomplete="off" required minlength="8"  id="p2" >
                     <span id="pmsg" class="font-weight-bold" style="color:greenyellow"></span>
                   </div>
 
               </div>
               <div class="form-group" id="cp" >
                 <br>
-                <input type="submit"  value="Create Profile" class="" id="create_profile_btn" >
+                <input type="submit"  value="Create Profile" class="" id="create_profile_btn"  onclick="return fn();">
 
 
                     <label id="exuser"><b>All ready have an Account:</b>
@@ -101,7 +102,6 @@
        </div>
 </div>
 
-
   </body>
 </html>
 
@@ -111,22 +111,23 @@
         var E2 = document.getElementById('e2').value;
 
         var P1 = document.getElementById('p1').value;
-        var p2 = document.getElementById('p2').value;
+        var P2 = document.getElementById('p2').value;
 
         var m1 = document.getElementById('emsg');
         var m2 = document.getElementById('pmsg');
 
-alert("klsdflkklsafdjkl");
-        // alert("e1=="+E1+"  == e2=="+E2+"  ___p1==="+P1+"    ----p2==="+P2);
-      //   if (E1 != E2) {
-      //     P1.innerHTML ="Email are not matched!... ";
-      //     return false;
-      //   }
-      //
-      //   if (P1 != P2) {
-      //   m2.innerHTML = "Password are not matched!...";
-      //   return false;
-      // }
+
+
+        if (E1!=E2) {
+          m1.innerHTML ="Email are not matched!... ";
+          return false;
+        }
+
+        if (P1!=P2) {
+        m2.innerHTML = "Password are not matched!...";
+        return false;
+      }
+
 
       }
 
