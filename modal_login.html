@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+
+
+</head>
+<body>
+
+<div class="container">
+  <h2>Modal Login Example</h2>
+  <!-- Trigger the modal with a button -->
+  <button type="button" class="btn btn-default btn-lg" id="myBtn">Login</button>
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header" style="padding:35px 50px;">
+          <button type="button" class="close " data-dismiss="modal" style="color: red;">&times;</button>
+
+        </div>
+        <div class="modal-body" style="padding:40px 50px;">
+          <!--transparent form for the login of the Account -->
+          <div id="log_in" class="Tb" >
+            <div class="login_form">
+              <form class="" >
+
+                <h1 id="login_heading"><b>Login to Class Room Management</b></h1>
+
+                <div class="login_inputdiv">
+                  <h4>Email Address:</h4>
+                  <input type="email" name="" value="" placeholder="Email:" required>
+                  <br><br>
+                  <h4>Password:</h4>
+                  <input type="text" name="" value="" placeholder="Password:" required>
+                  <br>
+                  <input type="button" name="" value="Log in" id="login_btn">
+                  <br><br>
+                  <div class="pp" >
+                      <p>Forgot your password?  <a href=""> Click here</a></p>
+                      <p><b>New User ?  </b>  <a href=""> Click here</a>  </p
+                      <p> <b> Pivacy Policy </b>
+                        <p style="font-size: 1.0em">
+                        We take your privacy very seriously.
+                        We do not share your detail for marketing
+                         purposes with the external companies.
+                       </p>
+                     </p>
+                  </div>
+                </div>
+
+
+              </form>
+
+
+            </div>
+          </div>
+          <!-- Transparent form for login are ended -->
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script>
+$(document).ready(function(){
+  $("#myBtn").click(function(){
+    $("#myModal").modal();
+  });
+});
+</script>
+
+</body>
+</html>

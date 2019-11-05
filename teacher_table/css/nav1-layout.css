@@ -1,0 +1,279 @@
+@font-face {
+	font-family: "icon-font";
+	src: url('../fonts/icon-font.eot');
+	src: url('../fonts/icon-font.eot?#iefix') format('eot'), url('../fonts/icon-font.woff') format('woff'), url('../fonts/icon-font.ttf') format('truetype'), url('../fonts/icon-font.svg#icon-font') format('svg');
+}
+
+.icon-desktop:before,
+.icon-menu-close:before,
+.icon-menu:before,
+.icon-mobile:before,
+.icon-submenu-down:before,
+.icon-submenu-right:before,
+.icon-world:before,
+header h1:before,
+.nav1-button:before,
+.nav1-close:before,
+.nav1 .nav1-submenu > a:after,
+.nav1 > ul > .nav1-submenu > a:after {
+	font-family: "icon-font";
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	text-decoration: none;
+	text-transform: none;
+	vertical-align: top;
+}
+
+.icon-desktop:before {
+	content: "\E001";
+}
+
+.icon-menu-close:before {
+	content: "\E002";
+}
+
+.icon-menu:before {
+	content: "\E003";
+}
+
+.icon-mobile:before {
+	content: "\E004";
+}
+
+.icon-submenu-down:before {
+	content: "\E005";
+}
+
+.icon-submenu-right:before {
+	content: "\E006";
+}
+
+.icon-world:before {
+	content: "\E007";
+}
+
+#websitename{
+	color: #fff;
+	font-size: 20px;
+	font-style: bold;
+	font-family: monotype corsiva;
+	margin-left: 3%;
+
+}
+
+
+
+.nav1-button,
+.nav1-close {
+	position: fixed;
+	top: 0;
+	width: 4.4rem;
+	height: 4.4rem;
+	overflow: hidden;
+	z-index: 902;
+	cursor: pointer;
+	text-decoration: none;
+	line-height: 4.4rem;
+	background: #13bca4;
+	color: #fff;
+	border-radius: 8px;
+}
+
+.nav1-button:before,
+.nav1-close:before {
+	display: block;
+	text-align: center;
+}
+
+.nav1-button {
+	display: block;
+	right: 1rem;
+	font-size: 2.3rem;
+}
+
+.nav1-button:before {
+	content: "\E003";
+}
+
+.nav1-close {
+	display: none;
+	right: 4rem;
+	font-size: 1.9rem;
+}
+
+.nav1-close:before {
+	content: "\E002";
+}
+
+.nav1 {
+	padding-top: 4.4rem;
+	line-height: 4.4rem;
+	background: #008c7e;
+	color: #fff;
+	margin-left: 50%;
+
+
+}
+
+.nav1 ul {
+	border-radius: 0 0 6px 6px;
+	background: #008c7e;
+	border-top:solid 1px #fff;
+
+}
+
+.nav1 ul ul {
+	background: #fff;
+
+}
+
+.nav1 ul ul ul {
+	background: #fff;
+}
+
+.nav1 ul ul ul ul {
+	background: #fff;
+}
+
+.nav1 ul ul ul ul ul {
+	background: #fff;
+}
+/* menu inside width are adjusted for mobile from here */
+.nav1 li {
+	border-top: 1px solid #b7eae3;
+	cursor: pointer;
+	background-color: #008c7e;
+	margin-left: auto;
+
+
+
+}
+
+.nav1 li:hover > a,
+.nav1 li.nav1-active > a {
+	color: #fff;
+	background: #13bca4;
+}
+
+.nav1 .nav1-submenu > ul {
+	margin-left: 10px;
+}
+
+.nav1 .nav1-submenu > a {
+	padding-right: 30px !important;
+}
+
+.nav1 a,
+.nav1 a:hover,
+.nav1 a:active,
+.nav1 a:visited {
+	border-radius: 6px;
+	padding: 0 15px 1px;
+	color: #fff;   /*color of the element inside the ul */
+	text-decoration: none;
+}
+
+.nav1 .nav1-submenu > a:after {
+	position: absolute;
+	display: block;
+	right: 10px;
+	top: 1px;
+	content: "\E005";
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media only screen and (min-width: 960px) {
+
+
+
+
+
+.nav1-button {
+	display: none;
+}
+
+.nav1 {
+	padding: 0 !important;
+	margin-left: 0px;
+	float: right;
+
+	background-color: #13bca4;
+}
+
+.nav1 > ul > li {
+	/*this is the css for the user info and logout area for desktop */
+	border-top: none;
+	margin-left: auto;
+	margin-right: 40px;
+
+
+}
+
+.nav1 li > ul {
+	box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+
+
+}
+
+.nav1 ul ul ul {
+	border-radius: 0 6px 6px 6px;
+
+}
+
+.nav1 ul ul ul li:first-child {
+	border-top: none;
+}
+
+.nav1 .nav1-left > ul {
+	border-radius: 6px 0 6px 6px;
+}
+
+.nav1 .nav1-submenu li {
+	min-width: 110px;
+}
+
+.nav1 .nav1-submenu > ul {
+	margin: 0;
+}
+
+.nav1 > ul > .nav1-submenu > a:after {
+	content: "\E005";
+}
+
+.nav1 .nav1-submenu > a:after {
+	content: "\E006";
+}
+#websitename{
+	color: #fff;
+	font-size: 28px;
+	font-style: bold;
+	font-family: monotype corsiva;
+	margin-left: 23%;
+
+}
+
+}
+
+/*the below media query are use to stractly hide somge from the mobile screen */
+@media (max-width: 960px) {
+	#ssdiv{ display: none;}
+}
+
+/* for very small screen mobile */
+@media (max-width: 450px){ #websitename{ display:none} }

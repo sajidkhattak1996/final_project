@@ -1,0 +1,98 @@
+.nav1-lock-scroll {
+	overflow: hidden;
+}
+
+.nav1 {
+	display: none;
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: 900;
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+
+.nav1 ul {
+	display: block;
+	position: relative;
+	zoom: 1;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+.nav1 a,
+.nav1 a:hover,
+.nav1 a:active,
+.nav1 a:visited {
+	display: block;
+	position: relative;
+}
+
+@media only screen and (min-width: 960px) {
+
+.nav1 {
+	display: block;
+	position: relative;
+	bottom: auto;
+	overflow: visible;
+}
+
+.nav1 li {
+	position: relative;
+	white-space: nowrap;
+}
+
+.nav1 > ul > li {
+	display: inline-block;
+}
+
+.nav1 ul {
+	display: block;
+}
+
+.nav1 ul ul {
+	display: none;
+	position: absolute;
+	top: 100%;
+	left: 0;
+	z-index: 901;
+}
+
+.nav1 ul ul ul {
+	top: 5px;
+	left: 95%;
+	z-index: 902;
+}
+
+.nav1 ul ul ul ul {
+	z-index: 903;
+}
+
+.nav1 ul ul ul ul ul {
+	z-index: 904;
+}
+
+.nav1 ul ul li.nav1-left > ul {
+	left: auto;
+	right: 95%;
+}
+
+.nav1-no-js .nav1 li:hover > ul {
+	display: block;
+}
+
+}
+
+@media only screen and (max-width: 959px) {
+
+.nav1-no-js .nav1-button:hover + .nav1,
+.nav1-no-js .nav1:hover,
+.nav1-no-js .nav1-button:hover + .nav1 + .nav1-close,
+.nav1-no-js .nav1:hover + .nav1-close {
+	display: block;
+}
+
+}

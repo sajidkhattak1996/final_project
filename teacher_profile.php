@@ -5,13 +5,19 @@
 
     <title>teacher create account</title>
     <?php include('index.html'); ?>
-    <link rel="stylesheet" href="teacher_create_ac.css" type="text/css">
+
+<link rel="stylesheet" href="teacher_create_ac.css" type="text/css">
+
+
+
+
+
   </head>
   <body>
 
     <div class="teacher_account">
         <div class="form-a"  >
-            <form class="col-12"  onsubmit="fn()" action="">
+            <form class="col-12"  onsubmit="fn()" action="" method="post">
                 <div id="top_head" ><center><b>Create Teacher Account</b></center><br></div>
                 <div class="row" id="insidediv">
 
@@ -76,7 +82,7 @@
 
                     <div class="form-group input-group-lg" style="padding-top: 10px;">
                       <label id="input_labal"><b>Confirm Email :</b></label>
-                      <input type="text" placeholder="Confirm Email" class="form-control text" autocomplete="off" required id="e2">
+                      <input type="text" placeholder="Confirm Email" name="cem" class="form-control text" autocomplete="off" required id="e2">
                       <span id="emsg" class="font-weight-bold" style="color:greenyellow"></span>
                     </div>
 
@@ -95,25 +101,51 @@
 
                 <div class="form-group" id="cp" >
                   <br>
-                  <input type="submit"  value="Create Profile" class="" id="create_profile_btn"  onclick="return fn();">
+                  <input type="submit"  value="Create Profile" class="" id="create_profile_btn" name="cp"  onclick="return fn();">
 
 
                       <label id="exuser"><b>All ready have an Account:</b>
                         <a href="login.php" class="text-light small">  Click Here </a>
 
                       </label>
-
-
                 </div>
-
-
-
-              </div>
-               <br>
-
+              </div><br>
             </form>
          </div>
   </div>
+
+<form action="" method="post">
+<input type="email" placeholder="email" name="em">
+<button type="submit" name="button1" class="" style="margin-top: 120px;">checking the database </button>
+</form>
+
+
+<?php
+if (isset($_POST['button1'])) {
+$con=mysqli_connect("localhost","root","","project_db");
+if ($con) {
+  $em=$_POST['em'];
+  echo "connection are successfully created ".$em;
+  $query1 = "SELECT Email FROM teacher WHERE Email = '$em'";
+  $con->mysqli_query($query1);
+
+
+}
+else {
+  die('connection to database is failed please try again...'.mysqli_error());
+}
+
+
+  echo "<script> alert('');</script>";
+}
+
+?>
+
+
+
+
+
+
 
   </body>
 </html>
