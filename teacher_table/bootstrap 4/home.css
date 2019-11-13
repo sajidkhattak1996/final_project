@@ -1,0 +1,71 @@
+#menu{
+	height: 70px;
+    background-color: #008c7e;
+    background-size: auto;
+    text-align: center;
+    padding-top: 25px;
+    font-size: 20px;
+    border-radius: 30px;
+    border: 5px solid orange;
+}
+#menu ul{
+	margin: 0 auto;
+}
+#menu li{
+	display: inline;
+	padding-right: 100px;
+}
+#menu a{
+	text-decoration: none;
+	color: white;
+}
+#menu a:hover{
+	color: blue;
+}
+#header{
+	height: 500px;
+	width: 400px;
+	margin: 0 auto;
+	background-color: #008c7e;
+	border-radius: 40px 0 40px 0;
+	border:5px solid orange;
+	font-size: 20px;
+	color: white;
+	margin-top: 10px;
+}
+#create{
+	height: 40px;
+	width: 250px;
+	background-color: #cc7a66;
+	text-align: center;
+	padding-top: 20px;
+	margin: 0 auto;
+	border-radius: 10px;
+	border: 3px solid orange;
+	margin-top: 100px;
+}
+#create a{
+	text-decoration: none;
+	color: white;
+}
+#create a:hover{
+	color: blue;
+}
+#login{
+	height: 40px;
+	width: 250px;
+	background-color: #cc7a66;
+	text-align: center;
+	padding-top: 20px;
+	margin: 0 auto;
+	border-radius: 10px;
+	border: 3px solid orange;
+	margin-top: 2px;
+}
+#login a{
+	text-decoration: none;
+	color: white;
+}
+#login a:hover{
+	color: blue;
+	}

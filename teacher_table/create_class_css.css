@@ -1,0 +1,323 @@
+/* for mobile screen  */
+@media (max-width:958px) {
+  /* css for the below div class for create new class form */
+  .create_class_outside_div{
+    font-weight: bolder;
+    background-image: linear-gradient(0deg,rgba(100,237,217,0.72) -100%,rgba(0,140,126,1.00) 85%,rgba(2,89,79,0.40) 100%);
+    border:none;
+    padding-top: 20px;
+    padding-bottom: 15px;
+    padding-left: 0px;
+    border-radius: 15px;
+    margin-right: 5px;
+    margin-left: 5px;
+    color: #fff;
+
+  }
+  .create_class_outside_div h3{ margin-left: 15px;}
+
+  .create_class_inside_div{
+      background-image: -webkit-linear-gradient(270deg,rgba(127,243,228,0.52) -100%,rgba(237,251,249,1.00) 100%);
+      background-image: -moz-linear-gradient(270deg,rgba(127,243,228,0.52) -100%,rgba(237,251,249,1.00) 100%);
+      background-image: -o-linear-gradient(270deg,rgba(127,243,228,0.52) -100%,rgba(237,251,249,1.00) 100%);
+      background-image: linear-gradient(180deg,rgba(127,243,228,0.52) -100%,rgba(237,251,249,1.00) 100%);
+
+      width: 98%;
+      margin: 0 auto;
+      height: auto;
+      border-radius: 8px;
+      padding-left: 5px;
+      color: #000;
+  }
+  #clf{
+    padding-top: 20px;
+    padding-bottom: 10px;
+  }
+  #clf input{
+    width: auto;
+    height: 33px;
+    border:solid 1px #008c7e;
+    border-radius: 6px;
+  }
+  #clf input:hover{
+    border:solid 1px pink;
+
+  }
+  #col1{
+    padding-left: 10%;
+  }
+  #col2{
+    padding-left: 10%;
+  }
+  #btn_c_class{
+    margin-left:14.2%;
+    padding-top: 20px;
+    padding-bottom: 15px;
+  }
+  #btn_c_class button{
+    width: auto;
+    height: auto;
+    background: #13bca4;
+    border:solid 2px #008c7e;
+    border-radius: 6px;
+
+  }
+  #btn_c_class button:hover{
+    background: #008c7e;
+    color: #fff;
+    border:solid 1px #008c7e;
+    font-size: 14px;
+  }
+  #row1{ padding-bottom: 1.5%;}
+
+  /*ended */
+
+}
+
+/* for small mobile */
+@media (max-width:500px) {
+  /* css for the below div class for create new class form */
+  .create_class_outside_div{
+    font-weight:normal;
+    background-image: linear-gradient(0deg,rgba(100,237,217,0.72) -100%,rgba(0,140,126,1.00) 85%,rgba(2,89,79,0.40) 100%);
+    border:none;
+    padding-top: 20px;
+    padding-bottom: 15px;
+    padding-left: 0px;
+    border-radius: 15px;
+    margin-right: 5px;
+    margin-left: 5px;
+    color: #fff;
+
+  }
+  .create_class_outside_div h3{ margin-left: 15px;}
+
+  .create_class_inside_div{
+      background-image: -webkit-linear-gradient(270deg,rgba(127,243,228,0.52) -100%,rgba(237,251,249,1.00) 100%);
+      background-image: -moz-linear-gradient(270deg,rgba(127,243,228,0.52) -100%,rgba(237,251,249,1.00) 100%);
+      background-image: -o-linear-gradient(270deg,rgba(127,243,228,0.52) -100%,rgba(237,251,249,1.00) 100%);
+      background-image: linear-gradient(180deg,rgba(127,243,228,0.52) -100%,rgba(237,251,249,1.00) 100%);
+
+      width: 95%;
+      margin: 0 auto;
+      height: auto;
+      border-radius: 10px;
+      padding-left: 5px;
+      color: #000;
+  }
+  #clf{
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  #clf input{
+    width: auto;
+    height: 30px;
+    border:solid 1px #008c7e;
+    border-radius: 6px;
+  }
+  #clf input:hover{
+    border:solid 1px pink;
+
+  }
+  #col1{
+    padding-left: 5%;
+  }
+  #col2{
+    padding-left: 5%;
+  }
+  #btn_c_class{
+    margin-left:14.2%;
+    padding-top: 20px;
+    padding-bottom: 15px;
+  }
+  #btn_c_class button{
+    width: auto;
+    height: auto;
+    background: #13bca4;
+    border:solid 1px #008c7e;
+    border-radius: 6px;
+
+  }
+  #btn_c_class button:hover{
+    background: #008c7e;
+    color: #fff;
+    border:solid 1px #008c7e;
+    font-size: 14px;
+  }
+  #row1{ padding-bottom: 1.5%;}
+
+  /*ended */
+
+}
+
+/* for very  small mobile  screen */
+@media (max-width:350px) {
+  /* css for the below div class for create new class form */
+  .create_class_outside_div{
+    font-weight:normal;
+    background-image: linear-gradient(0deg,rgba(100,237,217,0.72) -100%,rgba(0,140,126,1.00) 85%,rgba(2,89,79,0.40) 100%);
+    border:none;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 0px;
+    border-radius: 15px;
+    margin-right: 5px;
+    margin-left: 5px;
+    color: #fff;
+
+  }
+  .create_class_outside_div h3{ margin-left: 15px;}
+  .create_class_outside_div label{font-size: 12px}
+
+  .create_class_inside_div{
+      background-image: -webkit-linear-gradient(270deg,rgba(127,243,228,0.52) -100%,rgba(237,251,249,1.00) 100%);
+      background-image: -moz-linear-gradient(270deg,rgba(127,243,228,0.52) -100%,rgba(237,251,249,1.00) 100%);
+      background-image: -o-linear-gradient(270deg,rgba(127,243,228,0.52) -100%,rgba(237,251,249,1.00) 100%);
+      background-image: linear-gradient(180deg,rgba(127,243,228,0.52) -100%,rgba(237,251,249,1.00) 100%);
+
+      width: 95%;
+      margin: 0 auto;
+      height: auto;
+      border-radius: 10px;
+      padding-left: 2px;
+      color: #000;
+  }
+  #clf{
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+  #clf input{
+    width: 120px;
+    height: 27px;
+    border:solid 1px #008c7e;
+    border-radius: 6px;
+  }
+  #clf input:hover{
+    border:solid 1px pink;
+
+  }
+  #col1{
+    padding-left: 5%;
+  }
+  #col2{
+    padding-left: 0%;
+  }
+  #btn_c_class{
+    margin-left:1.5%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  #btn_c_class button{
+    width: auto;
+    height: auto;
+    background: #13bca4;
+    border:solid 1px #008c7e;
+    border-radius: 6px;
+
+  }
+  #btn_c_class button:hover{
+    background: #008c7e;
+    color: #fff;
+    border:solid 1px #008c7e;
+
+  }
+  #row1{ padding-bottom: 3.5%;}
+
+  /*ended */
+
+}
+
+/* for very very small mobile screen */
+@media (max-width:264px) {
+  #clf input{
+    width: 80px;
+    height: 25px;
+    border:solid 1px #008c7e;
+    border-radius: 6px;
+  }
+  .create_class_outside_div label{font-size: 8px;font-weight: bolder;}
+}
+
+
+
+/*desktop and large screeen */
+@media (min-width: 960px) {
+
+  /* css for the below div class for create new class form */
+  .create_class_outside_div{
+    font-weight: bolder;
+    letter-spacing: 0.5px;
+    word-spacing: 2px;
+    background-image: linear-gradient(0deg,rgba(100,237,217,0.72) -100%,rgba(0,140,126,1.00) 85%,rgba(2,89,79,0.40) 100%);
+    border:none;
+    padding-top: 20px;
+    padding-bottom: 15px;
+    padding-left: 0px;
+    border-radius: 15px;
+    margin-right: 5px;
+    margin-left: 5px;
+    color: #fff;
+
+  }
+  .create_class_outside_div h3{ margin-left: 15px;}
+
+  .create_class_inside_div{
+      background-image: -webkit-linear-gradient(270deg,rgba(127,243,228,0.52) -100%,rgba(237,251,249,1.00) 100%);
+      background-image: -moz-linear-gradient(270deg,rgba(127,243,228,0.52) -100%,rgba(237,251,249,1.00) 100%);
+      background-image: -o-linear-gradient(270deg,rgba(127,243,228,0.52) -100%,rgba(237,251,249,1.00) 100%);
+      background-image: linear-gradient(180deg,rgba(127,243,228,0.52) -100%,rgba(237,251,249,1.00) 100%);
+
+      width: 98%;
+      margin: 0 auto;
+      height: auto;
+      border-radius: 8px;
+      padding-left: 5px;
+      color: #000;
+  }
+  #clf{
+    padding-top: 20px;
+    padding-bottom: 10px;
+  }
+  #clf input{
+    width: 57%;
+    height: 33px;
+    border:solid 1px #008c7e;
+    border-radius: 6px;
+  }
+  #clf input:hover{
+    border:solid 1px pink;
+
+  }
+  #col1{
+    padding-left: 15%;
+  }
+  #col2{
+    padding-left: 15%;
+  }
+  #btn_c_class{
+    margin-left:14.2%;
+    padding-top: 20px;
+    padding-bottom: 15px;
+  }
+  #btn_c_class button{
+    width: 23%;
+    height: 40px;
+    background: #13bca4;
+    border:solid 2px #008c7e;
+    border-radius: 6px;
+    word-spacing: 5px;
+    letter-spacing: 1px;
+  }
+  #btn_c_class button:hover{
+    background: #008c7e;
+    color: #fff;
+    border:solid 1px #008c7e;
+    font-size: 16px;
+  }
+  #row1{ padding-bottom: 1.5%;}
+
+/*ended */
+
+
+
+}

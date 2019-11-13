@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-<!-- <meta http-equiv="refresh" content="20"> -->
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
 
-    <title>welcome to login </title>
+    <title>welcome to teacher main table  </title>
 	<link href="teacher_css.css" rel="stylesheet" type="text/css">
 
 <link rel="stylesheet" href="css/bootstrap.css">
+<link rel="stylesheet" href="bootstrap 4/css/glyphicon.css">
 
 <script src="js/jquery.js"></script>
 
@@ -88,18 +89,20 @@ color: #6f9de8;
 </div>
 <!-- logo class ended -->
 
-
+<form action="" method="post">
 <!--information menu are start   -->
 <a href="#" class="nav1-button">Menu</a>
 <nav1 class="nav1">
     <ul>
-        <li><a href="#">User full Name </a></li>
-        <li><a href="#">user information</a></li>
+        <li><a href="">User full Name </a></li>
+        <li><a href="">user information</a></li>
         <li><a href="#">Contact</a></li>
-        <li><a href="C:\xampp\htdocs\final_project\index.html">Log out</a></li>
+        <li ><a href="../index.html">Log out</a></li>
+
     </ul>
 </nav1>
 <a href="#" class="nav1-close">Close Menu</a>
+</form>
 <!--information menu are ended -->
 <!-- the ssdiv cover the empty which are on the left side of the information menu -->
 <div id="ssdiv" style="background: #008c7e; width: 100%; height: 46px;border-top:solid 1px #fff;" >
@@ -122,9 +125,9 @@ color: #6f9de8;
 <!-- below area and button such classes helps etc -->
 <div class="bttn" style="background: #008c7e;">
 		      <ul>
-                <button class="btn btn-outline-light btn-lg bg-light text-dark">        All Classes           </button>
-                 <a href=""><button class="btn btn-outline-light btn-lg">    Create New Class    </button>  </a>
-                  <a href="" >         <button class="btn btn-outline-light btn-lg">        Helps         </button>  </a>
+              <a href="tmain_table.php">    <button class="btn btn-outline-light btn-lg bg-light text-dark">         All Classes           </button> </a>
+                 <a href="create_class.php"><button class="btn btn-outline-light btn-lg">    Create New Class     </button>  </a>
+                    <a href="" >         <button class="btn btn-outline-light btn-lg">        Helps               </button>  </a>
 
           </ul>
 	</div>
@@ -138,8 +141,9 @@ color: #6f9de8;
     <div class="about">
         <h2>About this page </h2>
         <p class="text">
-          This is your Student Homepage. The Homepage show the classes you are enrolled in. To enroll in a new class,
-          click the enroll in a class button. Click a class name to open your class homepage for the class.from the Class Homepage you can see
+          This is your Teacher Homepage. The Homepage show the classes you are Created and along with the Start and Expire date. You can also Add,Drop ,Edit Add Slides to the Class
+          Details. Your Expired Classes are move to the Expired Classes Area.You see Class inside details by clicking on the Class Name.
+
           you'r Class records.
 
         </p>
@@ -211,15 +215,19 @@ if (isset($_POST['btnexpire'])) {
                                       <tr>
                                             <th scope="col" scope="row">Class ID</th>
                                             <th scope="col">Class Name</th>
-                                            <th scope="col">Teacher</th>
-                                            <th scope="col">Slide</th>
-                                            <!-- <th scope="col">Start Date</th> -->
                                             <th scope="col">Date</th>
-                                            <th scope="col">Drop</th>
+                                            <th scope="col">Slide</th>
+                                            <th scope="col">Edit</th>
                                       </tr>
                                   </thead>
                                     <tbody>
-
+                                            <tr>
+                                              <td scope="row">23432</td>
+                                              <td><a href="">Msc final</a></td>
+                                              <td>10-10-2019</td>
+                                              <td><button class="btn btn-outline-info btn-lg">Click</button</td>
+                                              <td><button class="btn btn-outline-primary" style="border:none"> <span class="glyphicon glyphicon-pencil" style="font-size: 14px"></span></button> </td>
+                                            </tr>
 
                                     </tbody>
                         </table>
@@ -248,32 +256,45 @@ if (isset($_POST['btnexpire'])) {
                                 			<tr>
                                     				<th scope="col" scope="row">Class ID</th>
                                     				<th scope="col">Class Name</th>
-                                    				<th scope="col">Teacher</th>
-                                    				<th scope="col">Slide</th>
-                                    				<!-- <th scope="col">Start Date</th> -->
-                                    				<th scope="col">Date</th>
-                                    				<th scope="col">Drop</th>
+                                    			  <th scope="col">Start Date</th>
+                                    				<th scope="col">Expire Date</th>
+                                            <th scope="col">Slides</th>
+                                            <th scope="col">Edit</th>
+                                            <th scope="col">Drop</th>
                                 			</tr>
                             			</thead>
                               			<tbody>
                                     			<tr>
                                     				<td scope="row">23432</td>
-                                    				<td><a href="student_record.html">Msc final</a></td>
-                                    				<td>Waheed Rehman</td>
-                                    				<td>AI</td>
-                                    				<!-- <td>15/10/2019</td> -->
-                                    				<td>20/10/2019</td>
-                                    				<td><button class="btn btn-outline-warning text-dark" > remove </button> </td>
-                                    			</tr>
-                                    			<tr>
-                                    				<td scope="row">12345</td>
-                                    				<td><a href="student_record.html">Msc final</a></td>
-                                    				<td>Haseeb</td>
+                                    				<td><a href="">Msc final</a></td>
+                                    				<td>1-1-2019</td>
+                                    				<td>10-10-2019</td>
+                                    				<td><button class="btn btn-outline-info btn-lg">Click</button</td>
+                                            <td><button class="btn btn-outline-primary" style="border:none"> <span class="glyphicon glyphicon-pencil" style="font-size: 14px"></span></button> </td>
+                                            <td><button class="btn btn-outline-danger" style="border:none"> <span class="glyphicon glyphicon-trash" style="font-size: 14px;border"></span></button> </td>
 
-                                    				<td>Algorithm</td>
-                                    				<td>10/12/2019</td>
-                                    				<td > <button class="btn btn-outline-warning text-dark"> remove </button>  </td>
-                                    			</tr>
+                                          </tr>
+                                          <tr>
+                                    				<td scope="row">23432</td>
+                                    				<td><a href="">Msc final</a></td>
+                                    				<td>1-1-2019</td>
+                                    				<td>10-10-2019</td>
+                                    				<td><button class="btn btn-outline-info btn-lg">Click</button</td>
+                                            <td><button class="btn btn-outline-primary" style="border:none"> <span class="glyphicon glyphicon-pencil" style="font-size: 14px"></span></button> </td>
+                                            <td><button class="btn btn-outline-danger" style="border:none"> <span class="glyphicon glyphicon-trash" style="font-size: 14px"></span></button> </td>
+
+                                          </tr>
+                                          <tr>
+                                    				<td scope="row">23432</td>
+                                    				<td><a href="">Msc final</a></td>
+                                    				<td>1-1-2019</td>
+                                    				<td>10-10-2019</td>
+                                    				<td><button class="btn btn-outline-info btn-lg">Click</button</td>
+                                            <td><button class="btn btn-outline-primary" style="border:none"> <span class="glyphicon glyphicon-pencil" style="font-size: 14px"></span></button> </td>
+                                            <td><button class="btn btn-outline-danger" style="border:none"> <span class="glyphicon glyphicon-trash" style="font-size: 14px"></span></button> </td>
+
+                                          </tr>
+
 
                       		          </tbody>
                     		</table>
@@ -288,8 +309,5 @@ if (isset($_POST['btnexpire'])) {
 
 
 
-<div class="ff">
-
-</div>
   </body>
 </html>

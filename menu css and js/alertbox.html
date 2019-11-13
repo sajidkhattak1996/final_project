@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+
+
+
+    <style>
+      .form-a{display: none;}
+     .alert {
+       margin-top: 30px;
+      width: 50%;
+      margin: 0 auto;
+      padding: 20px;
+      color: white;
+      border-radius: 15px;
+      background-image: -webkit-linear-gradient(270deg,rgba(232,25,50,1.00) 0%,rgba(223,66,83,0.69) 13.47%,rgba(214,70,70,0.42) 100%);
+      background-image: -moz-linear-gradient(270deg,rgba(232,25,50,1.00) 0%,rgba(223,66,83,0.69) 13.47%,rgba(214,70,70,0.42) 100%);
+      background-image: -o-linear-gradient(270deg,rgba(232,25,50,1.00) 0%,rgba(223,66,83,0.69) 13.47%,rgba(214,70,70,0.42) 100%);
+      background-image: linear-gradient(180deg,rgba(232,25,50,1.00) 0%,rgba(223,66,83,0.88) 13.47%,rgba(214,70,70,0.6) 100%);
+       }
+     .alert_body {
+      border-radius: 15px;
+      border: thin solid #D7094F;
+     }
+
+       .closebtn {
+         margin-left: 15px;
+         color: white;
+         background: none;
+         border: none;
+         float: right;
+         font-size: 25px;
+         line-height: 30px;
+         cursor: pointer;
+         transition: 0.4s;
+
+       }
+
+       .closebtn:hover {
+         color: black;
+       }
+
+         .alert_footer{
+           padding-top: 5px;
+
+         }
+
+         #lgb1{
+           background: #13bca4;
+           border:solid 1px #13bca4;
+           border-radius: 8px;
+           height: 35px;
+         }
+         #lgb1:hover{
+           background: #008c7e;
+           border:solid 1px #008c7e;
+           color: #fff;
+         }
+         #clb2{
+           border:solid 1px #DD3033;
+           background:#DD3033;
+           border-radius: 8px;
+           height: 35px;
+           color: #fff;
+         }
+          #clb2:hover{
+            border:solid 1px #FF0004;
+           background:#FF0004;
+           color: #000;
+            font-family: bold;
+         }
+         #alb{
+           font-size: 25px
+         }
+         #st{
+           font-size: 28px
+         }
+         #lb2{
+           font-size: 20px;
+           margin-left: 2%;
+         }
+         @media (max-width: 960px)  {
+           .alert {
+
+             width: 80%;
+             margin-top:140px;
+             padding: 20px;
+             color: white;
+             border-radius: 15px;
+             background-image: -webkit-linear-gradient(270deg,rgba(232,25,50,1.00) 0%,rgba(223,66,83,0.69) 13.47%,rgba(214,70,70,0.42) 100%);
+             background-image: -moz-linear-gradient(270deg,rgba(232,25,50,1.00) 0%,rgba(223,66,83,0.69) 13.47%,rgba(214,70,70,0.42) 100%);
+             background-image: -o-linear-gradient(270deg,rgba(232,25,50,1.00) 0%,rgba(223,66,83,0.69) 13.47%,rgba(214,70,70,0.42) 100%);
+             background-image: linear-gradient(180deg,rgba(232,25,50,1.00) 0%,rgba(223,66,83,0.88) 13.47%,rgba(214,70,70,0.6) 100%);
+             }
+
+           #alb{
+             font-size: 18px
+           }
+           #st{
+             font-size: 20px
+           }
+           #lb2{
+             font-size: 14px;
+             margin-left: 2%;
+           }
+         }
+
+
+          </style>
+
+     <div class="alert">
+    <form action="" method="post"><button type="submit" name="closebtn1" onclick="this.parentElement.style.display='none';" class="closebtn"><span class="glyphicon glyphicon-remove"> </span></button></form>
+     <label id="alb">ACCOUNT CREATE WARNING !</label>
+     <br>
+       <div class="alert_body" style="padding-top: 15px;padding-left: 20px">
+
+      <strong id="st">Warning!</strong>
+        <label id="lb2">   Your Email is All ready exist on our Database...  </label>
+        <h4 style="margin-left: 1%;padding-top: 10px;padding-bottom:10px">Your Account Cannot be Created on this Email please Log in / or try <br>Another Email Account to create account .</h4>
+          <h3 style="margin-left: 1%"> If you want to Log in Please Click the below Button .</h3>
+
+
+      </div>
+
+       <div class="alert_footer" >
+        <a href="login.php" style="float: right;"> <button class="btn " id="lgb1"><span class="glyphicon glyphicon-user"></span> Log in </button>  </a>
+        <form>
+            <button type="submit" name="closebtn" class="btn " id="clb2">Close <span class="glyphicon glyphicon-remove"></span></button>
+        </form>
+       </div>
+
+     </div>
+
+
+
+  </body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="css/bootstrap.min.css" >
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="home.css">
+	<style>
+	.blinking{
+    animation:blinkingText 2s infinite;
+}
+@keyframes blinkingText{
+    10%{     color: red;    }
+    50%{    color:blue; }
+    80%{    color: yellow; }
+    100%{   color: green;    }
+    40%{   color: indigo;    }
+    90%{   color: white;    }
+    60%{   color: orange;    }
+}
+	</style>
+</head>
+<body background="room123.jpg">
+	<div id="menu">
+		<ul>
+		   <a href=""><li>Home</li></a>	
+		   <a href=""><li>About</li></a>
+           <a href=""><li>Help</li></a>
+           <a href=""><li>Contact</li></a>
+           <a href=""><li>Information</li></a>
+		</ul>
+		
+	</div>
+    <div id="header">
+	<span class="blinking"><center><h1>Create Account Or Login Here!</h1><hr></center></span>
+	<div id="create">
+	<a href="createform.html">Create Acount</a>
+	</div>
+	<div id="login">
+	<a href="loginform.html">Login</a>
+	</div>
+</div>
+  <script src="js/jquery-3.3.1.slim.min.js" ></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+</body>
+</html>

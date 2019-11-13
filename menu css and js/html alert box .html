@@ -1,0 +1,113 @@
+<!doctype html>
+<html>
+<head>
+<link rel="stylesheet" href="bootstrap 4/css/glyphicon.css">
+
+<meta charset="utf-8">
+<title>html alert box</title>
+	
+	 <style>
+  .alert {
+	width: 50%;
+	margin: 0 auto;
+	padding: 20px;
+	color: white;
+	border-radius: 15px;
+	background-image: -webkit-linear-gradient(270deg,rgba(232,25,50,1.00) 0%,rgba(223,66,83,0.69) 13.47%,rgba(214,70,70,0.42) 100%);
+	background-image: -moz-linear-gradient(270deg,rgba(232,25,50,1.00) 0%,rgba(223,66,83,0.69) 13.47%,rgba(214,70,70,0.42) 100%);
+	background-image: -o-linear-gradient(270deg,rgba(232,25,50,1.00) 0%,rgba(223,66,83,0.69) 13.47%,rgba(214,70,70,0.42) 100%);
+	background-image: linear-gradient(180deg,rgba(232,25,50,1.00) 0%,rgba(223,66,83,0.69) 13.47%,rgba(214,70,70,0.42) 100%);
+  }
+.alert_body {
+	border-radius: 15px;
+	border: thin solid #D7094F;
+}
+
+  .closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 40px;
+    line-height: 30px;
+    cursor: pointer;
+    transition: 0.4s;
+
+  }
+
+  .closebtn:hover {
+    color: black;
+  }
+	
+		 .alert_footer{
+			 padding-top: 5px;
+			 
+		 }
+		 
+		 #lgb1{
+			 background: #13bca4;
+			 border:solid 1px #13bca4;
+			 border-radius: 8px;
+			 height: 35px;
+		 }
+		 #lgb1:hover{
+			 background: #008c7e;
+			 border:solid 1px #008c7e;
+			 color: #fff;
+		 }
+		 #clb2{
+			 border:solid 1px #DD3033;
+			 background:#DD3033;
+			 border-radius: 8px;
+			 height: 35px;
+			 color: #fff;
+		 }
+		  #clb2:hover{
+			  border:solid 1px #FF0004;
+			 background:#FF0004;
+			 color: #000;
+			  font-family: bold;
+		 }
+		 
+     </style>
+	
+	
+	
+</head>
+	
+	
+
+<body>
+	
+	
+
+<div class="alert">
+  <div class="alert_head_area">
+	<span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+ 
+  </div><br><br>
+  <div class="alert_body" style="padding-top: 15px;padding-left: 20px">
+	
+	<strong style="font-size: 28px">Warning!</strong>
+	  <label style="font-size: 22px;margin-left: 2%">   Your Email is All ready exist on our Database...  </label>
+		<h3 style="margin-left: 1%">Your Account Cannot be Created on this Email please Log in / or try <br>Another Email Account to create account .</h3> 
+	  	<h3 style="margin-left: 1%"> If you want to Log in Please Click the below Button .</h3>
+	  
+  
+	</div>
+	
+  <div class="alert_footer" >
+	  <a href="" style="float: right;"> <button class="btn " id="lgb1"><span class="glyphicon glyphicon-user"></span> Log in </button>  </a>
+	  <form>
+	  		<button type="submit" name="closebtn" class="btn " id="clb2">Close <span class="glyphicon glyphicon-remove"></span></button>
+	  </form>
+  </div>
+	
+</div>
+	
+	
+	
+</body>
+
+
+</html>
