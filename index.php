@@ -301,11 +301,13 @@ if (isset($_POST['lg'])) {
                       <style> #new_user{ display: block; } </style>
 
                     <?php  }
-                    if ($t1 >0 AND $t2 <1 ) {
-                      echo "<h1>email and password are only matched with the teacher table </h1>";
+                    if ($t1==1 AND $t2==0 ) {
+                      // echo "<h1>email and password are only matched with the teacher table </h1>";
+                      echo "<script> window.location.href='teacher_table/tmain_table.php';  </script>";
                     }
-                    if ($t2 >0 AND $t1 <1) {
-                      echo "<h1>email and password are only matched with the student table  </h1>";
+                    if ($t2==1 AND $t1==0) {
+                      // echo "<h1>email and password are only matched with the student table  </h1>";
+                      echo "<script> window.location.href='info_forms/main_table.php';  </script>";
                     }
                     if($t1 <1 && $t2<1) {
                       /*  Something problem in email or password !.... */
