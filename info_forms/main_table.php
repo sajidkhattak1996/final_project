@@ -1,7 +1,4 @@
-<?php
-session_start();
-if (isset($_SESSION['emails']) &&  isset($_SESSION['passs']) ){
-    ?>
+
     <!DOCTYPE html>
     <html lang="en" dir="ltr">
       <head>
@@ -149,10 +146,3 @@ if (isset($_SESSION['emails']) &&  isset($_SESSION['passs']) ){
 
       </body>
     </html>
-    <?php
-}
-else {
-  echo "<script> alert('Please Login First! ') </script>";
-}
-
-?>

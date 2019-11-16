@@ -1,4 +1,5 @@
 <?php
+session_start();
 $server ="localhost";
 $user   ="root";
 $pass   ="";
@@ -61,7 +62,7 @@ $con = mysqli_connect($server,$user,$pass,$db);
 
 <nav1 class="nav1">
     <ul id="menu_ul">
-        <li>  <a href="index.html">   Home          </a></li>
+        <li>  <a href="index.php">   Home          </a></li>
 		    <li id="lb_for_mobile"><a href="login.php">Log in    </a></li>  <!-- this button are also hide in the desktop view -->
         <li><a href="about.php"  >       About     </a></li>
         <li class="nav1-submenu"><a href="#">Create Account </a>
@@ -110,7 +111,155 @@ $con = mysqli_connect($server,$user,$pass,$db);
 <div class="bgdiv" id="bgdiv">	<br>		<div class="headbox"></div>   </div>
 <!--ended  -->
 
+<style>
+       /* css for new user div class */
+        #new_user{
+          display: none;
+            background: rgba(0,166,138,0.7);
+            width: 40%;
+             margin:0 auto;
+             margin-top: -450px;
+            height: auto;
+             border-radius: 12px;
+        }
+         #new_user_form{
+             padding-left: 20px;
+         }
+         #cl1{ background: none;border: none;float: right; font-size: 25px;}
+         #cl1:hover{color: red;transition: 0.7s}
+         #new_user_body {border: solid 1px yellow;border-radius: 12px;padding-left: 20px;width:90%;margin: 20px  25px;}
+         #new_user_body ul li{ color: #fff;padding-top: 5px;padding-bottom: 5px;}
+         #new_user_body ul li:hover{ color: blue;font-size: 25px}
+         #cl2{background: none; border:solid 1px red;border-radius: 25px;color:yellow}
+         #cl2:hover{background: red;color: #fff;transition: 0.8s}
+       @media (max-width:960px){
+         #new_user{
+           background: rgba(0,166,138,0.7);
+           width: 40%;
+           margin:0 auto;
+           margin-top: -300px;
+           height: auto;
+           border-radius: 12px;
+         }
+         #new_user_body {border: solid 1px yellow;border-radius: 12px;padding-left: 20px;width:80%;margin: 20px  25px;}
 
+         #new_user_form h2,#new_user_body h2{font-size: 18px}
+
+       }
+       @media (max-width:600px){
+         #new_user{
+           background: rgba(0,166,138,0.7);
+           width: 60%;
+           margin:0 auto;
+           margin-top: -300px;
+           height: auto;
+           border-radius: 12px;
+         }
+         #new_user_form h2,#new_user_body h2{font-size: 14px}
+
+       }
+
+       @media (max-width:300px){
+         #new_user{
+           background: rgba(0,166,138,0.7);
+           width: 90%;
+           margin:0 auto;
+           margin-top: -300px;
+           height: auto;
+           border-radius: 12px;
+         }
+         #new_user_form h2,#new_user_body h2{font-size: 14px}
+
+       }
+       /* ended */
+ </style>
+<!-- If click on  New use button then this below form are open -->
+<div id="new_user" >
+  <div class="new_user_divin">
+     <form class="" action="" method="post" id="new_user_form">
+         <button type="submit" name="close_btn1" id="cl1" >
+         <span class="glyphicon glyphicon-remove"></span></button>
+         <h2>Select Your Account Login Type</h2>
+     </form>
+     <form action="" method="post">
+         <div id="new_user_body">
+             <p> <h2>Select One of Your Log in Account Type</h2>
+               <h4>
+                     <ul>
+                      <button type="submit" name="btn_t" style="background:none;border:none;"><li>Teacher</li></button><br>
+                      <button type="submit" name="btn_s" style="background:none;border:none;"> <li>Student</li> </button>
+                     </ul>
+               </h4>
+             </p>
+         </div>
+   </form>
+              <?php
+                  if (isset($_POST['btn_t'])) {
+                    if (isset($_SESSION['email']) && isset($_SESSION['pass']) ) {
+                          if ($con) {
+                            $em=$_SESSION['email'];
+                            $password =$_SESSION['pass'];
+                            $q1 ="select Email, Password from teacher WHERE Email ='$em' AND Password='$password'";
+                            $r1 =mysqli_query( $con  ,$q1 );
+                            $status =mysqli_num_rows($r1);
+                            if ($status==1) {
+                              echo "<script> window.location.href='teacher_table/tmain_table.php';  </script>";
+                            }
+                            else {
+                              echo "<script> alert('Problem Occur while Login to account! try again '); </script>";
+
+                            }
+
+                          }
+                          else {
+                            echo "<script> alert('try again while problem in connection '); </script>".mysqli_error($con);
+                          }
+
+                      }
+                    else {
+                      echo "<script> alert('Please Enter Again Email and Password '); </script>";
+                        }
+
+                  }
+                  if (isset($_POST['btn_s'])) {
+                    if (isset($_SESSION['email']) && isset($_SESSION['pass']) ) {
+                          if ($con) {
+                            $em=$_SESSION['email'];
+                            $password =$_SESSION['pass'];
+                            $q2 ="select Email , Password from Student WHERE Email='$em' AND Password='$password'";
+                            $r2 =mysqli_query( $con  ,$q2 );
+                            $status =mysqli_num_rows($r2);
+                            if ($status==1) {
+                              echo "<script> window.location.href='info_forms/main_table.php';  </script>";
+                            }
+                            else {
+                              echo "<script> alert('Problem Occur while Login to account! try again '); </script>";
+
+                            }
+
+                          }
+                          else {
+                            echo "<script> alert('try again while problem in connection '); </script>".mysqli_error($con);
+                          }
+
+                      }
+                    else {
+                      echo "<script> alert('Please Enter Again Email and Password '); </script>";
+                        }
+                  }
+              ?>
+     <form class="" action="" method="post">
+       <button type="submit" name="close_btn2" id="cl2"><b>Colse </b><span class="glyphicon glyphicon-remove"></span></button>
+     </form>
+  </div>
+</div>
+<!--ended-->
+<!-- php code for the above notificaiton box to close them  -->
+<?php
+if (isset($_POST['close_btn1'])  ||  isset($_POST['close_btn2'])) {  ?>
+  <style>   #new_user{ display: none;}  </style>
+<?php }   ?>
+<!-- ended -->
 
 
 
@@ -146,100 +295,10 @@ if (isset($_POST['lg'])) {
               if ( $r1  AND $r2 ) {
                 /* this condition check and use if email are found in the  both table and also there Password are also same for them */
                     if ( $t1>0  AND $t2>0) { /* Email and password for the both table are same .... */
+                        $_SESSION['email'] = $em;
+                        $_SESSION['pass'] = $password;
                     ?>
-                        <style>
-                               /* css for new user div class */
-                                #new_user{
-                                    background: rgba(0,166,138,0.7);
-                                    width: 40%;
-                                     margin:0 auto;
-                                     margin-top: -450px;
-                                    height: auto;
-                                     border-radius: 12px;
-                                }
-                                 #new_user_form{
-                                     padding-left: 20px;
-                                 }
-                                 #cl1{ background: none;border: none;float: right; font-size: 25px;}
-                                 #cl1:hover{color: red;transition: 0.7s}
-                                 #new_user_body {border: solid 1px yellow;border-radius: 12px;padding-left: 20px;width:90%;margin: 20px  25px;}
-                                 #new_user_body ul li{ color: #fff;padding-top: 5px;padding-bottom: 5px;}
-                                 #new_user_body ul li:hover{ color: blue;font-size: 25px}
-                                 #cl2{background: none; border:solid 1px red;border-radius: 25px;color:yellow}
-                                 #cl2:hover{background: red;color: #fff;transition: 0.8s}
-                               @media (max-width:960px){
-                                 #new_user{
-                                   background: rgba(0,166,138,0.7);
-                                   width: 40%;
-                                   margin:0 auto;
-                                   margin-top: -300px;
-                                   height: auto;
-                                   border-radius: 12px;
-                                 }
-                                 #new_user_body {border: solid 1px yellow;border-radius: 12px;padding-left: 20px;width:80%;margin: 20px  25px;}
-
-                                 #new_user_form h2,#new_user_body h2{font-size: 18px}
-
-                               }
-                               @media (max-width:600px){
-                                 #new_user{
-                                   background: rgba(0,166,138,0.7);
-                                   width: 60%;
-                                   margin:0 auto;
-                                   margin-top: -300px;
-                                   height: auto;
-                                   border-radius: 12px;
-                                 }
-                                 #new_user_form h2,#new_user_body h2{font-size: 14px}
-
-                               }
-
-                               @media (max-width:300px){
-                                 #new_user{
-                                   background: rgba(0,166,138,0.7);
-                                   width: 90%;
-                                   margin:0 auto;
-                                   margin-top: -300px;
-                                   height: auto;
-                                   border-radius: 12px;
-                                 }
-                                 #new_user_form h2,#new_user_body h2{font-size: 14px}
-
-                               }
-                               /* ended */
-                         </style>
-                        <!-- If click on  New use button then this below form are open -->
-                        <div id="new_user" >
-                          <div class="new_user_divin">
-                             <form class="" action="" method="post" id="new_user_form">
-                                 <button type="submit" name="close_btn1" id="cl1" >
-                                 <span class="glyphicon glyphicon-remove"></span></button>
-                                 <h2>Select Your Account Login Type</h2>
-                             </form>
-                             <form>
-                                 <div id="new_user_body">
-                                     <p> <h2>Select One of Your Log in Account Type</h2>
-                                       <h4>
-                                             <ul>
-                                              <button type="submit" name="btn_t" style="background:none;border:none;"><li>Teacher</li></button><br>
-                                              <button type="submit" name="btn_s" style="background:none;border:none;"> <li>Student</li>         </button>
-                                             </ul>
-                                       </h4>
-                                     </p>
-                                 </div>
-                           </form>
-                             <form class="" action="" method="post">
-                               <button type="submit" name="close_btn2" id="cl2"><b>Colse </b><span class="glyphicon glyphicon-remove"></span></button>
-                             </form>
-                          </div>
-                        </div>
-                        <!--ended-->
-                        <!-- php code for the above notificaiton box to close them  -->
-                        <?php
-                        if (isset($_POST['close_btn1'])  ||  isset($_POST['close_btn2'])) {  ?>
-                          <style>   #new_user{ display: none;}  </style>
-                        <?php }   ?>
-                        <!-- ended -->
+                      <style> #new_user{ display: block; } </style>
 
                     <?php  }
                     if ($t1 >0 AND $t2 <1 ) {
