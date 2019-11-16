@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="menu css and js/bootstrap 4/css/glyphicon.css">
   </head>
   <body>
-    <?php  include("index.html");  ?>
+    <?php  include("index.php");  ?>
 
     <!--below are remove from this -->
 

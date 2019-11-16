@@ -4,7 +4,7 @@
     <meta charset="utf-8">
 
     <title>teacher create account</title>
-    <?php include('index.html'); ?>
+    <?php include('index.php'); ?>
 
 <link rel="stylesheet" href="teacher_create_ac.css" type="text/css">
 <link rel="stylesheet" href="menu css and js/bootstrap 4/css/glyphicon.css">

@@ -10,7 +10,7 @@
 
  </head>
   <body>
-<?php include "index.html";  ?>
+<?php include "index.php";  ?>
   <div class="student_account">
     	<div class="form-a"  >
           <form class="col-12"  onsubmit="fn()" action="www.google.com">

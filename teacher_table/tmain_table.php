@@ -1,3 +1,29 @@
+<?php
+session_start();
+if (isset($_SESSION['email']) &&  isset($_SESSION['pass']) )
+{
+  $em  =$_SESSION['email'];
+  $pass=$_SESSION['pass'];
+  $con =mysqli_connect("localhost","root","","project_db");
+    if ($con) {
+        $query1 ="SELECT * FROM teacher WHERE Email ='$em' AND Password ='$pass'";
+
+        $executeq1 =mysqli_query($con, $query1);
+        if ($executeq1) {
+          //it extract the record inthe form of associative array or key index array
+            $row =mysqli_fetch_array($executeq1);
+              //the above record are use inthe below html code
+        }
+        else {
+          echo "<script> alert('Problem Occur while Extreting record from databse '); </script>";
+        }
+
+    }
+    else {
+      echo "<script> alert('Problem Occur while Connecting to the Database!... '); </script>";
+    }
+
+  ?>
   <!DOCTYPE html>
     <html lang="en" dir="ltr">
       <head>
@@ -7,7 +33,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="">
 
-        <title>welcome to teacher main table  </title>
+        <title>welcome to webside as a teacher  </title>
     	<link href="teacher_css.css" rel="stylesheet" type="text/css">
 
     <link rel="stylesheet" href="css/bootstrap.css">
@@ -94,10 +120,10 @@
     <a href="#" class="nav1-button">Menu</a>
     <nav1 class="nav1">
         <ul>
-            <li><a href="">User full Name </a></li>
-            <li><a href="">user information</a></li>
-            <li><a href="#">Contact</a></li>
-            <li ><a href="../index.html">Log out</a></li>
+            <li><a href=""><?php echo $row['Name']; ?></a></li>
+            <li><a href=""><?php echo $row['Email']; ?></a></li>
+            <li><a href="#"><?php echo $row['Contact_no']; ?></a></li>
+            <li ><a href="../index.php">Log out</a></li>
 
         </ul>
     </nav1>
@@ -248,7 +274,7 @@
 
     <div id="active_class">
         <div class="tstart" style="padding-top:5px;margin-top: 20px;">
-          <h2 class="text-left">Institute Name: University Of Peshawar </h2>
+          <h2 class="text-left">Institute Name: <?php echo $row['Institute_name']; ?> </h2>
         </div>
 
                         		<table class="table table-striped table-bordered table-hover table-sm table-light" >
@@ -311,3 +337,12 @@
 
       </body>
     </html>
+
+<?php
+}
+else {
+  echo "<script> alert('Please Login First!'); </script>";
+}
+
+
+?>

@@ -5,7 +5,7 @@
     <title>contact about website</title>
   </head>
   <body>
-    <?php  include "index.html";  ?>
+    <?php  include "index.php";  ?>
 
 
         <div class="">

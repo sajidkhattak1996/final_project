@@ -303,10 +303,14 @@ if (isset($_POST['lg'])) {
                     <?php  }
                     if ($t1==1 AND $t2==0 ) {
                       // echo "<h1>email and password are only matched with the teacher table </h1>";
+                      $_SESSION['email'] = $em;
+                      $_SESSION['pass'] = $password;
                       echo "<script> window.location.href='teacher_table/tmain_table.php';  </script>";
                     }
                     if ($t2==1 AND $t1==0) {
                       // echo "<h1>email and password are only matched with the student table  </h1>";
+                      $_SESSION['email'] = $em;
+                      $_SESSION['pass'] = $password;
                       echo "<script> window.location.href='info_forms/main_table.php';  </script>";
                     }
                     if($t1 <1 && $t2<1) {
