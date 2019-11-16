@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 06, 2019 at 09:00 AM
+-- Generation Time: Nov 16, 2019 at 11:27 AM
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.3.11
 
@@ -31,10 +31,10 @@ SET time_zone = "+00:00";
 CREATE TABLE `class` (
   `Class_id` int(11) NOT NULL,
   `Name` varchar(30) NOT NULL,
+  `Enrollment_key` varchar(40) NOT NULL DEFAULT 'NULL',
   `Class_session` varchar(30) DEFAULT NULL,
-  `Enrollment_key` varchar(40) DEFAULT NULL,
   `Start_date` date NOT NULL,
-  `End_date` date NOT NULL,
+  `Expire_date` date NOT NULL,
   `T_id` bigint(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -42,9 +42,9 @@ CREATE TABLE `class` (
 -- Dumping data for table `class`
 --
 
-INSERT INTO `class` (`Class_id`, `Name`, `Class_session`, `Enrollment_key`, `Start_date`, `End_date`, `T_id`) VALUES
-(1, 'mscfinal', '2017-uop', '205142', '2019-11-06', '2019-11-28', 5),
-(2, 'bs_semister1', '2018', '100000', '2019-11-06', '2019-11-20', 6);
+INSERT INTO `class` (`Class_id`, `Name`, `Enrollment_key`, `Class_session`, `Start_date`, `Expire_date`, `T_id`) VALUES
+(1, 'mscfinal', '205142', '2017-uop', '2019-11-06', '2019-11-28', 5),
+(2, 'bs_semister1', '100000', '2018', '2019-11-06', '2019-11-20', 6);
 
 -- --------------------------------------------------------
 
@@ -97,9 +97,11 @@ CREATE TABLE `student` (
 --
 
 INSERT INTO `student` (`Reg_no`, `student_name`, `Email`, `password`) VALUES
+('', 'sajid ktk', 'sajid@gmail.com', '12345'),
 ('5051', 'sajid ktk', 'sajid@gmail.com', '1234567890'),
 ('5052', 'kashif ktk', 'kashif@gmail.com', '1234567890'),
-('52500', 'Hameed ullah', 'asdfg@asdfghj', '1234567890');
+('52500', 'Hameed ullah', 'asdfg@asdfghj', '1234567890'),
+('6000', 'sajid ktk', 'sajid@gmail.com', '12345');
 
 -- --------------------------------------------------------
 
@@ -152,7 +154,11 @@ INSERT INTO `teacher` (`T_id`, `Name`, `Contact_no`, `Cnic`, `Institute_name`, `
 (6, 'faheem', 112345789, '12345678905678', 'asdfghwertyuio', 'asdfghjuiodfgh', 'xcfghjmkgh', 'asdfg@asdfghj', '1234567890'),
 (7, 'sajid', 3102093992, '784653128965432', 'fhdfgsfdgs', 'hdrgsdw', 'hdgsvz', 's@s', '123456789'),
 (8, 'faheem', 1234567890, '1234567890', 'sdfghjk', 'werfghn', 'cfghjk', 'faheem@gmail.com', '1234567890'),
-(9, 'owais', 1234567890, '1234567890', 'sdfghjk', 'werfghn', 'cfghjk', 'owais@gmail.com', '1234567890');
+(9, 'owais', 1234567890, '1234567890', 'sdfghjk', 'werfghn', 'cfghjk', 'owais@gmail.com', '1234567890'),
+(3010120, 'sajid', 3102093992, '1420279089405', 'klsdfljs', 'dssfda', 'asfdsa', 'sss@sss', '123456789'),
+(3010121, 'ihsan', 1234567890, '123456789045656', 'sdfkhl', 'gshgjkdlh', 'skjf sdfal', 'ihsan@gmail.com', '1234567890'),
+(3010122, 'jamal', 1223567980908, '123456789098765', 'dgfhjk', 'ghjHGHJ', 'srydtfyghkljk', 'jamal@gmail.com', '1234567890'),
+(3010123, 'khattak', 1111111111111, '122222222222222', 'sjdfk salf ', 'aklfsfjlk asfkjlj', 'sldkflj slj', 'ktk@gmail.com', '11111111');
 
 -- --------------------------------------------------------
 
@@ -199,7 +205,7 @@ ALTER TABLE `register`
 -- Indexes for table `student`
 --
 ALTER TABLE `student`
-  ADD PRIMARY KEY (`Reg_no`);
+  ADD PRIMARY KEY (`Reg_no`,`Email`);
 
 --
 -- Indexes for table `subject`
@@ -249,7 +255,7 @@ ALTER TABLE `class_room`
 -- AUTO_INCREMENT for table `teacher`
 --
 ALTER TABLE `teacher`
-  MODIFY `T_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `T_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3010124;
 
 --
 -- Constraints for dumped tables
