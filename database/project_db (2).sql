@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 16, 2019 at 11:27 AM
+-- Generation Time: Nov 18, 2019 at 08:29 PM
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.3.11
 
@@ -31,7 +31,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `class` (
   `Class_id` int(11) NOT NULL,
   `Name` varchar(30) NOT NULL,
-  `Enrollment_key` varchar(40) NOT NULL DEFAULT 'NULL',
+  `Enrollment_key` varchar(50) NOT NULL DEFAULT 'NULL',
   `Class_session` varchar(30) DEFAULT NULL,
   `Start_date` date NOT NULL,
   `Expire_date` date NOT NULL,
@@ -67,17 +67,32 @@ CREATE TABLE `class_room` (
 
 CREATE TABLE `register` (
   `Class_id` int(30) NOT NULL,
-  `Reg_id` varchar(50) NOT NULL,
-  `enrollment_key` varchar(50) NOT NULL
+  `S_id` bigint(30) NOT NULL,
+  `Reg_no` int(20) NOT NULL,
+  `Enrollment_key` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `register`
 --
 
-INSERT INTO `register` (`Class_id`, `Reg_id`, `enrollment_key`) VALUES
-(1, '52500', 'msc_final2017'),
-(2, '52500', 'bssemister1');
+INSERT INTO `register` (`Class_id`, `S_id`, `Reg_no`, `Enrollment_key`) VALUES
+(1, 1, 0, 'bssemister1'),
+(1, 1, 0, 'msc_final2017'),
+(1, 3, 0, '205142'),
+(1, 4, 0, '205142'),
+(1, 5, 0, '205142'),
+(1, 7, 0, '205142'),
+(1, 8, 0, '205142'),
+(1, 9, 0, '205142'),
+(1, 10, 0, '205142'),
+(1, 11, 0, '205142'),
+(1, 12, 0, '205142'),
+(1, 13, 0, '205142'),
+(1, 14, 0, '205142'),
+(1, 15, 0, '205142'),
+(1, 16, 0, '205142'),
+(2, 2, 0, '205142');
 
 -- --------------------------------------------------------
 
@@ -86,7 +101,7 @@ INSERT INTO `register` (`Class_id`, `Reg_id`, `enrollment_key`) VALUES
 --
 
 CREATE TABLE `student` (
-  `Reg_no` varchar(50) NOT NULL,
+  `S_id` bigint(30) NOT NULL,
   `student_name` varchar(50) NOT NULL,
   `Email` varchar(50) NOT NULL,
   `password` varchar(50) NOT NULL
@@ -96,12 +111,23 @@ CREATE TABLE `student` (
 -- Dumping data for table `student`
 --
 
-INSERT INTO `student` (`Reg_no`, `student_name`, `Email`, `password`) VALUES
-('', 'sajid ktk', 'sajid@gmail.com', '12345'),
-('5051', 'sajid ktk', 'sajid@gmail.com', '1234567890'),
-('5052', 'kashif ktk', 'kashif@gmail.com', '1234567890'),
-('52500', 'Hameed ullah', 'asdfg@asdfghj', '1234567890'),
-('6000', 'sajid ktk', 'sajid@gmail.com', '12345');
+INSERT INTO `student` (`S_id`, `student_name`, `Email`, `password`) VALUES
+(1, 'sajid ktk', 'sajid@gmail.com', '1234567890'),
+(2, 'faheem', 'faheem@gmail.com', '12345'),
+(3, 'kashif', 'kashif@gmail.com', '1234567890'),
+(4, 'kashif jani', 'kashif2@gmail.com', '1234567890'),
+(5, 'sajid asjflkjsl', 'sajid@gmail.comhj', '1234567890'),
+(6, 'sajid asjflkjsl', 'sajidd@gmail.comhj', '1234567890'),
+(7, 'sajid asjflkjsl', 'sajiddd@gmail.comhj', '1234567890'),
+(8, 'sajid asjflkjsl', 'asajiddd@gmail.comhj', '1234567890'),
+(9, 'sajid asjflkjsl', 'asajidddz@gmail.comhj', '1234567890'),
+(10, 'janii khan', 'jani@gmail', '1234567890'),
+(11, 'janii khan', 'janiii@gmail', '1234567890'),
+(12, 'janii khan', 'janiii@ggmail', '1234567890'),
+(13, 'janii khan', 'janiii@ggmailzz', '1234567890'),
+(14, 'ttkslfj ksj', 'tt@gm', '1234567890'),
+(15, 'ttkslfj ksj', 'tt@gma', '1234567890'),
+(16, 'ttkslfj ksj', 'tt@gmam', '1234567890');
 
 -- --------------------------------------------------------
 
@@ -121,7 +147,7 @@ CREATE TABLE `subject` (
 --
 
 CREATE TABLE `take` (
-  `Reg_no` varchar(50) NOT NULL,
+  `S_id` bigint(30) NOT NULL,
   `Subject_id` int(20) NOT NULL,
   `Attendence` varchar(30) NOT NULL,
   `A_date` date NOT NULL
@@ -158,7 +184,8 @@ INSERT INTO `teacher` (`T_id`, `Name`, `Contact_no`, `Cnic`, `Institute_name`, `
 (3010120, 'sajid', 3102093992, '1420279089405', 'klsdfljs', 'dssfda', 'asfdsa', 'sss@sss', '123456789'),
 (3010121, 'ihsan', 1234567890, '123456789045656', 'sdfkhl', 'gshgjkdlh', 'skjf sdfal', 'ihsan@gmail.com', '1234567890'),
 (3010122, 'jamal', 1223567980908, '123456789098765', 'dgfhjk', 'ghjHGHJ', 'srydtfyghkljk', 'jamal@gmail.com', '1234567890'),
-(3010123, 'khattak', 1111111111111, '122222222222222', 'sjdfk salf ', 'aklfsfjlk asfkjlj', 'sldkflj slj', 'ktk@gmail.com', '11111111');
+(3010123, 'khattak', 1111111111111, '122222222222222', 'sjdfk salf ', 'aklfsfjlk asfkjlj', 'sldkflj slj', 'ktk@gmail.com', '11111111'),
+(3010124, 'jani', 2302939103103, '12223913931384', 'aksjf sahk', 'asfkjlfj', 'ashdhfkj ', 'mm@gm', '1234567890');
 
 -- --------------------------------------------------------
 
@@ -183,8 +210,11 @@ CREATE TABLE `teachs` (
 -- Indexes for table `class`
 --
 ALTER TABLE `class`
-  ADD PRIMARY KEY (`Class_id`),
-  ADD KEY `T_id` (`T_id`);
+  ADD PRIMARY KEY (`Class_id`,`Enrollment_key`),
+  ADD KEY `T_id` (`T_id`),
+  ADD KEY `Enrollment_key` (`Enrollment_key`),
+  ADD KEY `Enrollment_key_2` (`Enrollment_key`),
+  ADD KEY `Enrollment_key_3` (`Enrollment_key`);
 
 --
 -- Indexes for table `class_room`
@@ -197,15 +227,16 @@ ALTER TABLE `class_room`
 -- Indexes for table `register`
 --
 ALTER TABLE `register`
-  ADD PRIMARY KEY (`Class_id`,`Reg_id`,`enrollment_key`),
-  ADD KEY `Class_id` (`Class_id`,`Reg_id`),
-  ADD KEY `Reg_id` (`Reg_id`);
+  ADD PRIMARY KEY (`Class_id`,`S_id`,`Enrollment_key`),
+  ADD KEY `Class_id` (`Class_id`,`S_id`),
+  ADD KEY `Reg_id` (`S_id`),
+  ADD KEY `enrollment_key` (`Enrollment_key`);
 
 --
 -- Indexes for table `student`
 --
 ALTER TABLE `student`
-  ADD PRIMARY KEY (`Reg_no`,`Email`);
+  ADD PRIMARY KEY (`S_id`,`Email`);
 
 --
 -- Indexes for table `subject`
@@ -218,9 +249,10 @@ ALTER TABLE `subject`
 -- Indexes for table `take`
 --
 ALTER TABLE `take`
-  ADD PRIMARY KEY (`Reg_no`,`Subject_id`,`A_date`),
-  ADD KEY `Reg_no` (`Reg_no`,`Subject_id`),
-  ADD KEY `Subject_id` (`Subject_id`);
+  ADD PRIMARY KEY (`S_id`,`Subject_id`,`A_date`),
+  ADD KEY `Reg_no` (`Subject_id`),
+  ADD KEY `Subject_id` (`Subject_id`),
+  ADD KEY `S_id` (`S_id`);
 
 --
 -- Indexes for table `teacher`
@@ -252,10 +284,16 @@ ALTER TABLE `class_room`
   MODIFY `CR_id` int(20) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `student`
+--
+ALTER TABLE `student`
+  MODIFY `S_id` bigint(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+
+--
 -- AUTO_INCREMENT for table `teacher`
 --
 ALTER TABLE `teacher`
-  MODIFY `T_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3010124;
+  MODIFY `T_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3010125;
 
 --
 -- Constraints for dumped tables
@@ -278,14 +316,14 @@ ALTER TABLE `class_room`
 --
 ALTER TABLE `register`
   ADD CONSTRAINT `register_ibfk_1` FOREIGN KEY (`Class_id`) REFERENCES `class` (`Class_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `register_ibfk_2` FOREIGN KEY (`Reg_id`) REFERENCES `student` (`Reg_no`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `register_ibfk_2` FOREIGN KEY (`S_id`) REFERENCES `student` (`S_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `take`
 --
 ALTER TABLE `take`
-  ADD CONSTRAINT `Constrant is cascade for both` FOREIGN KEY (`Reg_no`) REFERENCES `student` (`Reg_no`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `take_ibfk_1` FOREIGN KEY (`Subject_id`) REFERENCES `subject` (`Subject_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `take_ibfk_1` FOREIGN KEY (`Subject_id`) REFERENCES `subject` (`Subject_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `take_ibfk_2` FOREIGN KEY (`S_id`) REFERENCES `student` (`S_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `teachs`
