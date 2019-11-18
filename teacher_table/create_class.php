@@ -16,11 +16,6 @@
 
 <script src="js/jquery.js"></script>
 
-	  <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/defaults.css">
-    <link rel="stylesheet" href="css/nav1-core.css">
-    <link rel="stylesheet" href="css/nav1-layout.css">
-<script src="js/rem.min.js"></script>
 <link rel="stylesheet" href="create_class_css.css">
 <script>
     var b =new Date();
@@ -29,44 +24,7 @@
 </script>
 </head>
 <body>
-
-<!--the top menu and the user information menu are start from here and below wel be the end comment -->
-<!-- div class for the logo on the left most top -->
-<div class="" style="width: 100%; height: 60px;background: #008c7e;">
-    <img src="LOGO2.png" style="width: 140px; height: 50px;margin-top:5px;margin-left: 5px;">
-    <label id="websitename"> Welcome to the Class Room Management</label>
-</div>
-<!-- logo class ended -->
-
-
-<!--information menu are start   -->
-<a href="#" class="nav1-button">Menu</a>
-<nav1 class="nav1">
-    <ul>
-        <li><a href="">User full Name </a></li>
-        <li><a href="">user information</a></li>
-        <li><a href="#">Contact</a></li>
-        <li><a href="">Log out</a></li>
-    </ul>
-</nav1>
-<a href="#" class="nav1-close">Close Menu</a>
-<!--information menu are ended -->
-<!-- the ssdiv cover the empty which are on the left side of the information menu -->
-<div id="ssdiv" style="background: #008c7e; width: 100%; height: 46px;border-top:solid 1px #fff;" >
-</div>
-<!-- no things is written in this div B/c it is hide inthe mobile size -->
-
-
-
-<script src="js/nav1.jquery.min.js"></script>
-<script>
-    $('.nav1').nav1();
-</script>
-<!-- from here the nav menu and user informatio menu are ended -->
-<!--top head area ended -->
-
-
-
+<?php include('top_info.php');  ?>
 
 
 <!-- below area and button such classes helps etc -->
@@ -74,7 +32,7 @@
 		      <ul>
               <a href="tmain_table.php">  <button class="btn btn-outline-light btn-lg ">        All Classes           </button> </a>
                  <a href=""><button class="btn btn-outline-light btn-lg bg-light text-dark">    Create New Class    </button>  </a>
-                  <a href="" >         <button class="btn btn-outline-light btn-lg">        Helps         </button>  </a>
+                  <a href="helps.php" >         <button class="btn btn-outline-light btn-lg">        Helps         </button>  </a>
 
           </ul>
 	</div>

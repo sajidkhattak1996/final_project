@@ -9,6 +9,10 @@
     <link   rel="stylesheet"   href="css_create_account.css" >
   <link rel="stylesheet" href="forms/css/bootstrap.css">
   <link rel="stylesheet" href="menu css and js/bootstrap 4/css/glyphicon.css">
+  <style>
+      /* #emsg{ display: none;}
+      #pmsg{ display: none} */
+  </style>
   </head>
   <body>
     <?php  include("index.php");  ?>
@@ -20,22 +24,24 @@
     <!--transparent form for the login of the Account -->
     <div id="log_in" class="Tb">
       <div class="login_form">
-        <form class="" >
+        <form class="" action="" method="post">
 
           <h1 id="login_heading"><b>Login to Class Room Management</b></h1>
 
           <div class="login_inputdiv">
+            <label style="color: yellow" id="emsg"></label>
             <h4>Email Address:</h4>
-            <input type="email" name="" value="" placeholder="Email:" required>
+            <input type="email" name="lgemail" value="<?php if(isset($_POST['btn_login'])){ echo $_POST['lgemail']; } ?>" placeholder="Email:" required>
             <br><br>
+            <label style="color: yellow" id="pmsg"></label>
             <h4>Password:</h4>
-            <input type="text" name="" value="" placeholder="Password:" required>
+            <input type="password" name="lgpassword" value="<?php if(isset($_POST['btn_login'])){ echo $_POST['lgpassword']; } ?>" placeholder="Password:" required>
             <br>
-            <input type="button" name="" value="Log in" id="login_btn">
+            <input type="submit"  value="Log in" name="btn_login" id="login_btn">
             <br><br>
             <div class="pp" >
                 <p>Forgot your password?  <a href=""> Click here</a></p>
-                <p><b>New User ?  </b>  <a href=""> <button type="button" name="new_user_btn" onclick="return hide()" style="background:none;border:none">Click here</button> </a>  </p
+                <!-- <p><b>New User ?  </b>  <a href=""> <button type="button" name="new_user_btn" onclick="return hide()" style="background:none;border:none">Click here</button> </a>  </p -->
                 <p> <b> Pivacy Policy </b>
                   <p style="font-size: 1.0em">
                   We take your privacy very seriously.
@@ -48,111 +54,123 @@
 
 
         </form>
+                <?php
+                    if (isset($_POST['btn_login'])) {
 
+                      $server ="localhost";
+                      $user   ="root";
+                      $pass   ="";
+                      $db     ="project_db";
+                      //connection with the databse table
+                      $con = mysqli_connect($server,$user,$pass,$db);
+                      
+
+                      if ($con) {
+                        $em=$_POST['lgemail'];
+                        $password =$_POST['lgpassword'];
+                      /* first condition for the login of email are checked and started   */
+                        $q1 ="select Email, Password from teacher WHERE Email ='$em' AND Password='$password'";
+                        $q2 ="select Email , Password from Student WHERE Email='$em' AND Password='$password'";
+
+                        // executing the query
+                        $r1 =mysqli_query( $con  ,$q1 );
+                        $r2 =mysqli_query( $con  ,$q2 );
+
+                        // check for the number of row contain
+                        $t1 =mysqli_num_rows($r1);
+                        $t2 =mysqli_num_rows($r2);
+
+                        if ( $r1  AND $r2 ) {
+                          /* this condition check and use if email are found in the  both table and also there Password are also same for them */
+                              if ( $t1>0  AND $t2>0) { /* Email and password for the both table are same .... */
+                                  $_SESSION['email'] = $em;
+                                  $_SESSION['pass'] = $password;
+                              ?>
+                                <style>
+                                #log_in{ display: none; }
+                                #new_user{ display: block; }
+                                 </style>
+
+                              <?php  }
+                              if ($t1==1 AND $t2==0 ) {
+                                // echo "<h1>email and password are only matched with the teacher table </h1>";
+                                $_SESSION['email'] = $em;
+                                $_SESSION['pass'] = $password;
+                                echo "<script> window.location.href='teacher_table/tmain_table.php';  </script>";
+                              }
+                              if ($t2==1 AND $t1==0) {
+                                // echo "<h1>email and password are only matched with the student table  </h1>";
+                                $_SESSION['email'] = $em;
+                                $_SESSION['pass'] = $password;
+                                echo "<script> window.location.href='info_forms/main_table.php';  </script>";
+                              }
+                              if($t1 <1 && $t2<1) {
+                                /*  Something problem in email or password !.... */
+
+                                /* here we check for wrong email or password */
+                                $temail ="select Email FROM teacher WHERE Email ='$em'";
+                                $tpass ="select Password from teacher WHERE Password='$password'";
+
+                                $tr1=mysqli_query($con ,$temail);
+                                $tr2=mysqli_query($con ,$tpass);
+
+                                $te=mysqli_num_rows($tr1);
+                                $tp=mysqli_num_rows($tr2);
+
+
+                                /* student */
+                                $semail ="select Email FROM student WHERE Email ='$em'";
+                                $spass ="select Password from student WHERE Password='$password'";
+
+                                $sr1=mysqli_query($con ,$semail);
+                                $sr2=mysqli_query($con ,$spass);
+
+                                $se=mysqli_num_rows($sr1);
+                                $sp=mysqli_num_rows($sr2);
+
+                                if ($tr1 && $tr2 && $sr1 && $sr2) {
+                                    /*  all are executed ... */
+                                    if ($te>0  &&  $se >0  && $tp==0 && $sp==0 )
+                                    {
+                                      // echo "<h2> password are wrong!!!... </h2>";
+                                      echo "<script> document.getElementById('pmsg').innerHTML ='Password is Wrong!'; </script>";
+                                    }
+                                    if (($te >0 &&  $se==0 && $tp==0) || ($se>0  && $te==0 && $sp==0) ) {
+                                      // echo "<h2>teacher email password are wrong!!!... </h2>";
+                                        echo "<script> document.getElementById('pmsg').innerHTML ='Password is Wrong!'; </script>";
+                                    }
+                                    /*condition for email wrong */
+                                    if ($te==0 && $se==0 && $tp==0 && $sp==0) {  /* use if both fields are wrong */
+                                      echo "<script> document.getElementById('emsg').innerHTML ='Email and Password doesnot exist!'; </script>";
+                                    }
+                                    if (($te==0  && $se==0 &&  $tp>0  && $sp>0 ) || ($te==0 && $se==0  && $tp>0 && $sp==0) || ($te==0  && $se==0 && $sp>0  && $tp==0) ) {
+                                        echo "<script> document.getElementById('emsg').innerHTML ='Email is Wrong!'; </script>";
+
+                                    }
+
+
+                                }
+                                else {
+                                  echo "<script> alert('Problem occur please try again !....') </script>".mysqli_error($con);
+                                }
+
+
+                              }
+                        }
+
+                      }
+                      else {
+                        echo "<script> alert('Something Problem While Connecting with Database !... '); </script>";
+                      }
+                    }
+
+
+
+                ?>
 
       </div>
     </div>
     <!-- Transparent form for login are ended -->
-<style>
-            /* css for new user div class */
-            	#new_user{
-            background: rgba(0,166,138,0.7);
-            		width: 40%;
-                margin:0 auto;
-                margin-top: -450px;
-            		height: auto;
-                border-radius: 12px;
-            	}
-              #new_user_form{
-                padding-left: 20px;
-              }
-              #cl1{ background: none;border: none;float: right; font-size: 25px;}
-              #cl1:hover{color: red;transition: 0.7s}
-              #new_user_body {border: solid 1px yellow;border-radius: 12px;padding-left: 20px;width:90%;margin: 20px  25px;}
-              #new_user_body ul li{ color: #fff;padding-top: 5px;padding-bottom: 5px;}
-              #new_user_body ul li:hover{ color: blue;font-size: 25px}
-              #cl2{background: none; border:solid 1px red;border-radius: 25px;color:yellow}
-              #cl2:hover{background: red;color: #fff;transition: 0.8s}
-            @media (max-width:960px){
-              #new_user{
-                background: rgba(0,166,138,0.7);
-                width: 40%;
-                margin:0 auto;
-                margin-top: -300px;
-                height: auto;
-                border-radius: 12px;
-              }
-              #new_user_body {border: solid 1px yellow;border-radius: 12px;padding-left: 20px;width:80%;margin: 20px  25px;}
-
-              #new_user_form h2,#new_user_body h2{font-size: 18px}
-
-            }
-            @media (max-width:600px){
-              #new_user{
-                background: rgba(0,166,138,0.7);
-                width: 60%;
-                margin:0 auto;
-                margin-top: -300px;
-                height: auto;
-                border-radius: 12px;
-              }
-              #new_user_form h2,#new_user_body h2{font-size: 14px}
-
-            }
-
-            @media (max-width:300px){
-              #new_user{
-                background: rgba(0,166,138,0.7);
-                width: 90%;
-                margin:0 auto;
-                margin-top: -300px;
-                height: auto;
-                border-radius: 12px;
-              }
-              #new_user_form h2,#new_user_body h2{font-size: 14px}
-
-            }
-            /* ended */
-</style>
-<!-- If click on  New use button then this below form are open -->
-<div id="new_user" style="display:none">
-    <div class="new_user_divin">
-        <form class="" action="" method="post" id="new_user_form">
-            <button type="submit" name="close_btn1" id="cl1" onclick="return show()">
-            <span class="glyphicon glyphicon-remove"></span></button>
-            <h2>Select Your Account Creation Type</h2>
-        </form>
-        <div id="new_user_body">
-            <p> <h2>Please Select one Account Type</h2>
-              <h4>
-                    <ul>
-                      <a href="teacher_profile.php"><li>Teacher</li></a>
-                      <a href="std_acc.php"><li>Student</li></a>
-                    </ul>
-              </h4>
-            </p>
-        </div>
-        <form class="" action="" method="post">
-          <button type="submit" name="close_btn2" id="cl2"><b>Colse </b><span class="glyphicon glyphicon-remove" onclick="return show()"></span></button>
-        </form>
-    </div>
-</div>
-<!--ended-->
-<!--java script for above div -->
-<script>
-  function hide(){
-
-    document.getElementById('log_in').style.display='none';
-    document.getElementById('new_user').style.display='block';
-    return false;
-  }
-  function show(){
-    document.getElementById('new_user').style.display='none';
-    document.getElementById('log_in').style.display='block';
-    return false;
-  }
-
-</script>
 
   </body>
 </html>

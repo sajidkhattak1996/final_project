@@ -1,348 +1,212 @@
 <?php
-session_start();
-if (isset($_SESSION['email']) &&  isset($_SESSION['pass']) )
-{
-  $em  =$_SESSION['email'];
-  $pass=$_SESSION['pass'];
-  $con =mysqli_connect("localhost","root","","project_db");
-    if ($con) {
-        $query1 ="SELECT * FROM teacher WHERE Email ='$em' AND Password ='$pass'";
+  include('top_info.php');
+  if (isset($_SESSION['email']) && isset($_SESSION['pass'])) { ?>
+    <!DOCTYPE html>
+      <html lang="en" dir="ltr">
+        <head>
 
-        $executeq1 =mysqli_query($con, $query1);
-        if ($executeq1) {
-          //it extract the record inthe form of associative array or key index array
-            $row =mysqli_fetch_array($executeq1);
-              //the above record are use inthe below html code
-        }
-        else {
-          echo "<script> alert('Problem Occur while Extreting record from databse '); </script>";
-        }
+          <meta charset="utf-8">
+          <meta http-equiv="X-UA-Compatible" content="IE=edge">
+          <meta name="viewport" content="width=device-width, initial-scale=1">
+          <meta name="description" content="">
 
-    }
-    else {
-      echo "<script> alert('Problem Occur while Connecting to the Database!... '); </script>";
-    }
+          <title>welcome to webside as a teacher  </title>
 
-  ?>
-  <!DOCTYPE html>
-    <html lang="en" dir="ltr">
-      <head>
+          </head>
+      <body>
 
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="">
+      <!-- below area and button such classes helps etc -->
+      <div class="bttn" style="background: #008c7e;">
+                <ul>
+                    <a href="tmain_table.php">    <button class="btn btn-outline-light btn-lg bg-light text-dark">         All Classes           </button> </a>
+                       <a href="create_class.php"><button class="btn btn-outline-light btn-lg">    Create New Class     </button>  </a>
+                          <a href="helps.php" >         <button class="btn btn-outline-light btn-lg">        Helps               </button>  </a>
 
-        <title>welcome to webside as a teacher  </title>
-    	<link href="teacher_css.css" rel="stylesheet" type="text/css">
-
-    <link rel="stylesheet" href="css/bootstrap.css">
-    <link rel="stylesheet" href="bootstrap 4/css/glyphicon.css">
-
-    <script src="js/jquery.js"></script>
-
-    	<link rel="stylesheet" href="css/normalize.css">
-        <link rel="stylesheet" href="css/defaults.css">
-        <link rel="stylesheet" href="css/nav1-core.css">
-        <link rel="stylesheet" href="css/nav1-layout.css">
-    <script src="js/rem.min.js"></script>
-
-        <style type="text/css">
-
-    .tabletabs{
-
-    width:98.5%;
-    margin: 0 auto;
-    border-radius: 30px 30px 0px 0px;
-
-    /* border-bottom:solid 1px rgba(172,239,206,0.66); */
-    height:30px;
-    margin-bottom: -20px;
-
-    }
-
-
-        #table_maindiv {
-
-          	border-radius: 10px;
-          	padding-top:10px;
-          	padding-bottom: 10px;
-          	width: 100%;
-    }
-    #b1{
-      background-image: -webkit-linear-gradient(180deg,rgba(172,239,224,0.66) 21.76%,rgba(0,140,126,1.00) 98.45%);
-      background-image: -moz-linear-gradient(180deg,rgba(172,239,224,0.66) 21.76%,rgba(0,140,126,1.00) 98.45%);
-      background-image: -o-linear-gradient(180deg,rgba(172,239,224,0.66) 21.76%,rgba(0,140,126,1.00) 98.45%);
-      background-image: linear-gradient(180deg,rgba(172,239,224,0.66) 21.76%,rgba(0,140,126,1.00) 98.45%);
-    color: blue;
-      border-left: solid 1px rgba(172,239,224,0.66);
-      border-top: solid 1px rgba(172,239,224,0.66);
-      border-right: solid 1px rgba(172,239,224,0.66);
-
-      border-radius: 7px 7px 0px 0px;
-    }
-    #b2,#b3{
-      background-image: -webkit-linear-gradient(270deg,rgba(127,243,228,0.52) 0%,rgba(237,251,249,0.81) 100%);
-        background-image: -moz-linear-gradient(270deg,rgba(127,243,228,0.52) 0%,rgba(237,251,249,0.81) 100%);
-        background-image: -o-linear-gradient(270deg,rgba(127,243,228,0.52) 0%,rgba(237,251,249,0.81) 100%);
-        background-image: linear-gradient(180deg,rgba(127,243,228,0.52) 0%,rgba(237,251,249,0.81) 100%);
-    color: #6f9de8;
-      border:solid 1px rgba(127,243,228,0.52);
-      border-radius: 7px 7px 0px 0px;
-
-    }
-
-
-
-        </style>
-
-        <!--[if lt IE 9]>
-        <link rel="stylesheet" href="css/ie8-core.min.css">
-        <link rel="stylesheet" href="css/ie8-layout.min.css">
-        <script src="js/html5shiv.min.js"></script>
-        <![endif]-->
-
-
-
-      </head>
-    <body>
-
-    <!--the top menu and the user information menu are start from here and below wel be the end comment -->
-    <!-- div class for the logo on the left most top -->
-    <div class="" style="width: 100%; height: 60px;background: #008c7e;">
-        <img src="LOGO2.png" style="width: 140px; height: 50px;margin-top:5px;margin-left: 5px;">
-        <label id="websitename"> Welcome to the Class Room Management</label>
-    </div>
-    <!-- logo class ended -->
-
-    <form action="" method="post">
-    <!--information menu are start   -->
-    <a href="#" class="nav1-button">Menu</a>
-    <nav1 class="nav1">
-        <ul>
-            <li><a href=""><?php echo $row['Name']; ?></a></li>
-            <li><a href=""><?php echo $row['Email']; ?></a></li>
-            <li><a href="#"><?php echo $row['Contact_no']; ?></a></li>
-            <li ><a href="../index.php">Log out</a></li>
-
-        </ul>
-    </nav1>
-    <a href="#" class="nav1-close">Close Menu</a>
-    </form>
-    <!--information menu are ended -->
-    <!-- the ssdiv cover the empty which are on the left side of the information menu -->
-    <div id="ssdiv" style="background: #008c7e; width: 100%; height: 46px;border-top:solid 1px #fff;" >
-    </div>
-    <!-- no things is written in this div B/c it is hide inthe mobile size -->
-
-
-
-    <script src="js/nav1.jquery.min.js"></script>
-    <script>
-        $('.nav1').nav1();
-    </script>
-    <!-- from here the nav menu and user informatio menu are ended -->
-    <!--top head area ended -->
-
-
-
-
-
-    <!-- below area and button such classes helps etc -->
-    <div class="bttn" style="background: #008c7e;">
-    		      <ul>
-                  <a href="tmain_table.php">    <button class="btn btn-outline-light btn-lg bg-light text-dark">         All Classes           </button> </a>
-                     <a href="create_class.php"><button class="btn btn-outline-light btn-lg">    Create New Class     </button>  </a>
-                        <a href="" >         <button class="btn btn-outline-light btn-lg">        Helps               </button>  </a>
-
-              </ul>
-    	</div>
-    <!--above button container are ended -->
-
-    <div class="about_area">
-        <div class="viewing_area">
-          <h5>NOW VIEWING :> <a href="" style="color: blue"> All Classes  </a></h5>
+                </ul>
         </div>
+      <!--above button container are ended -->
 
-        <div class="about">
-            <h2>About this page </h2>
-            <p class="text">
-              This is your Teacher Homepage. The Homepage show the classes you are Created and along with the Start and Expire date. You can also Add,Drop ,Edit Add Slides to the Class
-              Details. Your Expired Classes are move to the Expired Classes Area.You see Class inside details by clicking on the Class Name.
-
-              you'r Class records.
-
-            </p>
-
-        </div>
-
-    </div>
-
-
-
-
-
-      <div class="container-fluid" id="table_maindiv">
-
-        <!-- below area and button such etc -->
-        <div class="tabletabs">
-            <form  action="" method="post">
-                  <ul>
-                        <button id="b1" type="submit" name="bb1">   <b>     All Active Classes     </b> </button>
-                         <a href=""><button id="b2" type="submit" name="btnexpire" onclick="fn()">  <b>  Expired Classes  </b>  </button>  </a>
-                          <!-- <a href="" >         <button id="b3">  <b>      Helps        </b> </button>  </a> -->
-
-                  </ul>
-              </form>
+      <div class="about_area">
+          <div class="viewing_area">
+            <h5>NOW VIEWING :> <a href="" style="color: blue"> All Classes  </a></h5>
           </div>
-        <!--above button container are ended -->
-    <!-- <script>
-        function fn(){
-          var x = document.getElementById('active_class');
-          x.style.display="none";
-        }
-    </script> -->
 
-    <?php
-    if (isset($_POST['btnexpire'])) {
-    ?>
-    <style >
-      #active_class{ display:none; }
-      #b1{
-        background-image: -webkit-linear-gradient(270deg,rgba(127,243,228,0.52) 0%,rgba(237,251,249,0.81) 100%);
-          background-image: -moz-linear-gradient(270deg,rgba(127,243,228,0.52) 0%,rgba(237,251,249,0.81) 100%);
-          background-image: -o-linear-gradient(270deg,rgba(127,243,228,0.52) 0%,rgba(237,251,249,0.81) 100%);
-          background-image: linear-gradient(180deg,rgba(127,243,228,0.52) 0%,rgba(237,251,249,0.81) 100%);
-        color: #6f9de8;
-        border:solid 1px rgba(127,243,228,0.52);
-        border-radius: 7px 7px 0px 0px;}
+          <div class="about">
+              <h2>About this page </h2>
+              <p class="text">
+                This is your Teacher Homepage. The Homepage show the classes you are Created and along with the Start and Expire date. You can also Add,Drop ,Edit Add Slides to the Class
+                Details. Your Expired Classes are move to the Expired Classes Area.You see Class inside details by clicking on the Class Name.
 
-        #b2{
-          background-image: -webkit-linear-gradient(180deg,rgba(172,239,224,0.66) 21.76%,rgba(0,140,126,1.00) 98.45%);
-          background-image: -moz-linear-gradient(180deg,rgba(172,239,224,0.66) 21.76%,rgba(0,140,126,1.00) 98.45%);
-          background-image: -o-linear-gradient(180deg,rgba(172,239,224,0.66) 21.76%,rgba(0,140,126,1.00) 98.45%);
-          background-image: linear-gradient(180deg,rgba(172,239,224,0.66) 21.76%,rgba(0,140,126,1.00) 98.45%);
-          color: blue;
-          border-left: solid 1px rgba(172,239,224,0.66);
-          border-top: solid 1px rgba(172,239,224,0.66);
-          border-right: solid 1px rgba(172,239,224,0.66);
+                you'r Class records.
 
-          border-radius: 7px 7px 0px 0px;
-        }
-    </style>
+              </p>
 
-    <div id="expire_class" style="display: block">
-        <div class="tstart" style="padding-top:5px;margin-top: 20px;">
-          <h2 class="text-left">Institute Name: University Of Peshawar </h2>
-        </div>
+          </div>
 
-                            <table class="table table-striped table-bordered table-hover table-sm table-light" >
-                                      <thead class="bg-info">
-                                          <tr>
-                                                <th scope="col" scope="row">Class ID</th>
-                                                <th scope="col">Class Name</th>
-                                                <th scope="col">Date</th>
-                                                <th scope="col">Slide</th>
-                                                <th scope="col">Edit</th>
-                                          </tr>
-                                      </thead>
-                                        <tbody>
+      </div>
+
+
+
+
+
+        <div class="container-fluid" id="table_maindiv">
+
+          <!-- below area and button such etc -->
+          <div class="tabletabs">
+              <form  action="" method="post">
+                    <ul>
+                          <button id="b1" type="submit" name="bb1">   <b>     All Active Classes     </b> </button>
+                           <a href=""><button id="b2" type="submit" name="btnexpire" onclick="fn()">  <b>  Expired Classes  </b>  </button>  </a>
+                            <!-- <a href="" >         <button id="b3">  <b>      Helps        </b> </button>  </a> -->
+
+                    </ul>
+                </form>
+            </div>
+          <!--above button container are ended -->
+      <!-- <script>
+          function fn(){
+            var x = document.getElementById('active_class');
+            x.style.display="none";
+          }
+      </script> -->
+
+      <?php
+      if (isset($_POST['btnexpire'])) {
+      ?>
+      <style >
+        #active_class{ display:none; }
+        #b1{
+          background-image: -webkit-linear-gradient(270deg,rgba(127,243,228,0.52) 0%,rgba(237,251,249,0.81) 100%);
+            background-image: -moz-linear-gradient(270deg,rgba(127,243,228,0.52) 0%,rgba(237,251,249,0.81) 100%);
+            background-image: -o-linear-gradient(270deg,rgba(127,243,228,0.52) 0%,rgba(237,251,249,0.81) 100%);
+            background-image: linear-gradient(180deg,rgba(127,243,228,0.52) 0%,rgba(237,251,249,0.81) 100%);
+          color: #6f9de8;
+          border:solid 1px rgba(127,243,228,0.52);
+          border-radius: 7px 7px 0px 0px;}
+
+          #b2{
+            background-image: -webkit-linear-gradient(180deg,rgba(172,239,224,0.66) 21.76%,rgba(0,140,126,1.00) 98.45%);
+            background-image: -moz-linear-gradient(180deg,rgba(172,239,224,0.66) 21.76%,rgba(0,140,126,1.00) 98.45%);
+            background-image: -o-linear-gradient(180deg,rgba(172,239,224,0.66) 21.76%,rgba(0,140,126,1.00) 98.45%);
+            background-image: linear-gradient(180deg,rgba(172,239,224,0.66) 21.76%,rgba(0,140,126,1.00) 98.45%);
+            color: blue;
+            border-left: solid 1px rgba(172,239,224,0.66);
+            border-top: solid 1px rgba(172,239,224,0.66);
+            border-right: solid 1px rgba(172,239,224,0.66);
+
+            border-radius: 7px 7px 0px 0px;
+          }
+      </style>
+
+      <div id="expire_class" style="display: block">
+          <div class="tstart" style="padding-top:5px;margin-top: 20px;">
+            <h2 class="text-left">Institute Name: <?php echo $_SESSION['institute']; ?> </h2>
+          </div>
+
+                              <table class="table table-striped table-bordered table-hover table-sm table-light" >
+                                        <thead class="bg-info">
+                                            <tr>
+                                                  <th scope="col" scope="row">Class ID</th>
+                                                  <th scope="col">Class Name</th>
+                                                  <th scope="col">Date</th>
+                                                  <th scope="col">Slide</th>
+                                                  <th scope="col">Edit</th>
+                                            </tr>
+                                        </thead>
+                                          <tbody>
+                                                  <tr>
+                                                    <td scope="row">23432</td>
+                                                    <td><a href="">Msc final</a></td>
+                                                    <td>10-10-2019</td>
+                                                    <td><button class="btn btn-outline-info btn-lg">Click</button</td>
+                                                    <td><button class="btn btn-outline-primary" style="border:none"> <span class="glyphicon glyphicon-pencil" style="font-size: 14px"></span></button> </td>
+                                                  </tr>
+
+                                          </tbody>
+                              </table>
+                          <div class="tend">
+
+                          </div>
+
+
+          </div>
+
+      </div>
+
+
+      <?php
+      }
+      ?>
+
+
+      <div id="active_class">
+          <div class="tstart" style="padding-top:5px;margin-top: 20px;">
+            <h2 class="text-left">Institute Name: <?php echo $_SESSION['institute']; ?> </h2>
+          </div>
+
+                              <table class="table table-striped table-bordered table-hover table-sm table-light" >
+                                        <thead class="bg-info">
+                                            <tr>
+                                                  <th scope="col" scope="row">Class ID</th>
+                                                  <th scope="col">Class Name</th>
+                                                  <th scope="col">Start Date</th>
+                                                  <th scope="col">Expire Date</th>
+                                                  <th scope="col">Slides</th>
+                                                  <th scope="col">Edit</th>
+                                                  <th scope="col">Drop</th>
+                                            </tr>
+                                        </thead>
+                                          <tbody>
                                                 <tr>
                                                   <td scope="row">23432</td>
                                                   <td><a href="">Msc final</a></td>
+                                                  <td>1-1-2019</td>
                                                   <td>10-10-2019</td>
                                                   <td><button class="btn btn-outline-info btn-lg">Click</button</td>
                                                   <td><button class="btn btn-outline-primary" style="border:none"> <span class="glyphicon glyphicon-pencil" style="font-size: 14px"></span></button> </td>
+                                                  <td><button class="btn btn-outline-danger" style="border:none"> <span class="glyphicon glyphicon-trash" style="font-size: 14px;border"></span></button> </td>
+
+                                                </tr>
+                                                <tr>
+                                                  <td scope="row">23432</td>
+                                                  <td><a href="">Msc final</a></td>
+                                                  <td>1-1-2019</td>
+                                                  <td>10-10-2019</td>
+                                                  <td><button class="btn btn-outline-info btn-lg">Click</button</td>
+                                                  <td><button class="btn btn-outline-primary" style="border:none"> <span class="glyphicon glyphicon-pencil" style="font-size: 14px"></span></button> </td>
+                                                  <td><button class="btn btn-outline-danger" style="border:none"> <span class="glyphicon glyphicon-trash" style="font-size: 14px"></span></button> </td>
+
+                                                </tr>
+                                                <tr>
+                                                  <td scope="row">23432</td>
+                                                  <td><a href="">Msc final</a></td>
+                                                  <td>1-1-2019</td>
+                                                  <td>10-10-2019</td>
+                                                  <td><button class="btn btn-outline-info btn-lg">Click</button</td>
+                                                  <td><button class="btn btn-outline-primary" style="border:none"> <span class="glyphicon glyphicon-pencil" style="font-size: 14px"></span></button> </td>
+                                                  <td><button class="btn btn-outline-danger" style="border:none"> <span class="glyphicon glyphicon-trash" style="font-size: 14px"></span></button> </td>
+
                                                 </tr>
 
-                                        </tbody>
-                            </table>
-                        <div class="tend">
 
-                        </div>
+                                          </tbody>
+                              </table>
+                          <div class="tend">
 
-
-        </div>
-
-    </div>
+                          </div>
 
 
-    <?php
-    }
-    ?>
+          </div>
 
-
-    <div id="active_class">
-        <div class="tstart" style="padding-top:5px;margin-top: 20px;">
-          <h2 class="text-left">Institute Name: <?php echo $row['Institute_name']; ?> </h2>
-        </div>
-
-                        		<table class="table table-striped table-bordered table-hover table-sm table-light" >
-                                			<thead class="bg-info">
-                                    			<tr>
-                                        				<th scope="col" scope="row">Class ID</th>
-                                        				<th scope="col">Class Name</th>
-                                        			  <th scope="col">Start Date</th>
-                                        				<th scope="col">Expire Date</th>
-                                                <th scope="col">Slides</th>
-                                                <th scope="col">Edit</th>
-                                                <th scope="col">Drop</th>
-                                    			</tr>
-                                			</thead>
-                                  			<tbody>
-                                        			<tr>
-                                        				<td scope="row">23432</td>
-                                        				<td><a href="">Msc final</a></td>
-                                        				<td>1-1-2019</td>
-                                        				<td>10-10-2019</td>
-                                        				<td><button class="btn btn-outline-info btn-lg">Click</button</td>
-                                                <td><button class="btn btn-outline-primary" style="border:none"> <span class="glyphicon glyphicon-pencil" style="font-size: 14px"></span></button> </td>
-                                                <td><button class="btn btn-outline-danger" style="border:none"> <span class="glyphicon glyphicon-trash" style="font-size: 14px;border"></span></button> </td>
-
-                                              </tr>
-                                              <tr>
-                                        				<td scope="row">23432</td>
-                                        				<td><a href="">Msc final</a></td>
-                                        				<td>1-1-2019</td>
-                                        				<td>10-10-2019</td>
-                                        				<td><button class="btn btn-outline-info btn-lg">Click</button</td>
-                                                <td><button class="btn btn-outline-primary" style="border:none"> <span class="glyphicon glyphicon-pencil" style="font-size: 14px"></span></button> </td>
-                                                <td><button class="btn btn-outline-danger" style="border:none"> <span class="glyphicon glyphicon-trash" style="font-size: 14px"></span></button> </td>
-
-                                              </tr>
-                                              <tr>
-                                        				<td scope="row">23432</td>
-                                        				<td><a href="">Msc final</a></td>
-                                        				<td>1-1-2019</td>
-                                        				<td>10-10-2019</td>
-                                        				<td><button class="btn btn-outline-info btn-lg">Click</button</td>
-                                                <td><button class="btn btn-outline-primary" style="border:none"> <span class="glyphicon glyphicon-pencil" style="font-size: 14px"></span></button> </td>
-                                                <td><button class="btn btn-outline-danger" style="border:none"> <span class="glyphicon glyphicon-trash" style="font-size: 14px"></span></button> </td>
-
-                                              </tr>
-
-
-                          		          </tbody>
-                        		</table>
-                        <div class="tend">
-
-                        </div>
-
-
-        </div>
-
-    </div>
+      </div>
 
 
 
-      </body>
-    </html>
-
-<?php
-}
-else {
-  echo "<script> alert('Please Login First!'); </script>";
-}
-
+        </body>
+      </html>
+  <?php   }
+  else {
+    echo "<script> alert('Please Login first!.... '); </script>";
+  }
 
 ?>
