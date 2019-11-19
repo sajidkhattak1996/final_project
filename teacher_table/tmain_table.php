@@ -108,6 +108,7 @@
                                             <tr>
                                                   <th scope="col" scope="row">Class ID</th>
                                                   <th scope="col">Class Name</th>
+                                                  <th scope="col">Subject</th>
                                                   <th scope="col">Date</th>
                                                   <th scope="col">Slide</th>
                                                   <th scope="col">Edit</th>
@@ -117,6 +118,7 @@
                                                   <tr>
                                                     <td scope="row">23432</td>
                                                     <td><a href="">Msc final</a></td>
+                                                    <td><a href="">C++</a></td>
                                                     <td>10-10-2019</td>
                                                     <td><button class="btn btn-outline-info btn-lg">Click</button</td>
                                                     <td><button class="btn btn-outline-primary" style="border:none"> <span class="glyphicon glyphicon-pencil" style="font-size: 14px"></span></button> </td>
@@ -149,6 +151,7 @@
                                             <tr>
                                                   <th scope="col" scope="row">Class ID</th>
                                                   <th scope="col">Class Name</th>
+                                                  <th scope="col">Subject</th>
                                                   <th scope="col">Start Date</th>
                                                   <th scope="col">Expire Date</th>
                                                   <th scope="col">Slides</th>
@@ -160,6 +163,7 @@
                                                 <tr>
                                                   <td scope="row">23432</td>
                                                   <td><a href="">Msc final</a></td>
+                                                  <td><a href="">C++</a></td>
                                                   <td>1-1-2019</td>
                                                   <td>10-10-2019</td>
                                                   <td><button class="btn btn-outline-info btn-lg">Click</button</td>
@@ -170,6 +174,7 @@
                                                 <tr>
                                                   <td scope="row">23432</td>
                                                   <td><a href="">Msc final</a></td>
+                                                  <td><a href="">database</a></td>
                                                   <td>1-1-2019</td>
                                                   <td>10-10-2019</td>
                                                   <td><button class="btn btn-outline-info btn-lg">Click</button</td>
@@ -180,6 +185,7 @@
                                                 <tr>
                                                   <td scope="row">23432</td>
                                                   <td><a href="">Msc final</a></td>
+                                                  <td><a href="">java</a></td>
                                                   <td>1-1-2019</td>
                                                   <td>10-10-2019</td>
                                                   <td><button class="btn btn-outline-info btn-lg">Click</button</td>

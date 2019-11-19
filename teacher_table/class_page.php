@@ -183,19 +183,7 @@
         <form  action="" method="post">
               <ul>
                      <button id="b1" type="submit" name="bb1">                            <b>     Class Record     </b>  </button>
-                     <button id="b2" type="submit" name="attendence_btn" onclick="fn()">  <b>
-                      hi <span class="glyphicon glyphicon-Drop"></span>
-
-
-                       <!-- <select class="check" name="" syle="background:none;border:none">
-                          <option value="">Attendence</option>
-                          <option value="">add</option>
-                          <option value="">view</option>
-                          <option value="">delete</option>
-
-                        </select>      -->
-
-                       </b>  </button>
+                     <button id="b2" type="submit" name="attendence_btn" onclick="fn()">  <b>  Attendence  </b>  </button>
 
                      <button id="b3" type="submit" name="assignment_btn">    <b>      Assignments   </b> </button>
                      <button id="b4" type="submit" name="quize_btn">         <b>      Quizes   </b> </button>
@@ -300,49 +288,24 @@ if (isset($_POST['attendence_btn'])) {
           </thead>
           <tbody>
                 <tr>
-                  <th scope="row">1</th>
-                  <td>Samreen Qamer</td>
-                  <td><a href="attendence_record.html">Attendence</a></td>
-                  <td><a href="assignment.html">Assignment</a></td>
-                  <td><a href="quize.html">Quiz</a></td>
-                  <td><a href="presentation.html">Presentation</a></td>
+                  <th scope="row">0</th>
+                  <td>Sajid ali gulzar</td>
+                  <td>&nbsp;&nbsp;  80%  &nbsp;&nbsp;&nbsp;&nbsp;<a href="attendence_record.html"> <span class="glyphicon glyphicon-eye-open" style="color: black;"></span></a></td>
+                  <td>&nbsp;&nbsp;  80 out of 100  &nbsp;&nbsp;&nbsp;&nbsp;<a href="assignment.html"><span class="glyphicon glyphicon-eye-open" style="color: black;"></span></a></td>
+                  <td>&nbsp;&nbsp;  20 out of 25  &nbsp;&nbsp;&nbsp;&nbsp;<a href="quize.html"><span class="glyphicon glyphicon-eye-open" style="color: black;"></span></a></td>
+                  <td>&nbsp;&nbsp;  5 out of 10  &nbsp;&nbsp;&nbsp;&nbsp;<a href="presentation.html"><span class="glyphicon glyphicon-eye-open" style="color: black;"></span></a></td>
 
                 </tr>
                 <tr>
-                  <th scope="row">2</th>
-                  <td>Sajid Khattak</td>
-                  <td><a href="attendence_record.html">Attendence</a></td>
-                  <td><a href="assignment.html">Assignment</a></td>
-                  <td><a href="quize.html">Quiz</a></td>
-                  <td><a href="presentation.html">Presentation</a></td>
+                  <th scope="row">0</th>
+                  <td>Sajid ali gulzar</td>
+                  <td>&nbsp;&nbsp;  60%  &nbsp;&nbsp;&nbsp;&nbsp;<a href="attendence_record.html"> <span class="glyphicon glyphicon-eye-open" style="color: black;"></span></a></td>
+                  <td>&nbsp;&nbsp;  70 out of 100  &nbsp;&nbsp;&nbsp;&nbsp;<a href="assignment.html"><span class="glyphicon glyphicon-eye-open" style="color: black;"></span></a></td>
+                  <td>&nbsp;&nbsp; 15 out of 25  &nbsp;&nbsp;&nbsp;&nbsp;<a href="quize.html"><span class="glyphicon glyphicon-eye-open" style="color: black;"></span></a></td>
+                  <td>&nbsp;&nbsp;  6 out of 10  &nbsp;&nbsp;&nbsp;&nbsp;<a href="presentation.html"><span class="glyphicon glyphicon-eye-open" style="color: black;"></span></a></td>
 
                 </tr>
-                  <tr>
-                    <th scope="row">3</th>
-                    <td>Nazia noor</td>
-                    <td><a href="attendence_record.html">Attendence</a></td>
-                    <td><a href="assignment.html">Assignment</a></td>
-                    <td><a href="quize.html">Quiz</a></td>
-                    <td><a href="presentation.html">Presentation</a></td>
-                  </tr>
-                    <tr>
-                      <th scope="row">4</th>
-                      <td>uzma</td>
-                      <td><a href="attendence_record.html">Attendence</a></td>
-                      <td><a href="assignment.html">Assignment</a></td>
-                      <td><a href="quize.html">Quiz</a></td>
-                      <td><a href="presentation.html">Presentation</a></td>
 
-                    </tr>
-                    <tr>
-                      <th scope="row">5</th>
-                      <td>irfan yousaf</td>
-                      <td><a href="attendence_record.html">Attendence</a></td>
-                      <td><a href="assignment.html">Assignment</a></td>
-                      <td><a href="quize.html">Quiz</a></td>
-                      <td><a href="presentation.html">Presentation</a></td>
-
-                    </tr>
 
             </tbody>
       </table>
