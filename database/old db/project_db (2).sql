@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 22, 2019 at 06:05 PM
+-- Generation Time: Nov 18, 2019 at 08:29 PM
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.3.11
 
@@ -25,28 +25,15 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `assignment`
---
-
-CREATE TABLE `assignment` (
-  `A_id` int(30) NOT NULL,
-  `name` varchar(50) NOT NULL,
-  `a_date` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `class`
 --
 
 CREATE TABLE `class` (
-  `Class_id` bigint(30) NOT NULL,
+  `Class_id` int(11) NOT NULL,
   `Name` varchar(30) NOT NULL,
-  `Enrollment_key` varchar(50) NOT NULL DEFAULT '',
+  `Enrollment_key` varchar(50) NOT NULL DEFAULT 'NULL',
   `Class_session` varchar(30) DEFAULT NULL,
   `Start_date` date NOT NULL,
-  `currenttime` time NOT NULL,
   `Expire_date` date NOT NULL,
   `T_id` bigint(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -55,8 +42,9 @@ CREATE TABLE `class` (
 -- Dumping data for table `class`
 --
 
-INSERT INTO `class` (`Class_id`, `Name`, `Enrollment_key`, `Class_session`, `Start_date`, `currenttime`, `Expire_date`, `T_id`) VALUES
-(1, 'mscfinal', 'msc007', '2019-2022', '2019-11-22', '09:01:14', '2019-11-30', 1);
+INSERT INTO `class` (`Class_id`, `Name`, `Enrollment_key`, `Class_session`, `Start_date`, `Expire_date`, `T_id`) VALUES
+(1, 'mscfinal', '205142', '2017-uop', '2019-11-06', '2019-11-28', 5),
+(2, 'bs_semister1', '100000', '2018', '2019-11-06', '2019-11-20', 6);
 
 -- --------------------------------------------------------
 
@@ -74,35 +62,37 @@ CREATE TABLE `class_room` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `have`
---
-
-CREATE TABLE `have` (
-  `Subject_id` bigint(20) NOT NULL,
-  `Class_id` bigint(30) NOT NULL,
-  `S_id` bigint(30) NOT NULL,
-  `A_id` int(30) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `have`
---
-
-INSERT INTO `have` (`Subject_id`, `Class_id`, `S_id`, `A_id`) VALUES
-(19, 1, 0, 0);
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `register`
 --
 
 CREATE TABLE `register` (
-  `Class_id` bigint(30) NOT NULL,
+  `Class_id` int(30) NOT NULL,
   `S_id` bigint(30) NOT NULL,
   `Reg_no` int(20) NOT NULL,
   `Enrollment_key` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `register`
+--
+
+INSERT INTO `register` (`Class_id`, `S_id`, `Reg_no`, `Enrollment_key`) VALUES
+(1, 1, 0, 'bssemister1'),
+(1, 1, 0, 'msc_final2017'),
+(1, 3, 0, '205142'),
+(1, 4, 0, '205142'),
+(1, 5, 0, '205142'),
+(1, 7, 0, '205142'),
+(1, 8, 0, '205142'),
+(1, 9, 0, '205142'),
+(1, 10, 0, '205142'),
+(1, 11, 0, '205142'),
+(1, 12, 0, '205142'),
+(1, 13, 0, '205142'),
+(1, 14, 0, '205142'),
+(1, 15, 0, '205142'),
+(1, 16, 0, '205142'),
+(2, 2, 0, '205142');
 
 -- --------------------------------------------------------
 
@@ -146,34 +136,9 @@ INSERT INTO `student` (`S_id`, `student_name`, `Email`, `password`) VALUES
 --
 
 CREATE TABLE `subject` (
-  `Subject_id` bigint(20) NOT NULL,
+  `Subject_id` int(20) NOT NULL,
   `subject_name` varchar(80) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `subject`
---
-
-INSERT INTO `subject` (`Subject_id`, `subject_name`) VALUES
-(1, 'c++'),
-(2, 'php'),
-(3, 'js'),
-(4, 'database'),
-(5, 'c Plus Plus'),
-(6, 'db'),
-(7, 'html'),
-(8, 'os'),
-(9, 'chemistry'),
-(10, 'DataStructure'),
-(11, 'biology'),
-(12, 'zoology'),
-(13, 'physics'),
-(14, 'ps'),
-(15, 'bio'),
-(16, 'gdsgs'),
-(17, 'is'),
-(18, 'sql'),
-(19, 'opp');
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -183,7 +148,7 @@ INSERT INTO `subject` (`Subject_id`, `subject_name`) VALUES
 
 CREATE TABLE `take` (
   `S_id` bigint(30) NOT NULL,
-  `Subject_id` bigint(20) NOT NULL,
+  `Subject_id` int(20) NOT NULL,
   `Attendence` varchar(30) NOT NULL,
   `A_date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -211,7 +176,16 @@ CREATE TABLE `teacher` (
 --
 
 INSERT INTO `teacher` (`T_id`, `Name`, `Contact_no`, `Cnic`, `Institute_name`, `Country`, `City`, `Email`, `Password`) VALUES
-(1, 'Sajid khattak', 31012345967, '1234567894567', 'Qurtuba University', 'pakistan', 'peshawar', 'sajid@gmail.com', '1234567890');
+(5, 'sajid', 3102093992, '1420279089405', 'university of peshawar', 'pakistan', 'peshawar', 'sajid@gmail.com', '1234567890'),
+(6, 'faheem', 112345789, '12345678905678', 'asdfghwertyuio', 'asdfghjuiodfgh', 'xcfghjmkgh', 'asdfg@asdfghj', '1234567890'),
+(7, 'sajid', 3102093992, '784653128965432', 'fhdfgsfdgs', 'hdrgsdw', 'hdgsvz', 's@s', '123456789'),
+(8, 'faheem', 1234567890, '1234567890', 'sdfghjk', 'werfghn', 'cfghjk', 'faheem@gmail.com', '1234567890'),
+(9, 'owais', 1234567890, '1234567890', 'sdfghjk', 'werfghn', 'cfghjk', 'owais@gmail.com', '1234567890'),
+(3010120, 'sajid', 3102093992, '1420279089405', 'klsdfljs', 'dssfda', 'asfdsa', 'sss@sss', '123456789'),
+(3010121, 'ihsan', 1234567890, '123456789045656', 'sdfkhl', 'gshgjkdlh', 'skjf sdfal', 'ihsan@gmail.com', '1234567890'),
+(3010122, 'jamal', 1223567980908, '123456789098765', 'dgfhjk', 'ghjHGHJ', 'srydtfyghkljk', 'jamal@gmail.com', '1234567890'),
+(3010123, 'khattak', 1111111111111, '122222222222222', 'sjdfk salf ', 'aklfsfjlk asfkjlj', 'sldkflj slj', 'ktk@gmail.com', '11111111'),
+(3010124, 'jani', 2302939103103, '12223913931384', 'aksjf sahk', 'asfkjlfj', 'ashdhfkj ', 'mm@gm', '1234567890');
 
 -- --------------------------------------------------------
 
@@ -221,7 +195,7 @@ INSERT INTO `teacher` (`T_id`, `Name`, `Contact_no`, `Cnic`, `Institute_name`, `
 
 CREATE TABLE `teachs` (
   `T_id` bigint(20) NOT NULL,
-  `Subject_id` bigint(20) NOT NULL,
+  `Subject_id` int(30) NOT NULL,
   `teach_date` date NOT NULL,
   `Assignment` int(11) NOT NULL,
   `Quizez` int(11) NOT NULL,
@@ -231,12 +205,6 @@ CREATE TABLE `teachs` (
 --
 -- Indexes for dumped tables
 --
-
---
--- Indexes for table `assignment`
---
-ALTER TABLE `assignment`
-  ADD PRIMARY KEY (`A_id`);
 
 --
 -- Indexes for table `class`
@@ -254,15 +222,6 @@ ALTER TABLE `class`
 ALTER TABLE `class_room`
   ADD PRIMARY KEY (`CR_id`,`C_Session`),
   ADD KEY `Subject_id` (`Subject_id`);
-
---
--- Indexes for table `have`
---
-ALTER TABLE `have`
-  ADD KEY `Class_id` (`Class_id`),
-  ADD KEY `have_ibfk_2` (`Subject_id`),
-  ADD KEY `S_id` (`S_id`),
-  ADD KEY `A_id` (`A_id`);
 
 --
 -- Indexes for table `register`
@@ -283,7 +242,8 @@ ALTER TABLE `student`
 -- Indexes for table `subject`
 --
 ALTER TABLE `subject`
-  ADD PRIMARY KEY (`Subject_id`);
+  ADD PRIMARY KEY (`Subject_id`),
+  ADD KEY `Subject_id` (`Subject_id`);
 
 --
 -- Indexes for table `take`
@@ -305,24 +265,17 @@ ALTER TABLE `teacher`
 --
 ALTER TABLE `teachs`
   ADD PRIMARY KEY (`T_id`,`Subject_id`,`teach_date`),
-  ADD KEY `Subject_id` (`Subject_id`),
-  ADD KEY `T_id` (`T_id`);
+  ADD KEY `Subject_id` (`Subject_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT for table `assignment`
---
-ALTER TABLE `assignment`
-  MODIFY `A_id` int(30) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `class`
 --
 ALTER TABLE `class`
-  MODIFY `Class_id` bigint(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `Class_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `class_room`
@@ -337,16 +290,46 @@ ALTER TABLE `student`
   MODIFY `S_id` bigint(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
--- AUTO_INCREMENT for table `subject`
---
-ALTER TABLE `subject`
-  MODIFY `Subject_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
-
---
 -- AUTO_INCREMENT for table `teacher`
 --
 ALTER TABLE `teacher`
-  MODIFY `T_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `T_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3010125;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `class`
+--
+ALTER TABLE `class`
+  ADD CONSTRAINT `class_ibfk_1` FOREIGN KEY (`T_id`) REFERENCES `teacher` (`T_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `class_room`
+--
+ALTER TABLE `class_room`
+  ADD CONSTRAINT `class_room_ibfk_1` FOREIGN KEY (`Subject_id`) REFERENCES `subject` (`Subject_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `register`
+--
+ALTER TABLE `register`
+  ADD CONSTRAINT `register_ibfk_1` FOREIGN KEY (`Class_id`) REFERENCES `class` (`Class_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `register_ibfk_2` FOREIGN KEY (`S_id`) REFERENCES `student` (`S_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `take`
+--
+ALTER TABLE `take`
+  ADD CONSTRAINT `take_ibfk_1` FOREIGN KEY (`Subject_id`) REFERENCES `subject` (`Subject_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `take_ibfk_2` FOREIGN KEY (`S_id`) REFERENCES `student` (`S_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `teachs`
+--
+ALTER TABLE `teachs`
+  ADD CONSTRAINT `teachs_ibfk_2` FOREIGN KEY (`Subject_id`) REFERENCES `subject` (`Subject_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
