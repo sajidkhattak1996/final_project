@@ -117,8 +117,8 @@
                                           <tbody>
                                                   <tr>
                                                     <td scope="row">23432</td>
-                                                    <td><a href="">Msc final</a></td>
-                                                    <td><a href="">C++</a></td>
+                                                    <td><a href="class_page.php">Msc final</a></td>
+                                                    <td><a href="subject.php">C++</a></td>
                                                     <td>10-10-2019</td>
                                                     <td><button class="btn btn-outline-info btn-lg">Click</button</td>
                                                     <td><button class="btn btn-outline-primary" style="border:none"> <span class="glyphicon glyphicon-pencil" style="font-size: 14px"></span></button> </td>
@@ -162,8 +162,8 @@
                                           <tbody>
                                                 <tr>
                                                   <td scope="row">23432</td>
-                                                  <td><a href="">Msc final</a></td>
-                                                  <td><a href="">C++</a></td>
+                                                  <td><a href="class_page.php">Msc final</a></td>
+                                                  <td><a href="subject.php">C++</a></td>
                                                   <td>1-1-2019</td>
                                                   <td>10-10-2019</td>
                                                   <td><button class="btn btn-outline-info btn-lg">Click</button</td>
@@ -173,8 +173,8 @@
                                                 </tr>
                                                 <tr>
                                                   <td scope="row">23432</td>
-                                                  <td><a href="">Msc final</a></td>
-                                                  <td><a href="">database</a></td>
+                                                  <td><a href="class_page.php">Msc final</a></td>
+                                                  <td><a href="subject.php">database</a></td>
                                                   <td>1-1-2019</td>
                                                   <td>10-10-2019</td>
                                                   <td><button class="btn btn-outline-info btn-lg">Click</button</td>
@@ -184,8 +184,8 @@
                                                 </tr>
                                                 <tr>
                                                   <td scope="row">23432</td>
-                                                  <td><a href="">Msc final</a></td>
-                                                  <td><a href="">java</a></td>
+                                                  <td><a href="class_page.php">Msc final</a></td>
+                                                  <td><a href="subject.php">java</a></td>
                                                   <td>1-1-2019</td>
                                                   <td>10-10-2019</td>
                                                   <td><button class="btn btn-outline-info btn-lg">Click</button</td>

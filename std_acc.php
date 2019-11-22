@@ -17,7 +17,7 @@
               <div id="top_head" ><center><b>Create Account</b></center><br></div>
               <div class="row" id="insidediv">
 
-              <div class="col-5" style="margin: 0 auto">
+              <div class="col-2" style="margin: 0 auto">
                     <div class="form-group input-group-lg">
                       <label id="input_labal"><b>Class ID :</b></label>
                       <input type="text" id="std" name="class_id" value="<?php if(isset($_POST['btn_sp'])){ echo $_POST['class_id']; }; ?>"  placeholder="Enter Class ID" class="form-control text" autocomplete="off" required pattern="\d+" title="Please enter only pasitive numbers" minlength="1">
@@ -25,11 +25,18 @@
                       </div>
               </div>
 
-              <div class="col-5" style="margin: 0 auto">
+              <div class="col-2" style="margin: 0 auto">
                     <div class="form-group input-group-lg">
                     <label id="input_labal"><b>Enrollment Key :</b></label>
                     <input type="text" id="enroll" name="enroll_key" value="<?php if(isset($_POST['btn_sp'])){ echo $_POST['enroll_key']; }; ?>"  placeholder="Enter Enrollment Key" class="form-control text " autocomplete="off" required minlength="3">
                     <span id="enr" class="font-weight-bold" style="color:greenyellow"></span>
+                    </div>
+              </div>
+              <div class="col-2" style="margin: 0 auto">
+                    <div class="form-group input-group-lg">
+                    <label id="input_labal"><b>Subject ID:</b></label>
+                    <input type="text" id="std" name="subject_id" value="<?php if(isset($_POST['btn_sp'])){ echo $_POST['subject_id']; }; ?>"  placeholder="Enter Subject ID" class="form-control text" autocomplete="off" required pattern="\d+" title="Please enter only pasitive numbers" minlength="1">                    <span id="enr" class="font-weight-bold" style="color:greenyellow"></span>
+                      <span id="smsg" class="font-weight-bold" style="color:greenyellow"></span>
                     </div>
               </div>
 
@@ -112,12 +119,15 @@
                 $password2   =   $_POST['password2'];
                 $class_id    =   $_POST['class_id'];
                 $enroll_key  =   $_POST['enroll_key'];
+                $subject_id  =   $_POST['subject_id'];
 
                 $con =mysqli_connect("localhost","root","","project_db");
                 if ($con) {
 
                   $statement1 ="SELECT Class_id,Enrollment_key FROM class WHERE Class_id ='$class_id' AND Enrollment_key='$enroll_key'";
                   $q1=mysqli_query($con ,$statement1);
+
+
                   if ($q1) {
                     $r =mysqli_num_rows($q1);
                     if ($r==1) {

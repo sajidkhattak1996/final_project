@@ -13,7 +13,9 @@ if (isset($_SESSION['email']) &&  isset($_SESSION['pass']) )
           //it extract the record inthe form of associative array or key index array
             $row =mysqli_fetch_array($executeq1);
               //the above record are use inthe below html code
+              $_SESSION['t_id']= $row['T_id'];
               $_SESSION['institute'] = $row['Institute_name'];
+
         }
         else {
           echo "<script> alert('Problem Occur while Extreting record from databse '); </script>";
@@ -124,7 +126,16 @@ if (isset($_SESSION['email']) &&  isset($_SESSION['pass']) )
             <li><a href=""><?php echo $row['Name']; ?></a></li>
             <li><a href=""><?php echo $row['Email']; ?></a></li>
             <li><a href="#"><?php echo $row['Contact_no']; ?></a></li>
-            <li ><a href="../index.php">Log out</a></li>
+            <style >
+              #lout:hover{ background: #ca0b00;font-weight: bolder;}
+            </style>
+      <form action="" method="post"><li><a href="" id="lout"><button name="logout" style="border:none;background:none">log out</button></a></li></form>
+<?php
+  if (isset($_POST['logout'])) {
+    session_destroy();
+    echo "<script>   window.location.assign('../index.php');  </script>  ";
+  }
+?>
 
         </ul>
     </nav1>
