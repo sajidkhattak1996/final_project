@@ -97,7 +97,7 @@
             border-radius: 7px 7px 0px 0px;
           }
       </style>
-
+<!-- expired classes div is here -->
       <div id="expire_class" style="display: block">
           <div class="tstart" style="padding-top:5px;margin-top: 20px;">
             <h2 class="text-left">Institute Name: <?php echo $_SESSION['institute']; ?> </h2>
@@ -131,7 +131,7 @@
                           </div>
 
 
-          </div>
+          </div> <!--ended -->
 
       </div>
 
@@ -140,72 +140,24 @@
       }
       ?>
 
-
-      <div id="active_class">
-          <div class="tstart" style="padding-top:5px;margin-top: 20px;">
-            <h2 class="text-left">Institute Name: <?php echo $_SESSION['institute']; ?> </h2>
-          </div>
-
-                              <table class="table table-striped table-bordered table-hover table-sm table-light" >
-                                        <thead class="bg-info">
-                                            <tr>
-                                                  <th scope="col" scope="row">Class ID</th>
-                                                  <th scope="col">Class Name</th>
-                                                  <th scope="col">Subject</th>
-                                                  <th scope="col">Start Date</th>
-                                                  <th scope="col">Expire Date</th>
-                                                  <th scope="col">Slides</th>
-                                                  <th scope="col">Edit</th>
-                                                  <th scope="col">Drop</th>
-                                            </tr>
-                                        </thead>
-                                          <tbody>
-                                                <tr>
-                                                  <td scope="row">23432</td>
-                                                  <td><a href="class_page.php">Msc final</a></td>
-                                                  <td><a href="subject.php">C++</a></td>
-                                                  <td>1-1-2019</td>
-                                                  <td>10-10-2019</td>
-                                                  <td><button class="btn btn-outline-info btn-lg">Click</button</td>
-                                                  <td><button class="btn btn-outline-primary" style="border:none"> <span class="glyphicon glyphicon-pencil" style="font-size: 14px"></span></button> </td>
-                                                  <td><button class="btn btn-outline-danger" style="border:none"> <span class="glyphicon glyphicon-trash" style="font-size: 14px;border"></span></button> </td>
-
-                                                </tr>
-                                                <tr>
-                                                  <td scope="row">23432</td>
-                                                  <td><a href="class_page.php">Msc final</a></td>
-                                                  <td><a href="subject.php">database</a></td>
-                                                  <td>1-1-2019</td>
-                                                  <td>10-10-2019</td>
-                                                  <td><button class="btn btn-outline-info btn-lg">Click</button</td>
-                                                  <td><button class="btn btn-outline-primary" style="border:none"> <span class="glyphicon glyphicon-pencil" style="font-size: 14px"></span></button> </td>
-                                                  <td><button class="btn btn-outline-danger" style="border:none"> <span class="glyphicon glyphicon-trash" style="font-size: 14px"></span></button> </td>
-
-                                                </tr>
-                                                <tr>
-                                                  <td scope="row">23432</td>
-                                                  <td><a href="class_page.php">Msc final</a></td>
-                                                  <td><a href="subject.php">java</a></td>
-                                                  <td>1-1-2019</td>
-                                                  <td>10-10-2019</td>
-                                                  <td><button class="btn btn-outline-info btn-lg">Click</button</td>
-                                                  <td><button class="btn btn-outline-primary" style="border:none"> <span class="glyphicon glyphicon-pencil" style="font-size: 14px"></span></button> </td>
-                                                  <td><button class="btn btn-outline-danger" style="border:none"> <span class="glyphicon glyphicon-trash" style="font-size: 14px"></span></button> </td>
-
-                                                </tr>
+      <!-- all active classes -->
+            <div id="active_class">
+                <div class="tstart" style="padding-top:5px;margin-top: 20px;">
+                  <h2 class="text-left">Institute Name:  </h2>
+                </div>
 
 
-                                          </tbody>
-                              </table>
-                          <div class="tend">
+                                                        <?php
 
-                          </div>
+                                                        include('fetch_active_classes.php');
 
 
-          </div>
+                                                        ?>
 
-      </div>
 
+
+
+                </div>
 
 
         </body>

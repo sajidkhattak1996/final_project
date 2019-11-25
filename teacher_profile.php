@@ -185,6 +185,8 @@
 
                       if(mysqli_query($con, $sql)) {
                         echo "<script> alert('your account are created ....') </script>";
+                        $_SESSION['email']= $email;
+                        $_SESSION['pass']=$pass;
                         echo "<script> document.location.assign('teacher_table/tmain_table.php'); </script>";
                         mysqli_close($con);
                       }

@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>dynamic aditable document contenct</title>
+</head>
+
+<body>
+	<div id="mydiv">
+	  <h2> Enter Your Note: </h2>
+			<p class="test"> Hi My Name is Muhammad Sajid and I belong form karak.</p>
+			<button id="edit">Edit</button>
+			<button id="save" style="display: none">Save</button>
+	</div>
+	<script src="js/jquery.js"></script>
+	<script>
+		$(document).on('click','button#edit',function(){
+			$(this).hide();
+			$('button#save').show();
+			$('p.test').attr('contenteditable','true').focus();
+		});
+		
+		$(document).on('click','button#save',function(){
+			$('this').hide();
+			$('button#edit').show();
+			var newText =$('p.test').text();
+			localStorage.content = newText;
+			alert('content are successfully edited');
+		});
+		if(localStorage.getItem('content')){
+			$('p').text(localStorage.getItem('content'));
+		}
+	
+	</script>
+<!--html5 direct editabel content-->
+	<div>
+		<p contenteditable="true">
+				hi my name is khattak ....
+		</p>
+	</div>
+	
+	
+</body>
+</html>

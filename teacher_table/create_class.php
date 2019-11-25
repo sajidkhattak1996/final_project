@@ -153,7 +153,8 @@
                 //fatchinh record from query
                 $row =mysqli_num_rows($result);
                 if ($row==1) {
-                  $_SESSION['subject_id'] = $row['Subject_id'];
+                  $rr=mysqli_fetch_array($result);
+                  $_SESSION['subject_id'] = $rr['Subject_id'];
                   $status_subject=1;
                 }else {
                   $stmt2 ="INSERT INTO subject (subject_name) VALUES ('$subject_name')";
@@ -165,7 +166,7 @@
                     $row5=mysqli_fetch_array($result5);
                     $_SESSION['subject_id'] = $row5['Subject_id'];
 
-                    $status_subject=$result2;
+                    $status_subject=1;
 
                   }
                 }
@@ -273,8 +274,9 @@
                                                                    <h4>
                                                                          <ul>
                                                                            <li id="vl">Class ID:<strong><?php echo $_SESSION['Class_id'];  ?> </strong> </li>
-                                                                           <li id="vl">Enrollment key: <?php echo $_SESSION['Class_id'];  ?></li>
-                                                                           <li id="vl">Subject ID: <?php  echo $enroll_key; ?>  </li>
+                                                                           <li id="vl">Enrollment key: <?php echo $enroll_key;  ?></li>
+                                                                           <li id="vl">Subject ID: <?php  echo $_SESSION['subject_id']; ?>  </li>
+
                                                                          </ul>
                                                                    </h4>
                                                                  </p>
