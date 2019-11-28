@@ -101,34 +101,14 @@
       <div id="expire_class" style="display: block">
           <div class="tstart" style="padding-top:5px;margin-top: 20px;">
             <h2 class="text-left">Institute Name: <?php echo $_SESSION['institute']; ?> </h2>
+
           </div>
+          <?php
 
-                              <table class="table table-striped table-bordered table-hover table-sm table-light" >
-                                        <thead class="bg-info">
-                                            <tr>
-                                                  <th scope="col" scope="row">Class ID</th>
-                                                  <th scope="col">Class Name</th>
-                                                  <th scope="col">Subject</th>
-                                                  <th scope="col">Date</th>
-                                                  <th scope="col">Slide</th>
-                                                  <th scope="col">Edit</th>
-                                            </tr>
-                                        </thead>
-                                          <tbody>
-                                                  <tr>
-                                                    <td scope="row">23432</td>
-                                                    <td><a href="class_page.php">Msc final</a></td>
-                                                    <td><a href="subject.php">C++</a></td>
-                                                    <td>10-10-2019</td>
-                                                    <td><button class="btn btn-outline-info btn-lg">Click</button</td>
-                                                    <td><button class="btn btn-outline-primary" style="border:none"> <span class="glyphicon glyphicon-pencil" style="font-size: 14px"></span></button> </td>
-                                                  </tr>
+          include('fetch_expire_classes.php');
 
-                                          </tbody>
-                              </table>
-                          <div class="tend">
 
-                          </div>
+          ?>
 
 
           </div> <!--ended -->
@@ -140,10 +120,12 @@
       }
       ?>
 
-      <!-- all active classes -->
+      <!-- all active classes --><style> #dmsg{ display: none} </style>
             <div id="active_class">
                 <div class="tstart" style="padding-top:5px;margin-top: 20px;">
-                  <h2 class="text-left">Institute Name:  </h2>
+                  <h2 class="text-left">Institute Name: <?php  echo $_SESSION['institute'];?>
+                  </h2>
+                    <span class="alert alert-primary"  id="dmsg" style="float: right;margin-top: -20px;margin-right:30px;">Record Successfully Deleted.</span>
                 </div>
 
 
@@ -157,7 +139,7 @@
 
 
 
-                </div>
+                </div> <!--ended-->
 
 
         </body>

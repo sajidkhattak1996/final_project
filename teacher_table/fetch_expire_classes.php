@@ -16,16 +16,16 @@ $currentPage = $_GET['page'];
 $currentPage = 1;
 }
 $startFrom = ($currentPage * $showRecordPerPage) - $showRecordPerPage;
-$totalClassSQL = "SELECT Class_id,Name,Start_date,Expire_date from class WHERE T_id='$teacher_id' AND Expire_date >= '$current_date' ";
-$ClassResult = mysqli_query($conn, $totalClassSQL);
-$totalRow = mysqli_num_rows($ClassResult);
-$lastPage = ceil($totalRow/$showRecordPerPage);
+$totalEmpSQL = "SELECT Class_id,Name,Start_date,Expire_date from class WHERE T_id='$teacher_id' AND Expire_date < '$current_date' ";
+$allEmpResult = mysqli_query($conn, $totalEmpSQL);
+$totalEmployee = mysqli_num_rows($allEmpResult);
+$lastPage = ceil($totalEmployee/$showRecordPerPage);
 $firstPage = 1;
 $nextPage = $currentPage + 1;
 $previousPage = $currentPage - 1;
-$ClassSQL = "SELECT Class_id,Name,Start_date,Expire_date
-FROM `class` WHERE T_id='$teacher_id' AND Expire_date >= '$current_date' LIMIT $startFrom, $showRecordPerPage";
-$classResult = mysqli_query($conn, $ClassSQL);
+$empSQL = "SELECT Class_id,Name,Start_date,Expire_date
+FROM `class` WHERE T_id='$teacher_id' AND Expire_date < '$current_date' LIMIT $startFrom, $showRecordPerPage";
+$empResult = mysqli_query($conn, $empSQL);
 ?>
 <table class="table table-striped table-bordered table-hover table-sm table-light" >
           <thead class="bg-info">
@@ -42,26 +42,26 @@ $classResult = mysqli_query($conn, $ClassSQL);
           </thead>
             <tbody>
 <?php
-while($class = mysqli_fetch_assoc($classResult)){
+while($emp = mysqli_fetch_assoc($empResult)){
 ?>
 <tr>
-<th scope="row"><?php echo $class['Class_id']; ?></th>
+<th scope="row"><?php echo $emp['Class_id']; ?></th>
 <td><style> #classbtn{background:none;border:none;color: blue} #classbtn:hover{border-bottom: solid 2px blue;} </style>
     <form action="" method="post">
       <button type="submit" name="class_name" id="classbtn">
-        <?php echo $class['Name'];  ?>
+        <?php echo $emp['Name'];  ?>
       </button>
     </form>
 </td>
-<?php  mysubject($class['Class_id']);     ?>
-<td><?php echo $class['Start_date']; ?></td>
-<td><?php echo $class['Expire_date']; ?></td>
+<?php  mysubject($emp['Class_id']);     ?>
+<td><?php echo $emp['Start_date']; ?></td>
+<td><?php echo $emp['Expire_date']; ?></td>
 <?php
 //functions call
 
-Slides($class['Class_id'],$class['Name']);
-Edit($class['Name']);
-Delete($class['Class_id'],$class['Name']);
+Slides($emp['Class_id'],$emp['Name']);
+Edit($emp['Name']);
+Delete($emp['Class_id'],$emp['Name']);
 ?>
 </tr>
 <?php } ?>
@@ -128,7 +128,7 @@ Delete($class['Class_id'],$class['Name']);
 
           function Slides($i ,$s){ ?>
           <td>    <form class="" action="" method="post">
-                    <button type="submit" name="btn_slide" value="<?php  echo $i; ?>" class="btn btn-outline-info btn-sm">Slides</button>
+                    <button type="submit" name="button" value="<?php  echo $i; ?>" class="btn btn-outline-info btn-sm">Slides</button>
                     <input type="text" name="s" value="<?php echo $s; ?>" style="display:none">
               </form>
             </td>
@@ -197,27 +197,17 @@ Delete($class['Class_id'],$class['Name']);
 
     }
   }
-// ended
 
-// slid btn click event handling
-    if (isset($_POST['btn_slide'])) {
-      $cid= $_POST['btn_slide'];
+    if (isset($_POST['button'])) {
+      $cid= $_POST['button'];
       $sid= $_POST['s'];
 
       echo "<h1>".$cid."</h1>";
       echo "<h1>".$sid."</h1>";
-      echo "<pre>". print_r($_SESSION, true) ."</pre>";
-    }  //ended
-
-//subject button evenr are handling
+    }
 if (isset($_POST['btn_subject'])) {
-    $_SESSION['class_id']=$_POST['btn_subject'];
-    $_SESSION['subject_id']=$_POST['subjectid'];
-    ?>
-    <script> window.location.href='subject.php' </script> /* it redirect to the sucject page */
-    <?php
-  }
-//ended
-
+  echo "btn_subject are press: and class id==".$_POST['btn_subject'];
+  echo "subject id  is :  ".$_POST['subjectid'];
+}
 
 ?>

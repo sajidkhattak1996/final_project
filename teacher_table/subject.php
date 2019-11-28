@@ -18,7 +18,7 @@
       <!-- below area and button such classes helps etc -->
       <div class="bttn" style="background: #008c7e;">
                 <ul>
-                    <a href="tmain_table.php">    <button class="btn btn-outline-light btn-lg bg-light text-dark">         All Classes           </button> </a>
+                    <a href="tmain_table.php"> <form>   <button class="btn btn-outline-light btn-lg bg-light text-dark">         All Classes           </button> </form> </a>
                        <a href="create_class.php"><button class="btn btn-outline-light btn-lg">    Create New Class     </button>  </a>
                           <a href="helps.php" >         <button class="btn btn-outline-light btn-lg">        Helps               </button>  </a>
 
@@ -26,69 +26,72 @@
         </div>
       <!--above button container are ended -->
 
-      <div class="about_area">
+      <div class="about_area" >
           <div class="viewing_area">
-            <h5>NOW VIEWING :> <a href="" style="color: blue"> All Classes  </a></h5>
+            <h5>NOW VIEWING :> <a href="" style="color: blue"> Specific Class Name  </a></h5>
+            <h5 style="padding-top: 10px;">Subject Name :> <span href="" style="color: deeppink;font-weight: bolder;letter-spacing: 0.8px"> class subject name  </span></h5>
           </div>
-
-          <div class="about">
-              <h2>About this page </h2>
-              <p class="text">
-                This is your Teacher Homepage. The Homepage show the classes you are Created and along with the Start and Expire date. You can also Add,Drop ,Edit Add Slides to the Class
-                Details. Your Expired Classes are move to the Expired Classes Area.You see Class inside details by clicking on the Class Name.
-
-                you'r Class records.
-
-              </p>
-
-          </div>
-
       </div>
 
 
 
-            <div class="container-fluid" id="table_maindiv">
-
-
-            <div id="expire_class" style="display: block">
-                <div class="tstart" style="padding-top:5px;margin-top: 20px;">
-                  <h2 class="text-left">Institute Name: <?php echo $_SESSION['institute']; ?> </h2>
-                </div>
-
-                                    <table class="table table-striped table-bordered table-hover table-sm table-light" >
-                                              <thead class="bg-info">
-                                                  <tr>
-                                                        <th scope="col" scope="row">Class Name</th>
-                                                        <th scope="col">Subject Name</th>
-                                                        <th scope="col">Attendence</th>
-                                                        <th scope="col">Assignment</th>
-                                                        <th scope="col">Presentation</th>
-                                                        <th scope="col">Quizes</th>
-                                                  </tr>
-                                              </thead>
-                                                <tbody>
+  <div class="container-fluid" id="table_maindiv" >
+            <div id="expire_class" style="display: block;">
+                <div class="tstart" style="padding-top:5px;margin-top: 20px;padding-bottom: 2px">
+                      <h2 class="text-left">&nbsp;Institute Name: <?php echo $_SESSION['institute']; ?> </h2>
+                        <div class="">
+                                  <form class="" action="" method="post">
+                                          <table class="table">
                                                         <tr>
-                                                          <td><a href="class_page.php">Msc final</a></td>
-                                                          <td><a href="">C++</a></td>
-                                                          <td><button class="btn btn-outline-info">Add</button></td>
-                                                          <td><button class="btn btn-outline-info">Add</button></td>
-                                                          <td><button class="btn btn-outline-info">Add</button></td>
-                                                          <td><button class="btn btn-outline-info">Add</button></td>
+                                                              <th scope="col">Class Student</th>
+                                                              <th scope="col">Attendence</th>
+                                                              <th scope="col">Assignment</th>
+                                                              <th scope="col">Presentation</th>
+                                                              <th scope="col">Quizes</th>
                                                         </tr>
-
+                                                  <tbody>
+                                                        <tr>
+                                                              <td scope="col">   <button class="btn btn-primary btn-lg">&nbsp;&nbsp;    Click   &nbsp;&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-eye-open"></span> </button>   </td>
+                                                              <td scope="col"><button class="btn btn-success btn-lg">&nbsp; ADD  &nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-plus"></span> </button></td>
+                                                              <td scope="col"><button class="btn btn-success btn-lg">&nbsp; ADD  &nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-plus"></span>  </button></td>
+                                                              <td scope="col"><button class="btn btn-success btn-lg">&nbsp; ADD  &nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-plus"></span>  </button></td>
+                                                              <td scope="col"><button class="btn btn-success btn-lg"> &nbsp; ADD  &nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-plus"></span> </button></td>
+                                                        </tr>
                                                 </tbody>
-                                    </table>
-                                <div class="tend">
+                                        </table>
+                                  </form>
+                        </div>
+                    </div>
+              </div>
+  </div>
+<div class="container-fluid">
+  <div class="tend"  style="border-radius: 10px 10px 0px 0px"><!--it the div give the above beautiful style to the table top --></div>
+  <table class="table table-striped table-bordered table-hover table-sm table-light" >
+            <thead class="bg-info">
+                <tr>
+                      <th scope="col" scope="row">Reg NO</th>
+                      <th scope="col">Name</th>
+                      <th scope="col">Email</th>
+                </tr>
+            </thead>
+              <tbody>
+                <tr>
+                      <td scope="col" scope="row">Class ID</td>
+                      <td scope="col">Class Name</td>
+                      <td scope="col">Subject</td>
+                </tr>
 
-                                </div>
+              </tbody>
 
-
-                </div>
-
-            </div>
+            </table>
 
 
 
+                              <div class="tend">
+
+                              </div>
+
+</div>
 
 <?php
     }

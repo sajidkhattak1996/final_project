@@ -105,10 +105,27 @@ if (isset($_SESSION['email']) &&  isset($_SESSION['pass']) )
         <script src="js/html5shiv.min.js"></script>
         <![endif]-->
 
+<style>
+      @media (max-width: 410px) AND (min-width: 360px){ body{width:110%;} }
+      @media (max-width: 360px) AND (min-width: 330px) { body{width:118%;} }
+      @media (max-width: 330px) AND (min-width: 300px) { body{width:130%;} }
+      @media (max-width: 300px) AND (min-width: 270px) { body{width:140%;} }
+      @media (max-width: 270px) AND (min-width: 240px) { body{width:157%;} }
+      @media (max-width: 250px) AND (min-width: 240px) { body{width:168%;} }
+      @media (max-width: 240px) AND (min-width: 220px) { body{width:175%;} }
+      @media (max-width: 220px) AND (min-width: 200px) { body{width:180%;} }
+      @media (max-width: 200px) AND (min-width: 190px) { body{width:197%;} }
+      @media (max-width: 190px) AND (min-width: 180px) { body{width:225%;} }
+      @media (max-width: 180px) AND (min-width: 150px) { body{width:240%;} }
+      @media (max-width: 150px) AND (min-width: 140px) { body{width:280%;} }
+      @media (max-width: 140px) AND (min-width: 120px) { body{width:310%;} }
+      @media (max-width: 120px) AND (min-width: 10px) { body{width:350%;} }
 
+
+</style>
 
       </head>
-    <body>
+    <body >
 
     <!--the top menu and the user information menu are start from here and below wel be the end comment -->
     <!-- div class for the logo on the left most top -->
