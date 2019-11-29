@@ -128,7 +128,7 @@ Delete($emp['Class_id'],$emp['Name']);
 
           function Slides($i ,$s){ ?>
           <td>    <form class="" action="" method="post">
-                    <button type="submit" name="button" value="<?php  echo $i; ?>" class="btn btn-outline-info btn-sm">Slides</button>
+                    <button type="submit" name="btn_slide" value="<?php  echo $i; ?>" class="btn btn-outline-info btn-sm">Slides</button>
                     <input type="text" name="s" value="<?php echo $s; ?>" style="display:none">
               </form>
             </td>
@@ -180,14 +180,7 @@ Delete($emp['Class_id'],$emp['Name']);
             $exe2=mysqli_query($connection,$stmt2);
             if ($exe1 && $exe2) {
 
-              echo "<script>
-                      var a=0;
-                      if (a==0) {
-                        document.getElementById('dmsg').style.display='block';
-
-                         a++;   window.location.assign('tmain_table.php');  }
-
-              </script>";
+              echo "<script>  window.location.href='expire_class.php';            </script>";
 
 
       }
@@ -197,17 +190,18 @@ Delete($emp['Class_id'],$emp['Name']);
 
     }
   }
-
-    if (isset($_POST['button'])) {
-      $cid= $_POST['button'];
+// php code for button slides
+    if (isset($_POST['btn_slide'])) {
+      $cid= $_POST['btn_slide'];
       $sid= $_POST['s'];
 
       echo "<h1>".$cid."</h1>";
       echo "<h1>".$sid."</h1>";
-    }
+    } //ended
+// php code for button subject
 if (isset($_POST['btn_subject'])) {
   echo "btn_subject are press: and class id==".$_POST['btn_subject'];
   echo "subject id  is :  ".$_POST['subjectid'];
-}
+}  //ended
 
 ?>

@@ -197,27 +197,22 @@ Delete($class['Class_id'],$class['Name']);
 
     }
   }
-// ended
-
-// slid btn click event handling
+// slides button
     if (isset($_POST['btn_slide'])) {
       $cid= $_POST['btn_slide'];
       $sid= $_POST['s'];
 
       echo "<h1>".$cid."</h1>";
       echo "<h1>".$sid."</h1>";
-      echo "<pre>". print_r($_SESSION, true) ."</pre>";
-    }  //ended
-
-//subject button evenr are handling
+    }
+// butject button
 if (isset($_POST['btn_subject'])) {
-    $_SESSION['class_id']=$_POST['btn_subject'];
-    $_SESSION['subject_id']=$_POST['subjectid'];
-    ?>
-    <script> window.location.href='subject.php' </script> /* it redirect to the sucject page */
-    <?php
-  }
-//ended
+  $_SESSION['class_id'] = $_POST['btn_subject'];
+  $_SESSION['subject_id'] =$_POST['subjectid'];
+  ?>
+    <script> window.location.href='subject.php';  </script>
 
-
+  <?php
+}
+// ended 
 ?>

@@ -62,34 +62,54 @@
                     </ul>
                 </form>
             </div>
+<?php
+    if (isset($_POST['bb1'])) {
+      echo "<script> window.location.href='tmain_table.php'; </script>";
+    }
 
-      <?php
-      if (isset($_POST['btnexpire'])) {
-              echo "<script> window.location.href='expire_class.php'; </script>";
-      }
-      ?>
+  ?>
 
-      <!-- all active classes --><style> #dmsg{ display: none} </style>
-            <div id="active_class">
-                <div class="tstart" style="padding-top:5px;margin-top: 20px;">
-                  <h2 class="text-left">Institute Name: <?php  echo $_SESSION['institute'];?>
-                  </h2>
-                    <span class="alert alert-primary"  id="dmsg" style="float: right;margin-top: -20px;margin-right:30px;">Record Successfully Deleted.</span>
-                </div>
+      <style >
+        #active_class{ display:none; }
+        #b1{
+          background-image: -webkit-linear-gradient(270deg,rgba(127,243,228,0.52) 0%,rgba(237,251,249,0.81) 100%);
+            background-image: -moz-linear-gradient(270deg,rgba(127,243,228,0.52) 0%,rgba(237,251,249,0.81) 100%);
+            background-image: -o-linear-gradient(270deg,rgba(127,243,228,0.52) 0%,rgba(237,251,249,0.81) 100%);
+            background-image: linear-gradient(180deg,rgba(127,243,228,0.52) 0%,rgba(237,251,249,0.81) 100%);
+          color: #6f9de8;
+          border:solid 1px rgba(127,243,228,0.52);
+          border-radius: 7px 7px 0px 0px;}
+
+          #b2{
+            background-image: -webkit-linear-gradient(180deg,rgba(172,239,224,0.66) 21.76%,rgba(0,140,126,1.00) 98.45%);
+            background-image: -moz-linear-gradient(180deg,rgba(172,239,224,0.66) 21.76%,rgba(0,140,126,1.00) 98.45%);
+            background-image: -o-linear-gradient(180deg,rgba(172,239,224,0.66) 21.76%,rgba(0,140,126,1.00) 98.45%);
+            background-image: linear-gradient(180deg,rgba(172,239,224,0.66) 21.76%,rgba(0,140,126,1.00) 98.45%);
+            color: blue;
+            border-left: solid 1px rgba(172,239,224,0.66);
+            border-top: solid 1px rgba(172,239,224,0.66);
+            border-right: solid 1px rgba(172,239,224,0.66);
+
+            border-radius: 7px 7px 0px 0px;
+          }
+      </style>
+<!-- expired classes div is here -->
+      <div id="expire_class" style="display: block">
+          <div class="tstart" style="padding-top:5px;margin-top: 20px;">
+            <h2 class="text-left">Institute Name: <?php echo $_SESSION['institute']; ?> </h2>
+
+          </div>
+          <?php
+
+          include('fetch_expire_classes.php');
 
 
-                                                        <?php
-
-                                                        include('fetch_active_classes.php');
+          ?>
 
 
-                                                        ?>
+          </div> <!--ended -->
 
-
-
-
-                </div> <!--ended-->
-
+      </div>
 
         </body>
       </html>

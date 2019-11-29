@@ -17,22 +17,60 @@
 
       <!-- below area and button such classes helps etc -->
       <div class="bttn" style="background: #008c7e;">
+          <form method="post">
                 <ul>
-                    <a href="tmain_table.php"> <form>   <button class="btn btn-outline-light btn-lg bg-light text-dark">         All Classes           </button> </form> </a>
-                       <a href="create_class.php"><button class="btn btn-outline-light btn-lg">    Create New Class     </button>  </a>
-                          <a href="helps.php" >         <button class="btn btn-outline-light btn-lg">        Helps               </button>  </a>
+                       <button type="submit" name="all_class" class="btn btn-outline-light btn-lg bg-light text-dark">         All Classes           </button>
+                       <button type="submit" name="create_class"  class="btn btn-outline-light btn-lg">    Create New Class     </button>
+                      <button type="submit" name="help"  class="btn btn-outline-light btn-lg">        Helps               </button>
 
                 </ul>
+            </form>         <?php
+                                  // php code for all_class button
+                                  if (isset($_POST['all_class'])) {
+                                    unset($_SESSION['class_id']);
+                                    unset($_SESSION['subject_id']);
+                                    echo "<script> window.location.href='tmain_table.php'; </script>";
+                                  }
+                                  // php code for create class buttons
+                                  if (isset($_POST['create_class'])) {
+                                    unset($_SESSION['class_id']);
+                                    unset($_SESSION['subject_id']);
+                                    echo "<script> window.location.href='create_class.php'; </script>";
+                                  }
+                                  // php code for help button
+                                  if (isset($_POST['help'])) {
+                                    unset($_SESSION['class_id']);
+                                    unset($_SESSION['subject_id']);
+                                    echo "<script> window.location.href='helps.php'; </script>";
+                                  }
+                            ?>
         </div>
       <!--above button container are ended -->
+      <?php
+          include('db_connection.php');
+          if (isset($con)) {
+            $cid=$_SESSION['class_id'];
+            $stmt_class_name ="SELECT Name FROM class WHERE Class_id = '$cid'";
+            $exe_stmt_class_name=mysqli_query($con ,$stmt_class_name);
+            $r1=mysqli_fetch_array($exe_stmt_class_name);
 
+            $sid=$_SESSION['subject_id'];
+            $stmt_subject_name="SELECT subject_name FROM subject WHERE Subject_id='$sid'";
+            $exe_stmt_subject_name=mysqli_query($con ,$stmt_subject_name);
+            $r2=mysqli_fetch_array($exe_stmt_subject_name);
+
+            ?>
       <div class="about_area" >
           <div class="viewing_area">
-            <h5>NOW VIEWING :> <a href="" style="color: blue"> Specific Class Name  </a></h5>
-            <h5 style="padding-top: 10px;">Subject Name :> <span href="" style="color: deeppink;font-weight: bolder;letter-spacing: 0.8px"> class subject name  </span></h5>
+            <h5>NOW VIEWING :> <a href="" style="color: blue"> <?php echo $r1['Name'];  ?>  </a></h5>
+            <h5 style="padding-top: 10px;">Subject Name :> <span href="" style="color: deeppink;font-weight: bolder;letter-spacing: 0.8px"><?php echo $r2['subject_name'];  ?> </span></h5>
           </div>
       </div>
-
+          <?php
+          }else {
+            echo "problem in the database connection!.... try againg";
+          }
+       ?>
 
 
   <div class="container-fluid" id="table_maindiv" >
@@ -64,6 +102,8 @@
                     </div>
               </div>
   </div>
+
+<!-- below table which display the student record which are enroll in the this class which are clicked    -->
 <div class="container-fluid">
   <div class="tend"  style="border-radius: 10px 10px 0px 0px"><!--it the div give the above beautiful style to the table top --></div>
   <table class="table table-striped table-bordered table-hover table-sm table-light" >
@@ -92,6 +132,9 @@
                               </div>
 
 </div>
+<!-- ended -->
+
+
 
 <?php
     }
