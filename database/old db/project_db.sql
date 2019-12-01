@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 22, 2019 at 06:05 PM
+-- Generation Time: Nov 29, 2019 at 09:21 PM
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.3.11
 
@@ -29,9 +29,23 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `assignment` (
-  `A_id` int(30) NOT NULL,
+  `A_id` bigint(20) NOT NULL,
   `name` varchar(50) NOT NULL,
-  `a_date` date NOT NULL
+  `a_date` date NOT NULL,
+  `at_marks` int(20) NOT NULL,
+  `ob_marks` int(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `attendence`
+--
+
+CREATE TABLE `attendence` (
+  `AT_id` bigint(20) NOT NULL,
+  `AT_date` date NOT NULL,
+  `status` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -56,20 +70,10 @@ CREATE TABLE `class` (
 --
 
 INSERT INTO `class` (`Class_id`, `Name`, `Enrollment_key`, `Class_session`, `Start_date`, `currenttime`, `Expire_date`, `T_id`) VALUES
-(1, 'mscfinal', 'msc007', '2019-2022', '2019-11-22', '09:01:14', '2019-11-30', 1);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `class_room`
---
-
-CREATE TABLE `class_room` (
-  `CR_id` int(20) NOT NULL,
-  `CR_Name` varchar(50) NOT NULL,
-  `C_Session` varchar(50) NOT NULL,
-  `Subject_id` int(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+(1, 'mscfinal', 'msc007', '2019-2022', '2019-11-22', '09:01:14', '2019-11-30', 1),
+(2, 'msc_final', 'final2018', '2017-2018', '2019-11-29', '12:35:10', '2019-11-26', 1),
+(4, 'bs_1st_cs', 'cs-2019', '2019', '2019-11-29', '12:37:16', '2019-11-25', 1),
+(5, 'msc_final', 'msc-18', '2018-2019', '2019-11-29', '12:37:39', '2019-11-30', 1);
 
 -- --------------------------------------------------------
 
@@ -81,7 +85,7 @@ CREATE TABLE `have` (
   `Subject_id` bigint(20) NOT NULL,
   `Class_id` bigint(30) NOT NULL,
   `S_id` bigint(30) NOT NULL,
-  `A_id` int(30) NOT NULL
+  `A_id` bigint(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -89,7 +93,38 @@ CREATE TABLE `have` (
 --
 
 INSERT INTO `have` (`Subject_id`, `Class_id`, `S_id`, `A_id`) VALUES
-(19, 1, 0, 0);
+(19, 1, 0, 0),
+(20, 2, 0, 0),
+(21, 4, 0, 0),
+(22, 5, 0, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `presentation`
+--
+
+CREATE TABLE `presentation` (
+  `P_id` bigint(20) NOT NULL,
+  `name` varchar(80) NOT NULL,
+  `p_date` date NOT NULL,
+  `pt_marks` int(20) NOT NULL,
+  `ob_marks` int(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `quize`
+--
+
+CREATE TABLE `quize` (
+  `Q_id` bigint(20) NOT NULL,
+  `name` varchar(80) NOT NULL,
+  `q_date` date NOT NULL,
+  `qt_marks` int(20) NOT NULL,
+  `ob_marks` int(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -173,20 +208,10 @@ INSERT INTO `subject` (`Subject_id`, `subject_name`) VALUES
 (16, 'gdsgs'),
 (17, 'is'),
 (18, 'sql'),
-(19, 'opp');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `take`
---
-
-CREATE TABLE `take` (
-  `S_id` bigint(30) NOT NULL,
-  `Subject_id` bigint(20) NOT NULL,
-  `Attendence` varchar(30) NOT NULL,
-  `A_date` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+(19, 'opp'),
+(20, 'biochemistry'),
+(21, 'urdu'),
+(22, 'english');
 
 -- --------------------------------------------------------
 
@@ -213,21 +238,6 @@ CREATE TABLE `teacher` (
 INSERT INTO `teacher` (`T_id`, `Name`, `Contact_no`, `Cnic`, `Institute_name`, `Country`, `City`, `Email`, `Password`) VALUES
 (1, 'Sajid khattak', 31012345967, '1234567894567', 'Qurtuba University', 'pakistan', 'peshawar', 'sajid@gmail.com', '1234567890');
 
--- --------------------------------------------------------
-
---
--- Table structure for table `teachs`
---
-
-CREATE TABLE `teachs` (
-  `T_id` bigint(20) NOT NULL,
-  `Subject_id` bigint(20) NOT NULL,
-  `teach_date` date NOT NULL,
-  `Assignment` int(11) NOT NULL,
-  `Quizez` int(11) NOT NULL,
-  `presentation` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
 --
 -- Indexes for dumped tables
 --
@@ -237,6 +247,12 @@ CREATE TABLE `teachs` (
 --
 ALTER TABLE `assignment`
   ADD PRIMARY KEY (`A_id`);
+
+--
+-- Indexes for table `attendence`
+--
+ALTER TABLE `attendence`
+  ADD PRIMARY KEY (`AT_id`);
 
 --
 -- Indexes for table `class`
@@ -249,13 +265,6 @@ ALTER TABLE `class`
   ADD KEY `Enrollment_key_3` (`Enrollment_key`);
 
 --
--- Indexes for table `class_room`
---
-ALTER TABLE `class_room`
-  ADD PRIMARY KEY (`CR_id`,`C_Session`),
-  ADD KEY `Subject_id` (`Subject_id`);
-
---
 -- Indexes for table `have`
 --
 ALTER TABLE `have`
@@ -263,6 +272,18 @@ ALTER TABLE `have`
   ADD KEY `have_ibfk_2` (`Subject_id`),
   ADD KEY `S_id` (`S_id`),
   ADD KEY `A_id` (`A_id`);
+
+--
+-- Indexes for table `presentation`
+--
+ALTER TABLE `presentation`
+  ADD PRIMARY KEY (`P_id`);
+
+--
+-- Indexes for table `quize`
+--
+ALTER TABLE `quize`
+  ADD PRIMARY KEY (`Q_id`);
 
 --
 -- Indexes for table `register`
@@ -286,27 +307,10 @@ ALTER TABLE `subject`
   ADD PRIMARY KEY (`Subject_id`);
 
 --
--- Indexes for table `take`
---
-ALTER TABLE `take`
-  ADD PRIMARY KEY (`S_id`,`Subject_id`,`A_date`),
-  ADD KEY `Reg_no` (`Subject_id`),
-  ADD KEY `Subject_id` (`Subject_id`),
-  ADD KEY `S_id` (`S_id`);
-
---
 -- Indexes for table `teacher`
 --
 ALTER TABLE `teacher`
   ADD PRIMARY KEY (`T_id`,`Email`);
-
---
--- Indexes for table `teachs`
---
-ALTER TABLE `teachs`
-  ADD PRIMARY KEY (`T_id`,`Subject_id`,`teach_date`),
-  ADD KEY `Subject_id` (`Subject_id`),
-  ADD KEY `T_id` (`T_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -316,19 +320,31 @@ ALTER TABLE `teachs`
 -- AUTO_INCREMENT for table `assignment`
 --
 ALTER TABLE `assignment`
-  MODIFY `A_id` int(30) NOT NULL AUTO_INCREMENT;
+  MODIFY `A_id` bigint(20) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `attendence`
+--
+ALTER TABLE `attendence`
+  MODIFY `AT_id` bigint(20) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `class`
 --
 ALTER TABLE `class`
-  MODIFY `Class_id` bigint(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `Class_id` bigint(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `class_room`
+-- AUTO_INCREMENT for table `presentation`
 --
-ALTER TABLE `class_room`
-  MODIFY `CR_id` int(20) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `presentation`
+  MODIFY `P_id` bigint(20) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `quize`
+--
+ALTER TABLE `quize`
+  MODIFY `Q_id` bigint(20) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `student`
@@ -340,7 +356,7 @@ ALTER TABLE `student`
 -- AUTO_INCREMENT for table `subject`
 --
 ALTER TABLE `subject`
-  MODIFY `Subject_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `Subject_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `teacher`

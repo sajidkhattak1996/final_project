@@ -29,18 +29,21 @@
                                   if (isset($_POST['all_class'])) {
                                     unset($_SESSION['class_id']);
                                     unset($_SESSION['subject_id']);
+                                    unset($_SESSION['a']);
                                     echo "<script> window.location.href='tmain_table.php'; </script>";
                                   }
                                   // php code for create class buttons
                                   if (isset($_POST['create_class'])) {
                                     unset($_SESSION['class_id']);
                                     unset($_SESSION['subject_id']);
+                                    unset($_SESSION['a']);
                                     echo "<script> window.location.href='create_class.php'; </script>";
                                   }
                                   // php code for help button
                                   if (isset($_POST['help'])) {
                                     unset($_SESSION['class_id']);
                                     unset($_SESSION['subject_id']);
+                                    unset($_SESSION['a']);
                                     echo "<script> window.location.href='helps.php'; </script>";
                                   }
                             ?>
@@ -48,7 +51,6 @@
       <!--above button container are ended -->
       <?php
           include('db_connection.php');
-          if (isset($con)) {
             $cid=$_SESSION['class_id'];
             $stmt_class_name ="SELECT Name FROM class WHERE Class_id = '$cid'";
             $exe_stmt_class_name=mysqli_query($con ,$stmt_class_name);
@@ -72,9 +74,7 @@
           </div>
       </div>
           <?php
-          }else {
-            echo "problem in the database connection!.... try againg";
-          }
+
        ?>
 
 
@@ -110,20 +110,54 @@
 <!-- ended   -->
 <?php
       if (isset($_POST['btn_all_std'])) { echo "<script> window.location.href='subject.php'; </script>"; }
-      if (isset($_POST['btn_attendence'])) { echo "<script> window.location.href='attendence.php'; </script>"; }
+      if (isset($_POST['btn_attendence'])) { echo "<script> window.location.href=''; </script>"; }
       if (isset($_POST['btn_assignment'])) { echo "<script> window.location.href=''; </script>"; }
       if (isset($_POST['btn_presentation'])) { echo "<script> window.location.href=''; </script>"; }
       if (isset($_POST['btn_quize'])) { echo "<script> window.location.href=''; </script>"; }
 
  ?>
 
-
+<form class="" action="" method="post" onsubmit="return fn()">
 <!-- started -->
 <span id="spn"></span>
 <!-- below table which display the student record which are enroll in the this class which are clicked    -->
-<div class="container-fluid">
-  <!-- <div class="tend"  style="border-radius: 10px 10px 0px 0px"><it the div give the above beautiful style to the table top ></div> -->
+<div class="container-fluid" style="padding-bottom: 10px">
+  <div class="tend"  style="border-radius: 10px 10px 0px 0px;margin-bottom: 8px;height: auto;padding-bottom:3px;padding-top: 0px">
+      <table class="table table-straped">
+            <thead>
+              <tr>
+                  <td>Class Name:&nbsp;&nbsp;&nbsp;<span style="color: blue"><?php echo $r1['Name'];  ?></span></td>
+                  <td>Subject Name:&nbsp;&nbsp;&nbsp;<span style="color: deeppink;letter-spacing:1px"><?php echo $r2['subject_name'];  ?></span></td>
+                  <form method="post">
+                    <td>
+                        Attendence Date:&nbsp;&nbsp;&nbsp;
+                        <input type="date" name="AT_date" id="at_date" onblur="fn()" style="background: lightblue;border: solid 1px #008c7e;border-radius:5px"><br>
+                        <span id="dmsg" style="color: yellow"></span>
+                    </td>
+                  </form>
+              </tr>
+            </thead>
+      </table>
+  </div>
+<script>
+     function fn()
+      {
+        var a=document.getElementById("at_date").value;
+          if (a=="") {
+            document.getElementById("dmsg").innerHTML='Please Fill this field!';
+            return false;
+          }
+          else {
+            document.getElementById("dmsg").innerHTML='';
+            document.getElementById("dmsg").style.display='none';
+          }
+      }
+      function remove(){
+        document.getElementById("dmsg").innerHTML='';
+        document.getElementById("dmsg").style.display='none';
+      }
 
+ </script>
 
   <table id="example1" class="table table-striped table-bordered table-hover table-xl table-light" >
 
@@ -132,39 +166,86 @@
                       <!-- <th scope="col" scope="row">Student ID</th> -->
                       <th scope="col">Reg No</th>
                       <th scope="col">Name</th>
-                      <th scope="col">Email</th>
+                      <th scope="col">Attendence Status</th>
                 </tr>
             </thead>
               <tbody>
                 <?php
+
                     $cid=$_SESSION['class_id'];
                     $stmt_register="SELECT register.S_id , register.Reg_no , student.student_name ,student.Email FROM register INNER JOIN student ON register.S_id=student.S_id WHERE register.Class_id='$cid' ORDER BY register.Reg_no";
-
                     $exe=mysqli_query($con,$stmt_register);
                     $a=0;
                     while ($row=mysqli_fetch_assoc($exe)) { $a++;
                      ?>
                 <tr>
-<!-- <td > <input style="background: none;border: none;" readonly type="text"  id="sid<?php echo $a;?>" value="">  </td> -->
-<td><input style="background: none;border: none" type="text" onkeyup="update('<?php echo $a;?>','<?php echo $row['S_id']; ?>');" id="xyz<?php echo $a;?>" value="<?php echo $row['Reg_no']; ?>">     </td>
+                      <td><input style="background: none;border: none;width: 50px" type="text" onkeyup="update('<?php echo $a;?>','<?php echo $row['S_id']; ?>');" id="xyz<?php echo $a;?>" value="<?php echo $row['Reg_no']; ?>">     </td>
 
                       <td scope="col" ><?php  echo $row['student_name']; ?> </td>
-                      <td scope="col"><?php  echo $row['Email']; ?> </td>
+                      <td>      <input type="text" name="student_id<?php echo $a; ?>" value="<?php echo $row['S_id']; ?>" style="display:none">
+                                <span style="font-size: 16px">Present:</span>     <input type="radio"  name="r<?php echo $a; ?>" checked value="1" style="width:5%;height:15px;">&nbsp;&nbsp;&nbsp;
+                                <span style="font-size: 16px">Attendence:</span>  <input type="radio"  name="r<?php echo $a; ?>" value="2" style="width:5%;height:15px;">&nbsp;&nbsp;&nbsp;
+                                <span style="font-size: 16px">Leave:</span>       <input type="radio"  name="r<?php echo $a; ?>" value="3" style="width:5%;height:15px;">&nbsp;&nbsp;&nbsp;
+
+                      </td>
                 </tr>
-
-
-                 <?php
-                }
-               ?>
-
-              </tbody>
+                 <?php }
+                  $_SESSION['a']=$a;
+                  ?>
+                </tbody>
             </table>
       <div class="tend">  </div>
+  <button type="submit" name="save" style="margin-left: 5px;margin-top: 5px;width:30%;font-weight:bolder" class="btn btn-primary btn-xl">Submit</button>
+</form>
+</div>  <!--ended -->
+<!-- php for above form -->
+<?php
+        if (isset($_POST['save'])) {
 
-</div>
+            $a=$_SESSION['a'];
+            unset($_SESSION['a']);
+
+            $at_date=$_POST['AT_date'];
+            $cid=$_SESSION['class_id'];
+            $query_check_date="SELECT AT_date FROM attendence_record WHERE Class_id='$cid' AND AT_date='$at_date'";
+
+
+            if (isset($con)) {
+                $exe_check_date=mysqli_query($con ,$query_check_date);
+                $status=mysqli_num_rows($exe_check_date);
+
+                if ($status>0) {
+                  echo "<script> document.getElementById('dmsg').innerHTML='Attendence for that Date is already found in Database!. try Another';  </script>";
+                }else {
+                        $temp=1;
+                        $t=1;
+                        $sub_id=$_SESSION['subject_id'];
+                        while ($t <= $a)
+                          {
+                            $student_id=$_POST['student_id'.$t];
+                            $attendence_id=$_POST['r'.$t];
+                            $query_insert="INSERT INTO `attendence_record` (`AT_id`, `AT_date`, `Subject_id`, `Class_id`, `S_id`) VALUES ('$attendence_id', '$at_date', '$sub_id', '$cid', '$student_id')";
+                            $exe_insert=mysqli_query($con ,$query_insert);
+
+                          $t++; $temp++; }
+                          if ($temp==$t) {
+                            echo "<script> document.getElementById('dmsg').innerHTML='Attendence are Successfully Inserted...'; setTimeout(remove, 5000); </script>";
+
+                          }else {
+                            echo "<script> document.getElementById('dmsg').innerHTML='Problem Occur while Inserted Some records!'; setTimeout(remove, 10000); </script>";
+
+                          }
+               }
+
+            }else {
+              echo "<script> alert('problem occur while connecting to the database!... try again'); </script>";
+            }
+
+
+          }
+
+ ?>
 <!-- ended -->
-
-
 <script type="text/javascript" src="js/jquery.js"></script>
 <script src="../datatables/jquery.dataTables.js"></script>
 <script src="../datatables-bs4/js/dataTables.bootstrap4.js"></script>

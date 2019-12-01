@@ -214,5 +214,5 @@ if (isset($_POST['btn_subject'])) {
 
   <?php
 }
-// ended 
+// ended
 ?>

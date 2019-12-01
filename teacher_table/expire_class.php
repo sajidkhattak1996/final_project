@@ -28,7 +28,13 @@
 
       <div class="about_area">
           <div class="viewing_area">
-            <h5>NOW VIEWING :> <a href="" style="color: blue"> All Classes  </a></h5>
+            <h5>
+              NOW VIEWING :>
+              <strong>
+               <a href="tmain_table.php" style="color: black"> All Active Classes &nbsp; </a>:>&nbsp;&nbsp;
+              <a href="" style="color: blue"> Expire Classes  </a>
+            </strong>
+             </h5>
           </div>
 
           <div class="about">
@@ -52,6 +58,7 @@
         <div class="container-fluid" id="table_maindiv">
 
           <!-- below area and button such etc -->
+          <style> #b1:hover{color: blue;border-color: #008c7e} </style>
           <div class="tabletabs">
               <form  action="" method="post">
                     <ul>

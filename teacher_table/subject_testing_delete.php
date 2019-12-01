@@ -94,11 +94,11 @@
                                                         </tr>
                                                   <tbody>
                                                         <tr>
-                                                              <td scope="col"><button class="btn btn-primary btn-lg" name="btn_all_std">&nbsp;&nbsp;    Click   &nbsp;&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-eye-open"></span> </button>   </td>
-                                                              <td scope="col"><button class="btn btn-success btn-lg" name="btn_attendence">&nbsp; ADD  &nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-plus"></span> </button></td>
-                                                              <td scope="col"><button class="btn btn-success btn-lg" name="btn_assignment">&nbsp; ADD  &nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-plus"></span>  </button></td>
-                                                              <td scope="col"><button class="btn btn-success btn-lg" name="btn_presentation">&nbsp; ADD  &nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-plus"></span>  </button></td>
-                                                              <td scope="col"><button class="btn btn-success btn-lg" name="btn_quize"> &nbsp; ADD  &nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-plus"></span> </button></td>
+                                                              <td scope="col">   <button class="btn btn-primary btn-lg">&nbsp;&nbsp;    Click   &nbsp;&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-eye-open"></span> </button>   </td>
+                                                              <td scope="col"><button class="btn btn-success btn-lg">&nbsp; ADD  &nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-plus"></span> </button></td>
+                                                              <td scope="col"><button class="btn btn-success btn-lg">&nbsp; ADD  &nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-plus"></span>  </button></td>
+                                                              <td scope="col"><button class="btn btn-success btn-lg">&nbsp; ADD  &nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-plus"></span>  </button></td>
+                                                              <td scope="col"><button class="btn btn-success btn-lg"> &nbsp; ADD  &nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-plus"></span> </button></td>
                                                         </tr>
                                                 </tbody>
                                         </table>
@@ -107,19 +107,7 @@
                     </div>
               </div>
   </div>
-<!-- ended   -->
-<?php
-      if (isset($_POST['btn_all_std'])) { echo "<script> window.location.href='subject.php'; </script>"; }
-      if (isset($_POST['btn_attendence'])) { echo "<script> window.location.href='attendence.php'; </script>"; }
-      if (isset($_POST['btn_assignment'])) { echo "<script> window.location.href=''; </script>"; }
-      if (isset($_POST['btn_presentation'])) { echo "<script> window.location.href=''; </script>"; }
-      if (isset($_POST['btn_quize'])) { echo "<script> window.location.href=''; </script>"; }
-
- ?>
-
-
-<!-- started -->
-<span id="spn"></span>
+<span class="spn"></span>
 <!-- below table which display the student record which are enroll in the this class which are clicked    -->
 <div class="container-fluid">
   <!-- <div class="tend"  style="border-radius: 10px 10px 0px 0px"><it the div give the above beautiful style to the table top ></div> -->
@@ -129,78 +117,83 @@
 
             <thead class="bg-info">
                 <tr>
-                      <!-- <th scope="col" scope="row">Student ID</th> -->
-                      <th scope="col">Reg No</th>
+                      <th scope="col" scope="row">Reg NO</th>
+                      <th scope="col">Updated_id</th>
                       <th scope="col">Name</th>
                       <th scope="col">Email</th>
+                      <th scope="col">Country</th>
                 </tr>
             </thead>
               <tbody>
                 <?php
-                    $cid=$_SESSION['class_id'];
-                    $stmt_register="SELECT register.S_id , register.Reg_no , student.student_name ,student.Email FROM register INNER JOIN student ON register.S_id=student.S_id WHERE register.Class_id='$cid' ORDER BY register.Reg_no";
-
-                    $exe=mysqli_query($con,$stmt_register);
+                    $con=mysqli_connect("localhost","root","","test");
+                    $s="SELECT * FROM user";
+                    $exe=mysqli_query($con,$s);
                     $a=0;
                     while ($row=mysqli_fetch_assoc($exe)) { $a++;
                      ?>
                 <tr>
-<!-- <td > <input style="background: none;border: none;" readonly type="text"  id="sid<?php echo $a;?>" value="">  </td> -->
-<td><input style="background: none;border: none" type="text" onkeyup="update('<?php echo $a;?>','<?php echo $row['S_id']; ?>');" id="xyz<?php echo $a;?>" value="<?php echo $row['Reg_no']; ?>">     </td>
+<td >
+<input style="background: none;border: none" readonly type="text"  id="abc<?php echo $a;?>" value="<?php echo $row['reg_no']; ?>">  </td>
+<td><input style="background: none;border: none" type="text" onkeyup="update('<?php echo $a;?>');" id="xyz<?php echo $a;?>" value="<?php echo $row['updated_id']; ?>">     </td>
 
-                      <td scope="col" ><?php  echo $row['student_name']; ?> </td>
-                      <td scope="col"><?php  echo $row['Email']; ?> </td>
+                      <td scope="col"><?php  echo $row['name']; ?> </td>
+                      <td scope="col"><?php  echo $row['email']; ?> </td>
+                      <td scope="col"><?php  echo $row['country']; ?> </td>
                 </tr>
 
 
-                 <?php
-                }
-               ?>
+                     <?php
+                    }
+                 ?>
+
+
 
               </tbody>
+
             </table>
-      <div class="tend">  </div>
+
+
+
+                              <div class="tend">
+
+                              </div>
 
 </div>
 <!-- ended -->
-
 
 <script type="text/javascript" src="js/jquery.js"></script>
 <script src="../datatables/jquery.dataTables.js"></script>
 <script src="../datatables-bs4/js/dataTables.bootstrap4.js"></script>
 <script type="text/javascript">
-  function update(id,id2) {
+  function update(id) {
 
-           var reg_no =$('#xyz'+id).val();
-           var student_id =id2;
-           // console.log(value);
-           // console.log(student_id); it display the vlaue on console screen
+     var value =$('#xyz'+id).val();
+     var regid =$('#abc'+id).val();
+     // console.log(value);
+     // console.log(regid);
 
-      $.ajax({
-      url:'reg_update.php',
-      type:'POST',
-      data:{reg_no,student_id},
-      success:function(data){
-      if(data=="yes"){
-        // alert('Update Sucessfully');
-      $('#spn').html('<small id="smid" style="color:green;margin-left:450px"><b>Update Sucessfully<b></small>');
-      // setTimeout(myFn,2000);
-      }
-      else if(data=="no"){
-      $('#spn').html('<small id="smid" style="color:red;margin-left:450px"><b>Update Failed</b></small>');
-      // alert('Update Failed');
-      // setTimeout(myFn,2000);
-      }
-      else {
-      $('#spn').html('');
-      }
+$.ajax({
+url:'ajax_subject.php',
+type:'POST',
+data:{value,regid},
+success:function(data){
+if(data=="yes"){
+  // alert('Update Sucessfully');
+$('.spn').html('<small id="smid" style="color:green;margin-left:450px"><b>Update Sucessfully<b></small>')
+}
+else if(data=="no"){
+$('.spn').html('<small id="smid" style="color:red;margin-left:450px"><b>Update Failed</b></small>');
+// alert('Update Failed');
+}
+else {
+$('.spn').html('');
 
-      }
-      });
-      setTimeout(myFn ,2000);
+}
+
+}
+});
   }
-
- function myFn(){  document.getElementById("spn").innerHTML='';}  //use th empty the msg field
 </script>
 
 

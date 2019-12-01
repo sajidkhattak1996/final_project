@@ -28,7 +28,11 @@
 
       <div class="about_area">
           <div class="viewing_area">
-            <h5>NOW VIEWING :> <a href="" style="color: blue"> All Classes  </a></h5>
+            <h5>NOW VIEWING :>
+              <strong>
+              <a href="" style="color: blue"> All Classes  </a>
+            </strong>
+            </h5>
           </div>
 
           <div class="about">
@@ -52,11 +56,12 @@
         <div class="container-fluid" id="table_maindiv">
 
           <!-- below area and button such etc -->
+          <style> #b2:hover{color: blue;border-color: #008c7e} </style>
           <div class="tabletabs">
               <form  action="" method="post">
                     <ul>
                           <button id="b1" type="submit" name="bb1">   <b>     All Active Classes     </b> </button>
-                           <a href=""><button id="b2" type="submit" name="btnexpire" onclick="fn()">  <b>  Expired Classes  </b>  </button>  </a>
+                           <a href=""><button id="b2" type="submit" name="btnexpire" >  <b>  Expired Classes  </b>  </button>  </a>
                             <!-- <a href="" >         <button id="b3">  <b>      Helps        </b> </button>  </a> -->
 
                     </ul>
@@ -81,7 +86,6 @@
                                                         <?php
 
                                                         include('fetch_active_classes.php');
-
 
                                                         ?>
 
