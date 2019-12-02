@@ -89,24 +89,30 @@
 
                 <div class="col-6" id="col2">
                   <label >Expire Date:</label><br>
-                  <input type="date" name="expire_date" id="expire_date" required title="Enter The Expire Data For Your Class">
+                  <input type="date" name="expire_date" id="expire_date" required title="Enter The Expire Data For Your Class" onblur="return msg()">
                   <p id="m" style="color: red;font-weight:bolder;"></p>
                   <script>
                       function msg(){
+                        var expire_date =new Date(document.getElementById('expire_date').value);
+                        var ex_date=expire_date.getTime();
+
                         var b=new Date();
-                        var current_date=b.getFullYear()+"-"+(b.getMonth()+1)+"-"+b.getDate();  //the 1 are added b/c month range is 0-11 and 0 for jan
-                        var expire_date = document.getElementById('expire_date').value;
+                        var current_date=b.getTime();  //the 1 are added b/c month range is 0-11 and 0 for jan
+
                         var msg=document.getElementById('m');
 
-                        if( expire_date <= current_date ) {
+                        if( ex_date < current_date ) {
                             msg.innerHTML = "Expiry Date must be greater then the current date !";
-                            alert(current_date);
-
+                            current_date=null;
+                            ex_date=null;
                             return false;
                         }
                         else {
-                          msg.style.display='none';
+                          msg.innerHTML='';
                         }
+
+                        current_date=null;
+                        ex_date=null;
 
                       }
 
