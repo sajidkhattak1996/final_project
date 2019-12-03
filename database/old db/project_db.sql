@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 29, 2019 at 09:21 PM
+-- Generation Time: Dec 01, 2019 at 05:00 PM
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.3.11
 
@@ -43,9 +43,31 @@ CREATE TABLE `assignment` (
 --
 
 CREATE TABLE `attendence` (
-  `AT_id` bigint(20) NOT NULL,
-  `AT_date` date NOT NULL,
+  `AT_id` int(10) NOT NULL,
   `status` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `attendence`
+--
+
+INSERT INTO `attendence` (`AT_id`, `status`) VALUES
+(1, 'p'),
+(2, 'a'),
+(3, 'l');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `attendence_record`
+--
+
+CREATE TABLE `attendence_record` (
+  `AT_id` int(10) NOT NULL,
+  `AT_date` date NOT NULL,
+  `Subject_id` bigint(20) NOT NULL,
+  `Class_id` bigint(30) NOT NULL,
+  `S_id` bigint(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -70,10 +92,12 @@ CREATE TABLE `class` (
 --
 
 INSERT INTO `class` (`Class_id`, `Name`, `Enrollment_key`, `Class_session`, `Start_date`, `currenttime`, `Expire_date`, `T_id`) VALUES
-(1, 'mscfinal', 'msc007', '2019-2022', '2019-11-22', '09:01:14', '2019-11-30', 1),
-(2, 'msc_final', 'final2018', '2017-2018', '2019-11-29', '12:35:10', '2019-11-26', 1),
-(4, 'bs_1st_cs', 'cs-2019', '2019', '2019-11-29', '12:37:16', '2019-11-25', 1),
-(5, 'msc_final', 'msc-18', '2018-2019', '2019-11-29', '12:37:39', '2019-11-30', 1);
+(1245137, 'msc_final-18', 'cs-2019', '2019-2020`', '2019-11-29', '05:16:22', '2019-12-25', 1),
+(1245141, 'msc_final', 'msc-18', '2019-2020`', '2019-11-29', '05:58:20', '2019-01-30', 1),
+(1245142, 'sajid_ktk', 'sajid96', '2019-2020', '2019-11-29', '08:44:42', '2019-12-25', 1),
+(1245143, 'bs_chemistry', 'cs-2019', '2017-2018', '2019-11-30', '04:44:20', '2019-12-25', 1),
+(1245144, 'msc_final', 'bs-00082', '2019-2020', '2019-11-30', '04:44:39', '2020-01-01', 1),
+(1245145, 'msc_final', 'Angular2019', '2019-2020`', '2019-11-30', '04:44:53', '2019-12-18', 1);
 
 -- --------------------------------------------------------
 
@@ -85,18 +109,23 @@ CREATE TABLE `have` (
   `Subject_id` bigint(20) NOT NULL,
   `Class_id` bigint(30) NOT NULL,
   `S_id` bigint(30) NOT NULL,
-  `A_id` bigint(20) NOT NULL
+  `A_id` bigint(20) NOT NULL,
+  `P_id` bigint(20) NOT NULL,
+  `Q_id` bigint(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `have`
 --
 
-INSERT INTO `have` (`Subject_id`, `Class_id`, `S_id`, `A_id`) VALUES
-(19, 1, 0, 0),
-(20, 2, 0, 0),
-(21, 4, 0, 0),
-(22, 5, 0, 0);
+INSERT INTO `have` (`Subject_id`, `Class_id`, `S_id`, `A_id`, `P_id`, `Q_id`) VALUES
+(24, 21, 0, 0, 0, 0),
+(21, 1245137, 0, 0, 0, 0),
+(20, 1245141, 0, 0, 0, 0),
+(29, 1245142, 0, 0, 0, 0),
+(22, 1245143, 0, 0, 0, 0),
+(13, 1245144, 0, 0, 0, 0),
+(13, 1245145, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -139,6 +168,17 @@ CREATE TABLE `register` (
   `Enrollment_key` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `register`
+--
+
+INSERT INTO `register` (`Class_id`, `S_id`, `Reg_no`, `Enrollment_key`) VALUES
+(1245141, 20, 0, 'msc-18'),
+(1245142, 16, 8, 'sajid96'),
+(1245142, 17, 2, 'sajid96'),
+(1245142, 18, 0, 'sajid96'),
+(1245142, 19, 4, 'sajid96');
+
 -- --------------------------------------------------------
 
 --
@@ -172,7 +212,10 @@ INSERT INTO `student` (`S_id`, `student_name`, `Email`, `password`) VALUES
 (13, 'janii khan', 'janiii@ggmailzz', '1234567890'),
 (14, 'ttkslfj ksj', 'tt@gm', '1234567890'),
 (15, 'ttkslfj ksj', 'tt@gma', '1234567890'),
-(16, 'ttkslfj ksj', 'tt@gmam', '1234567890');
+(16, 'ttkslfj ksj', 'tt@gmam', '1234567890'),
+(17, 'amair khattak', 'amairktk@gmail.com', '1234567890'),
+(18, 'kashif kk', 'kashifktk@gmail.com', 'kashif12345'),
+(19, 'fahem kkkk', 'fahem@gamail.com', '1234567890');
 
 -- --------------------------------------------------------
 
@@ -211,7 +254,14 @@ INSERT INTO `subject` (`Subject_id`, `subject_name`) VALUES
 (19, 'opp'),
 (20, 'biochemistry'),
 (21, 'urdu'),
-(22, 'english');
+(22, 'english'),
+(23, 'maths'),
+(24, 'mthematic'),
+(25, 'java'),
+(26, 'angular js'),
+(27, 'phatalogy'),
+(28, 'mathematic'),
+(29, 'javascript');
 
 -- --------------------------------------------------------
 
@@ -236,7 +286,8 @@ CREATE TABLE `teacher` (
 --
 
 INSERT INTO `teacher` (`T_id`, `Name`, `Contact_no`, `Cnic`, `Institute_name`, `Country`, `City`, `Email`, `Password`) VALUES
-(1, 'Sajid khattak', 31012345967, '1234567894567', 'Qurtuba University', 'pakistan', 'peshawar', 'sajid@gmail.com', '1234567890');
+(1, 'Sajid khattak', 31012345967, '1234567894567', 'Qurtuba University', 'pakistan', 'peshawar', 'sajid@gmail.com', '1234567890'),
+(2, 'amair', 12345678996, '12345678902345', 'amar school and college', 'pakistan', 'karak_kpk', 'amair@gmail.com', 'amair12345');
 
 --
 -- Indexes for dumped tables
@@ -326,13 +377,13 @@ ALTER TABLE `assignment`
 -- AUTO_INCREMENT for table `attendence`
 --
 ALTER TABLE `attendence`
-  MODIFY `AT_id` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `AT_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `class`
 --
 ALTER TABLE `class`
-  MODIFY `Class_id` bigint(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `Class_id` bigint(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1245146;
 
 --
 -- AUTO_INCREMENT for table `presentation`
@@ -350,19 +401,19 @@ ALTER TABLE `quize`
 -- AUTO_INCREMENT for table `student`
 --
 ALTER TABLE `student`
-  MODIFY `S_id` bigint(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `S_id` bigint(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `subject`
 --
 ALTER TABLE `subject`
-  MODIFY `Subject_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `Subject_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `teacher`
 --
 ALTER TABLE `teacher`
-  MODIFY `T_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `T_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
