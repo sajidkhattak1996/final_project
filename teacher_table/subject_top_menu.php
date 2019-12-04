@@ -84,11 +84,11 @@
                                                         </tr>
                                                   <tbody>
                                                         <tr>
-                                                              <td scope="col"><button class="btn btn-primary btn-lg" name="btn_all_std">&nbsp;&nbsp;    Click   &nbsp;&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-eye-open"></span> </button>   </td>
-                                                              <td scope="col"><button class="btn btn-success btn-lg" name="btn_attendence">&nbsp; ADD  &nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-plus"></span> </button></td>
-                                                              <td scope="col"><button class="btn btn-success btn-lg" name="btn_assignment">&nbsp; ADD  &nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-plus"></span>  </button></td>
-                                                              <td scope="col"><button class="btn btn-success btn-lg" name="btn_presentation">&nbsp; ADD  &nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-plus"></span>  </button></td>
-                                                              <td scope="col"><button class="btn btn-success btn-lg" name="btn_quize"> &nbsp; ADD  &nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-plus"></span> </button></td>
+                                                              <td scope="col"><button class="btn btn-primary btn-lg" name="btn_all_std" id="cls">&nbsp;&nbsp;    Click   &nbsp;&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-eye-open"></span> </button>   </td>
+                                                              <td scope="col"><button class="btn btn-primary btn-lg" name="btn_attendence" id="att">&nbsp; ADD  &nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-plus"></span> </button></td>
+                                                              <td scope="col"><button class="btn btn-primary btn-lg" name="btn_assignment" id="ass">&nbsp; ADD  &nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-plus"></span>  </button></td>
+                                                              <td scope="col"><button class="btn btn-primary btn-lg" name="btn_presentation" id="pre">&nbsp; ADD  &nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-plus"></span>  </button></td>
+                                                              <td scope="col"><button class="btn btn-primary btn-lg" name="btn_quize"  id="quz"> &nbsp; ADD  &nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-plus"></span> </button></td>
                                                         </tr>
                                                 </tbody>
                                         </table>
@@ -100,10 +100,10 @@
 <!--============================ ended   ======================================-->
 <?php
       if (isset($_POST['btn_all_std'])) { echo "<script> window.location.href='subject.php'; </script>"; }
-      if (isset($_POST['btn_attendence'])) { echo "<script> window.location.href='attendence.php'; </script>"; }
+      if (isset($_POST['btn_attendence'])) { echo "<script> window.location.href='attendence.php';  </script>"; }
       if (isset($_POST['btn_assignment'])) { echo "<script> window.location.href='assignment.php'; </script>"; }
-      if (isset($_POST['btn_presentation'])) { echo "<script> window.location.href=''; </script>"; }
-      if (isset($_POST['btn_quize'])) { echo "<script> window.location.href=''; </script>"; }
+      if (isset($_POST['btn_presentation'])) { echo "<script> window.location.href='presentation.php'; </script>"; }
+      if (isset($_POST['btn_quize'])) { echo "<script> window.location.href='quize.php'; </script>"; }
 
  ?>
 <!--================= subject tom menu are ended ===========================================================================-->

@@ -14,7 +14,19 @@
 
           </head>
       <body>
-
+        <style media="screen">
+            #cls{
+              background-image: -webkit-linear-gradient(180deg,rgba(172,239,224,0.96) 21.76%,rgba(0,140,126,0.50) 98.45%);
+              background-image: -moz-linear-gradient(180deg,rgba(172,239,224,0.96) 21.76%,rgba(0,140,126,0.50) 98.45%);
+              background-image: -o-linear-gradient(180deg,rgba(172,239,224,0.96) 21.76%,rgba(0,140,126,0.50) 98.45%);
+              background-image: linear-gradient(180deg,rgba(172,239,224,0.96) 21.76%,rgba(0,140,126,0.50) 98.45%);
+              color: blue;
+              font-weight: bolder;
+              border-left: solid 1px rgba(172,239,224,0.66);
+              border-top: solid 1px rgba(172,239,224,0.66);
+              border-right: solid 1px rgba(172,239,224,0.66);
+            }
+        </style>
 
 
 <!--==================== we are including the subject top menu here ===========================-->

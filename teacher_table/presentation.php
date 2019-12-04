@@ -15,7 +15,7 @@
                 <title>welcome to webside as a teacher  </title>
 
                 <style media="screen">
-                    #ass{
+                    #pre{
                       background-image: -webkit-linear-gradient(180deg,rgba(172,239,224,0.96) 21.76%,rgba(0,140,126,0.50) 98.45%);
                       background-image: -moz-linear-gradient(180deg,rgba(172,239,224,0.96) 21.76%,rgba(0,140,126,0.50) 98.45%);
                       background-image: -o-linear-gradient(180deg,rgba(172,239,224,0.96) 21.76%,rgba(0,140,126,0.50) 98.45%);
@@ -54,24 +54,21 @@
                           <thead>
                             <tr>
                                 <td>
-                                      Assignment Topic are Same for All:<br>
+                                      Presentation Topic are Same for All:<br>
                                       <span><button type="button" name="btn_yes" class="btn btn-outline-light active">Yes</button> </span> &nbsp;&nbsp;&nbsp;&nbsp;
-                                      <span><a href="diffenert_assignment.php"> <button type="button" name="btn_different" class="btn btn-outline-light ">NO</button> </a></span>
+                                      <span><a href="diffenert_presentation.php"> <button type="button" name="btn_different" class="btn btn-outline-light ">NO</button> </a></span>
 
                                       <br>
-                                    <span id="pt" style="color: #fff;">  Assignment Topic: <br><input type="text"  name="a_name" title="Enter Assignment Name OR title " required  pattern="^[a-zA-Z][a-zA-Z0-9-_\s.]{1,80}$"  style="background: lightblue;border: solid 1px #008c7e;border-radius:5px; color: #000 "></span>
+                                    <span id="pt" style="color: #fff;">  Presentation Topic: <br><input type="text" name="ptopic"required  pattern="^[a-zA-Z][a-zA-Z0-9-_\s.]{1,80}$"  style="background: lightblue;border: solid 1px #008c7e;border-radius:5px; color: #000 "></span>
 
                                 </td>
-
-
-
                                 <td>
                                       Date:<br>
-                                      <input type="date" name="adate" title="Enter the Assignment Date" required style="background: lightblue;border: solid 1px #008c7e;border-radius:5px">
+                                      <input type="date" name="p_date" title="Enter the pregnment Date" required style="background: lightblue;border: solid 1px #008c7e;border-radius:5px">
                                 </td>
                                 <form method="post">
                                   <td>
-                                      Total Marks:<br> <input type="number" name="at_marks" value="" title="Enter Assignment Total Marks" min="1" max="5000" placeholder="marks" required style="background: lightblue;border: solid 1px #008c7e;border-radius:5px">
+                                      Total Marks:<br> <input type="number" name="pt_marks" value="" title="Enter pregnment Total Marks" min="1" max="5000" placeholder="marks" required style="background: lightblue;border: solid 1px #008c7e;border-radius:5px">
                                   </td>
                                 </form>
                             </tr>
@@ -81,7 +78,8 @@
                 </div>
 
                <span id="spn" style="margin-left: 35%;color: blue"></span>
-                <table id="example1" class="table table-striped table-bordered table-hover table-xl table-light" >
+                 <div id="yes_table">
+                   <table id="example1" class="table table-striped table-bordered table-hover table-xl table-light" >
 
                           <thead class="bg-info">
                               <tr>
@@ -107,7 +105,7 @@
                                     <td>
                                       <input type="text" name="student_id<?php echo $a; ?>" value="<?php echo $row['S_id']; ?>" style="display:none">
 
-                                      <input type="number" name="ob_marks<?php echo $a; ?>" value="" title="please Enter the Student Obtained Marks" min="0" max="5000" required style="background: lightblue;border: solid 1px #008c7e;border-radius:5px">
+                                      <input type="number" name="po_marks<?php echo $a; ?>" value="" title="please Enter the Student Obtained Marks" min="0" max="5000" required style="background: lightblue;border: solid 1px #008c7e;border-radius:5px">
                                     </td>
                               </tr>
                                <?php }
@@ -115,10 +113,12 @@
                                 ?>
                               </tbody>
                           </table>
+                        </div>
 
-                            <button type="submit" name="save" style="margin-left: 35%;width:30%;margin-bottom: 10px;font-weight:bolder" class="btn btn-primary btn-lg">Submit</button>
 
-                    <div class="tend">  </div>
+                               <button type="submit" name="save" style="margin-left: 35%;width:30%;margin-bottom: 10px;font-weight:bolder" class="btn btn-primary btn-lg">Submit</button>
+
+                       <div class="tend">  </div>
               </form>
               </div>  <!--ended -->
 
@@ -133,27 +133,30 @@
                           unset($_SESSION['a']);
 
 
-/* this query are use for the if multiple assignement are not submited on the same data */
-                          // $query_check_date="SELECT assignment.a_date FROM assignment INNER JOIN assignment_record on assignment.A_id=assignment_record.A_id AND assignment.a_date='$as_date'";
+/* this query are use for the if multiple pregnement are not submited on the same data */
+                          // $query_check_date="SELECT pregnment.a_date FROM pregnment INNER JOIN pregnment_record on pregnment.A_id=pregnment_record.A_id AND pregnment.a_date='$as_date'";
                           if ($a==0) {
-                            echo "<script> document.getElementById('spn').innerHTML='You Cannot Inserted the Assignment Record! Because No students are fount in the class...'; setTimeout(myFn ,5000); </script>";
+                            echo "<script> document.getElementById('spn').innerHTML='You Cannot Perform this Action! Because No students are founds in the class...'; setTimeout(myFn ,5000); </script>";
 
                           }
                           if ($a!=0) {
                             if (isset($con)) {
-                                        $a_name=$_POST['a_name'];
-                                        $a_date=$_POST['adate'];
-                                        $at_marks=$_POST['at_marks'];
+                                        $p_name=$_POST['ptopic'];
+                                        $p_date=$_POST['p_date'];
+                                        $pt_marks=$_POST['pt_marks'];
                                         date_default_timezone_set("Asia/Karachi");
-                                        $ctime  =(int) (microtime(true) * 1000000000);   //current time in nano second
+                                        $ctime  = (int) (microtime(true) * 1000000000);
+                                        // echo 'CUR NANOSECONDS:'.$currentNanoSecond.PHP_EOL;  echo " <br>";    //display time in nano second
+                                        // echo 'TIME:'.date('H:i:sa', intval($currentNanoSecond/1000000000)).PHP_EOL;  //this well convert back to the time
 
-                                        $assi_insert="INSERT INTO assignment (a_name ,a_date,a_time ,at_marks) VALUES ('$a_name', '$a_date','$ctime','$at_marks')";
-                                        $exe_assi_insert=mysqli_query($con ,$assi_insert);
 
-                                        $assi_id_stmt="SELECT A_id FROM assignment WHERE a_name='$a_name' AND a_date='$a_date' AND a_time='$ctime' AND at_marks='$at_marks'";
-                                        $exe_assi_id=mysqli_query($con, $assi_id_stmt);
-                                        $row=mysqli_fetch_array($exe_assi_id);
-                                        $a_id=$row['A_id'];   // assignment id are extreted
+                                        $pre_insert="INSERT INTO presentation(p_topic, p_date, p_time, pt_marks) VALUES ('$p_name','$p_date','$ctime','$pt_marks')";
+                                        $exe_pre_insert=mysqli_query($con ,$pre_insert);
+
+                                        $pre_id_stmt="SELECT P_id FROM presentation WHERE p_topic='$p_name' AND p_date='$p_date' AND p_time='$ctime' AND pt_marks='$pt_marks'";
+                                        $exe_pre_id=mysqli_query($con, $pre_id_stmt);
+                                        $row=mysqli_fetch_array($exe_pre_id);
+                                        $p_id=$row['P_id'];   // presentation id are extreted
 
 
 
@@ -164,14 +167,15 @@
                                         while ($t <= $a)
                                           {
                                             $student_id=$_POST['student_id'.$t];
-                                            $obtained_marks=$_POST['ob_marks'.$t];
-                                            $query_insert="INSERT INTO assignment_record (A_id, Subject_id, Class_id, S_id, ao_marks) VALUES ('$a_id','$sub_id','$cid','$student_id','$obtained_marks')";
+                                            $obtained_marks=$_POST['po_marks'.$t];
+                                            $query_insert="INSERT INTO presentation_record (P_id, Subject_id, Class_id, S_id, po_marks) VALUES ('$p_id','$sub_id','$cid','$student_id','$obtained_marks')";
                                             $exe_insert=mysqli_query($con ,$query_insert);
 
                                           $t++; $temp++;
                                           }
                                           if ($temp==$t) {
-                                            echo "<script> document.getElementById('spn').innerHTML='Assignment are Successfully Inserted...'; setTimeout(myFn ,5000); </script>";
+                                            echo "<script> document.getElementById('spn').innerHTML='Presentation record are Successfully Inserted...'; setTimeout(myFn ,5000); </script>";
+
 
                                           }else {
                                             echo "<script> document.getElementById('spn').innerHTML='Problem Occur while Inserted Some records!'; setTimeout(myFn ,5000);  </script>";
@@ -193,8 +197,14 @@
               <script src="../datatables/jquery.dataTables.js"></script>
               <script src="../datatables-bs4/js/dataTables.bootstrap4.js"></script>
 
-
-
+              <script>
+              $(document).ready(function(){
+                  $('input:checkbox').click(function() {
+                      $('input:checkbox').not(this).prop('checked', false);
+                  });
+              });
+              </script>
+<!--
               <script>
                 $(function () {
                   $("#example1").DataTable();
@@ -207,7 +217,7 @@
                   //   "autoWidth": false,
                   // });
                 });
-              </script>
+              </script> -->
 
 
 

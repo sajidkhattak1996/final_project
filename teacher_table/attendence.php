@@ -14,12 +14,29 @@
 
           </head>
       <body>
-
+<style media="screen">
+    #att{
+      background-image: -webkit-linear-gradient(180deg,rgba(172,239,224,0.96) 21.76%,rgba(0,140,126,0.50) 98.45%);
+      background-image: -moz-linear-gradient(180deg,rgba(172,239,224,0.96) 21.76%,rgba(0,140,126,0.50) 98.45%);
+      background-image: -o-linear-gradient(180deg,rgba(172,239,224,0.96) 21.76%,rgba(0,140,126,0.50) 98.45%);
+      background-image: linear-gradient(180deg,rgba(172,239,224,0.96) 21.76%,rgba(0,140,126,0.50) 98.45%);
+      color: blue;
+      font-weight: bolder;
+      border-left: solid 1px rgba(172,239,224,0.66);
+      border-top: solid 1px rgba(172,239,224,0.66);
+      border-right: solid 1px rgba(172,239,224,0.66);
+    }
+</style>
 
 
       <!--========= we are including the subject top menu here ===================-->
       <?php  include('subject_top_menu.php');  ?>
       <!--=================================== ended =======================-->
+
+<script>
+function empty(){  document.getElementById("spn").innerHTML='';}  //use th empty the msg field
+
+</script>
 
 <form class="" action="" method="post" onsubmit="return fn()">
 <!-- started -->
@@ -62,7 +79,7 @@
       }
 
  </script>
-<span id="spn"></span>
+<span id="spn" style="margin-left: 300px"></span>
   <table id="example1" class="table table-striped table-bordered table-hover table-xl table-light" >
 
             <thead class="bg-info">
@@ -98,8 +115,8 @@
                   ?>
                 </tbody>
             </table>
+            <button type="submit" name="save" style="margin-left: 35%;margin-top: 0px;margin-bottom: 10px;width:30%;font-weight:bolder" class="btn btn-primary btn-lg">Submit</button>
       <div class="tend">  </div>
-  <button type="submit" name="save" style="margin-left: 5px;margin-top: 5px;width:30%;font-weight:bolder" class="btn btn-primary btn-xl">Submit</button>
 </form>
 </div>  <!--ended -->
 
@@ -111,41 +128,47 @@
 
             $a=$_SESSION['a'];
             unset($_SESSION['a']);
+            if ($a==0) {
+              echo "<script> document.getElementById('spn').innerHTML='You Cannot Perform this Action! Because No Students are Found in the Class'; setTimeout(empty, 5000); </script>";
 
-            $at_date=$_POST['AT_date'];
-            $cid=$_SESSION['class_id'];
-            $query_check_date="SELECT AT_date FROM attendence_record WHERE Class_id='$cid' AND AT_date='$at_date'";
+            }
+            if ($a!=0) {
+
+                          $at_date=$_POST['AT_date'];
+                          $cid=$_SESSION['class_id'];
+                          $query_check_date="SELECT AT_date FROM attendence_record WHERE Class_id='$cid' AND AT_date='$at_date'";
 
 
-            if (isset($con)) {
-                $exe_check_date=mysqli_query($con ,$query_check_date);
-                $status=mysqli_num_rows($exe_check_date);
+                          if (isset($con)) {
+                              $exe_check_date=mysqli_query($con ,$query_check_date);
+                              $status=mysqli_num_rows($exe_check_date);
 
-                if ($status>0) {
-                  echo "<script> document.getElementById('dmsg').innerHTML='Attendence for that Date is already found in Database!. try Another';  </script>";
-                }else {
-                        $temp=1;
-                        $t=1;
-                        $sub_id=$_SESSION['subject_id'];
-                        while ($t <= $a)
-                          {
-                            $student_id=$_POST['student_id'.$t];
-                            $attendence_id=$_POST['r'.$t];
-                            $query_insert="INSERT INTO `attendence_record` (`AT_id`, `AT_date`, `Subject_id`, `Class_id`, `S_id`) VALUES ('$attendence_id', '$at_date', '$sub_id', '$cid', '$student_id')";
-                            $exe_insert=mysqli_query($con ,$query_insert);
+                              if ($status>0) {
+                                echo "<script> document.getElementById('dmsg').innerHTML='Attendence for that Date is already found in Database!. try Another';  </script>";
+                              }else {
+                                      $temp=1;
+                                      $t=1;
+                                      $sub_id=$_SESSION['subject_id'];
+                                      while ($t <= $a)
+                                        {
+                                          $student_id=$_POST['student_id'.$t];
+                                          $attendence_id=$_POST['r'.$t];
+                                          $query_insert="INSERT INTO `attendence_record` (`AT_id`, `AT_date`, `Subject_id`, `Class_id`, `S_id`) VALUES ('$attendence_id', '$at_date', '$sub_id', '$cid', '$student_id')";
+                                          $exe_insert=mysqli_query($con ,$query_insert);
 
-                          $t++; $temp++; }
-                          if ($temp==$t) {
-                            echo "<script> document.getElementById('dmsg').innerHTML='Attendence are Successfully Inserted...'; setTimeout(remove, 5000); </script>";
+                                        $t++; $temp++; }
+                                        if ($temp==$t) {
+                                          echo "<script> document.getElementById('dmsg').innerHTML='Attendence are Successfully Inserted...'; setTimeout(remove, 5000); </script>";
+
+                                        }else {
+                                          echo "<script> document.getElementById('dmsg').innerHTML='Problem Occur while Inserted Some records!'; setTimeout(remove, 10000); </script>";
+
+                                        }
+                             }
 
                           }else {
-                            echo "<script> document.getElementById('dmsg').innerHTML='Problem Occur while Inserted Some records!'; setTimeout(remove, 10000); </script>";
-
+                            echo "<script> alert('problem occur while connecting to the database!... try again'); </script>";
                           }
-               }
-
-            }else {
-              echo "<script> alert('problem occur while connecting to the database!... try again'); </script>";
             }
 
 
@@ -171,11 +194,11 @@
       success:function(data){
       if(data=="yes"){
         // alert('Update Sucessfully');
-      $('#spn').html('<small id="smid" style="color:green;margin-left:450px"><b>Update Sucessfully<b></small>');
+      $('#spn').html('<small id="smid" style="color:green;margin-left:100px"><b>Update Sucessfully<b></small>');
       // setTimeout(myFn,2000);
       }
       else if(data=="no"){
-      $('#spn').html('<small id="smid" style="color:red;margin-left:450px"><b>Update Failed</b></small>');
+      $('#spn').html('<small id="smid" style="color:red;margin-left:100px"><b>Update Failed</b></small>');
       // alert('Update Failed');
       // setTimeout(myFn,2000);
       }
