@@ -46,14 +46,17 @@ while($class = mysqli_fetch_assoc($classResult)){
 ?>
 <tr>
 <th scope="row"><?php echo $class['Class_id']; ?></th>
+
 <td><style> #classbtn{background:none;border:none;color: blue} #classbtn:hover{border-bottom: solid 2px blue;} </style>
     <form action="" method="post">
-      <button type="submit" name="class_name" id="classbtn">
+      <button type="submit" name="class_name" id="classbtn" value="<?php echo $class['Class_id']; ?>">
         <?php echo $class['Name'];  ?>
       </button>
     </form>
 </td>
+
 <?php  mysubject($class['Class_id']);     ?>
+
 <td><?php echo $class['Start_date']; ?></td>
 <td><?php echo $class['Expire_date']; ?></td>
 <?php
@@ -215,4 +218,11 @@ if (isset($_POST['btn_subject'])) {
   <?php
 }
 // ended
+
+if (isset($_POST['class_name'])) {
+  $_SESSION['class_id'] =$_POST['class_name'];
+  echo "<script> window.location.href='class_page.php';  </script>";
+}
+
+
 ?>

@@ -31,7 +31,7 @@
           </head>
             <body>
               <!--============includeing the top navagation menu  ================-->
-                    <?php  include('subject_top_menu.php');  ?>
+                    <?php  include('classes_subject_top_menu.php');  ?>
               <!--============ended===============================================-->
 
 
@@ -55,7 +55,7 @@
                             <tr>
                                 <td>
                                       Quize Topic are Same for All:<br>
-                                      <span><a href="different_quize.php"><button type="button" name="btn_yes" class="btn btn-outline-light ">Yes</button> </a> </span> &nbsp;&nbsp;&nbsp;&nbsp;
+                                      <span><a href="quize.php"><button type="button" name="btn_yes" class="btn btn-outline-light ">Yes</button> </a> </span> &nbsp;&nbsp;&nbsp;&nbsp;
                                       <span> <button type="button" name="btn_different" class="btn btn-outline-light active">NO</button> </span>
 
                                 </td>

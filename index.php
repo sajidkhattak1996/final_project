@@ -264,7 +264,7 @@ if (isset($_POST['close_btn1'])  ||  isset($_POST['close_btn2'])) {  ?>
 
 
 
-
+<?php    echo "<pre>".print_r($_SESSION, TRUE)."</pre>";  ?>
 
 </body>
 </html>

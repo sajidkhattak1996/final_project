@@ -30,7 +30,7 @@
 
 
 <!--==================== we are including the subject top menu here ===========================-->
-<?php  include('subject_top_menu.php');  ?>
+<?php  include('classes_subject_top_menu.php');  ?>
 <!--================================== ended ====================================================-->
 
 
@@ -79,7 +79,7 @@
 
 </div>
 <!-- ended -->
-
+<?php  echo "<pre>".print_r($_SESSION, TRUE)."</pre>";  ?>
 
 <script type="text/javascript" src="js/jquery.js"></script>
 <script src="../datatables/jquery.dataTables.js"></script>

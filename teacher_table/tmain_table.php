@@ -93,7 +93,10 @@
 
 
                 </div> <!--ended-->
+<?php
+    echo "<pre>".print_r($_SESSION, TRUE)."</pre>";
 
+ ?>
 
         </body>
       </html>
