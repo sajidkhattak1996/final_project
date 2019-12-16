@@ -46,7 +46,7 @@
             <thead class="bg-info">
                 <tr>
                       <!-- <th scope="col" scope="row">Student ID</th> -->
-                      <th scope="col">Reg No</th>
+                      <th scope="col">Class No</th>
                       <th scope="col">Name</th>
                       <th scope="col">Email</th>
                 </tr>
@@ -122,15 +122,15 @@
 
 <script>
   $(function () {
-    $("#example1").DataTable();
-    // $('#example2').DataTable({
-    //   "paging": true,
-    //   "lengthChange": false,
-    //   "searching": false,
-    //   "ordering": true,
-    //   "info": true,
-    //   "autoWidth": false,
-    // });
+    // $("#example1").DataTable();
+    $('#example1').DataTable({
+      "paging": false,
+      "lengthChange": false,
+      "searching": true,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false,
+    });
   });
 </script>
 

@@ -1,11 +1,6 @@
 <?php
 session_start();
-$server ="localhost";
-$user   ="root";
-$pass   ="";
-$db     ="project_db";
-//connection with the databse table
-$con = mysqli_connect($server,$user,$pass,$db);
+include('db_connection.php');
 
 ?>
 <!DOCTYPE html>
@@ -264,7 +259,7 @@ if (isset($_POST['close_btn1'])  ||  isset($_POST['close_btn2'])) {  ?>
 
 
 
-<?php    echo "<pre>".print_r($_SESSION, TRUE)."</pre>";  ?>
+<!-- <?php  //  echo "<pre>".print_r($_SESSION, TRUE)."</pre>";  ?> -->
 
 </body>
 </html>

@@ -1,0 +1,443 @@
+[2015.04.24 08:12:20] App Info: reading settings..
+[2015.04.24 08:12:20] App Info: reading encrypted settings..
+[2015.04.24 08:12:35] Audio init time: 5887
+[2015.04.24 08:12:36] App Info: reading map..
+[2015.04.24 08:12:36] App Info: reading encrypted map..
+[2015.04.24 08:12:37] App Info: reading encrypted user settings..
+[2015.04.24 08:12:37] App Info: reading encrypted mtp data..
+[2015.04.24 08:12:37] Map read time: 388
+[2015.04.24 08:15:41] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 08:15:41] Getting difference for 810, 1429852359
+[2015.04.24 08:18:41] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 08:18:41] Getting difference for 810, 1429852541
+[2015.04.24 08:21:42] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 08:21:42] Getting difference for 810, 1429852721
+[2015.04.24 08:24:42] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 08:24:42] Getting difference for 810, 1429852901
+[2015.04.24 08:27:42] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 08:27:42] Getting difference for 810, 1429853082
+[2015.04.24 08:30:42] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 08:30:42] Getting difference for 810, 1429853262
+[2015.04.24 08:33:43] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 08:33:43] Getting difference for 810, 1429853442
+[2015.04.24 08:36:43] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 08:36:43] Getting difference for 810, 1429853622
+[2015.04.24 08:39:43] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 08:39:43] Getting difference for 810, 1429853803
+[2015.04.24 08:42:43] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 08:42:43] Getting difference for 810, 1429853983
+[2015.04.24 08:45:44] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 08:45:44] Getting difference for 810, 1429854163
+[2015.04.24 08:48:44] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 08:48:44] Getting difference for 810, 1429854343
+[2015.04.24 08:51:44] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 08:51:44] Getting difference for 810, 1429854524
+[2015.04.24 08:54:45] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 08:54:45] Getting difference for 810, 1429854704
+[2015.04.24 08:57:45] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 08:57:45] Getting difference for 810, 1429854884
+[2015.04.24 09:00:45] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 09:00:45] Getting difference for 810, 1429855065
+[2015.04.24 09:03:45] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 09:03:45] Getting difference for 810, 1429855245
+[2015.04.24 09:06:46] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 09:06:46] Getting difference for 810, 1429855425
+[2015.04.24 09:09:46] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 09:09:46] Getting difference for 810, 1429855605
+[2015.04.24 09:12:46] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 09:12:46] Getting difference for 810, 1429855786
+[2015.04.24 09:15:47] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 09:15:47] Getting difference for 810, 1429855966
+[2015.04.24 09:18:47] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 09:18:47] Getting difference for 810, 1429856146
+[2015.04.24 09:21:47] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 09:21:47] Getting difference for 810, 1429856326
+[2015.04.24 09:24:47] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 09:24:47] Getting difference for 810, 1429856507
+[2015.04.24 09:27:47] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 09:27:47] Getting difference for 810, 1429856687
+[2015.04.24 09:30:48] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 09:30:48] Getting difference for 810, 1429856867
+[2015.04.24 09:33:48] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 09:33:48] Getting difference for 810, 1429857047
+[2015.04.24 09:36:48] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 09:36:48] Getting difference for 810, 1429857228
+[2015.04.24 09:39:48] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 09:39:48] Getting difference for 810, 1429857408
+[2015.04.24 09:42:49] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 09:42:49] Getting difference for 810, 1429857588
+[2015.04.24 09:45:49] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 09:45:49] Getting difference for 810, 1429857768
+[2015.04.24 09:48:49] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 09:48:49] Getting difference for 810, 1429857948
+[2015.04.24 09:51:49] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 09:51:49] Getting difference for 810, 1429858129
+[2015.04.24 09:54:50] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 09:54:50] Getting difference for 810, 1429858309
+[2015.04.24 09:57:50] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 09:57:50] Getting difference for 810, 1429858489
+[2015.04.24 10:00:50] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 10:00:50] Getting difference for 810, 1429858669
+[2015.04.24 10:03:50] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 10:03:50] Getting difference for 810, 1429858850
+[2015.04.24 10:06:50] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 10:06:50] Getting difference for 810, 1429859030
+[2015.04.24 10:09:51] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 10:09:51] Getting difference for 810, 1429859210
+[2015.04.24 10:12:51] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 10:12:51] Getting difference for 810, 1429859390
+[2015.04.24 10:15:51] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 10:15:51] Getting difference for 810, 1429859570
+[2015.04.24 10:18:51] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 10:18:51] Getting difference for 810, 1429859751
+[2015.04.24 10:21:52] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 10:21:52] Getting difference for 810, 1429859931
+[2015.04.24 10:24:52] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 10:24:52] Getting difference for 810, 1429860111
+[2015.04.24 10:27:52] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 10:27:52] Getting difference for 810, 1429860291
+[2015.04.24 10:30:52] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 10:30:52] Getting difference for 810, 1429860472
+[2015.04.24 10:33:52] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 10:33:52] Getting difference for 810, 1429860652
+[2015.04.24 10:36:53] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 10:36:53] Getting difference for 810, 1429860832
+[2015.04.24 10:39:53] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 10:39:53] Getting difference for 810, 1429861012
+[2015.04.24 10:42:53] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 10:42:53] Getting difference for 810, 1429861192
+[2015.04.24 10:45:53] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 10:45:53] Getting difference for 810, 1429861373
+[2015.04.24 10:48:53] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 10:48:53] Getting difference for 810, 1429861553
+[2015.04.24 10:51:54] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 10:51:54] Getting difference for 810, 1429861733
+[2015.04.24 10:54:54] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 10:54:54] Getting difference for 810, 1429861913
+[2015.04.24 10:57:54] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 10:57:54] Getting difference for 810, 1429862093
+[2015.04.24 11:00:54] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 11:00:54] Getting difference for 810, 1429862274
+[2015.04.24 11:03:55] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 11:03:55] Getting difference for 810, 1429862454
+[2015.04.24 11:06:55] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 11:06:55] Getting difference for 810, 1429862634
+[2015.04.24 11:09:55] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 11:09:55] Getting difference for 810, 1429862814
+[2015.04.24 11:12:55] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 11:12:55] Getting difference for 810, 1429862994
+[2015.04.24 11:15:55] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 11:15:55] Getting difference for 810, 1429863175
+[2015.04.24 11:18:56] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 11:18:56] Getting difference for 810, 1429863355
+[2015.04.24 11:21:56] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 11:21:56] Getting difference for 810, 1429863535
+[2015.04.24 11:24:56] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 11:24:56] Getting difference for 810, 1429863716
+[2015.04.24 11:27:56] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 11:27:56] Getting difference for 810, 1429863896
+[2015.04.24 11:30:57] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 11:30:57] Getting difference for 810, 1429864076
+[2015.04.24 11:33:57] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 11:33:57] Getting difference for 810, 1429864256
+[2015.04.24 11:36:57] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 11:36:57] Getting difference for 810, 1429864436
+[2015.04.24 11:39:57] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 11:39:57] Getting difference for 810, 1429864617
+[2015.04.24 11:42:57] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 11:42:57] Getting difference for 810, 1429864797
+[2015.04.24 11:45:58] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 11:45:58] Getting difference for 810, 1429864977
+[2015.04.24 11:48:58] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 11:48:58] Getting difference for 810, 1429865157
+[2015.04.24 11:51:58] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 11:51:58] Getting difference for 810, 1429865338
+[2015.04.24 11:54:58] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 11:54:58] Getting difference for 810, 1429865518
+[2015.04.24 11:57:59] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 11:57:59] Getting difference for 810, 1429865698
+[2015.04.24 12:00:59] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 12:00:59] Getting difference for 810, 1429865878
+[2015.04.24 12:03:59] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 12:03:59] Getting difference for 810, 1429866058
+[2015.04.24 12:06:59] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 12:06:59] Getting difference for 810, 1429866239
+[2015.04.24 12:09:59] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 12:09:59] Getting difference for 810, 1429866419
+[2015.04.24 12:13:00] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 12:13:00] Getting difference for 810, 1429866599
+[2015.04.24 12:16:00] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 12:16:00] Getting difference for 810, 1429866779
+[2015.04.24 12:19:00] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 12:19:00] Getting difference for 810, 1429866959
+[2015.04.24 12:22:00] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 12:22:00] Getting difference for 810, 1429867140
+[2015.04.24 12:25:01] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 12:25:01] Getting difference for 810, 1429867320
+[2015.04.24 12:28:01] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 12:28:01] Getting difference for 810, 1429867500
+[2015.04.24 12:31:01] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 12:31:01] Getting difference for 810, 1429867680
+[2015.04.24 12:34:01] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 12:34:01] Getting difference for 810, 1429867861
+[2015.04.24 12:37:02] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 12:37:02] Getting difference for 810, 1429868041
+[2015.04.24 12:40:02] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 12:40:02] Getting difference for 810, 1429868221
+[2015.04.24 12:43:02] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 12:43:02] Getting difference for 810, 1429868401
+[2015.04.24 12:46:02] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 12:46:02] Getting difference for 810, 1429868582
+[2015.04.24 12:49:02] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 12:49:02] Getting difference for 810, 1429868762
+[2015.04.24 12:52:03] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 12:52:03] Getting difference for 810, 1429868942
+[2015.04.24 12:55:03] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 12:55:03] Getting difference for 810, 1429869122
+[2015.04.24 12:58:03] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 12:58:03] Getting difference for 810, 1429869302
+[2015.04.24 13:01:03] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 13:01:03] Getting difference for 810, 1429869483
+[2015.04.24 13:04:04] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 13:04:04] Getting difference for 810, 1429869663
+[2015.04.24 13:07:04] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 13:07:04] Getting difference for 810, 1429869843
+[2015.04.24 13:10:04] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 13:10:04] Getting difference for 810, 1429870023
+[2015.04.24 13:13:04] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 13:13:04] Getting difference for 810, 1429870204
+[2015.04.24 13:16:05] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 13:16:05] Getting difference for 810, 1429870384
+[2015.04.24 13:19:05] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 13:19:05] Getting difference for 810, 1429870564
+[2015.04.24 13:22:05] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 13:22:05] Getting difference for 810, 1429870744
+[2015.04.24 13:25:05] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 13:25:05] Getting difference for 810, 1429870925
+[2015.04.24 13:28:05] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 13:28:05] Getting difference for 810, 1429871105
+[2015.04.24 13:31:06] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 13:31:06] Getting difference for 810, 1429871285
+[2015.04.24 13:34:06] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 13:34:06] Getting difference for 810, 1429871465
+[2015.04.24 13:37:06] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 13:37:06] Getting difference for 810, 1429871646
+[2015.04.24 13:40:07] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 13:40:07] Getting difference for 810, 1429871826
+[2015.04.24 13:43:07] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 13:43:07] Getting difference for 810, 1429872006
+[2015.04.24 13:46:07] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 13:46:07] Getting difference for 810, 1429872186
+[2015.04.24 13:49:07] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 13:49:07] Getting difference for 810, 1429872367
+[2015.04.24 13:52:07] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 13:52:07] Getting difference for 810, 1429872547
+[2015.04.24 13:55:08] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 13:55:08] Getting difference for 810, 1429872727
+[2015.04.24 13:58:08] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 13:58:08] Getting difference for 810, 1429872907
+[2015.04.24 14:01:08] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 14:01:08] Getting difference for 810, 1429873087
+[2015.04.24 14:04:08] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 14:04:08] Getting difference for 810, 1429873268
+[2015.04.24 14:07:09] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 14:07:09] Getting difference for 810, 1429873448
+[2015.04.24 14:10:09] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 14:10:09] Getting difference for 810, 1429873628
+[2015.04.24 14:13:09] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 14:13:09] Getting difference for 810, 1429873808
+[2015.04.24 14:16:09] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 14:16:09] Getting difference for 810, 1429873989
+[2015.04.24 14:19:09] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 14:19:09] Getting difference for 810, 1429874169
+[2015.04.24 14:22:10] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 14:22:10] Getting difference for 810, 1429874349
+[2015.04.24 14:25:10] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 14:25:10] Getting difference for 810, 1429874529
+[2015.04.24 14:28:10] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 14:28:10] Getting difference for 810, 1429874710
+[2015.04.24 14:31:11] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 14:31:11] Getting difference for 810, 1429874890
+[2015.04.24 14:34:11] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 14:34:11] Getting difference for 810, 1429875070
+[2015.04.24 14:37:11] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 14:37:11] Getting difference for 810, 1429875251
+[2015.04.24 14:40:12] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 14:40:12] Getting difference for 810, 1429875431
+[2015.04.24 14:43:12] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 14:43:12] Getting difference for 810, 1429875611
+[2015.04.24 14:46:12] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 14:46:12] Getting difference for 810, 1429875791
+[2015.04.24 14:49:12] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 14:49:12] Getting difference for 810, 1429875972
+[2015.04.24 14:52:13] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 14:52:13] Getting difference for 810, 1429876152
+[2015.04.24 14:55:13] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 14:55:13] Getting difference for 810, 1429876332
+[2015.04.24 14:58:14] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 14:58:14] Getting difference for 810, 1429876513
+[2015.04.24 15:01:14] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 15:01:14] Getting difference for 810, 1429876693
+[2015.04.24 15:04:15] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 15:04:15] Getting difference for 810, 1429876874
+[2015.04.24 15:07:15] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 15:07:15] Getting difference for 810, 1429877054
+[2015.04.24 15:10:15] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 15:10:15] Getting difference for 810, 1429877234
+[2015.04.24 15:13:15] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 15:13:15] Getting difference for 810, 1429877415
+[2015.04.24 15:16:16] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 15:16:16] Getting difference for 810, 1429877595
+[2015.04.24 15:17:14] TCP Error: network - Network unreachable
+[2015.04.24 15:19:16] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 15:19:16] Getting difference for 810, 1429877775
+[2015.04.24 15:22:16] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 15:22:16] Getting difference for 810, 1429877956
+[2015.04.24 15:25:17] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 15:25:17] Getting difference for 810, 1429878136
+[2015.04.24 15:28:18] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 15:28:18] Getting difference for 810, 1429878317
+[2015.04.24 15:31:18] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 15:31:18] Getting difference for 810, 1429878498
+[2015.04.24 15:34:19] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 15:34:19] Getting difference for 810, 1429878678
+[2015.04.24 15:37:20] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 15:37:20] Getting difference for 810, 1429878859
+[2015.04.24 15:40:20] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 15:40:20] Getting difference for 810, 1429879039
+[2015.04.24 15:43:21] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 15:43:21] Getting difference for 810, 1429879220
+[2015.04.24 15:46:21] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 15:46:21] Getting difference for 810, 1429879401
+[2015.04.24 15:49:22] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 15:49:22] Getting difference for 810, 1429879581
+[2015.04.24 15:52:23] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 15:52:23] Getting difference for 810, 1429879762
+[2015.04.24 15:55:23] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 15:55:23] Getting difference for 810, 1429879942
+[2015.04.24 15:58:24] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 15:58:24] Getting difference for 810, 1429880123
+[2015.04.24 16:01:24] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 16:01:24] Getting difference for 810, 1429880304
+[2015.04.24 16:04:25] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 16:04:25] Getting difference for 810, 1429880484
+[2015.04.24 16:07:26] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 16:07:26] Getting difference for 810, 1429880665
+[2015.04.24 16:10:26] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 16:10:26] Getting difference for 810, 1429880845
+[2015.04.24 16:13:27] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 16:13:27] Getting difference for 810, 1429881026
+[2015.04.24 16:16:27] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 16:16:27] Getting difference for 810, 1429881206
+[2015.04.24 16:19:28] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 16:19:28] Getting difference for 810, 1429881387
+[2015.04.24 16:22:29] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 16:22:29] Getting difference for 810, 1429881568
+[2015.04.24 16:25:29] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 16:25:29] Getting difference for 810, 1429881748
+[2015.04.24 16:28:30] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 16:28:30] Getting difference for 810, 1429881929
+[2015.04.24 16:31:30] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 16:31:30] Getting difference for 810, 1429882109
+[2015.04.24 16:34:31] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 16:34:31] Getting difference for 810, 1429882290
+[2015.04.24 16:37:31] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 16:37:31] Getting difference for 810, 1429882470
+[2015.04.24 16:40:32] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 16:40:32] Getting difference for 810, 1429882651
+[2015.04.24 16:43:32] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 16:43:32] Getting difference for 810, 1429882831
+[2015.04.24 16:46:33] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 16:46:33] Getting difference for 810, 1429883012
+[2015.04.24 16:49:34] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 16:49:34] Getting difference for 810, 1429883193
+[2015.04.24 16:52:34] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 16:52:34] Getting difference for 810, 1429883374
+[2015.04.24 16:55:35] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 16:55:35] Getting difference for 810, 1429883554
+[2015.04.24 16:58:36] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 16:58:36] Getting difference for 810, 1429883735
+[2015.04.24 17:01:36] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 17:01:36] Getting difference for 810, 1429883915
+[2015.04.24 17:04:37] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 17:04:37] Getting difference for 810, 1429884096
+[2015.04.24 17:07:37] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 17:07:37] Getting difference for 810, 1429884276
+[2015.04.24 17:10:38] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 17:10:38] Getting difference for 810, 1429884457
+[2015.04.24 17:13:38] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 17:13:38] Getting difference for 810, 1429884637
+[2015.04.24 17:16:39] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 17:16:39] Getting difference for 810, 1429884818
+[2015.04.24 17:19:39] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 17:19:39] Getting difference for 810, 1429884998
+[2015.04.24 17:22:40] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 17:22:40] Getting difference for 810, 1429885179
+[2015.04.24 17:25:40] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 17:25:40] Getting difference for 810, 1429885359
+[2015.04.24 17:28:41] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 17:28:41] Getting difference for 810, 1429885540
+[2015.04.24 17:31:41] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 17:31:41] Getting difference for 810, 1429885720
+[2015.04.24 17:34:42] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 17:34:42] Getting difference for 810, 1429885901
+[2015.04.24 17:37:43] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 17:37:43] Getting difference for 810, 1429886082
+[2015.04.24 17:40:43] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 17:40:43] Getting difference for 810, 1429886263
+[2015.04.24 17:43:44] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 17:43:44] Getting difference for 810, 1429886443
+[2015.04.24 17:46:45] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 17:46:45] Getting difference for 810, 1429886624
+[2015.04.24 17:49:45] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 17:49:45] Getting difference for 810, 1429886804
+[2015.04.24 17:52:46] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 17:52:46] Getting difference for 810, 1429886985
+[2015.04.24 17:55:46] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 17:55:46] Getting difference for 810, 1429887166
+[2015.04.24 17:58:47] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 17:58:47] Getting difference for 810, 1429887346
+[2015.04.24 18:01:48] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 18:01:48] Getting difference for 810, 1429887527
+[2015.04.24 18:04:48] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 18:04:48] Getting difference for 810, 1429887707
+[2015.04.24 18:07:49] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 18:07:49] Getting difference for 810, 1429887888
+[2015.04.24 18:10:49] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 18:10:49] Getting difference for 810, 1429888069
+[2015.04.24 18:13:50] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 18:13:50] Getting difference for 810, 1429888249
+[2015.04.24 18:16:51] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 18:16:51] Getting difference for 810, 1429888430
+[2015.04.24 18:19:51] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 18:19:51] Getting difference for 810, 1429888611
+[2015.04.24 18:22:52] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 18:22:52] Getting difference for 810, 1429888791
+[2015.04.24 18:25:53] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 18:25:53] Getting difference for 810, 1429888972
+[2015.04.24 18:28:53] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 18:28:53] Getting difference for 810, 1429889152
+[2015.04.24 18:31:54] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 18:31:54] Getting difference for 810, 1429889333
+[2015.04.24 18:34:54] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 18:34:54] Getting difference for 810, 1429889513
+[2015.04.24 18:37:55] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 18:37:55] Getting difference for 810, 1429889694
+[2015.04.24 18:40:55] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 18:40:55] Getting difference for 810, 1429889874
+[2015.04.24 18:43:56] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 18:43:56] Getting difference for 810, 1429890055
+[2015.04.24 18:46:56] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 18:46:56] Getting difference for 810, 1429890235
+[2015.04.24 18:49:56] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 18:49:56] Getting difference for 810, 1429890416
+[2015.04.24 18:52:57] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 18:52:57] Getting difference for 810, 1429890596
+[2015.04.24 18:55:57] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 18:55:57] Getting difference for 810, 1429890776
+[2015.04.24 18:58:58] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 18:58:58] Getting difference for 810, 1429890957
+[2015.04.24 19:01:58] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 19:01:58] Getting difference for 810, 1429891137
+[2015.04.24 19:04:59] Getting difference! no updates timer: 0, remains: -1
+[2015.04.24 19:04:59] Getting difference for 810, 1429891318

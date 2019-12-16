@@ -140,7 +140,7 @@ if (isset($_SESSION['email']) &&  isset($_SESSION['pass']) )
     <a href="#" class="nav1-button">Menu</a>
     <nav1 class="nav1">
         <ul>
-            <li><a href=""><?php echo $row['Name']; ?></a></li>
+            <li   style="text-transform: capitalize"><a href=""><?php echo $row['Name']; ?></a></li>
             <li><a href=""><?php echo $row['Email']; ?></a></li>
             <li><a href="#"><?php echo $row['Contact_no']; ?></a></li>
             <style >

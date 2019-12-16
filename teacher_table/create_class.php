@@ -72,12 +72,12 @@
             <div class="row" id="row1">
                 <div class="col-6" id="col1">
                   <label for="c_name">Enter Class Name:</label><br>
-                  <input type="text" name="cname" value="" title="Enter Class Name" required pattern="^[a-zA-Z][a-zA-Z0-9-_\s.]{5,40}$">
+                  <input type="text" name="cname" value="" title="Enter Class Name" required pattern="^[a-zA-Z][a-zA-Z0-9-_\s.]{2,40}$" title="Class Name shoud start from Alphabet and  between three to twenty character long.">
                 </div>
 
                 <div class="col-6" id="col2">
                   <label >Enrollment key:</label><br>
-                  <input type="text" name="enroll_key" title="Enter Enrollment key"  required pattern="^[a-zA-Z][a-zA-Z0-9-_\s.]{5,40}$">
+                  <input type="text" name="enroll_key" title="Enter Enrollment key"  required pattern="^[a-zA-Z][a-zA-Z0-9-_\s.]{2,40}$" title="Enrollment key shoud start from Alphabet and  between three to twenty character long.">
                 </div>
             </div>
 
@@ -152,7 +152,7 @@
 
 
 
-        $con = mysqli_connect("localhost","root","","project_db");
+        include('db_connection.php');
         if ($con) {
                 $stmt1 ="SELECT Subject_id,subject_name FROM subject WHERE subject_name ='$subject_name'";
                 $result = mysqli_query($con ,$stmt1);
@@ -281,7 +281,7 @@
                                                                          <ul>
                                                                            <li id="vl">Class ID:<strong><?php echo $_SESSION['Class_id'];  ?> </strong> </li>
                                                                            <li id="vl">Enrollment key: <?php echo $enroll_key;  ?></li>
-                                                                           <li id="vl">Subject ID: <?php  echo $_SESSION['subject_id']; ?>  </li>
+                                                                           <!-- <li id="vl">Subject ID: <?php  //echo $_SESSION['subject_id']; ?>  </li> -->
 
                                                                          </ul>
                                                                    </h4>

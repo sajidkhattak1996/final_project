@@ -35,12 +35,19 @@
   $query1 ="SELECT Name FROM class WHERE Class_id='$cid' AND T_id='$tid'";
   $e=mysqli_query($con,$query1);
   $r=mysqli_fetch_array($e);
+  //class subject name
+  $q2="SELECT Subject_id FROM have WHERE Class_id='$cid'";
+  $roww=mysqli_fetch_array(mysqli_query($con, $q2));
+  $subid=$roww['Subject_id'];
+  $q3="SELECT subject_name FROM subject WHERE Subject_id='$subid'";
+  $rr=mysqli_fetch_array(mysqli_query($con,$q3));
 
  ?>
 
 <div class="about_area">
     <div class="viewing_area">
-      <h5>NOW VIEWING :> <a href="" style="color: blue"> <?php  echo $r['Name']; ?></a></h5>
+      <h5>CLASS NOW VIEWING :> <a href="" style="color: blue"> <?php  echo $r['Name']; ?></a></h5>
+      <h5>SUBJECT :> <a href="subject.php" style="color: deeppink"><strong> <?php  echo $rr['subject_name']; ?> </strong> </a></h5>
     </div>
 
     <div class="about">
@@ -72,11 +79,12 @@
         background-image: -o-linear-gradient(0deg,rgba(172,239,224,0.66) 21.76%,rgba(0,140,126,0.90) 98.45%);
         background-image: linear-gradient(0deg,rgba(172,239,224,0.66) 21.76%,rgba(0,140,126,0.90) 98.45%);
       }
+	
 </style>
 
 <div id="active_class">
     <div class="tstart" >
-      <h2 class="text-left">Institute Name: University Of Peshawar </h2>
+      <h2 class="text-left">Institute Name: <?php  echo $_SESSION['institute']; ?> </h2>
 
 <form method="post">
     <table id="example1" class="table table-striped  table-bordered table-hover table-sm">
@@ -98,6 +106,7 @@
                     $q2="SELECT Subject_id FROM have WHERE Class_id='$cid'";
                     $row=mysqli_fetch_assoc(mysqli_query($con,$q2));
                     $sid=$row['Subject_id'];
+                    $_SESSION['subject_id']=$row['Subject_id'];
                     $q3="SELECT S_id FROM attendence_record WHERE Subject_id='$sid' AND Class_id ='$cid'";
                     $e3=mysqli_query($con,$q3);
 
@@ -129,6 +138,8 @@
 
                     $pre_array_tmarks=[];    //store the presentation total marks
                     $pre_array_omarks=[];     //store the student presentation obtained marks
+
+                    $leave_array=[];
 
                     /*===================student records=============================================================================================================*/
                     $cid=$_SESSION['class_id'];
@@ -197,26 +208,69 @@
                               $temp++;
                               // echo "<h1>".$std_id."date==".$r['AT_date']."</h1>";
                           }
-                          $ap=(($p/30)*100);
+                          $total=$p+$a+$l;
+                          $ap=(($p/$total)*100);
                           $n=number_format($ap,2);           //the number_format are use to display the digit after decimal point
                           // echo  "<h3>".$std_id."present==".$p."<br>absent==".$a." <br>leave==".$l."<br>attendence==".$n."%</h3>temp==".$temp;
                             $att_array[$i]=$n;
+                            $leave_array[$i]=$l;
 
                     }
-                    /*==================ended==================================================================================*/
+/*=========================ended===============================================================================================================*/
 
-                    /*==================display all the array data ==========================================================================*/
-                    for ($j=0; $j <count($reg_array) ; $j++) {
+/*==================display all the array data ================================================================================================*/
+                    for ($j=0; $j <count($reg_array); $j++) {
                       ?>
-
                         <tr>
                             <td><?php  echo $reg_array[$j];  ?> </td>
                             <td><?php  echo $sname_array[$j];  ?></td>
-                            <td><?php  echo $att_array[$j];  ?>&nbsp;%  &nbsp;&nbsp; <button type="submit" name="att_view" value="<?php echo $sid_array[$j]; ?>" class="btn btn-outline-primary" > <span class="glyphicon glyphicon-eye-open" style="color: black;"></span></button></td>
-                            <td><?php  echo $ass_array_omarks[$j];  ?> out of <?php  echo $ass_array_tmarks[$j];  ?>  <button type="submit" name="ass_view" value="<?php echo $sid_array[$j]; ?>" class="btn btn-outline-primary" style="margin-right:50%;float:right"><span class="glyphicon glyphicon-eye-open" style="color: black;float:right;"></span></button></td>
-                            <td><?php  echo $quize_array_omarks[$j];  ?> out of <?php  echo $quize_array_tmarks[$j];  ?>  <button type="submit" name="quize_view" value="<?php echo $sid_array[$j]; ?>" class="btn btn-outline-primary" style="margin-right:50%;float:right"><span class="glyphicon glyphicon-eye-open" style="color: black;float:right;"></span></button></td>
-                            <td><?php  echo $pre_array_omarks[$j];  ?> out of <?php  echo $pre_array_tmarks[$j];  ?>  <button type="submit" name="pre_view" value="<?php echo $sid_array[$j]; ?>" class="btn btn-outline-primary" style="margin-right:50%;float:right"><span class="glyphicon glyphicon-eye-open" style="color: black;float:right;"></span></button></td>
+                            <?php
+/*================================Attendence========================================================================================================================================================================================================================================*/
+                            ?><td>  <?php
+                            if (!empty($att_array)) {
+                                      if (count($att_array)==0) {
+                                        
+                                      }
+                                      else { ?>
+                                        <?php  echo $att_array[$j];  ?>&nbsp;%  And <?php echo $leave_array[$j]; ?> L &nbsp;&nbsp; <button type="submit" name="att_view" value="<?php echo $sid_array[$j]; ?>" class="btn btn-outline-primary" > <span class="glyphicon glyphicon-eye-open" style="color: black;"></span></button>
 
+                                      <?php  }
+
+
+                            }
+                            if (empty($att_array)) {  }
+                            ?>    </td>  <?php
+/*================================Assignment========================================================================================================================================================================================================================================*/
+                            ?><td>  <?php
+                            if (!empty($ass_array_omarks)) {   ?>
+
+                                <?php  echo $ass_array_omarks[$j];  ?> out of <?php  echo $ass_array_tmarks[$j];  ?>
+                                <button type="submit" name="ass_view" value="<?php echo $sid_array[$j]; ?>" class="btn btn-outline-primary" style="margin-right:50%;float:right"><span class="glyphicon glyphicon-eye-open" style="color: black;float:right;"></span></button>
+
+
+                            <?php
+                            }
+                            if (empty($ass_array_omarks)) {  }
+                            ?>    </td>  <?php
+/*================================Quize========================================================================================================================================================================================================================================*/
+                            ?> <td>  <?php
+                            if (!empty($quize_array_omarks)) {   ?>
+                              <?php  echo $quize_array_omarks[$j];  ?> out of <?php  echo $quize_array_tmarks[$j];  ?>  <button type="submit" name="quize_view" value="<?php echo $sid_array[$j]; ?>" class="btn btn-outline-primary" style="margin-right:50%;float:right"><span class="glyphicon glyphicon-eye-open" style="color: black;float:right;"></span></button>
+                            <?php
+                            }
+                            if (empty($quize_array_omarks)) {  }
+                            ?>    </td>  <?php
+/*================================presentation========================================================================================================================================================================================================================================*/
+                            ?> <td>  <?php
+                            if (!empty($pre_array_omarks)) {   ?>
+                              <?php  echo $pre_array_omarks[$j];  ?> out of <?php  echo $pre_array_tmarks[$j];  ?>  <button type="submit" name="pre_view" value="<?php echo $sid_array[$j]; ?>" class="btn btn-outline-primary" style="margin-right:50%;float:right"><span class="glyphicon glyphicon-eye-open" style="color: black;float:right;"></span></button>
+
+                            <?php
+                            }
+                            if (empty($pre_array_omarks)) {  }
+                            ?> </td>  <?php
+/*====================================ended===========================================================================================================================================================================================================================================*/
+                              ?>
                         </tr>
 
                       <?php
@@ -249,22 +303,35 @@
 <?php
 //attendence btn
       if (isset($_POST['att_view'])) {
-        echo "<h1>".$_POST['att_view']."</h1>";
+            $_SESSION['S_id']=$_POST['att_view'];
+            ?>
+            <script> window.location.href='selft_attendence_monthly.php';  </script>
+            <?php
       }
 //endeddd
 //assignment btnexpire
       if (isset($_POST['ass_view'])) {
-        echo "<h1>".$_POST['ass_view']."</h1>";
+        $_SESSION['S_id']=$_POST['ass_view'];
+        ?>
+        <script> window.location.href='self_assignment.php';  </script>
+        <?php
 
       }
   //quize btn
       if (isset($_POST['quize_view'])) {
-        echo "<h1>".$_POST['quize_view']."</h1>";
+        $_SESSION['S_id']=$_POST['quize_view'];
+
+        ?>
+        <script> window.location.href='self_quize.php';  </script>
+        <?php
       } //ended
 
       //presentation btn
           if (isset($_POST['pre_view'])) {
-            echo "<h1>".$_POST['pre_view']."</h1>";
+            $_SESSION['S_id']=$_POST['pre_view'];
+            ?>
+            <script> window.location.href='self_presentation.php';  </script>
+            <?php
           } //ended
 
 

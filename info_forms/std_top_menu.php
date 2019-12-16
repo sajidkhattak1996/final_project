@@ -1,3 +1,14 @@
+<?php
+      // session_start();
+      include('db_connection.php');
+      $em=$_SESSION['email'];
+      $ps=$_SESSION['pass'];
+      $query="SELECT S_id,student_name,Email FROM student WHERE Email='$em' AND password='$ps'";
+      $exe_query=mysqli_query($con,$query);
+      $result1=mysqli_fetch_array($exe_query);
+
+
+ ?>
 <!DOCTYPE html>
     <html lang="en" dir="ltr">
       <head>
@@ -35,14 +46,14 @@
     </div>
     <!-- logo class ended -->
 
-
+<form method="post">
     <!--information menu are start   -->
     <a href="#" class="nav1-button">Menu</a>
     <nav1 class="nav1">
         <ul>
-            <li><a href="#">User full Name </a></li>
-            <li><a href="#">user information</a></li>
-            <li><a href="../index.php">Log out</a></li>
+            <li><a href="#"> <?php echo $result1['student_name'];  ?> </a></li>
+            <li><a href="#"> <?php echo $result1['Email'];  ?> </a></li>
+            <li><a href=""> <button type="submit" name="log_out" style="background: none;border: none"> Log out </button> </a></li>
         </ul>
     </nav1>
     <a href="#" class="nav1-close">Close Menu</a>
@@ -51,7 +62,7 @@
     <div id="ssdiv" style="background: #008c7e; width: 100%; height: 46px;border-top:solid 1px #fff;" >
     </div>
     <!-- no things is written in this div B/c it is hide inthe mobile size -->
-
+</form>
 
     <script src="js/jquery.js"></script>
     <script src="js/nav1.jquery.min.js"></script>
@@ -60,10 +71,11 @@
     </script>
     <!-- from here the nav menu and user informatio menu are ended -->
     <!--top head area ended -->
-
-
-
-
-
       </body>
     </html>
+  <?php
+      if (isset($_POST['log_out'])) {
+        session_destroy();
+        echo "<script>   window.location.assign('../index.php');  </script>  ";
+      }
+   ?>

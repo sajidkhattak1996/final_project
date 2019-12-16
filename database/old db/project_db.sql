@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 03, 2019 at 08:00 PM
+-- Generation Time: Dec 04, 2019 at 04:58 PM
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.3.11
 
@@ -32,7 +32,7 @@ CREATE TABLE `assignment` (
   `A_id` bigint(20) NOT NULL,
   `a_name` varchar(80) NOT NULL,
   `a_date` date NOT NULL,
-  `a_time` time NOT NULL,
+  `a_time` bigint(20) NOT NULL,
   `at_marks` int(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -41,22 +41,29 @@ CREATE TABLE `assignment` (
 --
 
 INSERT INTO `assignment` (`A_id`, `a_name`, `a_date`, `a_time`, `at_marks`) VALUES
-(1, 'java', '2019-12-03', '00:00:00', 10),
-(2, 'java', '2019-12-03', '10:19:46', 5),
-(3, 'c_plus plus', '2019-12-04', '10:59:16', 100),
-(4, 'Histry Of Pakistan', '2019-12-05', '11:05:56', 10),
-(5, 'Histry Of Islam', '2019-12-11', '11:08:13', 100),
-(6, 'Histry of JavaScript', '2019-12-11', '11:09:58', 30),
-(7, 'Histry Of Buneer', '2019-12-19', '11:12:28', 10),
-(8, 'Introducation to Computer', '2019-12-12', '11:13:46', 15),
-(9, 'java Histry', '2019-12-03', '11:17:30', 10),
-(10, 'Frame works of java script', '2019-12-04', '11:19:08', 20),
-(11, 'Histry of Urdu', '2019-12-04', '11:21:58', 3),
-(12, 'type of variables in javascript', '2019-12-19', '11:25:18', 10),
-(13, 'angular js', '2019-12-04', '11:28:22', 30),
-(14, 'angular js histroy', '2019-12-19', '11:29:34', 30),
-(15, 'Histroy of www', '2019-12-18', '11:32:33', 40),
-(16, 'al', '2019-12-03', '11:57:32', 9);
+(1, 'java', '2019-12-03', 0, 10),
+(2, 'java', '2019-12-03', 101946, 5),
+(3, 'c_plus plus', '2019-12-04', 105916, 100),
+(4, 'Histry Of Pakistan', '2019-12-05', 110556, 10),
+(5, 'Histry Of Islam', '2019-12-11', 110813, 100),
+(6, 'Histry of JavaScript', '2019-12-11', 110958, 30),
+(7, 'Histry Of Buneer', '2019-12-19', 111228, 10),
+(8, 'Introducation to Computer', '2019-12-12', 111346, 15),
+(9, 'java Histry', '2019-12-03', 111730, 10),
+(10, 'Frame works of java script', '2019-12-04', 111908, 20),
+(11, 'Histry of Urdu', '2019-12-04', 112158, 3),
+(12, 'type of variables in javascript', '2019-12-19', 112518, 10),
+(13, 'angular js', '2019-12-04', 112822, 30),
+(14, 'angular js histroy', '2019-12-19', 112934, 30),
+(15, 'Histroy of www', '2019-12-18', 113233, 40),
+(16, 'al', '2019-12-03', 115732, 9),
+(17, 'javascript Library', '2019-12-05', 71914, 50),
+(18, 'Histry Of Pakistan', '2019-12-05', 1575466007966228992, 21),
+(19, 'c_plus plus', '2019-12-11', 1575466228383336192, 28),
+(20, 'ab11', '2019-12-05', 1575467146416090880, 21),
+(21, 'abbbbbb22', '2019-12-05', 1575467146421181952, 21),
+(22, 'acccccc444', '2019-12-05', 1575467146429097984, 21),
+(23, 'skjladjl', '2019-12-05', 1575467146433789952, 21);
 
 -- --------------------------------------------------------
 
@@ -128,7 +135,23 @@ INSERT INTO `assignment_record` (`A_id`, `Subject_id`, `Class_id`, `S_id`, `ao_m
 (16, 29, 1245142, 17, 1),
 (16, 29, 1245142, 19, 1),
 (16, 29, 1245142, 18, 0),
-(16, 29, 1245142, 16, 0);
+(16, 29, 1245142, 16, 0),
+(17, 29, 1245142, 17, 10),
+(17, 29, 1245142, 19, 50),
+(17, 29, 1245142, 18, 40),
+(17, 29, 1245142, 16, 30),
+(18, 29, 1245142, 17, 20),
+(18, 29, 1245142, 19, 45),
+(18, 29, 1245142, 18, 20),
+(18, 29, 1245142, 16, 30),
+(19, 29, 1245142, 17, 20),
+(19, 29, 1245142, 19, 14),
+(19, 29, 1245142, 18, 21),
+(19, 29, 1245142, 16, 22),
+(20, 29, 1245142, 17, 8),
+(21, 29, 1245142, 19, 9),
+(22, 29, 1245142, 18, 0),
+(23, 29, 1245142, 16, 7);
 
 -- --------------------------------------------------------
 
@@ -288,11 +311,149 @@ INSERT INTO `have` (`Subject_id`, `Class_id`, `S_id`) VALUES
 
 CREATE TABLE `presentation` (
   `P_id` bigint(20) NOT NULL,
-  `name` varchar(80) NOT NULL,
+  `p_topic` varchar(80) NOT NULL,
   `p_date` date NOT NULL,
-  `pt_marks` int(20) NOT NULL,
-  `ob_marks` int(20) NOT NULL
+  `p_time` bigint(30) NOT NULL,
+  `pt_marks` int(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `presentation`
+--
+
+INSERT INTO `presentation` (`P_id`, `p_topic`, `p_date`, `p_time`, `pt_marks`) VALUES
+(1, 'khan', '0000-00-00', 20191204102522, 50),
+(2, 'js', '2019-12-03', 20191204103803, 10),
+(3, '', '2019-12-04', 20191204113304, 10),
+(4, '', '2019-12-04', 20191204113304, 10),
+(5, '', '2019-12-04', 20191204113304, 10),
+(6, '', '2019-12-04', 20191204113304, 10),
+(7, 'ab1', '2019-12-30', 20191204113554, 4),
+(8, 'bb2', '2019-12-30', 20191204113554, 4),
+(9, 'ccc3', '2019-12-30', 20191204113554, 4),
+(10, 'ddd4', '2019-12-30', 20191204113554, 4),
+(11, 'abc', '2019-12-10', 20191204113736, 5),
+(12, 'abc', '2019-12-10', 20191204113736, 5),
+(13, 'abc', '2019-12-10', 20191204113736, 5),
+(14, 'abc', '2019-12-10', 20191204113736, 5),
+(15, 'Histry of javascript', '2019-12-20', 20191204000000, 100),
+(16, 'what is js', '2019-12-20', 20191204000000, 100),
+(17, 'type of js', '2019-12-20', 20191204000000, 100),
+(18, 'libray of js', '2019-12-20', 20191204000000, 100),
+(19, 'Histry of javascript', '2019-12-05', 0, 3),
+(20, 'what is js', '2019-12-05', 0, 3),
+(21, 'type of js', '2019-12-05', 0, 3),
+(22, 'libray of js', '2019-12-05', 0, 3),
+(23, 'Histry of javascript', '2019-12-06', 0, 5),
+(24, 'what is js', '2019-12-06', 0, 5),
+(25, 'type of js', '2019-12-06', 0, 5),
+(26, 'libray of js', '2019-12-06', 0, 5),
+(27, 'Histry of javascript', '2019-12-06', 0, 5),
+(28, 'what is js', '2019-12-06', 0, 5),
+(29, 'type of js', '2019-12-06', 0, 5),
+(30, 'libray of js', '2019-12-06', 0, 5),
+(31, 'Histry of javascript', '2019-12-04', 0, 5),
+(32, 'what is js', '2019-12-04', 0, 5),
+(33, 'type of js', '2019-12-04', 0, 5),
+(34, 'libray of js', '2019-12-04', 0, 5),
+(35, 'ab1', '2019-12-04', 0, 2),
+(36, 'bb2', '2019-12-04', 0, 2),
+(37, 'type of js', '2019-12-04', 0, 2),
+(38, 'ddd4', '2019-12-04', 0, 2),
+(39, 'Histry of javascript', '2019-12-25', 1575454429706729984, 6),
+(40, 'what is js', '2019-12-25', 1575454429712953088, 6),
+(41, 'type of js', '2019-12-25', 1575454429717863936, 6),
+(42, 'libray of js', '2019-12-25', 1575454429723105792, 6),
+(43, 'khan', '2019-12-05', 1575455194932945920, 10),
+(44, 'khan', '2019-12-05', 1575461587341075968, 10),
+(45, 'Histry of javascript', '2019-12-05', 1575463956293894144, 10),
+(46, 'what is js', '2019-12-05', 1575463956298487808, 10),
+(47, 'ccc3', '2019-12-05', 1575463956302454016, 10),
+(48, 'libray of js', '2019-12-05', 1575463956306482944, 10),
+(49, 'ab22', '2019-12-12', 1575467093743244032, 36),
+(50, 'bb2', '2019-12-12', 1575467093749277184, 36),
+(51, 'type of js', '2019-12-12', 1575467093752954880, 36),
+(52, 'ddd4', '2019-12-12', 1575467093761556992, 36);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `presentation_record`
+--
+
+CREATE TABLE `presentation_record` (
+  `P_id` bigint(20) NOT NULL,
+  `Subject_id` bigint(20) NOT NULL,
+  `Class_id` bigint(30) NOT NULL,
+  `S_id` bigint(30) NOT NULL,
+  `po_marks` int(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `presentation_record`
+--
+
+INSERT INTO `presentation_record` (`P_id`, `Subject_id`, `Class_id`, `S_id`, `po_marks`) VALUES
+(2, 29, 1245142, 17, 7),
+(2, 29, 1245142, 19, 8),
+(2, 29, 1245142, 18, 7),
+(2, 29, 1245142, 16, 2),
+(3, 29, 1245142, 17, 8),
+(3, 29, 1245142, 19, 5),
+(3, 29, 1245142, 18, 7),
+(3, 29, 1245142, 16, 6),
+(7, 29, 1245142, 17, 3),
+(8, 29, 1245142, 19, 3),
+(9, 29, 1245142, 18, 1),
+(10, 29, 1245142, 16, 0),
+(11, 29, 1245142, 17, 2),
+(11, 29, 1245142, 19, 2),
+(11, 29, 1245142, 18, 2),
+(11, 29, 1245142, 16, 2),
+(15, 29, 1245142, 17, 50),
+(16, 29, 1245142, 19, 60),
+(17, 29, 1245142, 18, 100),
+(18, 29, 1245142, 16, 100),
+(19, 29, 1245142, 17, 2),
+(20, 29, 1245142, 19, 2),
+(21, 29, 1245142, 18, 2),
+(22, 29, 1245142, 16, 0),
+(23, 29, 1245142, 17, 1),
+(24, 29, 1245142, 19, 3),
+(25, 29, 1245142, 18, 2),
+(26, 29, 1245142, 16, 3),
+(23, 29, 1245142, 17, 1),
+(24, 29, 1245142, 19, 3),
+(25, 29, 1245142, 18, 2),
+(26, 29, 1245142, 16, 3),
+(31, 29, 1245142, 17, 0),
+(32, 29, 1245142, 19, 2),
+(33, 29, 1245142, 18, 2),
+(34, 29, 1245142, 16, 3),
+(35, 29, 1245142, 17, 2),
+(36, 29, 1245142, 19, 3),
+(37, 29, 1245142, 18, 4),
+(38, 29, 1245142, 16, 4),
+(39, 29, 1245142, 17, 2),
+(40, 29, 1245142, 19, 2),
+(41, 29, 1245142, 18, 2),
+(42, 29, 1245142, 16, 6),
+(43, 29, 1245142, 17, 6),
+(43, 29, 1245142, 19, 7),
+(43, 29, 1245142, 18, 0),
+(43, 29, 1245142, 16, 3),
+(44, 29, 1245142, 17, 6),
+(44, 29, 1245142, 19, 7),
+(44, 29, 1245142, 18, 0),
+(44, 29, 1245142, 16, 3),
+(45, 29, 1245142, 17, 7),
+(46, 29, 1245142, 19, 7),
+(47, 29, 1245142, 18, 6),
+(48, 29, 1245142, 16, 7),
+(49, 29, 1245142, 17, 12),
+(50, 29, 1245142, 19, 10),
+(51, 29, 1245142, 18, 0),
+(52, 29, 1245142, 16, 9);
 
 -- --------------------------------------------------------
 
@@ -302,11 +463,64 @@ CREATE TABLE `presentation` (
 
 CREATE TABLE `quize` (
   `Q_id` bigint(20) NOT NULL,
-  `name` varchar(80) NOT NULL,
+  `q_topic` varchar(80) NOT NULL,
   `q_date` date NOT NULL,
-  `qt_marks` int(20) NOT NULL,
-  `ob_marks` int(20) NOT NULL
+  `q_time` bigint(20) NOT NULL,
+  `qt_marks` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `quize`
+--
+
+INSERT INTO `quize` (`Q_id`, `q_topic`, `q_date`, `q_time`, `qt_marks`) VALUES
+(1, 'janna', '0000-00-00', 2645123564321, 50),
+(2, 'Histry Of JavaScript', '2019-12-04', 1575462510805417984, 10),
+(3, 'Histry Of JavaScript', '2019-12-04', 1575463318812143104, 10),
+(4, 'jksf', '2019-12-05', 0, 6),
+(5, 'javascript histry', '2019-12-05', 0, 6),
+(6, 'angular', '2019-12-05', 0, 6),
+(7, 'pakistan histry', '2019-12-05', 0, 6),
+(8, 'jksf', '2019-12-11', 1575465274844037888, 5),
+(9, 'javascript histry', '2019-12-11', 1575465274848412160, 5),
+(10, 'angular', '2019-12-11', 1575465274855072000, 5),
+(11, 'pakistan histry', '2019-12-11', 1575465274858913024, 5);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `quiz_record`
+--
+
+CREATE TABLE `quiz_record` (
+  `Q_id` bigint(20) NOT NULL,
+  `Subject_id` bigint(20) NOT NULL,
+  `Class_id` bigint(30) NOT NULL,
+  `S_id` bigint(30) NOT NULL,
+  `qo_marks` int(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `quiz_record`
+--
+
+INSERT INTO `quiz_record` (`Q_id`, `Subject_id`, `Class_id`, `S_id`, `qo_marks`) VALUES
+(2, 29, 1245142, 17, 8),
+(2, 29, 1245142, 19, 8),
+(2, 29, 1245142, 18, 5),
+(2, 29, 1245142, 16, 4),
+(3, 29, 1245142, 17, 7),
+(3, 29, 1245142, 19, 4),
+(3, 29, 1245142, 18, 7),
+(3, 29, 1245142, 16, 6),
+(4, 29, 1245142, 17, 6),
+(5, 29, 1245142, 19, 2),
+(6, 29, 1245142, 18, 2),
+(7, 29, 1245142, 16, 0),
+(8, 29, 1245142, 17, 9),
+(9, 29, 1245142, 19, 8),
+(10, 29, 1245142, 18, 7),
+(11, 29, 1245142, 16, 9);
 
 -- --------------------------------------------------------
 
@@ -523,7 +737,7 @@ ALTER TABLE `teacher`
 -- AUTO_INCREMENT for table `assignment`
 --
 ALTER TABLE `assignment`
-  MODIFY `A_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `A_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `attendence`
@@ -541,13 +755,13 @@ ALTER TABLE `class`
 -- AUTO_INCREMENT for table `presentation`
 --
 ALTER TABLE `presentation`
-  MODIFY `P_id` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `P_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
 
 --
 -- AUTO_INCREMENT for table `quize`
 --
 ALTER TABLE `quize`
-  MODIFY `Q_id` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `Q_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `student`

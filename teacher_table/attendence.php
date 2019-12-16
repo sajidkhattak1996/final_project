@@ -85,7 +85,7 @@ function empty(){  document.getElementById("spn").innerHTML='';}  //use th empty
             <thead class="bg-info">
                 <tr>
                       <!-- <th scope="col" scope="row">Student ID</th> -->
-                      <th scope="col">Reg No</th>
+                      <th scope="col">Class No</th>
                       <th scope="col">Name</th>
                       <th scope="col">Attendence Status</th>
                 </tr>
@@ -105,7 +105,7 @@ function empty(){  document.getElementById("spn").innerHTML='';}  //use th empty
                       <td scope="col" ><?php  echo $row['student_name']; ?> </td>
                       <td>      <input type="text" name="student_id<?php echo $a; ?>" value="<?php echo $row['S_id']; ?>" style="display:none">
                                 <span style="font-size: 16px">Present:</span>     <input type="radio"  name="r<?php echo $a; ?>" checked value="1" style="width:5%;height:15px;">&nbsp;&nbsp;&nbsp;
-                                <span style="font-size: 16px">Attendence:</span>  <input type="radio"  name="r<?php echo $a; ?>" value="2" style="width:5%;height:15px;">&nbsp;&nbsp;&nbsp;
+                                <span style="font-size: 16px">Absent:</span>  <input type="radio"  name="r<?php echo $a; ?>" value="2" style="width:5%;height:15px;">&nbsp;&nbsp;&nbsp;
                                 <span style="font-size: 16px">Leave:</span>       <input type="radio"  name="r<?php echo $a; ?>" value="3" style="width:5%;height:15px;">&nbsp;&nbsp;&nbsp;
 
                       </td>
@@ -217,15 +217,15 @@ function empty(){  document.getElementById("spn").innerHTML='';}  //use th empty
 
 <script>
   $(function () {
-    $("#example1").DataTable();
-    // $('#example2').DataTable({
-    //   "paging": true,
-    //   "lengthChange": false,
-    //   "searching": false,
-    //   "ordering": true,
-    //   "info": true,
-    //   "autoWidth": false,
-    // });
+    // $("#example1").DataTable();
+    $('#example1').DataTable({
+      "paging": false,
+      "lengthChange": false,
+      "searching": true,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false,
+    });
   });
 </script>
 

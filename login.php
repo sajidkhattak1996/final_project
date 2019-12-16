@@ -57,13 +57,8 @@
                 <?php
                     if (isset($_POST['btn_login'])) {
 
-                      $server ="localhost";
-                      $user   ="root";
-                      $pass   ="";
-                      $db     ="project_db";
-                      //connection with the databse table
-                      $con = mysqli_connect($server,$user,$pass,$db);
-                      
+                      include('db_connection.php');
+
 
                       if ($con) {
                         $em=$_POST['lgemail'];

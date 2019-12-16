@@ -10,22 +10,31 @@
       </form>         <?php
                             // php code for all_class button
                             if (isset($_POST['all_class'])) {
-                              unset($_SESSION['class_id']);
-                              unset($_SESSION['subject_id']);
+                                if(isset($_SESSION['class_id'])){  unset($_SESSION['class_id']);  }
+                                if(isset($_SESSION['subject_id'])){  unset($_SESSION['subject_id']); }
+                                if (isset($_SESSION['Class_name'])) { unset($_SESSION['Class_name']);  }
+
                               echo "<script> window.location.href='tmain_table.php'; </script>";
                             }
+
                             // php code for create class buttons
                             if (isset($_POST['create_class'])) {
-                              unset($_SESSION['class_id']);
-                              unset($_SESSION['subject_id']);
+                                if(isset($_SESSION['class_id'])){  unset($_SESSION['class_id']);  }
+                                if(isset($_SESSION['subject_id'])){  unset($_SESSION['subject_id']); }
+                                if (isset($_SESSION['Class_name'])) { unset($_SESSION['Class_name']);  }
+
                               echo "<script> window.location.href='create_class.php'; </script>";
                             }
+
                             // php code for help button
                             if (isset($_POST['help'])) {
-                              unset($_SESSION['class_id']);
-                              unset($_SESSION['subject_id']);
+                                if(isset($_SESSION['class_id'])){  unset($_SESSION['class_id']);  }
+                                if(isset($_SESSION['subject_id'])){  unset($_SESSION['subject_id']); }
+                                if (isset($_SESSION['Class_name'])) { unset($_SESSION['Class_name']);  }
+
                               echo "<script> window.location.href='helps.php'; </script>";
                             }
+
                       ?>
   </div>
 <!--==========================above button container are ended ===============================================================-->

@@ -80,7 +80,7 @@
                           <thead class="bg-info">
                               <tr>
                                     <!-- <th scope="col" scope="row">Student ID</th> -->
-                                    <th scope="col">Reg No</th>
+                                    <th scope="col">Class No</th>
                                     <th scope="col">Name</th>
                                     <th scope="col">Presentation Topic</th>
                                     <th scope="col">Obtained Marks</th>

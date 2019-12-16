@@ -1,0 +1,88 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Upload and delete image file with jQuery and AJAX</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link href='style.css' rel='stylesheet' type='text/css'>
+        
+    </head>
+    <body >
+        
+        <form method="post" action="" enctype="multipart/form-data" id="myform">
+               
+            <input type="file" id="file" name="file" />
+            <input type="button" class="button" value="Upload" id="but_upload">
+            
+        </form>
+        
+        <!-- Image element container -->
+        <div class="container"></div>
+
+        <!-- Script -->
+        <script src='jquery-3.2.1.min.js' type='text/javascript'></script>
+        <script type='text/javascript'>
+            $(document).ready(function(){
+
+                // Upload
+                $("#but_upload").click(function(){
+
+                    var fd = new FormData();
+                    var files = $('#file')[0].files[0];
+                    fd.append('file',files);
+                    fd.append('request',1);
+
+                    // AJAX request
+                    $.ajax({
+                        url: 'addremove.php',
+                        type: 'post',
+                        data: fd,
+                        contentType: false,
+                        processData: false,
+                        success: function(response){
+                            
+                            if(response != 0){
+                                var count = $('.container .content').length;
+                                count = Number(count) + 1;
+
+                                // Show image preview with Delete button
+                                $('.container').append("<div class='content' id='content_"+count+"' ><img src='"+response+"' width='100' height='100'><span class='delete' id='delete_"+count+"'>Delete</span></div>");
+                            }else{
+                                alert('file not uploaded');
+                            }
+                        }
+                    });
+                });
+
+                // Remove file
+                $('.container').on('click','.content .delete',function(){
+                    
+                    var id = this.id;
+                    var split_id = id.split('_');
+                    var num = split_id[1];
+
+                     // Get image source
+                    var imgElement_src = $( '#content_'+num+' img' ).attr("src");
+                     
+                    var deleteFile = confirm("Do you really want to Delete?");
+                    if (deleteFile == true) {
+                        // AJAX request
+                        $.ajax({
+                           url: 'addremove.php',
+                           type: 'post',
+                           data: {path: imgElement_src,request: 2},
+                           success: function(response){
+                         
+                                // Remove <div >
+                                if(response == 1){
+                                    $('#content_'+num).remove();
+                                }
+
+                           }
+                        });
+                    }
+                });
+
+            });
+        </script>
+    </body>
+</html>

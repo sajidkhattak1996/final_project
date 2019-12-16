@@ -10,7 +10,9 @@
             $exe_stmt_class_name=mysqli_query($con ,$stmt_class_name);
             $r1=mysqli_fetch_array($exe_stmt_class_name);
 
-            $sid=$_SESSION['subject_id'];
+            $s2="SELECT Subject_id FROM have WHERE Class_id='".$_SESSION['class_id']."'";
+            $sr=mysqli_fetch_array(mysqli_query($con, $s2));
+            $sid=$sr['Subject_id'];
             $stmt_subject_name="SELECT subject_name FROM subject WHERE Subject_id='$sid'";
             $exe_stmt_subject_name=mysqli_query($con ,$stmt_subject_name);
             $r2=mysqli_fetch_array($exe_stmt_subject_name);

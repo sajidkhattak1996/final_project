@@ -55,7 +55,7 @@
                             <tr>
                                 <td>
                                       Assignment Topic are Same for All:<br>
-                                      <span><a href="presentation.php"><button type="button" name="btn_yes" class="btn btn-outline-light ">Yes</button> </a> </span> &nbsp;&nbsp;&nbsp;&nbsp;
+                                      <span><a href="assignment.php"><button type="button" name="btn_yes" class="btn btn-outline-light ">Yes</button> </a> </span> &nbsp;&nbsp;&nbsp;&nbsp;
                                       <span> <button type="button" name="btn_different" class="btn btn-outline-light active">NO</button> </span>
 
                                 </td>
@@ -81,7 +81,7 @@
                           <thead class="bg-info">
                               <tr>
                                     <!-- <th scope="col" scope="row">Student ID</th> -->
-                                    <th scope="col">Reg No</th>
+                                    <th scope="col">Class No</th>
                                     <th scope="col">Name</th>
                                     <th scope="col">Assignment Topic</th>
                                     <th scope="col">Obtained Marks</th>

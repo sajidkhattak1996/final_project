@@ -50,7 +50,7 @@
               <!-- below table which display the student record which are enroll in the this class which are clicked    -->
               <div class="container-fluid" style="padding-bottom: 10px">
                 <div class="tend"  style="border-radius: 10px 10px 0px 0px;margin-bottom: 8px;height: auto;padding-bottom:3px;padding-top: 0px">
-                    <table class="table table-straped">
+                    <table  class="table table-straped">
                           <thead>
                             <tr>
                                 <td>
@@ -84,7 +84,7 @@
                           <thead class="bg-info">
                               <tr>
                                     <!-- <th scope="col" scope="row">Student ID</th> -->
-                                    <th scope="col">Reg No</th>
+                                    <th scope="col">Class No</th>
                                     <th scope="col">Name</th>
                                     <th scope="col">Obtained Marks</th>
                               </tr>
@@ -204,20 +204,20 @@
                   });
               });
               </script>
-<!--
+
               <script>
-                $(function () {
-                  $("#example1").DataTable();
-                  // $('#example2').DataTable({
-                  //   "paging": true,
-                  //   "lengthChange": false,
-                  //   "searching": false,
-                  //   "ordering": true,
-                  //   "info": true,
-                  //   "autoWidth": false,
-                  // });
-                });
-              </script> -->
+                // $(function () {
+                //   $("#example1").DataTable();
+                //   $('#example2').DataTable({
+                //     "paging": true,
+                //     "lengthChange": false,
+                //     "searching": false,
+                //     "ordering": true,
+                //     "info": true,
+                //     "autoWidth": false,
+                //   });
+                // });
+              </script>
 
 
 
