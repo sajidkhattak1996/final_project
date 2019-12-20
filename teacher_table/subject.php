@@ -79,7 +79,7 @@
 
 </div>
 <!-- ended -->
-<?php  echo "<pre>".print_r($_SESSION, TRUE)."</pre>";  ?>
+
 
 <script type="text/javascript" src="js/jquery.js"></script>
 <script src="../datatables/jquery.dataTables.js"></script>

@@ -30,9 +30,7 @@
 <!--=========ended ================-->
 <?php
   $cid=$_SESSION['class_id'];
-  $tid=$_SESSION['t_id'];
-  $iname=$_SESSION['institute'];
-  $query1 ="SELECT Name FROM class WHERE Class_id='$cid' AND T_id='$tid'";
+  $query1 ="SELECT Name FROM class WHERE Class_id='$cid'";
   $e=mysqli_query($con,$query1);
   $r=mysqli_fetch_array($e);
   //class subject name
@@ -117,7 +115,7 @@
     <table id="example1" class="table table-striped  table-bordered table-hover table-sm">
         <thead class="bg-info">
                 <tr>
-                  <th scope="col" scope="row">Reg.No</th>
+                  <th scope="col" scope="row">Class No</th>
                   <th scope="col">Name</th>
                   <th scope="col">Assignment Topic</th>
                   <th scope="col">Assignment Date</th>
@@ -130,27 +128,43 @@
             <tbody class="bg-light">
               <?php
                   if (isset($con)) {
-                          $ass_query1="SELECT assignment_record.S_id,assignment.a_name,assignment.a_date,assignment_record.ao_marks,assignment.at_marks FROM assignment INNER JOIN assignment_record ON assignment_record.A_id=assignment.A_id WHERE assignment_record.Class_id='$cid' AND assignment_record.Subject_id='$subid' ORDER BY assignment.a_date DESC";
+                          $check_register="SELECT S_id FROM register WHERE Class_id='$cid'";
+                          $exe_check=mysqli_query($con ,$check_register);
+                          if(mysqli_num_rows($exe_check)>0)
+                          {
+                          $ass_query1="SELECT assignment_record.S_id,assignment.a_name,assignment.a_date,assignment_record.ao_marks,assignment.at_marks FROM assignment INNER JOIN assignment_record ON assignment_record.A_id=assignment.A_id WHERE assignment_record.Class_id='$cid' ORDER BY assignment.a_date DESC";
                           $exe_ass_query1=mysqli_query($con ,$ass_query1);
                           while ($row=mysqli_fetch_assoc($exe_ass_query1)) {
                                 $st_id=$row['S_id'];
                                  $st_name_query="SELECT register.Reg_no,student.student_name FROM register INNER JOIN student ON register.S_id=student.S_id WHERE register.Class_id='$cid' AND register.S_id='$st_id'";
                                  $exe_st=mysqli_query($con ,$st_name_query);
-                                 $r=mysqli_fetch_array($exe_st);
+                                 if (mysqli_num_rows($exe_st)>0) {
+
+                                 $r22=mysqli_fetch_array($exe_st);
                                  ?>
                             <tr>
-                                  <td><?php echo $r['Reg_no'];  ?></td>
-                                  <td><?php echo $r['student_name'];  ?></td>
+                                  <td><?php echo $r22['Reg_no'];  ?></td>
+                                  <td><?php echo $r22['student_name'];  ?></td>
                                   <td><?php echo $row['a_name']; ?></td>
                                   <td><?php echo $row['a_date']; ?></td>
                                   <td><?php echo $row['ao_marks']; ?></td>
                                   <td><?php echo $row['at_marks']; ?></td>
                             </tr>
 
-                          <?php
+                          <?php }else {  ?>
+                                            
+                          <?php }
+
+
+
                             }
-
-
+                          }else {
+                            ?>
+                              <tr>
+                                  <td colspan="6" class="alert alert-warning" style="text-align: center; font-weight: bold"> <?php echo "NO Students are Register to the Class.";  ?></td>
+                              </tr>
+                            <?php
+                          }
 
 
                     //the below query extract all the student sttndence records of that class and subject
@@ -203,7 +217,7 @@
 
 
 
-  echo "<pre>".print_r($_SESSION, TRUE)."</pre>";
+
 
  ?>
   </body>

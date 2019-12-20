@@ -266,13 +266,13 @@
                 <div class="col-5" style="margin: 0 auto">
                   <div class="form-group input-group-lg" style="padding-top: 10px;">
                     <label id="input_labal"><b>Institute Name:</b></label>
-                    <input type="text" id="lname" name="institutename" placeholder="Enter educational Institute name" class="form-control text" autocomplete="off" required pattern="^[a-zA-Z][a-zA-Z0-9-_\s.]{5,80}$">
+                    <input type="text" id="lname" name="institutename" placeholder="Enter educational Institute name" class="form-control text" autocomplete="off" required pattern="^[a-zA-Z][a-zA-Z0-9-_\s.]{5,80}$" title="must be greater then 5 charseter.">
                     <span id="lnme" class="font-weight-bold" style="color:greenyellow"></span>
                     </div>
 
                     <div class="form-group input-group-lg" style="padding-top: 10px;">
                       <label id="input_labal"><b>City Name:</b></label>
-                      <input type="text" id="lname" name="city" placeholder="Enter educational city name" class="form-control text" autocomplete="off" required pattern="^[a-zA-Z][a-zA-Z0-9-_\s.]{5,30}$">
+                      <input type="text" id="lname" name="city" placeholder="Enter educational city name" class="form-control text" autocomplete="off" required pattern="^[a-zA-Z][a-zA-Z0-9-_\s.]{2,30}$">
                       <span id="lnme" class="font-weight-bold" style="color:greenyellow"></span>
                       </div>
 

@@ -30,9 +30,7 @@
 <!--=========ended ================-->
 <?php
   $cid=$_SESSION['class_id'];
-  $tid=$_SESSION['t_id'];
-  $iname=$_SESSION['institute'];
-  $query1 ="SELECT Name FROM class WHERE Class_id='$cid' AND T_id='$tid'";
+  $query1 ="SELECT Name FROM class WHERE Class_id='$cid'";
   $e=mysqli_query($con,$query1);
   $r=mysqli_fetch_array($e);
   //class subject name
@@ -122,7 +120,7 @@
                   <th scope="col" scope="row">Class No</th>
                   <th scope="col">Name</th>
                   <th scope="col">Attendence Date</th>
-                  <th scope="col">Assignment Status</th>
+                  <th scope="col">Attendence Status</th>
 
 
                 </tr>
@@ -131,26 +129,34 @@
               <?php
                   if (isset($con)) {
                     //the below query extract all the student sttndence records of that class and subject
-                        $stmt1="SELECT attendence_record.S_id,attendence_record.AT_date,attendence.status FROM attendence INNER JOIN attendence_record ON attendence.AT_id=attendence_record.AT_id WHERE attendence_record.Class_id='$cid' AND attendence_record.Subject_id='$subid' ORDER BY attendence_record.AT_date DESC";
+                        $stmt1="SELECT attendence_record.S_id,attendence_record.AT_date,attendence.status FROM attendence INNER JOIN attendence_record ON attendence.AT_id=attendence_record.AT_id WHERE attendence_record.Class_id='$cid' ORDER BY attendence_record.AT_date DESC";
                         $exe_stmt1=mysqli_query($con ,$stmt1);
+                        if(mysqli_num_rows($exe_stmt1)>0)
+                        {
+                            while($result1=mysqli_fetch_assoc($exe_stmt1)) {
+                                  $s=$result1['S_id'];
 
-                        while($result1=mysqli_fetch_assoc($exe_stmt1)) {
-                              $s=$result1['S_id'];
+                                  $stmt2="SELECT register.Reg_no ,student.student_name FROM register INNER JOIN student ON register.S_id=student.S_id WHERE register.Class_id='$cid' AND register.S_id='$s'";
+                                  $exe_stmt2=mysqli_query($con ,$stmt2);
+                                  $r=mysqli_fetch_assoc($exe_stmt2);
+                                  ?>
 
-                              $stmt2="SELECT register.Reg_no ,student.student_name FROM register INNER JOIN student ON register.S_id=student.S_id WHERE register.Class_id='$cid' AND register.S_id='$s'";
-                              $exe_stmt2=mysqli_query($con ,$stmt2);
-                              $r=mysqli_fetch_assoc($exe_stmt2);
-                              ?>
-
-                              <tr>
-                                  <td> <?php  echo $r['Reg_no']; ?></td>
-                                  <td> <?php  echo $r['student_name']; ?></td>
-                                  <td> <?php  echo $result1['AT_date']; ?></td>
-                                  <td> <?php  echo $result1['status']; ?></td>
-                              </tr>
+                                  <tr>
+                                      <td> <?php  echo $r['Reg_no']; ?></td>
+                                      <td> <?php  echo $r['student_name']; ?></td>
+                                      <td> <?php  echo $result1['AT_date']; ?></td>
+                                      <td> <?php  echo $result1['status']; ?></td>
+                                  </tr>
 
 
-                            <?php  }
+                                <?php  }
+                           }else {
+                             ?>
+                             <tr>
+                               <td colspan="4" style="text-align: center"><?php echo "No Student are Register to the Class" ?></td>
+                             </tr>
+                             <?php
+                           }
 
 
 

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 22, 2019 at 06:05 PM
+-- Generation Time: Dec 18, 2019 at 04:41 PM
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.3.11
 
@@ -29,10 +29,167 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `assignment` (
-  `A_id` int(30) NOT NULL,
-  `name` varchar(50) NOT NULL,
-  `a_date` date NOT NULL
+  `A_id` bigint(20) NOT NULL,
+  `a_name` varchar(80) NOT NULL,
+  `a_date` date NOT NULL,
+  `a_time` bigint(20) NOT NULL,
+  `at_marks` int(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `assignment_record`
+--
+
+CREATE TABLE `assignment_record` (
+  `A_id` bigint(20) NOT NULL,
+  `Subject_id` bigint(20) NOT NULL,
+  `Class_id` bigint(20) NOT NULL,
+  `S_id` bigint(30) NOT NULL,
+  `ao_marks` int(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `attendence`
+--
+
+CREATE TABLE `attendence` (
+  `AT_id` int(10) NOT NULL,
+  `status` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `attendence`
+--
+
+INSERT INTO `attendence` (`AT_id`, `status`) VALUES
+(1, 'P'),
+(2, 'A'),
+(3, 'L');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `attendence_record`
+--
+
+CREATE TABLE `attendence_record` (
+  `AT_id` int(10) NOT NULL,
+  `AT_date` date NOT NULL,
+  `Class_id` bigint(30) NOT NULL,
+  `S_id` bigint(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `attendence_record`
+--
+
+INSERT INTO `attendence_record` (`AT_id`, `AT_date`, `Class_id`, `S_id`) VALUES
+(1, '2019-11-01', 1227, 5),
+(2, '2019-11-01', 1227, 6),
+(1, '2019-11-01', 1227, 11),
+(1, '2019-11-01', 1227, 8),
+(2, '2019-11-01', 1227, 7),
+(3, '2019-11-01', 1227, 10),
+(1, '2019-11-01', 1227, 9),
+(1, '2019-11-04', 1227, 5),
+(2, '2019-11-04', 1227, 6),
+(3, '2019-11-04', 1227, 11),
+(1, '2019-11-04', 1227, 8),
+(1, '2019-11-04', 1227, 7),
+(2, '2019-11-04', 1227, 10),
+(1, '2019-11-04', 1227, 9),
+(1, '2019-11-05', 1227, 5),
+(1, '2019-11-05', 1227, 6),
+(2, '2019-11-05', 1227, 11),
+(1, '2019-11-05', 1227, 8),
+(1, '2019-11-05', 1227, 7),
+(1, '2019-11-05', 1227, 10),
+(3, '2019-11-05', 1227, 9),
+(1, '2019-11-06', 1227, 5),
+(1, '2019-11-06', 1227, 6),
+(1, '2019-11-06', 1227, 11),
+(1, '2019-11-06', 1227, 8),
+(1, '2019-11-06', 1227, 7),
+(1, '2019-11-06', 1227, 10),
+(1, '2019-11-06', 1227, 9),
+(1, '2019-11-07', 1227, 5),
+(1, '2019-11-07', 1227, 6),
+(3, '2019-11-07', 1227, 11),
+(2, '2019-11-07', 1227, 8),
+(1, '2019-11-07', 1227, 7),
+(1, '2019-11-07', 1227, 10),
+(1, '2019-11-07', 1227, 9),
+(1, '2019-11-08', 1227, 5),
+(1, '2019-11-08', 1227, 6),
+(2, '2019-11-08', 1227, 11),
+(1, '2019-11-08', 1227, 8),
+(3, '2019-11-08', 1227, 7),
+(1, '2019-11-08', 1227, 10),
+(1, '2019-11-08', 1227, 9),
+(2, '2019-12-09', 1227, 5),
+(1, '2019-12-09', 1227, 6),
+(1, '2019-12-09', 1227, 11),
+(1, '2019-12-09', 1227, 8),
+(3, '2019-12-09', 1227, 7),
+(1, '2019-12-09', 1227, 10),
+(1, '2019-12-09', 1227, 9),
+(1, '2019-11-10', 1227, 5),
+(1, '2019-11-10', 1227, 6),
+(3, '2019-11-10', 1227, 11),
+(1, '2019-11-10', 1227, 8),
+(1, '2019-11-10', 1227, 7),
+(2, '2019-11-10', 1227, 10),
+(1, '2019-11-10', 1227, 9),
+(1, '2019-11-11', 1227, 5),
+(3, '2019-11-11', 1227, 6),
+(1, '2019-11-11', 1227, 11),
+(2, '2019-11-11', 1227, 8),
+(1, '2019-11-11', 1227, 7),
+(1, '2019-11-11', 1227, 10),
+(1, '2019-11-11', 1227, 9),
+(1, '2019-11-17', 1227, 16),
+(1, '2019-11-17', 1227, 15),
+(1, '2019-11-17', 1227, 17),
+(2, '2019-11-17', 1227, 11),
+(1, '2019-11-17', 1227, 8),
+(2, '2019-11-17', 1227, 12),
+(1, '2019-11-17', 1227, 7),
+(1, '2019-11-17', 1227, 10),
+(1, '2019-11-17', 1227, 9),
+(2, '2019-11-17', 1227, 13),
+(2, '2019-11-17', 1227, 5),
+(1, '2019-11-17', 1227, 6),
+(2, '2019-11-17', 1227, 14),
+(1, '2019-11-20', 1227, 16),
+(1, '2019-11-20', 1227, 15),
+(1, '2019-11-20', 1227, 17),
+(1, '2019-11-20', 1227, 11),
+(1, '2019-11-20', 1227, 8),
+(1, '2019-11-20', 1227, 12),
+(1, '2019-11-20', 1227, 7),
+(1, '2019-11-20', 1227, 10),
+(1, '2019-11-20', 1227, 9),
+(1, '2019-11-20', 1227, 13),
+(1, '2019-11-20', 1227, 5),
+(1, '2019-11-20', 1227, 6),
+(1, '2019-11-20', 1227, 14),
+(2, '2019-11-21', 1227, 16),
+(2, '2019-11-21', 1227, 15),
+(2, '2019-11-21', 1227, 17),
+(2, '2019-11-21', 1227, 11),
+(1, '2019-11-21', 1227, 8),
+(1, '2019-11-21', 1227, 12),
+(1, '2019-11-21', 1227, 7),
+(1, '2019-11-21', 1227, 10),
+(1, '2019-11-21', 1227, 9),
+(1, '2019-11-21', 1227, 13),
+(1, '2019-11-21', 1227, 5),
+(1, '2019-11-21', 1227, 6),
+(1, '2019-11-21', 1227, 14);
 
 -- --------------------------------------------------------
 
@@ -56,20 +213,9 @@ CREATE TABLE `class` (
 --
 
 INSERT INTO `class` (`Class_id`, `Name`, `Enrollment_key`, `Class_session`, `Start_date`, `currenttime`, `Expire_date`, `T_id`) VALUES
-(1, 'mscfinal', 'msc007', '2019-2022', '2019-11-22', '09:01:14', '2019-11-30', 1);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `class_room`
---
-
-CREATE TABLE `class_room` (
-  `CR_id` int(20) NOT NULL,
-  `CR_Name` varchar(50) NOT NULL,
-  `C_Session` varchar(50) NOT NULL,
-  `Subject_id` int(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+(1225, 'msc_final', 'final2018', '2017-2018', '2019-12-16', '11:04:28', '2019-12-15', 4),
+(1226, 'Bscs', 'sajid96', '2019-2020', '2019-12-17', '07:41:04', '2019-12-31', 4),
+(1227, 'msc_final', 'cs-2019', '2019-2020`', '2019-12-17', '12:32:43', '2019-12-31', 4);
 
 -- --------------------------------------------------------
 
@@ -80,16 +226,130 @@ CREATE TABLE `class_room` (
 CREATE TABLE `have` (
   `Subject_id` bigint(20) NOT NULL,
   `Class_id` bigint(30) NOT NULL,
-  `S_id` bigint(30) NOT NULL,
-  `A_id` int(30) NOT NULL
+  `S_id` bigint(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `have`
 --
 
-INSERT INTO `have` (`Subject_id`, `Class_id`, `S_id`, `A_id`) VALUES
-(19, 1, 0, 0);
+INSERT INTO `have` (`Subject_id`, `Class_id`, `S_id`) VALUES
+(2, 1225, 0),
+(3, 1226, 0),
+(1, 1227, 5),
+(1, 1227, 6),
+(1, 1227, 7),
+(1, 1227, 8),
+(1, 1227, 9),
+(1, 1227, 10),
+(1, 1227, 11),
+(1, 1227, 12),
+(1, 1227, 13),
+(1, 1227, 14),
+(1, 1227, 15),
+(1, 1227, 16),
+(1, 1227, 17);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `links`
+--
+
+CREATE TABLE `links` (
+  `L_id` int(20) NOT NULL,
+  `link` varchar(300) NOT NULL,
+  `description` varchar(200) NOT NULL,
+  `ldate` date NOT NULL,
+  `Class_id` bigint(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `links`
+--
+
+INSERT INTO `links` (`L_id`, `link`, `description`, `ldate`, `Class_id`) VALUES
+(5, 'https://www.google.com/', 'google', '2019-12-17', 1226),
+(6, 'https://cs.stanford.edu/people/eroberts/courses/soco/projects/1998-99/robotics/history.html', 'Histry of Robot', '2019-12-17', 1226);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `notification`
+--
+
+CREATE TABLE `notification` (
+  `id` int(20) NOT NULL,
+  `title` varchar(80) NOT NULL,
+  `msg` varchar(300) NOT NULL,
+  `cdate` date NOT NULL,
+  `expire_date` date NOT NULL,
+  `Class_id` bigint(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `notification`
+--
+
+INSERT INTO `notification` (`id`, `title`, `msg`, `cdate`, `expire_date`, `Class_id`) VALUES
+(1, 'Angular js', 'Welcome to the Anugular javascript .', '0000-00-00', '2019-12-28', 1226),
+(2, 'Robotic', 'Robotics is an interdisciplinary branch of engineering and science that includes mechanical engineering, electronic engineering, information engineering, computer science, and others. Robotics deals with the design, construction, operation, and use of robots, as well as computer systems for their co', '2019-12-18', '2019-12-28', 1226);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `presentation`
+--
+
+CREATE TABLE `presentation` (
+  `P_id` bigint(20) NOT NULL,
+  `p_topic` varchar(80) NOT NULL,
+  `p_date` date NOT NULL,
+  `p_time` bigint(30) NOT NULL,
+  `pt_marks` int(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `presentation_record`
+--
+
+CREATE TABLE `presentation_record` (
+  `P_id` bigint(20) NOT NULL,
+  `Subject_id` bigint(20) NOT NULL,
+  `Class_id` bigint(30) NOT NULL,
+  `S_id` bigint(30) NOT NULL,
+  `po_marks` int(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `quize`
+--
+
+CREATE TABLE `quize` (
+  `Q_id` bigint(20) NOT NULL,
+  `q_topic` varchar(80) NOT NULL,
+  `q_date` date NOT NULL,
+  `q_time` bigint(20) NOT NULL,
+  `qt_marks` int(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `quiz_record`
+--
+
+CREATE TABLE `quiz_record` (
+  `Q_id` bigint(20) NOT NULL,
+  `Subject_id` bigint(20) NOT NULL,
+  `Class_id` bigint(30) NOT NULL,
+  `S_id` bigint(30) NOT NULL,
+  `qo_marks` int(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -103,6 +363,48 @@ CREATE TABLE `register` (
   `Reg_no` int(20) NOT NULL,
   `Enrollment_key` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `register`
+--
+
+INSERT INTO `register` (`Class_id`, `S_id`, `Reg_no`, `Enrollment_key`) VALUES
+(1227, 5, 31, 'cs-2019'),
+(1227, 6, 36, 'cs-2019'),
+(1227, 7, 10, 'cs-2019'),
+(1227, 8, 8, 'cs-2019'),
+(1227, 9, 16, 'cs-2019'),
+(1227, 10, 14, 'cs-2019'),
+(1227, 11, 7, 'cs-2019'),
+(1227, 12, 8, 'cs-2019'),
+(1227, 13, 29, 'cs-2019'),
+(1227, 14, 49, 'cs-2019'),
+(1227, 15, 3, 'cs-2019'),
+(1227, 16, 1, 'cs-2019'),
+(1227, 17, 4, 'cs-2019');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `slide`
+--
+
+CREATE TABLE `slide` (
+  `id` int(11) NOT NULL,
+  `topic` varchar(100) NOT NULL,
+  `c_date` date NOT NULL,
+  `file` varchar(100) NOT NULL,
+  `Class_id` bigint(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `slide`
+--
+
+INSERT INTO `slide` (`id`, `topic`, `c_date`, `file`, `Class_id`) VALUES
+(8, 'recurrence relation', '2019-12-18', '1-recurrence related Question solved (1) (1).docx', 1226),
+(9, 'morphem', '2019-12-18', '3-morphemes (1).docx', 1226),
+(10, 'context free graimar', '2019-12-18', 'CNF and PDA.pdf', 1226);
 
 -- --------------------------------------------------------
 
@@ -122,22 +424,23 @@ CREATE TABLE `student` (
 --
 
 INSERT INTO `student` (`S_id`, `student_name`, `Email`, `password`) VALUES
-(1, 'sajid ktk', 'sajid@gmail.com', '1234567890'),
-(2, 'faheem', 'faheem@gmail.com', '12345'),
-(3, 'kashif', 'kashif@gmail.com', '1234567890'),
-(4, 'kashif jani', 'kashif2@gmail.com', '1234567890'),
-(5, 'sajid asjflkjsl', 'sajid@gmail.comhj', '1234567890'),
-(6, 'sajid asjflkjsl', 'sajidd@gmail.comhj', '1234567890'),
-(7, 'sajid asjflkjsl', 'sajiddd@gmail.comhj', '1234567890'),
-(8, 'sajid asjflkjsl', 'asajiddd@gmail.comhj', '1234567890'),
-(9, 'sajid asjflkjsl', 'asajidddz@gmail.comhj', '1234567890'),
-(10, 'janii khan', 'jani@gmail', '1234567890'),
-(11, 'janii khan', 'janiii@gmail', '1234567890'),
-(12, 'janii khan', 'janiii@ggmail', '1234567890'),
-(13, 'janii khan', 'janiii@ggmailzz', '1234567890'),
-(14, 'ttkslfj ksj', 'tt@gm', '1234567890'),
-(15, 'ttkslfj ksj', 'tt@gma', '1234567890'),
-(16, 'ttkslfj ksj', 'tt@gmam', '1234567890');
+(1, 'M  .Owais khan', 'owais@gmail.com', '123456789123456789'),
+(2, 'Faheem ullah', 'faheem@gmail.com', 'asdfghjkl'),
+(3, 'ihsan ullah', 'ihsan@gmail.com', 'asdfghjkl'),
+(4, 'Habib ur rehman', 'habib@gmail.com', 'asdfghjkl'),
+(5, 'Nasir Iqbal', 'nasir@gmial.com', 'nasir12345'),
+(6, 'Bilal khan', 'bilal@gmail.com', '1234567890'),
+(7, 'Faisal ktk', 'faisal@gmail.com', 'qwertyuiop'),
+(8, 'Ibrar khan', 'ibrar@gmail.com', '1234567890'),
+(9, 'Reyaz iqbal', 'rayaz@gmail.com', '1234567890'),
+(10, 'Sajjad iqbal', 'sajjad@gmail.com', 'qwertyuiop'),
+(11, 'Qasir khan', 'qasir@gmail.com', '1234567890'),
+(12, 'Amana bibi', 'amna@gmail.com', '1234567890'),
+(13, 'Sara Hussan', 'sara@gmail.com', 'qwertyuiop'),
+(14, 'Habib Unas', 'habib19@gmail.com', '1234567890'),
+(15, 'Nazia Usaf zai', 'nazia123@gmail.com', '123456789123456789'),
+(16, 'Samreen qamar', 'samreen@gmail.com', 'qwertyuiop'),
+(17, 'Uzma bibi', 'uzma@gmail.com', '1234567890');
 
 -- --------------------------------------------------------
 
@@ -155,38 +458,9 @@ CREATE TABLE `subject` (
 --
 
 INSERT INTO `subject` (`Subject_id`, `subject_name`) VALUES
-(1, 'c++'),
-(2, 'php'),
-(3, 'js'),
-(4, 'database'),
-(5, 'c Plus Plus'),
-(6, 'db'),
-(7, 'html'),
-(8, 'os'),
-(9, 'chemistry'),
-(10, 'DataStructure'),
-(11, 'biology'),
-(12, 'zoology'),
-(13, 'physics'),
-(14, 'ps'),
-(15, 'bio'),
-(16, 'gdsgs'),
-(17, 'is'),
-(18, 'sql'),
-(19, 'opp');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `take`
---
-
-CREATE TABLE `take` (
-  `S_id` bigint(30) NOT NULL,
-  `Subject_id` bigint(20) NOT NULL,
-  `Attendence` varchar(30) NOT NULL,
-  `A_date` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+(1, 'intruduction to computer'),
+(2, 'mthematic'),
+(3, 'Compiler Construction');
 
 -- --------------------------------------------------------
 
@@ -211,22 +485,7 @@ CREATE TABLE `teacher` (
 --
 
 INSERT INTO `teacher` (`T_id`, `Name`, `Contact_no`, `Cnic`, `Institute_name`, `Country`, `City`, `Email`, `Password`) VALUES
-(1, 'Sajid khattak', 31012345967, '1234567894567', 'Qurtuba University', 'pakistan', 'peshawar', 'sajid@gmail.com', '1234567890');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `teachs`
---
-
-CREATE TABLE `teachs` (
-  `T_id` bigint(20) NOT NULL,
-  `Subject_id` bigint(20) NOT NULL,
-  `teach_date` date NOT NULL,
-  `Assignment` int(11) NOT NULL,
-  `Quizez` int(11) NOT NULL,
-  `presentation` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+(4, 'sajid ktk', 3102145236, '123411524152112', 'University of pehawar', 'pakistan', 'peshawar', 'sajid@gmail.com', '1234567890');
 
 --
 -- Indexes for dumped tables
@@ -239,6 +498,12 @@ ALTER TABLE `assignment`
   ADD PRIMARY KEY (`A_id`);
 
 --
+-- Indexes for table `attendence`
+--
+ALTER TABLE `attendence`
+  ADD PRIMARY KEY (`AT_id`);
+
+--
 -- Indexes for table `class`
 --
 ALTER TABLE `class`
@@ -249,20 +514,36 @@ ALTER TABLE `class`
   ADD KEY `Enrollment_key_3` (`Enrollment_key`);
 
 --
--- Indexes for table `class_room`
---
-ALTER TABLE `class_room`
-  ADD PRIMARY KEY (`CR_id`,`C_Session`),
-  ADD KEY `Subject_id` (`Subject_id`);
-
---
 -- Indexes for table `have`
 --
 ALTER TABLE `have`
   ADD KEY `Class_id` (`Class_id`),
   ADD KEY `have_ibfk_2` (`Subject_id`),
-  ADD KEY `S_id` (`S_id`),
-  ADD KEY `A_id` (`A_id`);
+  ADD KEY `S_id` (`S_id`);
+
+--
+-- Indexes for table `links`
+--
+ALTER TABLE `links`
+  ADD PRIMARY KEY (`L_id`);
+
+--
+-- Indexes for table `notification`
+--
+ALTER TABLE `notification`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `presentation`
+--
+ALTER TABLE `presentation`
+  ADD PRIMARY KEY (`P_id`);
+
+--
+-- Indexes for table `quize`
+--
+ALTER TABLE `quize`
+  ADD PRIMARY KEY (`Q_id`);
 
 --
 -- Indexes for table `register`
@@ -272,6 +553,12 @@ ALTER TABLE `register`
   ADD KEY `Class_id` (`Class_id`,`S_id`),
   ADD KEY `Reg_id` (`S_id`),
   ADD KEY `enrollment_key` (`Enrollment_key`);
+
+--
+-- Indexes for table `slide`
+--
+ALTER TABLE `slide`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `student`
@@ -286,27 +573,10 @@ ALTER TABLE `subject`
   ADD PRIMARY KEY (`Subject_id`);
 
 --
--- Indexes for table `take`
---
-ALTER TABLE `take`
-  ADD PRIMARY KEY (`S_id`,`Subject_id`,`A_date`),
-  ADD KEY `Reg_no` (`Subject_id`),
-  ADD KEY `Subject_id` (`Subject_id`),
-  ADD KEY `S_id` (`S_id`);
-
---
 -- Indexes for table `teacher`
 --
 ALTER TABLE `teacher`
   ADD PRIMARY KEY (`T_id`,`Email`);
-
---
--- Indexes for table `teachs`
---
-ALTER TABLE `teachs`
-  ADD PRIMARY KEY (`T_id`,`Subject_id`,`teach_date`),
-  ADD KEY `Subject_id` (`Subject_id`),
-  ADD KEY `T_id` (`T_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -316,37 +586,67 @@ ALTER TABLE `teachs`
 -- AUTO_INCREMENT for table `assignment`
 --
 ALTER TABLE `assignment`
-  MODIFY `A_id` int(30) NOT NULL AUTO_INCREMENT;
+  MODIFY `A_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+
+--
+-- AUTO_INCREMENT for table `attendence`
+--
+ALTER TABLE `attendence`
+  MODIFY `AT_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `class`
 --
 ALTER TABLE `class`
-  MODIFY `Class_id` bigint(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `Class_id` bigint(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1228;
 
 --
--- AUTO_INCREMENT for table `class_room`
+-- AUTO_INCREMENT for table `links`
 --
-ALTER TABLE `class_room`
-  MODIFY `CR_id` int(20) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `links`
+  MODIFY `L_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `notification`
+--
+ALTER TABLE `notification`
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `presentation`
+--
+ALTER TABLE `presentation`
+  MODIFY `P_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `quize`
+--
+ALTER TABLE `quize`
+  MODIFY `Q_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `slide`
+--
+ALTER TABLE `slide`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `student`
 --
 ALTER TABLE `student`
-  MODIFY `S_id` bigint(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `S_id` bigint(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `subject`
 --
 ALTER TABLE `subject`
-  MODIFY `Subject_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `Subject_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `teacher`
 --
 ALTER TABLE `teacher`
-  MODIFY `T_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `T_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

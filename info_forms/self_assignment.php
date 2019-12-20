@@ -62,11 +62,8 @@
     <div class="about">
         <h2>About this page </h2>
         <p class="text">
-          This is your Teacher Class Record Homepage. The page show the Class records of all Students such is Attendence , Assignment , Presentation and Quizes.
-          The Homepage display all the previous records of the Students.Click on Eye Open (view) to display that particular records of
-          that Student.The Button Attendence , Assignment , Quizes and Presentation display that Particular Records of Students.
-
-
+          This is Student Assignment Homepage.In this page You Can See Your Assignment Records. You Can Also See Your other Class Records By Clicking the Button.
+          To Enroll in a new Class Click the Enroll in Class .For more Information Click For Helps.
         </p>
 
     </div>
@@ -142,22 +139,28 @@
             <tbody class="bg-light">
               <?php
                   if (isset($con)) {
-                          $ass_query1="SELECT assignment.a_name,assignment.a_date,assignment_record.ao_marks,assignment.at_marks FROM assignment INNER JOIN assignment_record ON assignment_record.A_id=assignment.A_id WHERE assignment_record.Class_id='$cid' AND assignment_record.Subject_id='$subid' AND assignment_record.S_id='$st_id' ORDER BY assignment.a_date DESC";
+                          $ass_query1="SELECT assignment.a_name,assignment.a_date,assignment_record.ao_marks,assignment.at_marks FROM assignment INNER JOIN assignment_record ON assignment_record.A_id=assignment.A_id WHERE assignment_record.Class_id='$cid' AND assignment_record.S_id='$st_id' ORDER BY assignment.a_date DESC";
                           $exe_ass_query1=mysqli_query($con ,$ass_query1);
-                          while ($row=mysqli_fetch_assoc($exe_ass_query1)) {
+                              if (mysqli_num_rows($exe_ass_query1)>0) {
+                                            while ($row=mysqli_fetch_assoc($exe_ass_query1)) {
+                                                   ?>
+                                              <tr>
 
+                                                    <td><?php echo $row['a_name']; ?></td>
+                                                    <td><?php echo $row['a_date']; ?></td>
+                                                    <td><?php echo $row['ao_marks']; ?></td>
+                                                    <td><?php echo $row['at_marks']; ?></td>
+                                              </tr>
 
-                                 ?>
-                            <tr>
-
-                                  <td><?php echo $row['a_name']; ?></td>
-                                  <td><?php echo $row['a_date']; ?></td>
-                                  <td><?php echo $row['ao_marks']; ?></td>
-                                  <td><?php echo $row['at_marks']; ?></td>
-                            </tr>
-
-                          <?php
-                            }
+                                            <?php
+                                              }
+                               }
+                               else
+                               {  ?>
+                                <tr>
+                                      <td colspan="4" class="alert alert-warning text-center"><?php echo "NO Assignment"; ?></td>
+                                </tr>
+                              <?php   }
 
 
                   }
@@ -176,13 +179,7 @@
 
 
     </div>
-<?php
 
-
-
-  echo "<pre>".print_r($_SESSION, TRUE)."</pre>";
-
- ?>
   </body>
 </html>
 

@@ -184,9 +184,9 @@ Delete($class['Class_id'],$class['Name']);
 
 // function which display the edit buttons icons
           function Edit($i){ ?>
-          <td>
+          <td><form action="" method="post">
             <button class="btn btn-outline-primary" name="btn_edit" value="<?php echo $i; ?>" style="border:none"> <span class="glyphicon glyphicon-pencil" style="font-size: 14px"></span></button>
-
+            </form>
 
             </td>
           <?php  }
@@ -278,8 +278,8 @@ if (isset($_POST['class_name'])) {
   $_SESSION['class_id'] =$_POST['class_name'];
   echo "<script> window.location.href='class_page.php';  </script>";
 }
-?>
 /*-------------------------------ended --------------------------------------------------------------------------------------------------------------------------------------------*/
+?>
 
 
 <script type="text/javascript" src="js/jquery.js"></script>

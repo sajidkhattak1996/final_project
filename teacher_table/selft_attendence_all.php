@@ -30,9 +30,7 @@
 <!--=========ended ================-->
 <?php
   $cid=$_SESSION['class_id'];
-  $tid=$_SESSION['t_id'];
-  $iname=$_SESSION['institute'];
-  $query1 ="SELECT Name FROM class WHERE Class_id='$cid' AND T_id='$tid'";
+  $query1 ="SELECT Name FROM class WHERE Class_id='$cid'";
   $e=mysqli_query($con,$query1);
   $r=mysqli_fetch_array($e);
   //class subject name
@@ -72,9 +70,6 @@
     </div>
 
 </div>
-
-
-
 
 <!--=========including the top classes button below the top navagation menu ================-->
 <?php  include('display_classes_table_top_menu.php');  ?>
@@ -142,8 +137,13 @@
               <?php
                   if (isset($con)) {
                     //the below query extract all the student sttndence records of that class and subject
-                        $stmt1="SELECT attendence_record.AT_date,attendence.status FROM attendence INNER JOIN attendence_record ON attendence.AT_id=attendence_record.AT_id WHERE attendence_record.Class_id='$cid' AND attendence_record.Subject_id='$subid' AND attendence_record.S_id='$student_id' ORDER BY attendence_record.AT_date DESC";
+                        $stmt1="SELECT attendence_record.AT_date,attendence.status FROM attendence INNER JOIN attendence_record ON attendence.AT_id=attendence_record.AT_id WHERE attendence_record.Class_id='$cid'  AND attendence_record.S_id='$student_id' ORDER BY attendence_record.AT_date DESC";
                         $exe_stmt1=mysqli_query($con ,$stmt1);
+                        // echo "okkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk<br>";
+                        // echo "<h5>".$cid."</h5>";
+                        // echo "<h5>".$subid."</h5>";
+                        // echo "<h5>".$student_id."</h5>";
+                        if (mysqli_num_rows($exe_stmt1)>0) {
 
                         while($result1=mysqli_fetch_assoc($exe_stmt1)) {
                               ?>
@@ -157,6 +157,12 @@
 
                             <?php  }
 
+                          }else {  ?>
+                            <tr>
+                                <td colspan="2" class="alert alert-warning text-center"><?php  echo "No Attendence"; ?></td>
+                            </tr>
+                            <?php
+                          }
 
 
                   }

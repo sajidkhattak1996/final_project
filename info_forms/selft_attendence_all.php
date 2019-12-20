@@ -64,10 +64,10 @@
     <div class="about">
         <h2>About this page </h2>
         <p class="text">
-          This is your Teacher Class Record Homepage. The page show the Class records of all Students such is Attendence , Assignment , Presentation and Quizes.
-          The Homepage display all the previous records of the Students.Click on Eye Open (view) to display that particular records of
-          that Student.The Button Attendence , Assignment , Quizes and Presentation display that Particular Records of Students.
-
+          This is your Class Attendence Recod Homepage.This Page  Show the Full Details of Attendence.
+          To Enroll in a new Class Click the Enroll in Class.Below Table Show the Student Least previous Records.To View the Detail Click on the Eye Icon.
+          To View the Full Records Click for the Following Button.
+          For Help Click the Helps Button.
 
         </p>
 
@@ -142,31 +142,41 @@
           </thead>
             <tbody class="bg-light">
               <?php
-                  if (isset($con)) {
-                    //the below query extract all the student sttndence records of that class and subject
-                        $stmt1="SELECT attendence_record.AT_date,attendence.status FROM attendence INNER JOIN attendence_record ON attendence.AT_id=attendence_record.AT_id WHERE attendence_record.Class_id='$cid' AND attendence_record.Subject_id='$subid' AND attendence_record.S_id='$student_id' ORDER BY attendence_record.AT_date DESC";
-                        $exe_stmt1=mysqli_query($con ,$stmt1);
+          if (isset($con)) {
+            //the below query extract all the student sttndence records of that class and subject
+                $stmt1="SELECT attendence_record.AT_date,attendence.status FROM attendence INNER JOIN attendence_record ON attendence.AT_id=attendence_record.AT_id WHERE attendence_record.Class_id='$cid'  AND attendence_record.S_id='$student_id' ORDER BY attendence_record.AT_date DESC";
+                $exe_stmt1=mysqli_query($con ,$stmt1);
+                // echo "okkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk<br>";
+                // echo "<h5>".$cid."</h5>";
+                // echo "<h5>".$subid."</h5>";
+                // echo "<h5>".$student_id."</h5>";
+                if (mysqli_num_rows($exe_stmt1)>0) {
 
-                        while($result1=mysqli_fetch_assoc($exe_stmt1)) {
-                              ?>
+                while($result1=mysqli_fetch_assoc($exe_stmt1)) {
+                      ?>
 
-                              <tr>
+                      <tr>
 
-                                  <td> <?php  echo $result1['AT_date']; ?></td>
-                                  <td> <?php  echo $result1['status']; ?></td>
-                              </tr>
-
-
-                            <?php  }
+                          <td> <?php  echo $result1['AT_date']; ?></td>
+                          <td> <?php  echo $result1['status']; ?></td>
+                      </tr>
 
 
+                    <?php  }
 
+                  }else {  ?>
+                            <tr>
+                                <td colspan="2" class="alert alert-warning text-center"><?php  echo "No Attendence"; ?></td>
+                            </tr>
+                    <?php
                   }
-                  else {
-                    echo "<script>  alert('Error Occur while connecting to the Database!');   </script>".mysqli_error($con);
-                  }
-               ?>
 
+
+          }
+          else {
+            echo "<script>  alert('Error Occur while connecting to the Database!');   </script>".mysqli_error($con);
+          }
+       ?>
               </tbody>
 
 

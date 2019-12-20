@@ -63,7 +63,15 @@
 <style >
   #row1{padding-bottom: 0.6%;}
 </style>
+<?php
+      date_default_timezone_set("Asia/Karachi");
+      $current_date=date('Y-m-d');
+      /* the below function add number of day to the any date */
+      $exp_date=date('Y-m-d', strtotime($current_date. ' + 180 days'));
+      /*the above we add the 180 day to current date */
 
+
+ ?>
 
 <div class="create_class_outside_div" id="ccc" >
   <h3>CREATE NEW CLASS</h3>
@@ -89,7 +97,7 @@
 
                 <div class="col-6" id="col2">
                   <label >Expire Date:</label><br>
-                  <input type="date" name="expire_date" id="expire_date" required title="Enter The Expire Data For Your Class" onblur="return msg()">
+                  <input type="date" name="expire_date" id="expire_date" value="<?php echo $exp_date; ?>" required title="Enter The Expire Data For Your Class" onblur="return msg()">
                   <p id="m" style="color: red;font-weight:bolder;"></p>
                   <script>
                       function msg(){

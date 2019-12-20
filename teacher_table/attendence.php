@@ -148,12 +148,11 @@ function empty(){  document.getElementById("spn").innerHTML='';}  //use th empty
                               }else {
                                       $temp=1;
                                       $t=1;
-                                      $sub_id=$_SESSION['subject_id'];
                                       while ($t <= $a)
                                         {
                                           $student_id=$_POST['student_id'.$t];
                                           $attendence_id=$_POST['r'.$t];
-                                          $query_insert="INSERT INTO `attendence_record` (`AT_id`, `AT_date`, `Subject_id`, `Class_id`, `S_id`) VALUES ('$attendence_id', '$at_date', '$sub_id', '$cid', '$student_id')";
+                                          $query_insert="INSERT INTO `attendence_record` (`AT_id`, `AT_date`, `Class_id`, `S_id`) VALUES ('$attendence_id', '$at_date', '$cid', '$student_id')";
                                           $exe_insert=mysqli_query($con ,$query_insert);
 
                                         $t++; $temp++; }

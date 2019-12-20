@@ -51,9 +51,10 @@
               <div class="about">
                   <h2>About this page </h2>
                   <p class="text">
-                    This is your Student Homepage. The Homepage show the classes you are enrolled in. To enroll in a new class,
-                    click the enroll in a class button. Click a class name to open your class homepage for the class.from the Class Homepage you can see
-                    you'r Class records.
+                    This is your Class Recod Homepage.To Enroll in a new Class Click the Enroll in Class.Below Table Show the Student Least previous Records.To View the Detail Click on the Eye Icon.
+                    To View the Full Records Click for the Following Button.
+                    For Help Click the Helps Button.
+
 
                   </p>
               </div>
@@ -77,7 +78,7 @@
     <div class="tstart" >
 
         <h2 class="text-left" style="height: 20px;padding-top: 10px;text-transform: capitalize">Student Name: <?php echo $result1['student_name'];  ?> </h2>
-
+        <br>
 <form method="post">
     <table id="example1" class="table table-striped  table-bordered table-hover table-sm">
         <thead class="bg-info">
@@ -94,175 +95,136 @@
             <tbody class="bg-light">
               <?php
                   if (isset($con)) {
-                    // i extract first subject
-                    $q2="SELECT Subject_id FROM have WHERE Class_id='$cid'";
-                    $row=mysqli_fetch_assoc(mysqli_query($con,$q2));
-                    $sid=$row['Subject_id'];
-                    $_SESSION['subject_id']=$row['Subject_id'];
-                    $S_id=$_SESSION['S_id'];
-                    $q3="SELECT S_id FROM attendence_record WHERE Subject_id='$sid' AND Class_id ='$cid' AND S_id='$S_id'";
-                    $e3=mysqli_query($con,$q3);
 
-                    $sid_array=[];
-                    $i=0;
-                    while ($r=mysqli_fetch_assoc($e3)) {
-                          // echo "<h5> present person==</h5>";
-                        $sid_array[$i]=$r['S_id'];
-                        $i++;
-                    }
-                    echo "<h6>".count($sid_array)."</h6>"; //msggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg
+                    $sql1="SELECT S_id,Reg_no FROM register WHERE Class_id='".$_SESSION['Class_id']."' AND S_id='".$_SESSION['S_id']."'";
+                    $row=mysqli_query($con ,$sql1);
+                    if (mysqli_num_rows($row)>0) {
 
-                    $S_id_array=array_unique($sid_array);   //it well remove the debulacate value form the array
-                    //$S_id_length=count($S_id_array);       //the count function are use to finde the length of the array
+                        while ($r=mysqli_fetch_assoc($row)) {
+                              echo "<tr>";
+                              $sql2="SELECT student_name FROM student WHERE S_id='".$r['S_id']."'";
+                              $r2=mysqli_fetch_array(mysqli_query($con ,$sql2));
+                              //display class no and name of student
+                              echo "<td>".$r['Reg_no']."</td>";
+                              echo "<td>".$r2['student_name']."</td>";
+                              //okkkkkkk
+                              $sql3="SELECT AT_id, AT_date FROM attendence_record WHERE Class_id='".$_SESSION['Class_id']."' AND S_id='".$r['S_id']."' ORDER BY AT_date DESC";
+                              $exe_at=mysqli_query($con ,$sql3);
+                              if (mysqli_num_rows($exe_at)>0) {
+                              /*===============  attendence calculate================*/
+
+                                    $p=0;
+                                    $a=0;
+                                    $l=0;
+                                    $temp=0;
+                                    while ($r99=mysqli_fetch_assoc($exe_at) AND $temp<30) {
+                                        if ($r99['AT_id']==1) {
+                                          $p++;
+                                        }
+                                        if ($r99['AT_id']==2) {
+                                          $a++;
+                                        }
+                                        if ($r99['AT_id']==3) {
+                                          $l++;
+                                        }
+                                        $temp++;
+                                        // echo "<h1>".$std_id."date==".$r['AT_date']."</h1>";
+                                    }
+                                    $total=$p+$a+$l;
+                                    $ap=0;
+                                    if ($p==0) {  ?>
+                                          <td>
+                                          <?php  echo $ap;  ?>&nbsp;%  And <?php echo $l; ?> L &nbsp;&nbsp; <button type="submit" name="att_view" value="<?php echo $r['S_id']; ?>" class="btn btn-outline-primary"  style="float: right;margin-right: 30%" > <span class="glyphicon glyphicon-eye-open" style="color: black;"></span></button>
+                                          </td>
+                                          <?php
+                                    }else {
+                                      $ap=(($p/$total)*100);
+                                      $n=number_format($ap,1);           //the number_format are use to display the digit after decimal point
+                                        ?>
+                                          <td >
+                                          <?php  echo $n;  ?>&nbsp;%  And <?php echo $l; ?> L &nbsp;&nbsp; <button type="submit" name="att_view" value="<?php echo $r['S_id']; ?>" class="btn btn-outline-primary" style="float: right;margin-right: 30%;"> <span class="glyphicon glyphicon-eye-open" style="color: black;"></span></button>
+                                          </td>
+                                      <?php
+                                    }
 
 
-                    /*==============creating array to store the value ========================*/
-                    //here creating the array to store the table values
-                    $reg_array =[];
-                    $sid_array =[];
-                    $sname_array=[];
-                    $att_array=[];                 //store the attendence of Student
 
-                    $ass_array_tmarks=[];       //store the assignment total marks
-                    $ass_array_omarks=[];       //store the assignment otained marks of students
-
-                    $quize_array_tmarks=[];    //store the quize total marks
-                    $quize_array_omarks=[];     //store the student quize obtained marks
-
-                    $pre_array_tmarks=[];    //store the presentation total marks
-                    $pre_array_omarks=[];     //store the student presentation obtained marks
-
-                    $leave_array=[];
-
-                    /*===================student records=============================================================================================================*/
-                    $cid=$_SESSION['Class_id'];
-                    //this query extract student records which are enroll to that class from from database
-                    $st1 ="SELECT register.Reg_no, student.student_name ,register.S_id FROM register INNER JOIN student ON register.S_id = student.S_id WHERE register.Class_id='$cid' AND register.S_id='$S_id'  ORDER BY register.Reg_no ";
-                    $exe1=mysqli_query($con,$st1);
-                    $c=0;
-                    while ($row=mysqli_fetch_assoc($exe1)) {
-                            $reg_array[$c]=$row['Reg_no'];
-                            $sname_array[$c]=$row['student_name'];
-                            $sid_array[$c]=$row['S_id'];
-                            $c++;
-                    }  /*============================ended========================================================================================================================*/
-
-                    /*========================for assignment records=========================================================================================*/
-
-                    for ($i=0; $i <count($S_id_array) ; $i++) {
-                      $sbid=$S_id_array[$i];
-                      $st2="SELECT assignment.a_date,assignment.at_marks,assignment.A_id,assignment_record.ao_marks,assignment_record.S_id FROM assignment INNER JOIN assignment_record ON assignment_record.A_id=assignment.A_id WHERE assignment_record.Class_id='$cid' AND assignment_record.Subject_id='$sid' AND assignment_record.S_id='$sbid' ORDER BY assignment.a_date DESC";
-                      $exe2=mysqli_query($con,$st2);
-                      $temp=0;
-                      while ($r=mysqli_fetch_assoc($exe2) AND $temp<1) {
-                          $ass_array_tmarks[$i]=$r['at_marks'];
-                          $ass_array_omarks[$i]=$r['ao_marks'];
-                        $temp++;
-                      }
-                      /*======ended==and below are quize last time record of ================================================================================================*/
-                      $st3="SELECT quize.q_date,quize.qt_marks,quize.Q_id,quiz_record.qo_marks,quiz_record.S_id FROM quize INNER JOIN quiz_record ON quize.Q_id=quiz_record.Q_id WHERE quiz_record.Class_id='$cid' AND quiz_record.Subject_id='$sid' AND quiz_record.S_id='$sbid' ORDER BY quize.q_date DESC";
-                      $exe_st3=mysqli_query($con ,$st3);
-                      $y=0;
-                      while ($row=mysqli_fetch_assoc($exe_st3) AND $y<1) {
-                          $quize_array_tmarks[$i]=$row['qt_marks'];
-                          $quize_array_omarks[$i]=$row['qo_marks'];
-                          $y++;
-                      } /*==================ended =and below are the presentation last records==============================================================================================================================================================================*/
-                      $st4="SELECT presentation.p_date,presentation.pt_marks,presentation.P_id,presentation_record.po_marks,presentation_record.S_id FROM presentation INNER JOIN presentation_record ON presentation_record.P_id=presentation.P_id WHERE presentation_record.Class_id='$cid' AND presentation_record.Subject_id='$sid' AND presentation_record.S_id='$sbid' ORDER BY presentation.p_date DESC";
-                      $exe4=mysqli_query($con ,$st4);
-                      $tm=0;
-                      while ($row=mysqli_fetch_assoc($exe4) AND $tm<1) {
-                              $pre_array_tmarks[$i]=$row['pt_marks'];
-                              $pre_array_omarks[$i]=$row['po_marks'];
-                              $tm++;
-                      }
-
-                    }
-                    /*============== get the attendence of student upto 30 days =================================================================================*/
-                    for ($i=0; $i <count($S_id_array) ; $i++) {
-
-                          $std_id=$S_id_array[$i];
-                          $at="SELECT AT_id, AT_date FROM attendence_record WHERE Subject_id='$sid' AND Class_id='$cid' AND S_id='$std_id' ORDER BY AT_date DESC";
-                          $exe_at=mysqli_query($con,$at);
-                          $p=0;
-                          $a=0;
-                          $l=0;
-                          $temp=0;
-                          while ($r=mysqli_fetch_assoc($exe_at) AND $temp<30) {
-                              if ($r['AT_id']==1) {
-                                $p++;
+                              }else {  ?>
+                                <td>
+                                No Attendence <button type="submit" name="att_view" value="<?php echo $r['S_id']; ?>" class="btn btn-outline-primary"  style="margin-right: 30%;float: right;"> <span class="glyphicon glyphicon-eye-open" style="color: black;"></span></button>
+                                </td>
+                                <?php
                               }
-                              if ($r['AT_id']==2) {
-                                $a++;
+          /*===================== here attendece calculation are ended ================================================================================================================================================================================================================================================================================================================*/
+                              /*assignment are start below============*/
+                              $st2="SELECT assignment.a_date,assignment.at_marks,assignment.A_id,assignment_record.ao_marks,assignment_record.S_id FROM assignment INNER JOIN assignment_record ON assignment_record.A_id=assignment.A_id WHERE assignment_record.Class_id='".$_SESSION['Class_id']."' AND assignment_record.S_id='".$r['S_id']."' ORDER BY assignment.a_date DESC";
+                              $exe_st2=mysqli_query($con ,$st2);
+                              if ($nrow=mysqli_num_rows($exe_st2)>0) {
+                                    $ass_record=mysqli_fetch_array($exe_st2);
+                                    ?>
+                                    <td>
+                                      <?php  echo $ass_record['ao_marks'];  ?> out of <?php  echo $ass_record['at_marks'];  ?>
+                                      <button type="submit" name="ass_view" value="<?php echo $r['S_id']; ?>" class="btn btn-outline-primary" style="margin-right:30%;float:right"><span class="glyphicon glyphicon-eye-open" style="color: black;float:right;"></span></button>
+                                    </td>
+
+                                <?php
                               }
-                              if ($r['AT_id']==3) {
-                                $l++;
-                              }
-                              $temp++;
-                              // echo "<h1>".$std_id."date==".$r['AT_date']."</h1>";
-                          }
-                          $total=$p+$a+$l;
-                          $ap=(($p/$total)*100);
-                          $n=number_format($ap,2);           //the number_format are use to display the digit after decimal point
-                          // echo  "<h3>".$std_id."present==".$p."<br>absent==".$a." <br>leave==".$l."<br>attendence==".$n."%</h3>temp==".$temp;
-                            $att_array[$i]=$n;
-                            $leave_array[$i]=$l;
+                              else {  ?>
+                                  <td>
+                                    <?php  echo "No Assignment";  ?>
+                                    <button type="submit" name="ass_view" value="<?php echo $r['S_id']; ?>" class="btn btn-outline-primary" style="margin-right:30%;float:right"><span class="glyphicon glyphicon-eye-open" style="color: black;float:right;"></span></button>
+                                  </td>
+                              <?php  }
+            /*===========================Assignment ended==================================================================================================================================================================================================================================================================================================================================*/
+                  /*=============below are Quize start============================================================================================================================================================================================================================================================================================================================================*/
+                                  $st33="SELECT quize.q_date,quize.qt_marks,quize.Q_id,quiz_record.qo_marks,quiz_record.S_id FROM quize INNER JOIN quiz_record ON quize.Q_id=quiz_record.Q_id WHERE quiz_record.Class_id='".$_SESSION['Class_id']."' AND quiz_record.S_id='".$r['S_id']."' ORDER BY quize.q_date DESC";
+                                  $exe_st33=mysqli_query($con ,$st33);
+                                  if (mysqli_num_rows($exe_st33)>0) {
+                                        $qr=mysqli_fetch_array($exe_st33);
+                                        ?>
+                                        <td>
+                                        <?php  echo $qr['qo_marks'];  ?> out of <?php  echo $qr['qt_marks'];  ?>
+                                        <button type="submit" name="quize_view" value="<?php echo $r['S_id']; ?>" class="btn btn-outline-primary" style="margin-right:30%;float:right"><span class="glyphicon glyphicon-eye-open" style="color: black;float:right;"></span></button>
+                                        </td>
+                                        <?php
+                                  }else {  ?>
+                                        <td>
+                                        <?php  echo "No Quize";  ?>
+                                        <button type="submit" name="quize_view" value="<?php echo $r['S_id']; ?>" class="btn btn-outline-primary" style="margin-right:30%;float:right"><span class="glyphicon glyphicon-eye-open" style="color: black;float:right;"></span></button>
+                                       </td>
+                                  <?php  }
+  /*======================================ended=================================================================================================================================================================================================================================================================================================================================================*/
+        /*---------------------------below are presentation last record  start ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+                                        $st4="SELECT presentation.p_date,presentation.pt_marks,presentation.P_id,presentation_record.po_marks,presentation_record.S_id FROM presentation INNER JOIN presentation_record ON presentation_record.P_id=presentation.P_id WHERE presentation_record.Class_id='".$_SESSION['Class_id']."' AND presentation_record.S_id='".$r['S_id']."' ORDER BY presentation.p_date DESC";
+                                        $exe4=mysqli_query($con ,$st4);
+                                        if (mysqli_num_rows($exe4)>0) {
+                                            $pr=mysqli_fetch_array($exe4);
+                                            ?>
+                                            <td> <?php  echo $pr['po_marks'];  ?> out of <?php  echo $pr['pt_marks'];  ?>
+                                            <button type="submit" name="pre_view" value="<?php echo $r['S_id']; ?>" class="btn btn-outline-primary" style="margin-right:30%;float:right"><span class="glyphicon glyphicon-eye-open" style="color: black;float:right;"></span></button>
+                                            </td>
+                                            <?php
+                                        }
+                                        else {
+                                          ?>
+                                          <td> <?php echo "No Presentation";  ?>
+                                            <button type="submit" name="pre_view" value="<?php echo $r['S_id']; ?>" class="btn btn-outline-primary" style="margin-right:30%;float:right"><span class="glyphicon glyphicon-eye-open" style="color: black;float:right;"></span></button>
+                                          </td>
+                                          <?php
+                                        }
+      /*==================================ended=================================================================================================================================================================================================================================================================================================================================================================================================*/
 
+                         echo "</tr>";
+                        }
+                  /*====end of while loop=======================================*/
                     }
-/*=========================ended===============================================================================================================*/
-
-/*==================display all the array data ================================================================================================*/
-                    for ($j=0; $j <count($reg_array); $j++) {
-                      ?>
-                        <tr>
-                            <td><?php  echo $reg_array[$j];  ?> </td>
-                            <td><?php  echo $sname_array[$j];  ?></td>
-                            <?php
-/*================================Attendence========================================================================================================================================================================================================================================*/
-                            ?><td>  <?php
-                            if (!empty($att_array)) {   ?>
-                              <?php  echo $att_array[$j];  ?>&nbsp;%  And <?php echo $leave_array[$j]; ?> L &nbsp;&nbsp; <button type="submit" name="att_view" value="<?php echo $sid_array[$j]; ?>" class="btn btn-outline-primary" > <span class="glyphicon glyphicon-eye-open" style="color: black;"></span></button>
-
-                            <?php
-                            }
-                            if (empty($att_array)) {  }
-                            ?>    </td>  <?php
-/*================================Assignment========================================================================================================================================================================================================================================*/
-                            ?><td>  <?php
-                            if (!empty($ass_array_omarks)) {   ?>
-
-                                <?php  echo $ass_array_omarks[$j];  ?> out of <?php  echo $ass_array_tmarks[$j];  ?>
-                                <button type="submit" name="ass_view" value="<?php echo $sid_array[$j]; ?>" class="btn btn-outline-primary" style="margin-right:50%;float:right"><span class="glyphicon glyphicon-eye-open" style="color: black;float:right;"></span></button>
+                    else {  ?>
+                          <tr>
+                              <td colspan="6"> <?php echo "No student are register with this class "; ?> </td>
+                          </tr>
+                    <?php };
 
 
-                            <?php
-                            }
-                            if (empty($ass_array_omarks)) {  }
-                            ?>    </td>  <?php
-/*================================Quize========================================================================================================================================================================================================================================*/
-                            ?> <td>  <?php
-                            if (!empty($quize_array_omarks)) {   ?>
-                              <?php  echo $quize_array_omarks[$j];  ?> out of <?php  echo $quize_array_tmarks[$j];  ?>  <button type="submit" name="quize_view" value="<?php echo $sid_array[$j]; ?>" class="btn btn-outline-primary" style="margin-right:50%;float:right"><span class="glyphicon glyphicon-eye-open" style="color: black;float:right;"></span></button>
-                            <?php
-                            }
-                            if (empty($quize_array_omarks)) {  }
-                            ?>    </td>  <?php
-/*================================presentation========================================================================================================================================================================================================================================*/
-                            ?> <td>  <?php
-                            if (!empty($pre_array_omarks)) {   ?>
-                              <?php  echo $pre_array_omarks[$j];  ?> out of <?php  echo $pre_array_tmarks[$j];  ?>  <button type="submit" name="pre_view" value="<?php echo $sid_array[$j]; ?>" class="btn btn-outline-primary" style="margin-right:50%;float:right"><span class="glyphicon glyphicon-eye-open" style="color: black;float:right;"></span></button>
-
-                            <?php
-                            }
-                            if (empty($pre_array_omarks)) {  }
-                            ?> </td>  <?php
-/*====================================ended===========================================================================================================================================================================================================================================*/
-                              ?>
-                        </tr>
-
-                      <?php
-                    }
-                    /*=========================ended===================================================================================================*/
 
 
                   }
@@ -276,8 +238,8 @@
 
       </table>
       </form>
-
     </div>
+
             <div class="tend"></div>  <!--it cover and highliting buttom area of the table -->
 
 
@@ -317,10 +279,6 @@
                     <script> window.location.href='self_presentation.php';  </script>
                     <?php
                   } //ended
-
-
-
-          echo "<pre>".print_r($_SESSION, TRUE)."</pre>";
 
          ?>
 

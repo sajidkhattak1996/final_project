@@ -138,20 +138,27 @@
             <tbody class="bg-light">
               <?php
                   if (isset($con)) {
-                          $query1="SELECT quize.q_topic,quize.q_date,quiz_record.qo_marks,quize.qt_marks FROM quize INNER JOIN quiz_record ON quiz_record.Q_id=quize.Q_id WHERE quiz_record.Class_id='$cid' AND quiz_record.Subject_id='$subid' AND quiz_record.S_id='$st_id'";
+                          $query1="SELECT quize.q_topic,quize.q_date,quiz_record.qo_marks,quize.qt_marks FROM quize INNER JOIN quiz_record ON quiz_record.Q_id=quize.Q_id WHERE quiz_record.Class_id='$cid' AND  quiz_record.S_id='$st_id'";
                           $exe_query1=mysqli_query($con ,$query1);
-                          while ($row=mysqli_fetch_assoc($exe_query1)) {
-                                 ?>
+                          if (mysqli_num_rows($exe_query1)>0) {
+                                      while ($row=mysqli_fetch_assoc($exe_query1)) {
+                                             ?>
+                                        <tr>
+
+                                              <td><?php echo $row['q_topic']; ?></td>
+                                              <td><?php echo $row['q_date']; ?></td>
+                                              <td><?php echo $row['qo_marks']; ?></td>
+                                              <td><?php echo $row['qt_marks']; ?></td>
+                                        </tr>
+
+                                      <?php
+                                        }
+                          }else { ?>
                             <tr>
-
-                                  <td><?php echo $row['q_topic']; ?></td>
-                                  <td><?php echo $row['q_date']; ?></td>
-                                  <td><?php echo $row['qo_marks']; ?></td>
-                                  <td><?php echo $row['qt_marks']; ?></td>
+                                  <td colspan="4" class="alert alert-warning text-center"><?php echo "NO Quize"; ?></td>
                             </tr>
-
-                          <?php
-                            }
+                            <?php
+                          }
 
                   }
                   else {
@@ -169,13 +176,7 @@
 
 
     </div>
-<?php
 
-
-
-  echo "<pre>".print_r($_SESSION, TRUE)."</pre>";
-
- ?>
   </body>
 </html>
 

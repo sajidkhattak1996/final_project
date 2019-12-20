@@ -18,25 +18,24 @@
 
   </head>
 <body>
-  <?php  session_start(); ?>
+  <?php session_start(); ?>
   <!--=================== the top nevagation menu=======================================----------->
         <?php  include('std_top_menu.php');  ?>
   <!--============ ended==================================================================== -->
+  <!-- the below css link have high periority then above top_info.php file  -->
+  <link rel="stylesheet" href="../datatables-bs4/css/dataTables.bootstrap4.css">
 
-<!-- the below css link have high periority then above top_info.php file  -->
-<link rel="stylesheet" href="../datatables-bs4/css/dataTables.bootstrap4.css">
-
-<style media="screen">
-    #b1{ background: #fff; color: #000 ;font-weight: bold;}
-</style>
-      <!--=================== the top menu just menu and side of the nevagation menu ====================-->
-            <?php include('std_2nd_top_menu.php'); ?>
-      <!--============ ended==================================================================== -->
+  <style media="screen">
+      /* #b11{ background: #fff; color: #000 ;font-weight: bold;} */
+  </style>
+        <!--=================== the top menu just menu and side of the nevagation menu ====================-->
+              <?php include('std_2nd_top_menu.php'); ?>
+        <!--============ ended==================================================================== -->
 <?php
   $cid=$_SESSION['Class_id'];
   $query1 ="SELECT Name FROM class WHERE Class_id='$cid'";
   $e=mysqli_query($con,$query1);
-  $r=mysqli_fetch_array($e);
+  $r1=mysqli_fetch_array($e);
   //class subject name
   $S_id=$_SESSION['S_id'];
   $q2="SELECT Subject_id FROM have WHERE Class_id='$cid' AND S_id='$S_id'";
@@ -45,31 +44,35 @@
   $q3="SELECT subject_name FROM subject WHERE Subject_id='$subid'";
   $rr=mysqli_fetch_array(mysqli_query($con,$q3));
 
-  //std name
-  $sn="SELECT student_name FROM student WHERE S_id='$S_id'";
-  $snr=mysqli_fetch_array(mysqli_query($con, $sn));
+  $st_id=$_SESSION['S_id'];
+  $st_name_query="SELECT register.Reg_no,student.student_name FROM register INNER JOIN student ON register.S_id=student.S_id WHERE register.Class_id='$cid' AND register.S_id='$st_id'";
+  $exe_st=mysqli_query($con ,$st_name_query);
+  $r=mysqli_fetch_array($exe_st);
+  $reg_no=$r['Reg_no'];
+  $name=$r['student_name'];
 
  ?>
 
 <div class="about_area">
-    <div class="viewing_area">
-      <h5>CLASS NOW VIEWING :> <a href="" style="color: blue"> <?php  echo $r['Name']; ?></a></h5>
-      <h5>SUBJECT :><strong style="color: deeppink"> <?php  echo $rr['subject_name']; ?> </strong></h5>
-    </div>
+      <div class="viewing_area">
+        <h5>CLASS NOW VIEWING :> <a href="" style="color: blue"> <?php  echo $r1['Name']; ?></a></h5>
+        <h5>SUBJECT :><strong style="color: deeppink"> <?php  echo $rr['subject_name']; ?> </strong></h5>
+      </div>
 
     <div class="about">
         <h2>About this page </h2>
         <p class="text">
-          This is your Teacher Class Record Homepage. The page show the Class records of all Students such is Attendence , Assignment , Presentation and Quizes.
-          The Homepage display all the previous records of the Students.Click on Eye Open (view) to display that particular records of
-          that Student.The Button Attendence , Assignment , Quizes and Presentation display that Particular Records of Students.
-
+          This is your Class Attendence Recod Homepage.This Page Show Your Monthly Attendence Records By default, You Can See the Full Details By Click on All Attendence.
+          To Enroll in a new Class Click the Enroll in Class.Below Table Show the Student Least previous Records.To View the Detail Click on the Eye Icon.
+          To View the Full Records Click for the Following Button.
+          For Help Click the Helps Button.
 
         </p>
 
     </div>
 
 </div>
+
 
 
 
@@ -119,13 +122,15 @@
 <div id="active_class">
     <div class="tstart" >
       <h2 class="text-left" style="padding-top: 5px;padding-left: 5px;padding-bottom: 10px;text-transform: capitalize">Student Name: <?php echo $result1['student_name'];  ?> </h2>
-
+      <div style="padding-left: 30%;color: #fff" >
+        <span><strong>  Student Class No: <?php   echo $reg_no; ?>  </strong> </span>
+        <span style="padding-left: 10%"> <strong>  Student Name: <?php   echo $name; ?>  </strong> </span>
+      </div>
 <form method="post">
     <table id="example1" class="table table-striped  table-bordered table-hover table-sm">
         <thead class="bg-info">
                 <tr>
-                  <th scope="col" scope="row">Class No</th>
-                  <th scope="col">Name</th>
+
                   <th scope="col">Assignment Topic</th>
                   <th scope="col">Assignment Date</th>
                   <th scope="col">Obtained Marks</th>
@@ -137,57 +142,28 @@
             <tbody class="bg-light">
               <?php
                   if (isset($con)) {
-                          $ass_query1="SELECT assignment_record.S_id,assignment.a_name,assignment.a_date,assignment_record.ao_marks,assignment.at_marks FROM assignment INNER JOIN assignment_record ON assignment_record.A_id=assignment.A_id WHERE assignment_record.Class_id='$cid' AND assignment_record.Subject_id='$subid' ORDER BY assignment.a_date DESC";
+                          $ass_query1="SELECT assignment.a_name,assignment.a_date,assignment_record.ao_marks,assignment.at_marks FROM assignment INNER JOIN assignment_record ON assignment_record.A_id=assignment.A_id WHERE assignment_record.Class_id='$cid' AND assignment_record.S_id='$st_id' ORDER BY assignment.a_date DESC";
                           $exe_ass_query1=mysqli_query($con ,$ass_query1);
-                          while ($row=mysqli_fetch_assoc($exe_ass_query1)) {
-                                $st_id=$row['S_id'];
-                                 $st_name_query="SELECT register.Reg_no,student.student_name FROM register INNER JOIN student ON register.S_id=student.S_id WHERE register.Class_id='$cid' AND register.S_id='$st_id'";
-                                 $exe_st=mysqli_query($con ,$st_name_query);
-                                 $r=mysqli_fetch_array($exe_st);
-                                 ?>
-                            <tr>
-                                  <td><?php echo $r['Reg_no'];  ?></td>
-                                  <td><?php echo $r['student_name'];  ?></td>
-                                  <td><?php echo $row['a_name']; ?></td>
-                                  <td><?php echo $row['a_date']; ?></td>
-                                  <td><?php echo $row['ao_marks']; ?></td>
-                                  <td><?php echo $row['at_marks']; ?></td>
-                            </tr>
+                              if (mysqli_num_rows($exe_ass_query1)>0) {
+                                            while ($row=mysqli_fetch_assoc($exe_ass_query1)) {
+                                                   ?>
+                                              <tr>
 
-                          <?php
-                            }
+                                                    <td><?php echo $row['a_name']; ?></td>
+                                                    <td><?php echo $row['a_date']; ?></td>
+                                                    <td><?php echo $row['ao_marks']; ?></td>
+                                                    <td><?php echo $row['at_marks']; ?></td>
+                                              </tr>
 
-
-
-
-                    //the below query extract all the student sttndence records of that class and subject
-                        // $stmt1="SELECT assignment_record.S_id FROM assignment_record INNER JOIN assignment ON assignment_record.A_id=assignment.A_id WHERE assignment_record.Class_id='1245142' AND assignment_record.Subject_id='29'  ORDER BY assignment.a_date";
-                        // $exe_stmt1=mysqli_query($con ,$stmt1);
-                        // $r=(mysqli_num_rows($exe_stmt1))/30;
-                        // // echo "<h1>Number of Records ===".(mysqli_num_rows($exe_stmt1))."</h1>";
-                        // // echo "<h1>after division with 30  ===".$r."</h1>";
-                        // // echo "<h2>Now remove the redundent values </h2>";
-                        // $sid_array=[];
-                        // $a=0;
-                        // while ($row=mysqli_fetch_assoc($exe_stmt1)) {
-                        //   $sid_array[$a]=$row['S_id'];
-                        //   $a++;
-                        // }
-                        // $z=array_unique($sid_array);
-                        // $c=count($sid_array);
-                        // $ss=0;
-                        // if ($c !=0) {
-                        //   $ss=$c/count($z);       //it generate an error of division by zero
-                        // }
-                        //
-                        // // echo "<h1>Number of after the unique funcion apply to them ==".count($z)."</h1>";
-                        // // echo "<h1>now 148 divided by 4(total no student) have attende days==".$ss."</h1>";
-                        //
-                        // for ($i=0; $i <count($z) ; $i++) {
-                        // $student_id=$z[$i];               //array which store the unique student of that class and subject
-                        //
-                        //
-                        // }
+                                            <?php
+                                              }
+                               }
+                               else
+                               {  ?>
+                                <tr>
+                                      <td colspan="4" class="alert alert-warning text-center"><?php echo "NO Assignment"; ?></td>
+                                </tr>
+                              <?php   }
 
 
                   }
@@ -206,13 +182,7 @@
 
 
     </div>
-<?php
 
-
-
-  echo "<pre>".print_r($_SESSION, TRUE)."</pre>";
-
- ?>
   </body>
 </html>
 

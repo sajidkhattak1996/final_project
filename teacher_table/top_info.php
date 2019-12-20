@@ -134,19 +134,62 @@ if (isset($_SESSION['email']) &&  isset($_SESSION['pass']) )
         <label id="websitename"> Welcome to the Class Room Management</label>
     </div>
     <!-- logo class ended -->
+<!--================ javascript to hide and display div class ======================================================-->
+<script type="text/javascript">
+    function show_hide(){
+      var d=document.getElementById("info");
+      if (d.style.display==="none")
+      {  d.style.display="block";
+      }else {  d.style.display="none";  }
+      }
+/* function second  */
+  function fn2(){
+      var a=document.getElementById("x1");
+      var b=document.getElementById("x2");
+      if (a.style.display==="none") {
+          b.style.display="none";
+          a.style.display="block";
+      }
+      else {
+        a.style.display="none";
+        b.style.display="block";
+      }
+    }
+// password hide and display
+function myFn(){
+  var p=document.getElementById("pp");
+  if (p.type=="password") {
+    p.type="text";
+  }else {
+    p.type="password";
+  }
+}
+function fn3(){
+  var w=document.getElementById("edit_btn");
+  var q=document.getElementById("email_edit");
+  w.style.display="none";
+  q.style.display="none"
 
+}
+function f(){
+  document.getElementById("bbb").style.display="block";
+}
+
+
+</script>
+<!--============== ended ==============================================================================================-->
     <form action="" method="post">
     <!--information menu are start   -->
     <a href="#" class="nav1-button">Menu</a>
     <nav1 class="nav1">
         <ul>
-            <li   style="text-transform: capitalize"><a href=""><?php echo $row['Name']; ?></a></li>
-            <li><a href=""><?php echo $row['Email']; ?></a></li>
-            <li><a href="#"><?php echo $row['Contact_no']; ?></a></li>
+            <li   style="text-transform: capitalize"><a href="#" onclick="show_hide()"><?php echo $row['Name']; ?> &nbsp;&nbsp; <span class="glyphicon glyphicon-info-sign"></span>    </a></li>
+            <li style="cursor:defaults;background:none;border:none"><?php echo $row['Email']; ?></li>
+            <li style="text-transform: capitalize ;" ><?php echo $row['Country']; ?></li>
             <style >
               #lout:hover{ background: #ca0b00;font-weight: bolder;}
             </style>
-      <form action="" method="post"><li><a href="" id="lout"><button name="logout" style="border:none;background:none">log out</button></a></li></form>
+      <form action="" method="post"><li><a href="" id="lout"><button name="logout" style="border:none;background:none">log out &nbsp;&nbsp;<span class="glyphicon glyphicon-log-out"></span></button></a></li></form>
 <?php
   if (isset($_POST['logout'])) {
     session_destroy();
@@ -164,8 +207,77 @@ if (isset($_SESSION['email']) &&  isset($_SESSION['pass']) )
     </div>
     <!-- no things is written in this div B/c it is hide inthe mobile size -->
 
+  <!--=========== below the Top nivagation menu area =========================================================================================================================-->
+  <link rel="stylesheet" href="top_menu_info_btn_css.css">
+  <?php
+        $q1="SELECT * FROM `teacher` WHERE T_id='".$_SESSION['t_id']."'";
+        $r=mysqli_fetch_array(mysqli_query($con ,$q1));
+  ?>
+<!--=========================== start ==========================================================================================================================================-->
+      <div class="info_div" id="info" style="display:none">
+            <div class="info_div_inside">
+              <button type="btn_close" name="button" onclick="show_hide()" class="btn btn-danger" style="float: right"><span class="glyphicon glyphicon-remove" id="icon_remove"></span></button>
+                  <h1 id="info_h3">Your Information Details</h1>
+                    <div id="h3_below">
+                      <form action="" method="post">
+                        <div id="x1" >
+                          <div class="row" id="r">
+                              <div class="col-sm"><b>Name</b><input type="text" id="c3" name="name" value="<?php echo $r['Name']; ?>" onkeyup="f()" class="form-control">  </div>
+                              <div class="col-sm"><b>Institute </b><input type="text" id="c3" name="institute" value="<?php echo $r['Institute_name']; ?>" onkeyup="f()" class="form-control">  </div>
+                          </div>
+
+                          <div class="row" id="r">
+                              <div class="col-sm"><b>Contact NO</b><input type="text" id="c3" name="contact" value="<?php echo $r['Contact_no']; ?>" onkeyup="f()" class="form-control">  </div>
+                              <div class="col-sm"><b>CNIC NO</b><input type="text" id="c3" name="cnic" value="<?php echo $r['Cnic']; ?>" onkeyup="f()" class="form-control">  </div>
+                          </div>
+
+                          <div class="row" id="r">
+                              <div class="col-sm"><b>Country</b><input type="text" id="c3" name="country" value="<?php echo $r['Country']; ?>" onkeyup="f()" class="form-control">  </div>
+                              <div class="col-sm"><b>City </b><input type="text" id="c3" name="city" value="<?php echo $r['City']; ?>"  onkeyup="f()" class="form-control">  </div>
+                          </div>
+                        </div>
+                          <div class="row" id="x2" style="display:none">
+                              <div class="col-sm alert alert-primary" title="Email are not Editable!"><b>Email </b><span><?php echo $r['Email']; ?></span>  </div>
+                              <div class="col-sm" ><b>Password </b><input type="password" name="pass" onkeyup="f()" value="<?php echo $r['Password']; ?>" id="pp" class="form-control "> </div>
+                              <input type="checkbox" onclick="myFn()" style="margin-left: 18px">show password
+                          </div>
+
+                          <div class="row" id="r">
+                            <div class="col-sm" id="r5c1">
+                              <!-- <button type="button" name="button" id="edit_btn" onclick="fn3()" class="btn btn-primary btn-lg">Click To Edit</button> -->
+                              <button type="button" name="b2" id="email_edit" onclick="fn2()" value="<?php echo $tid; ?>" class="btn btn-primary btn-lg " style="margin-left: 10px">Change Password</button>
+                            </div>
+
+                            <div class="col-sm" id="bbb" style="display:none"><button type="submit" name="bsave" value="<?php echo $r['Email']; ?>" class="btn btn-primary btn-lg">Save Change</button></div>
+                          </div>
 
 
+                      </form>
+                  </div>
+            </div>
+      </div>
+<!--========== ended =============================================================================================== -->
+<?php
+      if (isset($_POST['bsave'])) {
+        include('db_connection.php');
+        if ($con) {
+
+              $sql="UPDATE teacher SET Name='".$_POST['name']."' ,Contact_no='".$_POST['contact']."',Cnic='".$_POST['cnic']."',Institute_name='".$_POST['institute']."',Country='".$_POST['country']."',City='".$_POST['city']."',Password='".$_POST['pass']."' WHERE T_id='".$_SESSION['t_id']."' AND Email='".$_POST['bsave']."'";
+              if (mysqli_query($con ,$sql)) {
+                  echo "<script> alert('Record are success Successfully Updated.'); </script>";
+                  echo "<meta http-equiv='refresh' content='0'>";
+
+              }else {
+                echo "<script> alert('Record are Not Updated.'); </script>";
+
+              }
+        }else {
+          echo "connection problem ! ";
+        }
+      }
+
+ ?>
+<!--== php for above form============================================================================================= -->
     <script src="js/nav1.jquery.min.js"></script>
     <script>
         $('.nav1').nav1();

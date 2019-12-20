@@ -30,9 +30,8 @@
 <!--=========ended ================-->
 <?php
   $cid=$_SESSION['class_id'];
-  $tid=$_SESSION['t_id'];
   $iname=$_SESSION['institute'];
-  $query1 ="SELECT Name FROM class WHERE Class_id='$cid' AND T_id='$tid'";
+  $query1 ="SELECT Name FROM class WHERE Class_id='$cid'";
   $e=mysqli_query($con,$query1);
   $r1=mysqli_fetch_array($e);
   //class subject name
@@ -140,20 +139,29 @@
             <tbody class="bg-light">
               <?php
                   if (isset($con)) {
-                          $query1="SELECT presentation.p_topic,presentation.p_date,presentation_record.po_marks,presentation.pt_marks FROM presentation INNER JOIN presentation_record ON presentation_record.P_id=presentation.P_id WHERE presentation_record.Class_id='$cid' AND presentation_record.Subject_id='$subid' AND presentation_record.S_id='$st_id' ORDER BY presentation.p_date DESC";
+                          $query1="SELECT presentation.p_topic,presentation.p_date,presentation_record.po_marks,presentation.pt_marks FROM presentation INNER JOIN presentation_record ON presentation_record.P_id=presentation.P_id WHERE presentation_record.Class_id='$cid' AND presentation_record.S_id='$st_id' ORDER BY presentation.p_date DESC";
                           $exe_query1=mysqli_query($con ,$query1);
-                          while ($row=mysqli_fetch_assoc($exe_query1)) {
-                                 ?>
-                            <tr>
+                          if (mysqli_num_rows($exe_query1)>0) {
+                                      while ($row=mysqli_fetch_assoc($exe_query1)) {
+                                             ?>
+                                        <tr>
 
-                                  <td><?php echo $row['p_topic']; ?></td>
-                                  <td><?php echo $row['p_date']; ?></td>
-                                  <td><?php echo $row['po_marks']; ?></td>
-                                  <td><?php echo $row['pt_marks']; ?></td>
-                            </tr>
+                                              <td><?php echo $row['p_topic']; ?></td>
+                                              <td><?php echo $row['p_date']; ?></td>
+                                              <td><?php echo $row['po_marks']; ?></td>
+                                              <td><?php echo $row['pt_marks']; ?></td>
+                                        </tr>
 
-                          <?php
+                                      <?php
+                                        }
+                            }else { ?>
+                              <tr>
+                                    <td colspan="4" class="alert alert-warning text-center"><?php echo "NO Presentation"; ?></td>
+                              </tr>
+                              <?php
                             }
+
+
 
                   }
                   else {
@@ -171,13 +179,7 @@
 
 
     </div>
-<?php
 
-
-
-  echo "<pre>".print_r($_SESSION, TRUE)."</pre>";
-
- ?>
   </body>
 </html>
 

@@ -62,10 +62,7 @@
     <div class="about">
         <h2>About this page </h2>
         <p class="text">
-          This is your Teacher Class Record Homepage. The page show the Class records of all Students such is Attendence , quize , Presentation and Quizes.
-          The Homepage display all the previous records of the Students.Click on Eye Open (view) to display that particular records of
-          that Student.The Button Attendence , quize , Quizes and Presentation display that Particular Records of Students.
-
+          This is Your Quize Record Homepage, Here You Can See Your Class Quizeses Record. For more Infomation Click on Helps Button.
 
         </p>
 
@@ -139,27 +136,34 @@
           </thead>
             <tbody class="bg-light">
               <?php
-                  if (isset($con)) {
-                          $query1="SELECT quize.q_topic,quize.q_date,quiz_record.qo_marks,quize.qt_marks FROM quize INNER JOIN quiz_record ON quiz_record.Q_id=quize.Q_id WHERE quiz_record.Class_id='$cid' AND quiz_record.Subject_id='$subid' AND quiz_record.S_id='$st_id'";
-                          $exe_query1=mysqli_query($con ,$query1);
-                          while ($row=mysqli_fetch_assoc($exe_query1)) {
-                                 ?>
-                            <tr>
+            if (isset($con)) {
+                    $query1="SELECT quize.q_topic,quize.q_date,quiz_record.qo_marks,quize.qt_marks FROM quize INNER JOIN quiz_record ON quiz_record.Q_id=quize.Q_id WHERE quiz_record.Class_id='$cid' AND  quiz_record.S_id='$st_id'";
+                    $exe_query1=mysqli_query($con ,$query1);
+                    if (mysqli_num_rows($exe_query1)>0) {
+                                while ($row=mysqli_fetch_assoc($exe_query1)) {
+                                       ?>
+                                  <tr>
 
-                                  <td><?php echo $row['q_topic']; ?></td>
-                                  <td><?php echo $row['q_date']; ?></td>
-                                  <td><?php echo $row['qo_marks']; ?></td>
-                                  <td><?php echo $row['qt_marks']; ?></td>
-                            </tr>
+                                        <td><?php echo $row['q_topic']; ?></td>
+                                        <td><?php echo $row['q_date']; ?></td>
+                                        <td><?php echo $row['qo_marks']; ?></td>
+                                        <td><?php echo $row['qt_marks']; ?></td>
+                                  </tr>
 
-                          <?php
-                            }
+                                <?php
+                                  }
+                    }else { ?>
+                      <tr>
+                            <td colspan="4" class="alert alert-warning text-center"><?php echo "NO Quize"; ?></td>
+                      </tr>
+                      <?php
+                    }
 
-                  }
-                  else {
-                    echo "<script>  alert('Error Occur while connecting to the Database!');   </script>".mysqli_error($con);
-                  }
-               ?>
+            }
+            else {
+              echo "<script>  alert('Error Occur while connecting to the Database!');   </script>".mysqli_error($con);
+            }
+         ?>
 
               </tbody>
 
@@ -171,13 +175,7 @@
 
 
     </div>
-<?php
 
-
-
-  echo "<pre>".print_r($_SESSION, TRUE)."</pre>";
-
- ?>
   </body>
 </html>
 

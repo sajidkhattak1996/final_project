@@ -199,7 +199,7 @@
                 $(function () {
                   // $("#example1").DataTable();
                   $('#example1').DataTable({
-                    "paging": true,
+                    "paging": false,
                     "lengthChange": false,
                     "searching": true,
                     "ordering": true,

@@ -65,10 +65,10 @@
     <div class="about">
         <h2>About this page </h2>
         <p class="text">
-          This is your Teacher Class Record Homepage. The page show the Class records of all Students such is Attendence , Assignment , Presentation and Quizes.
-          The Homepage display all the previous records of the Students.Click on Eye Open (view) to display that particular records of
-          that Student.The Button Attendence , Assignment , Quizes and Presentation display that Particular Records of Students.
-
+          This is your Class Attendence Recod Homepage.This Page Show Your Monthly Attendence Records By default, You Can See the Full Details By Click on All Attendence.
+          To Enroll in a new Class Click the Enroll in Class.Below Table Show the Student Least previous Records.To View the Detail Click on the Eye Icon.
+          To View the Full Records Click for the Following Button.
+          For Help Click the Helps Button.
 
         </p>
 
@@ -144,74 +144,81 @@
           </thead>
             <tbody class="bg-light">
               <?php
-                  if (isset($con)) {
+
+                              if (isset($con)) {
+                                    $stmt3="SELECT attendence.AT_id,attendence_record.AT_date FROM attendence INNER JOIN attendence_record on attendence_record.AT_id=attendence.AT_id WHERE Class_id='$cid' AND S_id='$student_id' ORDER BY attendence_record.AT_date DESC";
+                                    $exe3=mysqli_query($con , $stmt3);
+                                    $nr=mysqli_num_rows($exe3);
+                                    if ($nr>0) {
+                                          $t=0;
+                                          $t2=0;
+                                          $Aid_array[]=0;
+                                          $Adate_array[]=0;
+                                          while ($row=mysqli_fetch_assoc($exe3)) {
+                                                $Aid_array[$t]=$row['AT_id'];
+                                                $Adate_array[$t]=$row['AT_date'];
+                                                $t++;
+                                                }
+                                                $temp=($t/30);
+                                                $temp_round=ceil($temp);
+                                                for ($i=0; $i <$temp_round ; $i++) {
+                                                                      $p=0;
+                                                                      $a=0;
+                                                                      $l=0;
+                                                                      $lp=0;
+                                                                      ?><td><?php  echo $Adate_array[$t2]; ?></td><?php
+                                                                      while ($lp<30 && $t>0) {
+                                                                        // echo "okkkkkkkkkkkkkkkkkkkkkkk<br>";
+                                                                        // echo "t2===".$t2;
+                                                                          if ($Aid_array[$t2]==1) {
+                                                                            $p++;
+                                                                          }
+                                                                          if ($Aid_array[$t2]==2) {
+                                                                            $a++;
+                                                                          }
+                                                                          if ($Aid_array[$t2]==3) {
+                                                                            $l++;
+                                                                          }
+                                                                          $lp++;
+                                                                          $t--;
+                                                                          $t2++;
+                                                                          // echo "<h1>".$std_id."date==".$r['AT_date']."</h1>";
+                                                                      }
+                                                                      $total=$p+$a+$l;
+                                                                      $ap=0;
+                                                                      if ($p==0) {  ?>
+                                                                            <td>
+                                                                            <?php  echo $ap;  ?>&nbsp;%  And <?php echo $l; ?> L &nbsp;&nbsp;
+                                                                            </td>
+                                                                            <?php
+                                                                      }else {
+                                                                        $ap=(($p/$total)*100);
+                                                                        $n=number_format($ap,1);           //the number_format are use to display the digit after decimal point
+                                                                          ?>
+
+                                                                            <td >
+                                                                            <?php  echo $n;  ?>&nbsp;%  And <?php echo $l; ?> L &nbsp;&nbsp;
+                                                                            </td>
+                                                                        <?php
+                                                                      }
+                                                        }
 
 
 
-
-                        // $stmt3="SELECT AT_id FROM attendence_record WHERE Class_id='$cid' AND Subject_id='$subid' and S_id='$student_id'";
-                        $stmt3="SELECT attendence.AT_id,attendence_record.AT_date FROM attendence INNER JOIN attendence_record on attendence_record.AT_id=attendence.AT_id WHERE Class_id='$cid' AND Subject_id='$subid' and S_id='$student_id' ORDER BY attendence_record.AT_date DESC";
-                        $exe3=mysqli_query($con , $stmt3);
-
-                        $exe3_row=mysqli_num_rows($exe3);
-                        $d=($exe3_row/30);
-                        $r_value=ceil($d);
-                        // echo "rounddddddddddddddd=====================".ceil($d);
-                        // echo "<br><br>";
-                        $nr=mysqli_num_rows($exe3);
-                        $nor=$nr;
-
-                        for ($k=0; $k <$r_value ; $k++) {
-
-                                $at_date=0;
-                                $p=0;
-                                $a=0;
-                                $l=0;
-
-                                $q=0;
-                                while ($nor>0 && $q<30 && $row=mysqli_fetch_assoc($exe3)) {
-                                  // echo " rr==".$row['AT_id']."\n";
-                                  if ($row['AT_id']==1) {
-                                    $p++;
-                                  }
-                                  if ($row['AT_id']==2) {
-                                    $a++;
-                                  }
-                                  if ($row['AT_id']==3) {
-                                    $l++;
-                                  }
-                                  if ($q==0) {
-                                    $at_date=$row['AT_date'];
-                                  }
-                                  $q++;
-                                  $nor--;
-                                 }
-                                 // echo "<h1>p=".$p."</h1>";
-                                 // echo "<h1>a=".$a."</h1>";
-                                 // echo "<h1>l=".$l."</h1>";
-
-                                 $total=$p+$a+$l;
-                                 $per=($p/$total)*100;
-                                 $per_round=number_format($per,1);
+                                    }else { ?>
+                                          <tr>
+                                              <td colspan="2" class="alert alert-warning text-center"><?php  echo "No Attendence"; ?></td>
+                                          </tr>
+                                    <?php  }
 
 
 
-                                 // echo "<h1>persentage=".$per_round."%  and leave are :".$l."</h1>";
-                                 ?>
-                                  <tr>
+                                }
+                              else {
+                                echo "<script>  alert('Error Occur while connecting to the Database!');   </script>".mysqli_error($con);
+                              }
+                           ?>
 
-                                        <td><?php  echo $at_date; ?></td>
-                                        <td><?php  echo $per_round; ?> % &nbsp;&nbsp;&nbsp; & &nbsp; leave is <?php echo $l; ?></td>
-                                  </tr>
-
-                                 <?php
-                        }
-
-                    }
-                  else {
-                    echo "<script>  alert('Error Occur while connecting to the Database!');   </script>".mysqli_error($con);
-                  }
-               ?>
 
               </tbody>
 

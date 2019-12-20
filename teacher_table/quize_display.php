@@ -30,9 +30,8 @@
 <!--=========ended ================-->
 <?php
   $cid=$_SESSION['class_id'];
-  $tid=$_SESSION['t_id'];
   $iname=$_SESSION['institute'];
-  $query1 ="SELECT Name FROM class WHERE Class_id='$cid' AND T_id='$tid'";
+  $query1 ="SELECT Name FROM class WHERE Class_id='$cid' ";
   $e=mysqli_query($con,$query1);
   $r=mysqli_fetch_array($e);
   //class subject name
@@ -117,7 +116,7 @@
     <table id="example1" class="table table-striped  table-bordered table-hover table-sm">
         <thead class="bg-info">
                 <tr>
-                  <th scope="col" scope="row">Reg.No</th>
+                  <th scope="col" scope="row">Class No</th>
                   <th scope="col">Name</th>
                   <th scope="col">Quize Topic</th>
                   <th scope="col">Quize Date</th>
@@ -130,7 +129,11 @@
             <tbody class="bg-light">
               <?php
                   if (isset($con)) {
-                          $query1="SELECT quiz_record.S_id,quize.q_topic,quize.q_date,quiz_record.qo_marks,quize.qt_marks FROM quize INNER JOIN quiz_record ON quiz_record.Q_id=quize.Q_id WHERE quiz_record.Class_id='$cid' AND quiz_record.Subject_id='$subid' ORDER BY quize.q_date DESC";
+                        $check_register="SELECT S_id FROM register WHERE Class_id='$cid'";
+                        $exe_check=mysqli_query($con ,$check_register);
+                        if(mysqli_num_rows($exe_check)>0)
+                        {
+                          $query1="SELECT quiz_record.S_id,quize.q_topic,quize.q_date,quiz_record.qo_marks,quize.qt_marks FROM quize INNER JOIN quiz_record ON quiz_record.Q_id=quize.Q_id WHERE quiz_record.Class_id='$cid' ORDER BY quize.q_date DESC";
                           $exe_query1=mysqli_query($con ,$query1);
                           while ($row=mysqli_fetch_assoc($exe_query1)) {
                                 $st_id=$row['S_id'];
@@ -138,16 +141,23 @@
                                  $exe_st=mysqli_query($con ,$st_name_query);
                                  $r=mysqli_fetch_array($exe_st);
                                  ?>
-                            <tr>
-                                  <td><?php echo $r['Reg_no'];  ?></td>
-                                  <td><?php echo $r['student_name'];  ?></td>
-                                  <td><?php echo $row['q_topic']; ?></td>
-                                  <td><?php echo $row['q_date']; ?></td>
-                                  <td><?php echo $row['qo_marks']; ?></td>
-                                  <td><?php echo $row['qt_marks']; ?></td>
-                            </tr>
+                                  <tr>
+                                        <td><?php echo $r['Reg_no'];  ?></td>
+                                        <td><?php echo $r['student_name'];  ?></td>
+                                        <td><?php echo $row['q_topic']; ?></td>
+                                        <td><?php echo $row['q_date']; ?></td>
+                                        <td><?php echo $row['qo_marks']; ?></td>
+                                        <td><?php echo $row['qt_marks']; ?></td>
+                                  </tr>
 
-                          <?php
+                              <?php
+                                }
+                            }else {
+                              ?>
+                                <tr>
+                                    <td colspan="6" class="alert alert-warning" style="text-align: center; font-weight: bold"> <?php echo "NO Students are Register to the Class.";  ?></td>
+                                </tr>
+                              <?php
                             }
 
                   }
@@ -166,13 +176,7 @@
 
 
     </div>
-<?php
 
-
-
-  echo "<pre>".print_r($_SESSION, TRUE)."</pre>";
-
- ?>
   </body>
 </html>
 

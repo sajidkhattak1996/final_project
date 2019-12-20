@@ -71,7 +71,7 @@
 </div>
 <!--enrolldiv are ended -->
 <?php
-echo "<pre>".print_r($_SESSION,TRUE)."</pre>";
+
 include('db_connection.php');
       if (isset($_POST['enroll_to_class'])) {
         //variables

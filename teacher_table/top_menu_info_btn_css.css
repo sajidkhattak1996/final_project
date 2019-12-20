@@ -1,0 +1,44 @@
+.info_div{
+  /* background: rgb(120, 110, 180, 0.7); */
+  width: 100%;
+  height: auto;
+  position: absolute;
+  margin: 0 auto;
+
+}
+.info_div_inside{
+  background: rgb(120, 210, 180, 0.95);
+  width: 70%;
+  margin: 0 auto;
+  margin-top: 2.5%;
+  padding-bottom: 10px;
+  border-radius: 6px;
+  border: solid 1px #008c7e;
+
+}
+#icon_remove{
+  font-size:23px;
+
+}
+#icon_remove:hover{
+  color: #000;
+  transition: 0.8s;
+}
+
+#info_h3{
+  padding-left: 10px;
+  font-family: monotype corsiva;
+  border-bottom: solid 1px #fff;
+
+}
+#r{
+
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-bottom: 8px;
+}
+#x2{
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-bottom: 8px;
+}

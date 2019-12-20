@@ -36,8 +36,8 @@
                   <h2>About this page </h2>
                   <p class="text">
                     This is your Student Homepage. The Homepage show the classes you are enrolled in. To enroll in a new class,
-                    click the enroll in a class button. Click a class name to open your class homepage for the class.from the Class Homepage you can see
-                    you'r Class records.
+                    click the Enroll in Class Button. To View your Class Record Click the Name of Class.To View the Notificaion and Slides/Notes Related to the Class
+                    Click the Eye Icon to View them.
 
                   </p>
               </div>
@@ -110,7 +110,7 @@
                                                                     <td>  <?php echo $row['Expire_date'];  ?></td>
                                                                     <td>
                                                                               <button type="submit" name="btn_slide" value="<?php  echo $row['Class_id']; ?>" class="btn btn-outline-info btn-sm">Slides</button>
-                                                                              <input type="text" name="s" value="<?php echo $row['Name']; ?>" style="display:none">
+
 
                                                                     </td>
                                                                     <style> #cd<?php echo $row['Class_id']; ?>{display: none} </style>
@@ -141,9 +141,10 @@
                                     </table>
                         <div class="tend" id="eee">    </div>
             </div>
-</form>
-          </body>
-        </html
+      </form>
+  </body>
+</html
+
         <script type="text/javascript" src="js/jquery.js"></script>
         <script src="../datatables/jquery.dataTables.js"></script>
         <script src="../datatables-bs4/js/dataTables.bootstrap4.js"></script>

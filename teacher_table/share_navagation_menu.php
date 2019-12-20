@@ -20,7 +20,7 @@
                         	padding-bottom: 10px;
                         	width: 100%;
                   }
-                #b2:hover{color: blue;border-color: #008c7e}
+                #b1:hover{color: blue;border-color: #008c7e}
                   #b3:hover{color: blue;border-color: #008c7e}
                     #b4:hover{color: blue;border-color: #008c7e}
                       #b5:hover{color: blue;border-color: #008c7e}
@@ -36,7 +36,7 @@
 
                     border-radius: 7px 7px 0px 0px;
                   }
-                  #b2,#b3,#b4,#b5{
+                  #b1,#b3,#b4,#b5{
                       background-image: -webkit-linear-gradient(270deg,rgba(127,243,228,0.52) 0%,rgba(237,251,249,0.81) 100%);
                       background-image: -moz-linear-gradient(270deg,rgba(127,243,228,0.52) 0%,rgba(237,251,249,0.81) 100%);
                       background-image: -o-linear-gradient(270deg,rgba(127,243,228,0.52) 0%,rgba(237,251,249,0.81) 100%);
@@ -44,6 +44,13 @@
                       color: #6f9de8;
                       border:solid 1px rgba(127,243,228,0.52);
                       border-radius: 7px 7px 0px 0px;
+                  }
+                  #b1:hover{
+                      background-image: -webkit-linear-gradient(270deg,rgba(127,243,228,0.9) 0%,rgba(237,251,249,0.9) 100%);
+                       background-image: -moz-linear-gradient(270deg,rgba(127,243,228,0.9) 0%,rgba(237,251,249,0.9) 100%);
+                       background-image: -o-linear-gradient(270deg,rgba(127,243,228,0.9) 0%,rgba(237,251,249,0.9) 100%);
+                       background-image: linear-gradient(180deg,rgba(127,243,228,0.9) 0%,rgba(237,251,249,0.9) 100%);
+                       color: #1f5de8;
                   }
                   #b2:hover{
                      background-image: -webkit-linear-gradient(270deg,rgba(127,243,228,0.9) 0%,rgba(237,251,249,0.9) 100%);
@@ -145,11 +152,11 @@
     <div class="tabletabs" >
 
               <ul>
-                    <a href="class_page.php"> <button id="b1" type="submit">  <b>     Share Slides   </b> </button>  </a>
+                    <a href="share_main_page.php"> <button id="b1" type="submit">  <b>     Share Slides   </b> </button>  </a>
 
-                    <a href="assignment_display.php"> <button id="b3" type="submit">  <b>      Assignments    </b>  </button> </a>
-                    <a href="quize_display.php"> <button id="b4" type="submit">  <b>      Quizes         </b>  </button> </a>
-                    <a href="presentation_display.php"> <button id="b5" type="submit">  <b>      Presentation   </b>  </button> </a>
+                    <a href="share_information.php"> <button id="b3" type="submit">  <b>      Share Information    </b>  </button> </a>
+                    <a href="view_notification.php"> <button id="b4" type="submit">  <b>      View Your Notification          </b>  </button> </a>
+                    <!-- <a href="presentation_display.php"> <button id="b5" type="submit">  <b>      Presentation   </b>  </button> </a> -->
 
               </ul>
 
@@ -164,11 +171,11 @@
                       <div class="dropdown">
                           <button class="dropbtn"><span class="glyphicon glyphicon-list" ></span> </button>
                           <div class="dropdown-content">
-                            <a href="class_page.php"><button name="class_r_view" style="background: none ; border: none"> Share Slides </button></a>
+                            <a href="share_main_page.php"><button name="class_r_view" style="background: none ; border: none"> Share Slides </button></a>
 
-                            <a href="assignment_display.php"><button name="ass_r_view" style="background: none ; border: none"> Assignment    </button></a>
-                            <a href="quize_display.php"><button name="quize_r_view" style="background: none ; border: none"> Quizes        </button></a>
-                            <a href="presentation_display.php"><button name="pre_r_view" style="background: none ; border: none"> Presentation  </button></a>
+                            <a href="share_information.php"><button name="ass_r_view" style="background: none ; border: none"> Share Information    </button></a>
+                            <a href="view_notification.php"><button name="quize_r_view" style="background: none ; border: none"> View Your Notification        </button></a>
+                            <!-- <a href="presentation_display.php"><button name="pre_r_view" style="background: none ; border: none"> Presentation  </button></a> -->
 
                           </div>
                         </div>

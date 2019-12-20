@@ -25,7 +25,6 @@
 
 <!-- the below css link have high periority then above top_info.php file  -->
 <link rel="stylesheet" href="../datatables-bs4/css/dataTables.bootstrap4.css">
-
 <style media="screen">
     /* #b11{ background: #fff; color: #000 ;font-weight: bold;} */
 </style>
@@ -36,7 +35,7 @@
   $cid=$_SESSION['Class_id'];
   $query1 ="SELECT Name FROM class WHERE Class_id='$cid'";
   $e=mysqli_query($con,$query1);
-  $r=mysqli_fetch_array($e);
+  $r1=mysqli_fetch_array($e);
   //class subject name
   $S_id=$_SESSION['S_id'];
   $q2="SELECT Subject_id FROM have WHERE Class_id='$cid' AND S_id='$S_id'";
@@ -45,25 +44,25 @@
   $q3="SELECT subject_name FROM subject WHERE Subject_id='$subid'";
   $rr=mysqli_fetch_array(mysqli_query($con,$q3));
 
-  //std name
-  $sn="SELECT student_name FROM student WHERE S_id='$S_id'";
-  $snr=mysqli_fetch_array(mysqli_query($con, $sn));
+  $st_id=$_SESSION['S_id'];
+  $st_name_query="SELECT register.Reg_no,student.student_name FROM register INNER JOIN student ON register.S_id=student.S_id WHERE register.Class_id='$cid' AND register.S_id='$st_id'";
+  $exe_st=mysqli_query($con ,$st_name_query);
+  $r=mysqli_fetch_array($exe_st);
+  $reg_no=$r['Reg_no'];
+  $name=$r['student_name'];
 
  ?>
 
 <div class="about_area">
-      <div class="viewing_area">
-        <h5>CLASS NOW VIEWING :> <a href="" style="color: blue"> <?php  echo $r['Name']; ?></a></h5>
-        <h5>SUBJECT :><strong style="color: deeppink"> <?php  echo $rr['subject_name']; ?> </strong></h5>
-      </div>
+  <div class="viewing_area">
+    <h5>CLASS NOW VIEWING :> <a href="" style="color: blue"> <?php  echo $r1['Name']; ?></a></h5>
+    <h5>SUBJECT :><strong style="color: deeppink"> <?php  echo $rr['subject_name']; ?> </strong></h5>
+  </div>
 
     <div class="about">
         <h2>About this page </h2>
         <p class="text">
-          This is your Teacher Class Record Homepage. The page show the Class records of all Students such is Attendence , quize , Presentation and Quizes.
-          The Homepage display all the previous records of the Students.Click on Eye Open (view) to display that particular records of
-          that Student.The Button Attendence , quize , Quizes and Presentation display that Particular Records of Students.
-
+          This Your Quize Records Homepage. Here You Can See Your Class Quizeses Record.For more Information Click on Helps Button.
 
         </p>
 
@@ -75,7 +74,7 @@
 
 
 <!--=========including the top classes button below the top navagation menu ================-->
-<?php  include('std_classes_table_top_menu.php');  ?>
+<?php  include('std_classes_table_top_menu.php'); ?>
 <!--=========ended =====================================================================-->
 
 <style media="screen">
@@ -119,13 +118,14 @@
 <div id="active_class">
     <div class="tstart" >
       <h2 class="text-left" style="padding-top: 5px;padding-left: 5px;padding-bottom: 10px;text-transform: capitalize">Student Name: <?php echo $result1['student_name'];  ?> </h2>
-
+      <div style="padding-left: 30%;color: #fff" >
+        <span><strong>  Student Class No: <?php   echo $reg_no; ?>  </strong> </span>
+        <span style="padding-left: 10%"> <strong>  Student Name: <?php   echo $name; ?>  </strong> </span>
+      </div>
 <form method="post">
     <table id="example1" class="table table-striped  table-bordered table-hover table-sm">
         <thead class="bg-info">
                 <tr>
-                  <th scope="col" scope="row">Class No</th>
-                  <th scope="col">Name</th>
                   <th scope="col">Quize Topic</th>
                   <th scope="col">Quize Date</th>
                   <th scope="col">Obtained Marks</th>
@@ -136,32 +136,34 @@
           </thead>
             <tbody class="bg-light">
               <?php
-                  if (isset($con)) {
-                          $query1="SELECT quiz_record.S_id,quize.q_topic,quize.q_date,quiz_record.qo_marks,quize.qt_marks FROM quize INNER JOIN quiz_record ON quiz_record.Q_id=quize.Q_id WHERE quiz_record.Class_id='$cid' AND quiz_record.Subject_id='$subid' AND quiz_record.S_id='$S_id' ORDER BY quize.q_date DESC";
-                          $exe_query1=mysqli_query($con ,$query1);
-                          while ($row=mysqli_fetch_assoc($exe_query1)) {
-                                $st_id=$row['S_id'];
-                                 $st_name_query="SELECT register.Reg_no,student.student_name FROM register INNER JOIN student ON register.S_id=student.S_id WHERE register.Class_id='$cid' AND register.S_id='$st_id'";
-                                 $exe_st=mysqli_query($con ,$st_name_query);
-                                 $r=mysqli_fetch_array($exe_st);
-                                 ?>
-                            <tr>
-                                  <td><?php echo $r['Reg_no'];  ?></td>
-                                  <td><?php echo $r['student_name'];  ?></td>
-                                  <td><?php echo $row['q_topic']; ?></td>
-                                  <td><?php echo $row['q_date']; ?></td>
-                                  <td><?php echo $row['qo_marks']; ?></td>
-                                  <td><?php echo $row['qt_marks']; ?></td>
-                            </tr>
+            if (isset($con)) {
+                    $query1="SELECT quize.q_topic,quize.q_date,quiz_record.qo_marks,quize.qt_marks FROM quize INNER JOIN quiz_record ON quiz_record.Q_id=quize.Q_id WHERE quiz_record.Class_id='$cid' AND  quiz_record.S_id='$st_id'";
+                    $exe_query1=mysqli_query($con ,$query1);
+                    if (mysqli_num_rows($exe_query1)>0) {
+                                while ($row=mysqli_fetch_assoc($exe_query1)) {
+                                       ?>
+                                  <tr>
 
-                          <?php
-                            }
+                                        <td><?php echo $row['q_topic']; ?></td>
+                                        <td><?php echo $row['q_date']; ?></td>
+                                        <td><?php echo $row['qo_marks']; ?></td>
+                                        <td><?php echo $row['qt_marks']; ?></td>
+                                  </tr>
 
-                  }
-                  else {
-                    echo "<script>  alert('Error Occur while connecting to the Database!');   </script>".mysqli_error($con);
-                  }
-               ?>
+                                <?php
+                                  }
+                    }else { ?>
+                      <tr>
+                            <td colspan="4" class="alert alert-warning text-center"><?php echo "NO Quize"; ?></td>
+                      </tr>
+                      <?php
+                    }
+
+            }
+            else {
+              echo "<script>  alert('Error Occur while connecting to the Database!');   </script>".mysqli_error($con);
+            }
+         ?>
 
               </tbody>
 
@@ -173,13 +175,7 @@
 
 
     </div>
-<?php
 
-
-
-  echo "<pre>".print_r($_SESSION, TRUE)."</pre>";
-
- ?>
   </body>
 </html>
 
