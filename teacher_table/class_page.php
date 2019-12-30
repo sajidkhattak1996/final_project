@@ -124,7 +124,8 @@
                                     $a=0;
                                     $l=0;
                                     $temp=0;
-                                    while ($r99=mysqli_fetch_assoc($exe_at) AND $temp<30) {
+                                    /*  AND $temp<30  put this on while condition to convert them the attendece to monthly */
+                                    while ($r99=mysqli_fetch_assoc($exe_at) ) {
                                         if ($r99['AT_id']==1) {
                                           $p++;
                                         }
@@ -226,7 +227,11 @@
                   /*====end of while loop=======================================*/
                     }
                     else {
-                      echo "No student are register with this class ";
+                      ?>
+                      <tr>
+                        <td colspan="6" class="text-center alert alert-warning"> <?php echo "No student are register with this class"; ?>  </td>
+                      </tr>
+                      <?php
                     };
 
 
@@ -286,7 +291,7 @@
 
 
 
-  
+
 
  ?>
   </body>
@@ -296,14 +301,14 @@
 <script src="../datatables-bs4/js/dataTables.bootstrap4.js"></script>
 <script>
   $(function () {
-    $("#example1").DataTable();
-    // $('#example2').DataTable({
-    //   "paging": true,
-    //   "lengthChange": false,
-    //   "searching": false,
-    //   "ordering": true,
-    //   "info": true,
-    //   "autoWidth": false,
-    // });
+    // $("#example1").DataTable();
+    $('#example1').DataTable({
+      "paging": false,
+      "lengthChange": false,
+      "searching": true,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false,
+    });
   });
 </script>

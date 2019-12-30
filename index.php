@@ -73,8 +73,8 @@ include('db_connection.php');
 		<li id="log_h">
 			<div class="log_in_f">
 
-				<form name="logform" action="" method="post" >
-					Email: <input type="email" name="email" placeholder=" Enter email " required onblur="fn()" > &nbsp;
+				<form name="logform" action="" method="post"  >
+					Email: <input type="email" name="email" placeholder=" Enter email " required onblur="fn()" value="<?php if (isset($_POST['lg'])){ echo $_POST['email'];}  ?>"> &nbsp;
 					Password: <input type="password" name="pass" placeholder="Enter Password" required >
 <!--					<a href="#" style="margin-top: -60px;">Forgot password</a>-->
 					<input type="submit" name="lg" value="Log in" id="log_in_button" >
@@ -351,9 +351,6 @@ if (isset($_POST['lg'])) {
                               echo "<script> document.getElementById('m').innerHTML ='Email is Wrong!'; </script>";
 
                           }
-
-
-
 
                       }
                       else {

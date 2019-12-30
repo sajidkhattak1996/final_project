@@ -10,14 +10,12 @@
       $exe_sid=mysqli_query($con ,$sid_stmt);
       if (mysqli_num_rows($exe_sid)>0) {
               while ($sid_row=mysqli_fetch_assoc($exe_sid)) {
-                    $store[]=0;
-                      $store[0]=$sid_row['Reg_no'];
+                    $store[]=null;
 
                           $sname_sql="SELECT student_name FROM student WHERE S_id='".$sid_row['S_id']."'";
                           $exe_sn=mysqli_query($con ,$sname_sql);
                           $sn_row=mysqli_fetch_array($exe_sn);
 
-                          $store[1]=$sn_row['student_name'];
                           $stmt3="SELECT attendence.AT_id,attendence_record.AT_date FROM attendence INNER JOIN attendence_record on attendence_record.AT_id=attendence.AT_id WHERE Class_id='$cid' AND S_id='".$sid_row['S_id']."' ORDER BY attendence_record.AT_date DESC";
                           $exe3=mysqli_query($con , $stmt3);
                           $nr=mysqli_num_rows($exe3);
@@ -39,7 +37,9 @@
                                                             $l=0;
                                                             $lp=0;
 
-                                                            $store[3]=$Adate_array[$t2];
+                                                            $store[0]=$sid_row['Reg_no'];
+                                                            $store[1]=$sn_row['student_name'];
+                                                            $store[2]=$Adate_array[$t2];
                                                             while ($lp<30 && $t>0) {
                                                               // echo "okkkkkkkkkkkkkkkkkkkkkkk<br>";
                                                               // echo "t2===".$t2;
@@ -60,12 +60,12 @@
                                                             $total=$p+$a+$l;
                                                             $ap=0;
                                                             if ($p==0) {
-                                                                  $store[4]=$ap;
+                                                                  $store[3]=$ap;
                                                             }else {
                                                               $ap=(($p/$total)*100);
                                                               $n=number_format($ap,1);           //the number_format are use to display the digit after decimal point
 
-                                                              $store[4]=$n."%";
+                                                              $store[3]=$n."%";
                                                             }
                                               }
 
@@ -73,7 +73,7 @@
 
                           }else {
 
-                          $store[4]="No Attendece";
+                          $store[3]="No Attendece";
                         }
 
 
@@ -84,7 +84,7 @@
 
 
       }else {
-        $store[4]="No Attendece";
+        $store[3]="No Attendece";
       }
 fclose($output);
 

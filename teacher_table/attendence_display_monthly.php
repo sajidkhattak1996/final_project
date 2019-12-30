@@ -218,11 +218,11 @@
 
 
 
-                        }else {  ?>
-                            <tr>
-                              <?php echo "No Students" ?>
-                            </tr>
-                          <?php
+                        }else {?>
+                        <tr>
+                          <td colspan="4" class="text-center alert alert-warning"> <?php echo "No student are register with this class"; ?>  </td>
+                        </tr>
+                        <?php
                         }
 
 

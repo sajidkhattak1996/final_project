@@ -29,7 +29,7 @@
 
         <div class="about_area">
               <div class="viewing_area">
-                <h5>NOW VIEWING :> <a href="" style="color: blue"> All Classes  </a></h5>
+                <h5>NOW VIEWING :> <a href="main_table.php" style="color: blue;font-weight: bolder;letter-spacing: 0.5px"> All Classes  </a></h5>
               </div>
 
               <div class="about">
@@ -57,8 +57,7 @@
                                                   <th scope="col">Subject</th>
                                                   <th scope="col">Start Date</th>
                                                   <th scope="col">Expire Date</th>
-                                                  <th scope="col">Slide</th>
-                                                  <th scope="col">Drop</th>
+                                                  <th scope="col" width="10%">Attagement&nbsp;&nbsp;&nbsp;<i class="glyphicon glyphicon-paperclip"></i></th>
                                               </tr>
                                             </thead>
                                           <tbody>
@@ -97,10 +96,10 @@
                                                                 ?>
                                                                 <tr>
                                                                     <th scope="row"> <?php echo $row['Class_id'];  ?> </th>
-                                                                    <td><style> #classbtn{background:none;border:none;color: blue} #classbtn:hover{border-bottom: solid 2px blue;} </style>
+                                                                    <td><style> #classbtn{background:none;border:none;color: blue} #classbtn:hover{color: deeppink;} </style>
                                                                         <form action="#name<?php echo $row['Class_id']; ?>" method="post" id="name<?php echo $row['Class_id'];  ?>">
                                                                           <button type="submit" name="class_name" id="classbtn" value="<?php echo $row['Class_id']; ?>">
-                                                                            <?php echo $row['Name'];  ?>
+                                                                          <b>  <?php echo $row['Name'];  ?></b>
                                                                           </button>
                                                                         </form>
                                                                     </td>
@@ -108,17 +107,17 @@
                                                                     <td>  <?php echo $sb['subject_name'];  ?></td>
                                                                     <td>  <?php echo $row['Start_date'];  ?></td>
                                                                     <td>  <?php echo $row['Expire_date'];  ?></td>
+                                                                    <?php
+                                                                        $sql_noti="SELECT * FROM notification WHERE Class_id='".$row['Class_id']."' AND expire_date>= CURRENT_DATE";
+                                                                        $tnoti=mysqli_num_rows(mysqli_query($con ,$sql_noti));
+                                                                    ?>
                                                                     <td>
-                                                                              <button type="submit" name="btn_slide" value="<?php  echo $row['Class_id']; ?>" class="btn btn-outline-info btn-sm">Slides</button>
+                                                                          <a href="std_share_main_page.php?cid=<?php  echo $row['Class_id']; ?>&cn=<?php echo $row['Name']; ?>&tn=<?php echo $tn['Name']; ?>&sub=<?php echo $sb['subject_name']; ?>"><button type="button" name="btn_attagement" class="btn btn-outline-primary btn-sm">View &nbsp;&nbsp;<i class="glyphicon glyphicon-eye-open"></i></button></a>
 
-
-                                                                    </td>
-                                                                    <style> #cd<?php echo $row['Class_id']; ?>{display: none} </style>
-                                                                    <td>
-
-                                                                        <input type="text" name="cn" id="gg" value="<?php echo $row['Name']; ?>" style="display:none">
-                                                                        <button id="dd<?php echo $row['Class_id'];?>" type="submit" class="btn btn-outline-danger" name="btn_delete" value="<?php echo $row['Class_id']; ?>" style="border:none"> <span class="glyphicon glyphicon-trash" style="font-size: 14px"></span></button>
-                                                                        <button id="cd<?php echo $row['Class_id']; ?>" type="submit" class="btn btn-danger btn-sm" name="c_delete"  value="<?php echo $row['Class_id']; ?>">conform</button>
+                                                                          <a href="std_view_active_notification.php?cid=<?php  echo $row['Class_id']; ?>&cn=<?php echo $row['Name']; ?>&tn=<?php echo $tn['Name']; ?>&sub=<?php echo $sb['subject_name']; ?>" title="Click to View the Notificaions." style="text-decoration:none;margin-left: 10px">
+                                                                              <i class="far fa-bell" style="color: #000"></i>
+                                                                              <span class="badge badge-warning navbar-badge"><?php echo $tnoti; ?></span>
+                                                                          </a>
 
                                                                     </td>
 
@@ -126,8 +125,11 @@
                                                                 <?php
 
                                                               }
-                                                            }else {
-                                                              echo "0 records founds";
+                                                            }else {  ?>
+                                                                <tr>
+                                                                    <td colspan="7" class="alert alert-warning text-center">Not register with any Class</td>
+                                                                </tr>
+                                                              <?php
                                                             }
 
 
@@ -180,13 +182,13 @@
       }
 
       // slides button
-          if (isset($_POST['btn_slide'])) {
-            $cid= $_POST['btn_slide'];
-            $sid= $_POST['s'];
-
-            echo "<h1>".$cid."</h1>";
-            echo "<h1>".$sid."</h1>";
-          }
+          // if (isset($_POST['btn_attagement'])) {
+          //   $cid= $_POST['btn_attagement'];
+          //   // $sid= $_POST['s'];
+          //
+          //   echo "<h1>".$cid."</h1>";
+          //   // echo "<h1>".$sid."</h1>";
+          // }
 
 //class name click
           if (isset($_POST['class_name'])) {

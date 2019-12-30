@@ -244,48 +244,62 @@
                                             include('db_connection.php');
                                             $q="SELECT * FROM slide WHERE Class_id='".$_SESSION['class_id']."' ORDER BY c_date DESC";
                                             $ros=mysqli_query($con,$q);
+                                            if (mysqli_num_rows($ros)>0) {
+                                              while($row=mysqli_fetch_array($ros))
+                                              {
+                                                echo '<tr>';
+                                                // echo '<td>' . $row['id'].'</td>';
+                                                echo '<td>' . $row['topic'].'</td>';
+                                                echo '<td>' .$row['c_date'].'</td>';
+                                                echo "<td><a title='Click here to download in file.' href='slide_download.php?id={$row['file']}'>{$row['file']} </a></td>";
+                                                // echo '<td>' . $row['Class_id'].'</td>';
+                                               ?>
+                                               <td>
+                                              <a href="slide_deleteById.php?id=<?php echo $row['id'] ?>&imageurl=<?php echo $row['file'] ?>" id="dd">
+                                              <button class="btn btn-danger" title="Click here to erase file."> Delete </button>
+                                              </a>
+                                              </td>
+                                              <?php
+                                              echo '</tr>';
 
-                                            while($row=mysqli_fetch_array($ros))
-                                            {
-                                              echo '<tr>';
-                                              // echo '<td>' . $row['id'].'</td>';
-                                              echo '<td>' . $row['topic'].'</td>';
-                                              echo '<td>' .$row['c_date'].'</td>';
-                                              echo "<td><a title='Click here to download in file.' href='slide_download.php?id={$row['file']}'>{$row['file']} </a></td>";
-                                              // echo '<td>' . $row['Class_id'].'</td>';
-                                             ?>
-                                             <td>
-                                            <a href="slide_deleteById.php?id=<?php echo $row['id'] ?>&imageurl=<?php echo $row['file'] ?>" id="dd">
-                                            <button class="btn btn-danger" title="Click here to erase file."> Delete </button>
-                                            </a>
-                                            </td>
-                                            <?php
-                                            echo '</tr>';
+                                              }
+                                            }else { ?>
+                                                <tr>
+                                                    <td colspan="4" class="text-center alert alert-warning">No Slides or Cource Topics are Uploaded.</td>
+                                                </tr>
+                                            <?php  }
 
-                                            }
-                                            mysqli_close($con);
+
                                       ?>
                                       <tr>
                                           <td colspan="4" class="alert alert-warning text-center"> <b>Below are Links to download notes or cource Data. </b> </td>
                                       </tr>
                                       <!-- the below are written for the links   -->
                                       <?php
-                                              include('db_connection.php');
+
                                               $query_link="SELECT * FROM links WHERE Class_id='$cid'";
                                               $exe_link=mysqli_query($con,$query_link);
-                                              while ($row_link=mysqli_fetch_assoc($exe_link)) {
+                                              if (mysqli_num_rows($exe_link)>0) {
+
+                                                while ($row_link=mysqli_fetch_assoc($exe_link)) {
                                                   echo "<tr>";
-                                                        echo "<td>".$row_link['description']."</td>";
-                                                        echo "<td>".$row_link['ldate']."</td>";
-                                                        echo "<td><a href='".$row_link['link']."'> click me to view  </a></td>";
-                                                        ?>
-                                                        <td>
-                                                           <a href="delete_link_code.php?id=<?php echo $row_link['L_id']; ?>" id="dd">
-                                                           <button class="btn btn-danger" title="Click here to erase file."> Delete </button> </a>
-                                                       </td>
-                                                       <?php
-                                                  echo "</tr>";
-                                              }
+                                                  echo "<td>".$row_link['description']."</td>";
+                                                  echo "<td>".$row_link['ldate']."</td>";
+                                                  echo "<td><a href='".$row_link['link']."'> click me to view  </a></td>";
+                                                  ?>
+                                                  <td>
+                                                    <a href="delete_link_code.php?id=<?php echo $row_link['L_id']; ?>" id="dd">
+                                                      <button class="btn btn-danger" title="Click here to erase file."> Delete </button> </a>
+                                                    </td>
+                                                    <?php
+                                                    echo "</tr>";
+                                                  }
+                                              }else { ?>
+                                                  <tr>
+                                                      <td colspan="4" class="text-center alert alert-warning">No Links are Uploaded for Class Slides or Cource topic.</td>
+                                                  </tr>
+                                              <?php   }
+                                              mysqli_close($con);
                                        ?>
 
 

@@ -71,6 +71,9 @@
         background-image: -o-linear-gradient(0deg,rgba(172,239,224,0.66) 21.76%,rgba(0,140,126,0.90) 98.45%);
         background-image: linear-gradient(0deg,rgba(172,239,224,0.66) 21.76%,rgba(0,140,126,0.90) 98.45%);
       }
+      #b1 {
+        pointer-events: none;
+      }
 </style>
 
 
@@ -117,7 +120,7 @@
                                     $a=0;
                                     $l=0;
                                     $temp=0;
-                                    while ($r99=mysqli_fetch_assoc($exe_at) AND $temp<30) {
+                                    while ($r99=mysqli_fetch_assoc($exe_at)) {
                                         if ($r99['AT_id']==1) {
                                           $p++;
                                         }

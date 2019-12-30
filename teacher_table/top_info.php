@@ -136,6 +136,12 @@ if (isset($_SESSION['email']) &&  isset($_SESSION['pass']) )
     <!-- logo class ended -->
 <!--================ javascript to hide and display div class ======================================================-->
 <script type="text/javascript">
+    function hide_fn(){
+    var d=document.getElementById("info");
+    if (d.style.display=='block') {
+      d.style.display='none';
+    }
+    }
     function show_hide(){
       var d=document.getElementById("info");
       if (d.style.display==="none")
@@ -184,8 +190,8 @@ function f(){
     <nav1 class="nav1">
         <ul>
             <li   style="text-transform: capitalize"><a href="#" onclick="show_hide()"><?php echo $row['Name']; ?> &nbsp;&nbsp; <span class="glyphicon glyphicon-info-sign"></span>    </a></li>
-            <li style="cursor:defaults;background:none;border:none"><?php echo $row['Email']; ?></li>
-            <li style="text-transform: capitalize ;" ><?php echo $row['Country']; ?></li>
+            <li onclick="hide_fn()" style="cursor:defaults;background:none;border:none"><?php echo $row['Email']; ?></li>
+            <li onclick="hide_fn()" style="text-transform: capitalize ;" ><?php echo $row['Country']; ?></li>
             <style >
               #lout:hover{ background: #ca0b00;font-weight: bolder;}
             </style>

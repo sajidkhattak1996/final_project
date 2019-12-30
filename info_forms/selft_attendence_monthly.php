@@ -105,6 +105,9 @@
   border:solid 1px rgba(127,243,228,0.52);
   border-radius: 7px 7px 0px 0px;
 }
+#b2{
+  pointer-events: none;
+}
 </style>
 
 
@@ -166,6 +169,7 @@
                                                                       $a=0;
                                                                       $l=0;
                                                                       $lp=0;
+                                                                      echo "<tr>";
                                                                       ?><td><?php  echo $Adate_array[$t2]; ?></td><?php
                                                                       while ($lp<30 && $t>0) {
                                                                         // echo "okkkkkkkkkkkkkkkkkkkkkkk<br>";
@@ -201,6 +205,7 @@
                                                                             </td>
                                                                         <?php
                                                                       }
+                                                                      echo "</tr>";
                                                         }
 
 

@@ -155,7 +155,7 @@
                     <a href="share_main_page.php"> <button id="b1" type="submit">  <b>     Share Slides   </b> </button>  </a>
 
                     <a href="share_information.php"> <button id="b3" type="submit">  <b>      Share Information    </b>  </button> </a>
-                    <a href="view_notification.php"> <button id="b4" type="submit">  <b>      View Your Notification          </b>  </button> </a>
+                    <a href="view_notification.php"> <button id="b4" type="submit">  <b>      View Your Information          </b>  </button> </a>
                     <!-- <a href="presentation_display.php"> <button id="b5" type="submit">  <b>      Presentation   </b>  </button> </a> -->
 
               </ul>
@@ -174,7 +174,7 @@
                             <a href="share_main_page.php"><button name="class_r_view" style="background: none ; border: none"> Share Slides </button></a>
 
                             <a href="share_information.php"><button name="ass_r_view" style="background: none ; border: none"> Share Information    </button></a>
-                            <a href="view_notification.php"><button name="quize_r_view" style="background: none ; border: none"> View Your Notification        </button></a>
+                            <a href="view_notification.php"><button name="quize_r_view" style="background: none ; border: none"> View Your Information        </button></a>
                             <!-- <a href="presentation_display.php"><button name="pre_r_view" style="background: none ; border: none"> Presentation  </button></a> -->
 
                           </div>

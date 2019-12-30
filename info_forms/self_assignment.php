@@ -100,6 +100,9 @@
   border:solid 1px rgba(127,243,228,0.52);
   border-radius: 7px 7px 0px 0px;
 }
+#b3 {
+  pointer-events: none;
+}
 </style>
 
 

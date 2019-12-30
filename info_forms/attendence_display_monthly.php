@@ -105,6 +105,9 @@
   border:solid 1px rgba(127,243,228,0.52);
   border-radius: 7px 7px 0px 0px;
 }
+#b2 {
+  pointer-events: none;
+}
 </style>
 
 
@@ -162,6 +165,8 @@
                                                 $temp=($t/30);
                                                 $temp_round=ceil($temp);
                                                 for ($i=0; $i <$temp_round ; $i++) {
+
+                                                  echo "<tr>";
                                                                       $p=0;
                                                                       $a=0;
                                                                       $l=0;
@@ -201,6 +206,7 @@
                                                                             </td>
                                                                         <?php
                                                                       }
+                                                            echo "</tr>";
                                                         }
 
 

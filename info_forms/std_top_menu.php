@@ -3,7 +3,7 @@
       include('db_connection.php');
       $em=$_SESSION['email'];
       $ps=$_SESSION['pass'];
-      $query="SELECT S_id,student_name,Email FROM student WHERE Email='$em' AND password='$ps'";
+      $query="SELECT S_id,student_name,Email,password FROM student WHERE Email='$em' AND password='$ps'";
       $exe_query=mysqli_query($con,$query);
       $result1=mysqli_fetch_array($exe_query);
 
@@ -27,6 +27,8 @@
         <link rel="stylesheet" href="css/nav1-core.css">
         <link rel="stylesheet" href="css/nav1-layout.css">
 
+        <link rel="stylesheet" href="../AdminLTE-master/plugins/fontawesome-free/css/all.min.css">
+
         <!--[if lt IE 9]>
         <link rel="stylesheet" href="css/ie8-core.min.css">
         <link rel="stylesheet" href="css/ie8-layout.min.css">
@@ -46,12 +48,21 @@
     </div>
     <!-- logo class ended -->
     <script type="text/javascript">
+
+      function hide_fn(){
+      var d=document.getElementById("info");
+      if (d.style.display=='block') {
+        d.style.display='none';
+      }
+      }
+
         function show_hide(){
           var d=document.getElementById("info");
           if (d.style.display==="none")
           {  d.style.display="block";
           }else {  d.style.display="none";  }
           }
+
     /* function second  */
       function fn2(){
           var a=document.getElementById("x1");
@@ -87,27 +98,88 @@
 
 
     </script>
-
-
-
-
-
-
-
-
-
-
-
-
-<form method="post">
-    <!--information menu are start   -->
-    <a href="#" class="nav1-button">Menu</a>
-    <nav1 class="nav1">
+    <form method="post">
+      <!--information menu are start   -->
+      <a href="#" class="nav1-button">Menu</a>
+      <nav1 class="nav1">
         <ul><style >
-          #lout:hover{ background: #ca0b00;font-weight: bolder;}
-        </style>
+        #lout:hover{ background: #ca0b00;font-weight: bolder;}
+        #nt a:hover{background: lightblue;color: #000}
+        #nt_show:hover{background: #13bca4}
+      </style>
+<?php
+
+//sql query for the total number of  notificaion show
+  $stmt_noti="SELECT have.Class_id ,notification.id ,notification.expire_date FROM have INNER JOIN notification on have.Class_id=notification.Class_id WHERE have.S_id='".$result1['S_id']."' AND notification.expire_date>=CURRENT_DATE";
+  $exe_noti=mysqli_query($con ,$stmt_noti);
+  if (mysqli_num_rows($exe_noti)>0) {
+    $total_notification=mysqli_num_rows($exe_noti);
+
+    $all_cid=array();
+    $i=0;
+    while ($r=mysqli_fetch_assoc($exe_noti)) {
+       $all_cid[$i]=$r['Class_id'];  $i++;  }
+
+    //below we remove the dublicate value from the array  so the new array are "allcid"
+    $allcid=array_unique($all_cid);
+    //the array_values function create the index as numeric value and array_filter are use to remove the index which has 0 or null values
+    $allcid=array_values(array_filter($allcid));
+
+
+ ?>
+
+        <li class="nav-item dropdown">
+            <a class="nav-link" data-toggle="dropdown" href="#">
+            <i class="far fa-bell"></i>
+            <span class="badge badge-warning navbar-badge"><?php echo $total_notification; ?></span>
+            </a>
+            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right" id="nt" style="width: 180px;background: #13bca4;border-radius: 0px 0px 10px 10px">
+            <span id="nt_show" class="dropdown-item dropdown-header" style="color: yellow"><b><?php echo $total_notification; ?> Notifications</b></span> <!-- display total notification on click the bill -->
+            <?php
+
+                for ($j=0; $j<4 && array_key_exists($j,$allcid); $j++) {
+                  if ($j==3) { //it display the 3 dots
+                    ?>
+                    <div class="dropdown-divider"></div>
+                    <div class="text-center">  <i class='fas fa-ellipsis-v' style='color: yellow;font-size: 14px'></i>  </div>
+                    <?php
+                    continue;
+                  }
+                  $stmt_sep_nofi="SELECT * FROM notification WHERE Class_id='$allcid[$j]' AND expire_date>= CURRENT_DATE";
+                  $tnr=mysqli_num_rows(mysqli_query($con ,$stmt_sep_nofi));
+                  $rn=mysqli_fetch_array(mysqli_query($con ,"SELECT Name FROM class WHERE Class_id='".$allcid[$j]."'"));
+                  $rtn=mysqli_fetch_array(mysqli_query($con ,"SELECT teacher.Name FROM teacher INNER JOIN class ON class.T_id=teacher.T_id WHERE class.Class_id='".$allcid[$j]."'"));
+                  $rsub=mysqli_fetch_array(mysqli_query($con ,"SELECT subject.subject_name FROM subject INNER JOIN have ON have.Subject_id=subject.Subject_id WHERE have.Class_id='".$allcid[$j]."'"));
+                  ?>
+                  <div class="dropdown-divider"></div>
+                  <a href="std_view_active_notification.php?cid=<?php  echo $allcid[$j]; ?>&cn=<?php echo $rn['Name']; ?>&tn=<?php echo $rtn['Name']; ?>&sub=<?php echo $rsub['subject_name']; ?>" class="dropdown-item">
+                    <i class="fas fa-envelope mr-2"></i>Class:<?php echo $allcid[$j]; ?>&nbsp; has &nbsp;<?php echo $tnr; ?>  notificaion
+                    <!-- <span class="float-right text-dark text-sm">3 mins</span> -->
+                  </a>
+                  <?php
+                }
+                ?>
+                <div class="dropdown-divider"></div>
+                <a href="all_notification.php" class="dropdown-item dropdown-footer">See All Notifications</a>
+              </div>
+            </li>
+
+                <?php
+              }else {
+                $total_notification=0;
+                ?>
+                <li class="nav-item dropdown">
+                    <a class="nav-link" data-toggle="dropdown" href="#">
+                    <i class="far fa-bell"></i>
+                    <span class="badge badge-warning navbar-badge"><?php echo $total_notification; ?></span>
+                    </a>
+                </li>
+                <?php
+              }
+              ?>
+
             <li><a href="#" onclick="show_hide()"> <?php echo $result1['student_name'];  ?>&nbsp; <span class="glyphicon glyphicon-info-sign"></span></a></li>
-            <li> <?php echo $result1['Email'];  ?></li>
+            <li onclick="hide_fn()"> <?php echo $result1['Email'];  ?></li>
             <li><a href="" id="lout"> <button type="submit" name="log_out" style="background: none;border: none;" > Log out &nbsp;&nbsp;<span class="glyphicon glyphicon-log-out"></span></button> </a></li>
         </ul>
     </nav1>
@@ -132,33 +204,24 @@
                       <form action="" method="post">
                         <div id="x1" >
                           <div class="row" id="r">
-                              <div class="col-sm"><b>Name</b><input type="text" id="c3" name="name" value="<?php echo $r['Name']; ?>" onkeyup="f()" class="form-control">  </div>
-                              <div class="col-sm"><b>Institute </b><input type="text" id="c3" name="institute" value="<?php echo $r['Institute_name']; ?>" onkeyup="f()" class="form-control">  </div>
+                              <div class="col-sm"><b>Name</b><input type="text" id="c3" name="name" value="<?php echo $result1['student_name']; ?>" onkeyup="f()" class="form-control" pattern="^[a-zA-Z][a-zA-Z0-9-_\s.]{1,40}$">  </div>
                           </div>
 
-                          <div class="row" id="r">
-                              <div class="col-sm"><b>Contact NO</b><input type="text" id="c3" name="contact" value="<?php echo $r['Contact_no']; ?>" onkeyup="f()" class="form-control">  </div>
-                              <div class="col-sm"><b>CNIC NO</b><input type="text" id="c3" name="cnic" value="<?php echo $r['Cnic']; ?>" onkeyup="f()" class="form-control">  </div>
-                          </div>
 
-                          <div class="row" id="r">
-                              <div class="col-sm"><b>Country</b><input type="text" id="c3" name="country" value="<?php echo $r['Country']; ?>" onkeyup="f()" class="form-control">  </div>
-                              <div class="col-sm"><b>City </b><input type="text" id="c3" name="city" value="<?php echo $r['City']; ?>"  onkeyup="f()" class="form-control">  </div>
-                          </div>
                         </div>
                           <div class="row" id="x2" style="display:none">
-                              <div class="col-sm alert alert-primary" title="Email are not Editable!"><b>Email </b><span><?php echo $r['Email']; ?></span>  </div>
-                              <div class="col-sm" ><b>Password </b><input type="password" name="pass" onkeyup="f()" value="<?php echo $r['Password']; ?>" id="pp" class="form-control "> </div>
+                              <div class="col-sm alert alert-primary" title="Email are not Editable!"><b>Email </b><span><?php echo $result1['Email']; ?></span>  </div>
+                              <div class="col-sm" ><b>Password </b><input type="password" name="pass" onkeyup="f()" value="<?php echo $result1['password']; ?>" id="pp" class="form-control " minlength="8" title="Minimum length is 8 charseter"> </div>
                               <input type="checkbox" onclick="myFn()" style="margin-left: 18px">show password
                           </div>
 
                           <div class="row" id="r">
                             <div class="col-sm" id="r5c1">
                               <!-- <button type="button" name="button" id="edit_btn" onclick="fn3()" class="btn btn-primary btn-lg">Click To Edit</button> -->
-                              <button type="button" name="b2" id="email_edit" onclick="fn2()" value="<?php echo $tid; ?>" class="btn btn-primary btn-lg " style="margin-left: 10px">Change Password</button>
+                              <button type="button" name="b2" id="email_edit" onclick="fn2()" value="<?php echo $result1['S_id']; ?>" class="btn btn-primary btn-lg " style="margin-left: 10px">Change Password</button>
                             </div>
 
-                            <div class="col-sm" id="bbb" style="display:none"><button type="submit" name="bsave" value="<?php echo $r['Email']; ?>" class="btn btn-primary btn-lg">Save Change</button></div>
+                            <div class="col-sm" id="bbb" style="display:none"><button type="submit" name="bsave" value="<?php echo $result1['S_id']; ?>" class="btn btn-primary btn-lg">Save Change</button></div>
                           </div>
 
 
@@ -172,7 +235,7 @@
         include('db_connection.php');
         if ($con) {
 
-              $sql="UPDATE teacher SET Name='".$_POST['name']."' ,Contact_no='".$_POST['contact']."',Cnic='".$_POST['cnic']."',Institute_name='".$_POST['institute']."',Country='".$_POST['country']."',City='".$_POST['city']."',Password='".$_POST['pass']."' WHERE T_id='".$_SESSION['t_id']."' AND Email='".$_POST['bsave']."'";
+              $sql="UPDATE student SET student_name='".$_POST['name']."',password='".$_POST['pass']."' WHERE S_id='".$_POST['bsave']."'";
               if (mysqli_query($con ,$sql)) {
                   echo "<script> alert('Record are success Successfully Updated.'); </script>";
                   echo "<meta http-equiv='refresh' content='0'>";
@@ -197,7 +260,9 @@
     <script src="js/nav1.jquery.min.js"></script>
     <script>
         $('.nav1').nav1();
-    </script>
+
+  </script>
+
     <!-- from here the nav menu and user informatio menu are ended -->
     <!--top head area ended -->
       </body>
@@ -208,3 +273,6 @@
         echo "<script>   window.location.assign('../index.php');  </script>  ";
       }
    ?>
+
+    <!-- Bootstrap 4 -->
+    <script src="../AdminLTE-master/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>

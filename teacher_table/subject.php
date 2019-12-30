@@ -45,7 +45,6 @@
 
             <thead class="bg-info">
                 <tr>
-                      <!-- <th scope="col" scope="row">Student ID</th> -->
                       <th scope="col">Class No</th>
                       <th scope="col">Name</th>
                       <th scope="col">Email</th>
@@ -57,20 +56,27 @@
                     $stmt_register="SELECT register.S_id , register.Reg_no , student.student_name ,student.Email FROM register INNER JOIN student ON register.S_id=student.S_id WHERE register.Class_id='$cid' ORDER BY register.Reg_no";
 
                     $exe=mysqli_query($con,$stmt_register);
-                    $a=0;
-                    while ($row=mysqli_fetch_assoc($exe)) { $a++;
-                     ?>
-                <tr>
-<!-- <td > <input style="background: none;border: none;" readonly type="text"  id="sid<?php echo $a;?>" value="">  </td> -->
-<td><input style="background: none;border: none" type="text" onkeyup="update('<?php echo $a;?>','<?php echo $row['S_id']; ?>');" id="xyz<?php echo $a;?>" value="<?php echo $row['Reg_no']; ?>">     </td>
+                    if (mysqli_num_rows($exe)>0) {
+                      $a=0;
+                      while ($row=mysqli_fetch_assoc($exe)) { $a++;
+                       ?>
+                  <tr>
+                    <td><input style="background: none;border: none" type="text" onkeyup="update('<?php echo $a;?>','<?php echo $row['S_id']; ?>');" id="xyz<?php echo $a;?>" value="<?php echo $row['Reg_no']; ?>">     </td>
 
-                      <td scope="col" ><?php  echo $row['student_name']; ?> </td>
-                      <td scope="col"><?php  echo $row['Email']; ?> </td>
-                </tr>
+                        <td scope="col" ><?php  echo $row['student_name']; ?> </td>
+                        <td scope="col"><?php  echo $row['Email']; ?> </td>
+                  </tr>
 
 
-                 <?php
-                }
+                   <?php
+                  }
+                    }else {
+                      ?>
+                      <tr>
+                          <td colspan="3" class="alert alert-warning text-center">No Student are Register with this Class.</td>
+                      </tr>
+                      <?php
+                    }
                ?>
 
               </tbody>

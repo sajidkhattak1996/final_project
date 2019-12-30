@@ -160,6 +160,7 @@
                                                           $a=0;
                                                           $l=0;
                                                           $lp=0;
+                                                          echo "<tr>";
                                                           ?><td><?php  echo $Adate_array[$t2]; ?></td><?php
                                                           while ($lp<30 && $t>0) {
                                                             // echo "okkkkkkkkkkkkkkkkkkkkkkk<br>";
@@ -195,6 +196,8 @@
                                                                 </td>
                                                             <?php
                                                           }
+                                                          echo "</tr>";
+
                                             }
 
 

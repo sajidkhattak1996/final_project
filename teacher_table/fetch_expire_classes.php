@@ -12,7 +12,7 @@ $teacher_id=$_SESSION['t_id'];
 
 $conn=mysqli_connect("localhost","root","","project_db");
 
-$totalEmpSQL = "SELECT Class_id,Name,Start_date,Expire_date from class WHERE T_id='$teacher_id' AND Expire_date < '$current_date' ";
+$totalEmpSQL = "SELECT Class_id,Name,Enrollment_key,Class_session,Start_date,currenttime,Expire_date from class WHERE T_id='$teacher_id' AND Expire_date < '$current_date' ";
 $expire_result = mysqli_query($conn, $totalEmpSQL);
 
 ?>
@@ -66,6 +66,11 @@ if (isset($_POST['btn_edit'])) {
     </form>
     <!-- below are editable form -->
     <form action="update_class.php" method="post">
+      <div class="row">
+        <div class="col-sm"><i><b> Enrollment key:      <?php  echo $expire_result['Enrollment_key'];  ?> </b></i></div>
+        <div class="col-sm"><i><b> Class Session:       <?php  echo $expire_result['Class_session'];  ?> </b></i></div>
+        <div class="col-sm"><i><b> Creation Date & Time:&nbsp;<?php  echo $expire_result['Start_date']; echo "&nbsp;&nbsp;&nbsp;&nbsp;".$expire_result['currenttime'];?> </b></i></div>
+      </div>
       <div id="edit2">
       <table id="bb" class="table table-straped">
         <thead >

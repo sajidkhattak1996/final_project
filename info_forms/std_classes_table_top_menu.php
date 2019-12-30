@@ -41,6 +41,13 @@
                       border:solid 1px rgba(127,243,228,0.52);
                       border-radius: 7px 7px 0px 0px;
                   }
+                  #b1:hover{
+                    background-image: -webkit-linear-gradient(270deg,rgba(127,243,228,0.9) 0%,rgba(237,251,249,0.9) 100%);
+                    background-image: -moz-linear-gradient(270deg,rgba(127,243,228,0.9) 0%,rgba(237,251,249,0.9) 100%);
+                    background-image: -o-linear-gradient(270deg,rgba(127,243,228,0.9) 0%,rgba(237,251,249,0.9) 100%);
+                    background-image: linear-gradient(180deg,rgba(127,243,228,0.9) 0%,rgba(237,251,249,0.9) 100%);
+                    color: #1f5de8;
+                  }
                   #b2:hover{
                      background-image: -webkit-linear-gradient(270deg,rgba(127,243,228,0.9) 0%,rgba(237,251,249,0.9) 100%);
                       background-image: -moz-linear-gradient(270deg,rgba(127,243,228,0.9) 0%,rgba(237,251,249,0.9) 100%);

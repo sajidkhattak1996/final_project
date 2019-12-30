@@ -105,7 +105,7 @@
                         var ex_date=expire_date.getTime();
 
                         var b=new Date();
-                        var current_date=b.getTime();  //the 1 are added b/c month range is 0-11 and 0 for jan
+                        var current_date=b.getTime("h:i:s:A");  //the 1 are added b/c month range is 0-11 and 0 for jan
 
                         var msg=document.getElementById('m');
 
@@ -152,7 +152,7 @@
         $class_session=$_POST['c_session'];
         $current_date =date("Y-m-d");
         date_default_timezone_set("Asia/Karachi");
-        $ctime  =date("h:i:sa");
+        $ctime  =date("h:i:s A");
         $expire_date  =$_POST['expire_date'];
         $subject_name =$_POST['subject_name'];
 

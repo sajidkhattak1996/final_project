@@ -115,11 +115,11 @@
                           <table class="table table-straped ">
                             <thead id="bb">
                                 <tr>
-                                  <th>Title</th>
-                                  <th>Message</th>
-                                  <th>Upload Date</th>
-                                  <th> Expire Date</th>
-                                  <th> Delete</th>
+                                  <th width="20%">Title</th>
+                                  <th width="55%">Message</th>
+                                  <th width="10%">Upload Date</th>
+                                  <th width="7%"> Expire Date</th>
+                                  <th width="7%"> Delete</th>
                                 </tr>
                             </thead>
                             <!-- <script type="text/javascript">  function hide(){ document.get.getElementById("m").style.display='none'; }</script>
@@ -135,10 +135,10 @@
                                         while ($result=mysqli_fetch_assoc($exe_sql)) {
                                           ?>
                                           <tr>
-                                                <td width="20%"><?php echo $result['title']; ?></td>
-                                                <td width="60%"><?php echo $result['msg']; ?></td>
-                                                <td width="10%"><?php echo $result['cdate']; ?></td>
-                                                <td width="10%"><?php echo $result['expire_date']; ?></td>
+                                                <td><?php echo $result['title']; ?></td>
+                                                <td><?php echo $result['msg']; ?></td>
+                                                <td><?php echo $result['cdate']; ?></td>
+                                                <td><?php echo $result['expire_date']; ?></td>
                                                 <td>
                                                     <a href="delete_notification.php?id=<?php echo $result['id']; ?>&cid=<?php echo $result['Class_id'];?>"><button type="button" name="button" class="btn btn-danger btn-md" >Delete</button></a>
                                                   <!-- <a href=""><button type="button" name="button" class="btn btn-danger btn-md" id="">Conform</button> </a> -->
@@ -148,7 +148,7 @@
                                         }
                                       }else { ?>
                                         <tr>
-                                              <td colspan="4" class="alert alert-warning"> <?php  echo "No Notification are Upload.";  ?> </td>
+                                              <td colspan="5" class="alert alert-warning text-center" > <?php  echo "No Notification are Upload.";  ?> </td>
                                         </tr>
 
                                         <?php

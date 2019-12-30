@@ -34,7 +34,10 @@
       <!--=================================== ended =======================-->
 
 <script>
-function empty(){  document.getElementById("spn").innerHTML='';}  //use th empty the msg field
+function empty(){
+  document.getElementById("spn").innerHTML='';
+  document.getElementById("spn").style.display='none';
+}  //use th empty the msg field
 
 </script>
 
@@ -56,6 +59,7 @@ function empty(){  document.getElementById("spn").innerHTML='';}  //use th empty
                         <span id="dmsg" style="color: yellow"></span>
                     </td>
                   </form>
+                  <td><a href="edit_attendence.php?id=<?php  echo $cid; ?>" class="btn btn-primary"> Edit Attendence   </a></td>
               </tr>
             </thead>
       </table>
@@ -79,12 +83,11 @@ function empty(){  document.getElementById("spn").innerHTML='';}  //use th empty
       }
 
  </script>
-<span id="spn" style="margin-left: 300px"></span>
+<div id="spn"></div>
   <table id="example1" class="table table-striped table-bordered table-hover table-xl table-light" >
 
             <thead class="bg-info">
                 <tr>
-                      <!-- <th scope="col" scope="row">Student ID</th> -->
                       <th scope="col">Class No</th>
                       <th scope="col">Name</th>
                       <th scope="col">Attendence Status</th>
@@ -96,23 +99,33 @@ function empty(){  document.getElementById("spn").innerHTML='';}  //use th empty
                     $cid=$_SESSION['class_id'];
                     $stmt_register="SELECT register.S_id , register.Reg_no , student.student_name ,student.Email FROM register INNER JOIN student ON register.S_id=student.S_id WHERE register.Class_id='$cid' ORDER BY register.Reg_no";
                     $exe=mysqli_query($con,$stmt_register);
-                    $a=0;
-                    while ($row=mysqli_fetch_assoc($exe)) { $a++;
-                     ?>
-                <tr>
-                      <td><input style="background: none;border: none;width: 50px" type="text" onkeyup="update('<?php echo $a;?>','<?php echo $row['S_id']; ?>');" id="xyz<?php echo $a;?>" value="<?php echo $row['Reg_no']; ?>">     </td>
+                    if (mysqli_num_rows($exe)>0) {
+                      $a=0;
+                      while ($row=mysqli_fetch_assoc($exe)) { $a++;
+                       ?>
+                      <tr>
+                        <td><input style="background: none;border: none;width: 50px" type="text" onkeyup="update('<?php echo $a;?>','<?php echo $row['S_id']; ?>');" id="xyz<?php echo $a;?>" value="<?php echo $row['Reg_no']; ?>">     </td>
 
-                      <td scope="col" ><?php  echo $row['student_name']; ?> </td>
-                      <td>      <input type="text" name="student_id<?php echo $a; ?>" value="<?php echo $row['S_id']; ?>" style="display:none">
-                                <span style="font-size: 16px">Present:</span>     <input type="radio"  name="r<?php echo $a; ?>" checked value="1" style="width:5%;height:15px;">&nbsp;&nbsp;&nbsp;
-                                <span style="font-size: 16px">Absent:</span>  <input type="radio"  name="r<?php echo $a; ?>" value="2" style="width:5%;height:15px;">&nbsp;&nbsp;&nbsp;
-                                <span style="font-size: 16px">Leave:</span>       <input type="radio"  name="r<?php echo $a; ?>" value="3" style="width:5%;height:15px;">&nbsp;&nbsp;&nbsp;
+                        <td scope="col" ><?php  echo $row['student_name']; ?> </td>
+                        <td>      <input type="text" name="student_id<?php echo $a; ?>" value="<?php echo $row['S_id']; ?>" style="display:none">
+                                  <span style="font-size: 16px">Present:</span>     <input type="radio"  name="r<?php echo $a; ?>" checked value="1" style="width:5%;height:15px;">&nbsp;&nbsp;&nbsp;
+                                  <span style="font-size: 16px">Absent:</span>  <input type="radio"  name="r<?php echo $a; ?>" value="2" style="width:5%;height:15px;">&nbsp;&nbsp;&nbsp;
+                                  <span style="font-size: 16px">Leave:</span>       <input type="radio"  name="r<?php echo $a; ?>" value="3" style="width:5%;height:15px;">&nbsp;&nbsp;&nbsp;
 
-                      </td>
-                </tr>
-                 <?php }
-                  $_SESSION['a']=$a;
-                  ?>
+                        </td>
+                  </tr>
+                   <?php }
+                    $_SESSION['a']=$a;
+                    ?>
+                    }else {
+                      ?>
+                      <tr>
+                          <td colspan="3" class="alert alert-warning text-center">No Student are Register with this Class.</td>
+                      </tr>
+                      <?php
+                    }
+
+                    ?>
                 </tbody>
             </table>
             <button type="submit" name="save" style="margin-left: 35%;margin-top: 0px;margin-bottom: 10px;width:30%;font-weight:bolder" class="btn btn-primary btn-lg">Submit</button>
@@ -129,7 +142,7 @@ function empty(){  document.getElementById("spn").innerHTML='';}  //use th empty
             $a=$_SESSION['a'];
             unset($_SESSION['a']);
             if ($a==0) {
-              echo "<script> document.getElementById('spn').innerHTML='You Cannot Perform this Action! Because No Students are Found in the Class'; setTimeout(empty, 5000); </script>";
+              echo "<script> document.getElementById('spn').innerHTML='You Cannot Perform this Action! Because No Students are Found in the Class';document.getElementById('spn').setAttribute('class', 'alert alert-danger text-center'); setTimeout(empty, 5000); </script>";
 
             }
             if ($a!=0) {
@@ -220,7 +233,7 @@ function empty(){  document.getElementById("spn").innerHTML='';}  //use th empty
     $('#example1').DataTable({
       "paging": false,
       "lengthChange": false,
-      "searching": true,
+      "searching": false,
       "ordering": true,
       "info": true,
       "autoWidth": false,
