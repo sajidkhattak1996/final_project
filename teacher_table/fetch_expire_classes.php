@@ -21,7 +21,7 @@ $expire_result = mysqli_query($conn, $totalEmpSQL);
 =========================================================================================================================================================================================================*/
 if (isset($_POST['btn_edit'])) {
   // echo "<h1>".$_POST['btn_edit']."</h1>";
-  $sql1="SELECT Name,Expire_date FROM class WHERE Class_id='".$_POST['btn_edit']."'";
+  $sql1="SELECT Name,Enrollment_key,Class_session,Start_date,currenttime,Expire_date FROM class WHERE Class_id='".$_POST['btn_edit']."'";
   $r=mysqli_fetch_array(mysqli_query($con, $sql1));
   ?>
   <style>
@@ -67,9 +67,9 @@ if (isset($_POST['btn_edit'])) {
     <!-- below are editable form -->
     <form action="update_class.php" method="post">
       <div class="row">
-        <div class="col-sm"><i><b> Enrollment key:      <?php  echo $expire_result['Enrollment_key'];  ?> </b></i></div>
-        <div class="col-sm"><i><b> Class Session:       <?php  echo $expire_result['Class_session'];  ?> </b></i></div>
-        <div class="col-sm"><i><b> Creation Date & Time:&nbsp;<?php  echo $expire_result['Start_date']; echo "&nbsp;&nbsp;&nbsp;&nbsp;".$expire_result['currenttime'];?> </b></i></div>
+        <div class="col-sm"><i><b> Enrollment key:      <?php  echo $r['Enrollment_key'];  ?> </b></i></div>
+        <div class="col-sm"><i><b> Class Session:       <?php  echo $r['Class_session'];  ?> </b></i></div>
+        <div class="col-sm"><i><b> Creation Date & Time:&nbsp;<?php  echo $r['Start_date']; echo "&nbsp;&nbsp;&nbsp;&nbsp;".$r['currenttime'];?> </b></i></div>
       </div>
       <div id="edit2">
       <table id="bb" class="table table-straped">
@@ -116,13 +116,16 @@ while($emp = mysqli_fetch_assoc($expire_result)){
 ?>
 <tr>
 <th scope="row"><?php echo $emp['Class_id']; ?></th>
+<!--===============class name =================================================================================================================-->
 <td><style> #classbtn{background:none;border:none;color: blue} #classbtn:hover{border-bottom: solid 2px blue;} </style>
     <form action="" method="post">
-      <button type="submit" name="class_name" id="classbtn">
+      <button type="submit" name="class_name" id="classbtn" value="<?php echo $emp['Class_id'];  ?>">
         <?php echo $emp['Name'];  ?>
       </button>
     </form>
 </td>
+<!--===============ended=================================================================================================================-->
+
 <?php  mysubject($emp['Class_id']);     ?>
 <td><?php echo $emp['Start_date']; ?></td>
 <td><?php echo $emp['Expire_date']; ?></td>
@@ -139,7 +142,6 @@ Delete($emp['Class_id'],$emp['Name']);
 </table>
 
 <div class="tend">
-
 </div>
 <?php
 // function which display the subject button

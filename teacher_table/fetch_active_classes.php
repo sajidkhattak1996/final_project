@@ -225,7 +225,8 @@ Delete($class['Class_id'],$class['Name']);
     if (isset($_POST['c_delete'])) {
       $cid=$_POST['c_delete'];
           //  $cn=$_POST['cn'];  //it store the class name
-            $c =mysqli_connect("localhost","root","","project_db");
+          include('../db_connection.php');
+            $c =$con;
             if ($c) {
             $stmt1="DELETE class,have FROM class INNER JOIN have ON class.Class_id=have.Class_id WHERE class.Class_id='$cid'";
             $stmt2="DELETE assignment,assignment_record FROM assignment INNER JOIN assignment_record ON assignment_record.A_id=assignment.A_id WHERE assignment_record.Class_id='$cid'";

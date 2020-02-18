@@ -4,6 +4,9 @@ if (isset($_GET['id'])) {
   ?>
   <?php
     include('top_info.php');
+    // <!--===============below loader are include =================-->
+     include('../plugins/loader/loader1.html');
+    // <!--=================ended==================================-->
     if (isset($_SESSION['email']) && isset($_SESSION['pass'])) { ?>
       <!DOCTYPE html>
         <html lang="en" dir="ltr">
@@ -54,12 +57,12 @@ if (isset($_GET['id'])) {
                     <td>Class ID:&nbsp;&nbsp;&nbsp;<span style="color: blue"><?php echo $cid;  ?></span></td>
                     <td>Class Name:&nbsp;&nbsp;&nbsp;<span style="color: blue"><?php echo $r1['Name'];  ?></span></td>
                     <td>Subject Name:&nbsp;&nbsp;&nbsp;<span style="color: deeppink;letter-spacing:1px"><?php echo $r2['subject_name'];  ?></span></td>
-                    <td><a href="attendence.php" class="btn btn-primary">  Attendence   </a></td>
+                    <td><a href="attendence.php" class="btn btn-primary">  Attendance   </a></td>
                 </tr>
               </thead>
         </table>
     </div>
-    <h5><strong>Note: </strong>Click on Student Name to Select them to Edit his/her Attendece.</h5>
+    <h5><strong>Note: </strong>Click on Student Name to Select them to Edit his/her Attendance.</h5>
   <span id="spn" style="margin-left: 300px"></span>
       <table class="table table-straped" id="example1">
           <thead>
@@ -73,13 +76,22 @@ if (isset($_GET['id'])) {
                   include('db_connection.php');
                   $sql="SELECT register.S_id,register.Reg_no,student.student_name FROM register INNER JOIN student ON register.S_id=student.S_id WHERE register.Class_id='$cid' ORDER BY register.Reg_no ASC";
                   $query2=mysqli_query($con ,$sql);
-                  while ($row=mysqli_fetch_assoc($query2)) {
-                    ?>
-                    <tr>
-                      <td><?php echo $row['Reg_no']; ?></td>
-                      <td><a href="edit_attendence2.php?id=<?php echo $row['S_id']; ?>" style="text-decoration:none"><?php echo $row['student_name']; ?></a></td>
-                    </tr>
-                    <?php
+                  if (mysqli_num_rows($query2)>0) {
+                    while ($row=mysqli_fetch_assoc($query2)) {
+                      ?>
+                      <tr>
+                        <td><?php echo $row['Reg_no']; ?></td>
+                        <td><a href="edit_attendence2.php?id=<?php echo $row['S_id']; ?>" style="text-decoration:none"><?php echo $row['student_name']; ?></a></td>
+                      </tr>
+                      <?php
+                    }
+                  }else {
+                      ?>
+                      <tr>
+                        <td colspan="2" class="alert alert-warning text-center font-weight-bold">No Student are Yet register to the Class. </td>
+                      </tr>
+
+                      <?php
                   }
                  ?>
           </tbody>

@@ -1,5 +1,8 @@
 <?php
   include('top_info.php');
+  // <!--===============below loader are include =================-->
+   include('../plugins/loader/loader1.html');
+  // <!--=================ended==================================-->
   if (isset($_SESSION['email']) && isset($_SESSION['pass'])) { ?>
     <!DOCTYPE html>
       <html lang="en" dir="ltr">
@@ -10,7 +13,7 @@
           <meta name="viewport" content="width=device-width, initial-scale=1">
           <meta name="description" content="">
 
-          <title>welcome to webside as a teacher  </title>
+          <title>Attendance Insertion of Class Students  </title>
 
           </head>
       <body>
@@ -54,12 +57,12 @@ function empty(){
                   <td>Subject Name:&nbsp;&nbsp;&nbsp;<span style="color: deeppink;letter-spacing:1px"><?php echo $r2['subject_name'];  ?></span></td>
                   <form method="post">
                     <td>
-                        Attendence Date:&nbsp;&nbsp;&nbsp;
-                        <input type="date" name="AT_date" id="at_date" onblur="fn()" style="background: lightblue;border: solid 1px #008c7e;border-radius:5px"><br>
+                        Attendance Date:&nbsp;&nbsp;&nbsp;
+                        <input type="date" name="AT_date" id="at_date" onblur="fn()" value="<?php echo date('Y-m-d'); ?>" style="background: lightblue;border: solid 1px #008c7e;border-radius:5px"><br>
                         <span id="dmsg" style="color: yellow"></span>
                     </td>
                   </form>
-                  <td><a href="edit_attendence.php?id=<?php  echo $cid; ?>" class="btn btn-primary"> Edit Attendence   </a></td>
+                  <td><a href="edit_attendence.php?id=<?php  echo $cid; ?>" class="btn btn-primary"> Edit Attendance   </a></td>
               </tr>
             </thead>
       </table>
@@ -90,7 +93,7 @@ function empty(){
                 <tr>
                       <th scope="col">Class No</th>
                       <th scope="col">Name</th>
-                      <th scope="col">Attendence Status</th>
+                      <th scope="col">Attendance Status</th>
                 </tr>
             </thead>
               <tbody>
@@ -99,7 +102,8 @@ function empty(){
                     $cid=$_SESSION['class_id'];
                     $stmt_register="SELECT register.S_id , register.Reg_no , student.student_name ,student.Email FROM register INNER JOIN student ON register.S_id=student.S_id WHERE register.Class_id='$cid' ORDER BY register.Reg_no";
                     $exe=mysqli_query($con,$stmt_register);
-                    if (mysqli_num_rows($exe)>0) {
+                    $no_row=mysqli_num_rows($exe);
+                    if ($no_row>0) {
                       $a=0;
                       while ($row=mysqli_fetch_assoc($exe)) { $a++;
                        ?>
@@ -116,7 +120,6 @@ function empty(){
                   </tr>
                    <?php }
                     $_SESSION['a']=$a;
-                    ?>
                     }else {
                       ?>
                       <tr>
@@ -128,7 +131,14 @@ function empty(){
                     ?>
                 </tbody>
             </table>
-            <button type="submit" name="save" style="margin-left: 35%;margin-top: 0px;margin-bottom: 10px;width:30%;font-weight:bolder" class="btn btn-primary btn-lg">Submit</button>
+            <?php
+            if ($no_row==0){
+
+            } else {?>
+              <button type="submit" name="save" style="margin-left: 35%;margin-top: 0px;margin-bottom: 10px;width:30%;font-weight:bolder" class="btn btn-primary btn-lg">Submit</button>
+              <?php
+            }
+            ?>
       <div class="tend">  </div>
 </form>
 </div>  <!--ended -->
@@ -157,7 +167,7 @@ function empty(){
                               $status=mysqli_num_rows($exe_check_date);
 
                               if ($status>0) {
-                                echo "<script> document.getElementById('dmsg').innerHTML='Attendence for that Date is already found in Database!. try Another';  </script>";
+                                echo "<script> document.getElementById('dmsg').innerHTML='Attendance for that Date is already found in Database!. try Another';  </script>";
                               }else {
                                       $temp=1;
                                       $t=1;
@@ -170,7 +180,7 @@ function empty(){
 
                                         $t++; $temp++; }
                                         if ($temp==$t) {
-                                          echo "<script> document.getElementById('dmsg').innerHTML='Attendence are Successfully Inserted...'; setTimeout(remove, 5000); </script>";
+                                          echo "<script> document.getElementById('dmsg').innerHTML='Attendance are Successfully Inserted...'; setTimeout(remove, 5000); </script>";
 
                                         }else {
                                           echo "<script> document.getElementById('dmsg').innerHTML='Problem Occur while Inserted Some records!'; setTimeout(remove, 10000); </script>";

@@ -19,6 +19,9 @@
   </head>
 <body>
   <?php session_start(); ?>
+  <?php   // <!--===============below loader are include =================-->
+     include('../plugins/loader/loader1.html');
+    // <!--=================ended==================================--> ?>
   <!--=================== the top nevagation menu=======================================----------->
         <?php  include('std_top_menu.php');  ?>
   <!--============ ended==================================================================== -->
@@ -62,10 +65,7 @@
     <div class="about">
         <h2>About this page </h2>
         <p class="text">
-          This is your Class Attendence Recod Homepage.This Page Show Your Monthly Attendence Records By default, You Can See the Full Details By Click on All Attendence.
-          To Enroll in a new Class Click the Enroll in Class.Below Table Show the Student Least previous Records.To View the Detail Click on the Eye Icon.
-          To View the Full Records Click for the Following Button.
-          For Help Click the Helps Button.
+          This is your Class Assignment Record Homepage.This page show your assignment records of the class.
 
         </p>
 

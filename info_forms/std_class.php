@@ -51,9 +51,10 @@
               <div class="about">
                   <h2>About this page </h2>
                   <p class="text">
-                    This is your Class Recod Homepage.To Enroll in a new Class Click the Enroll in Class.Below Table Show the Student Least previous Records.To View the Detail Click on the Eye Icon.
+                    This is your Class Record Homepage.To Enroll in a new Class Click the Enroll in Class.Below Table Show the attendance percentage upto current date and the Least previous Records of
+                    the Assignment,Presentation and Quize . To View the Detail Click on the Eye Icon.
                     To View the Full Records Click for the Following Button.
-                    For Help Click the Helps Button.
+                    You can check for the all record of your class by click on the following tabs button(Attendance ,Assignment ,Quizzes ,Presentation).
 
 
                   </p>
@@ -83,12 +84,12 @@
         <h2 class="text-left" style="height: 20px;padding-top: 10px;text-transform: capitalize">Student Name: <?php echo $result1['student_name'];  ?> </h2>
         <br>
 <form method="post">
-    <table id="example1" class="table table-striped  table-bordered table-hover table-sm">
+    <table id="example1" class="table table-striped  table-bordered table-hover table-sm  table-responsive-sm">
         <thead class="bg-info">
                 <tr>
                   <th scope="col" scope="row">Class No</th>
                   <th scope="col">Name</th>
-                  <th scope="col">Attendence</th>
+                  <th scope="col">Attendance</th>
                   <th scope="col">Assignment</th>
                   <th scope="col">Quiz</th>
                   <th scope="col">Presentation</th>

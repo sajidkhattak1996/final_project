@@ -1,5 +1,8 @@
 <?php
   include('top_info.php');
+  // <!--===============below loader are include =================-->
+   include('../plugins/loader/loader1.html');
+  // <!--=================ended==================================-->
   if (isset($_SESSION['email']) && isset($_SESSION['pass'])) { ?>
     <!DOCTYPE html>
       <html lang="en" dir="ltr">
@@ -40,10 +43,8 @@
           <div class="about">
               <h2>About this page </h2>
               <p class="text">
-                This is your Teacher Homepage. The Homepage show the classes you are Created and along with the Start and Expire date. You can also Add,Drop ,Edit Add Slides to the Class
-                Details. Your Expired Classes are move to the Expired Classes Area.You see Class inside details by clicking on the Class Name.
-
-                you'r Class records.
+                This Page show the Classes Which are Expired. The Teacher can Edit the Expired Class by Click the edit icon to extend the classes
+                Expired Date.The Teacher Can also Drop the Class by Clicking the remove icon.The Class Records are permanent remove When it is Deleted.
 
               </p>
 
@@ -107,7 +108,6 @@
 
           </div>
           <?php
-
           include('fetch_expire_classes.php');
 
 

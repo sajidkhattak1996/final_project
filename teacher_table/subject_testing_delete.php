@@ -87,7 +87,7 @@
                                           <table class="table">
                                                         <tr>
                                                               <th scope="col">Class Student</th>
-                                                              <th scope="col">Attendence</th>
+                                                              <th scope="col">Attendance</th>
                                                               <th scope="col">Assignment</th>
                                                               <th scope="col">Presentation</th>
                                                               <th scope="col">Quizes</th>

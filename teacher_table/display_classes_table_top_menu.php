@@ -21,10 +21,7 @@
                         	width: 100%;
                   }
 		#b1:hover{color: blue;border-color: #008c7e}
-		#b2:hover{color: blue;border-color: #008c7e}
-			#b3:hover{color: blue;border-color: #008c7e}
-              #b4:hover{color: blue;border-color: #008c7e}
-                #b5:hover{color: blue;border-color: #008c7e}
+
                   #b1{
                     background-image: -webkit-linear-gradient(180deg,rgba(172,239,224,0.66) 21.76%,rgba(0,140,126,1.00) 98.45%);
                     background-image: -moz-linear-gradient(180deg,rgba(172,239,224,0.66) 21.76%,rgba(0,140,126,1.00) 98.45%);
@@ -37,7 +34,7 @@
 
                     border-radius: 7px 7px 0px 0px;
                   }
-                  #b2,#b3,#b4,#b5{
+                  #b2,#b3,#b4,#b5,#b6{
                       background-image: -webkit-linear-gradient(270deg,rgba(127,243,228,0.52) 0%,rgba(237,251,249,0.81) 100%);
                       background-image: -moz-linear-gradient(270deg,rgba(127,243,228,0.52) 0%,rgba(237,251,249,0.81) 100%);
                       background-image: -o-linear-gradient(270deg,rgba(127,243,228,0.52) 0%,rgba(237,251,249,0.81) 100%);
@@ -51,29 +48,37 @@
                       background-image: -moz-linear-gradient(270deg,rgba(127,243,228,0.9) 0%,rgba(237,251,249,0.9) 100%);
                       background-image: -o-linear-gradient(270deg,rgba(127,243,228,0.9) 0%,rgba(237,251,249,0.9) 100%);
                       background-image: linear-gradient(180deg,rgba(127,243,228,0.9) 0%,rgba(237,251,249,0.9) 100%);
-                      color: #1f5de8;
-                  }
+                      color: blue;
+                      border-color: #008c7e;                  }
                   #b3:hover{
                      background-image: -webkit-linear-gradient(270deg,rgba(127,243,228,0.9) 0%,rgba(237,251,249,0.9) 100%);
                       background-image: -moz-linear-gradient(270deg,rgba(127,243,228,0.9) 0%,rgba(237,251,249,0.9) 100%);
                       background-image: -o-linear-gradient(270deg,rgba(127,243,228,0.9) 0%,rgba(237,251,249,0.9) 100%);
                       background-image: linear-gradient(180deg,rgba(127,243,228,0.9) 0%,rgba(237,251,249,0.9) 100%);
-                      color: #1f5de8;
-                  }
+                      color: blue;
+                      border-color: #008c7e;                  }
                   #b4:hover{
                      background-image: -webkit-linear-gradient(270deg,rgba(127,243,228,0.9) 0%,rgba(237,251,249,0.9) 100%);
                       background-image: -moz-linear-gradient(270deg,rgba(127,243,228,0.9) 0%,rgba(237,251,249,0.9) 100%);
                       background-image: -o-linear-gradient(270deg,rgba(127,243,228,0.9) 0%,rgba(237,251,249,0.9) 100%);
                       background-image: linear-gradient(180deg,rgba(127,243,228,0.9) 0%,rgba(237,251,249,0.9) 100%);
-                      color: #1f5de8;
-                  }
+                      color: blue;
+                      border-color: #008c7e;                  }
                   #b5:hover{
                      background-image: -webkit-linear-gradient(270deg,rgba(127,243,228,0.9) 0%,rgba(237,251,249,0.9) 100%);
                       background-image: -moz-linear-gradient(270deg,rgba(127,243,228,0.9) 0%,rgba(237,251,249,0.9) 100%);
                       background-image: -o-linear-gradient(270deg,rgba(127,243,228,0.9) 0%,rgba(237,251,249,0.9) 100%);
                       background-image: linear-gradient(180deg,rgba(127,243,228,0.9) 0%,rgba(237,251,249,0.9) 100%);
-                      color: #1f5de8;
-                  }
+                      color: blue;
+                      border-color: #008c7e;                  }
+                  #b6:hover{
+                       background-image: -webkit-linear-gradient(270deg,rgba(127,243,228,0.9) 0%,rgba(237,251,249,0.9) 100%);
+                        background-image: -moz-linear-gradient(270deg,rgba(127,243,228,0.9) 0%,rgba(237,251,249,0.9) 100%);
+                        background-image: -o-linear-gradient(270deg,rgba(127,243,228,0.9) 0%,rgba(237,251,249,0.9) 100%);
+                        background-image: linear-gradient(180deg,rgba(127,243,228,0.9) 0%,rgba(237,251,249,0.9) 100%);
+                        color: blue;
+                        border-color: #008c7e;
+                      }
 
                   @media (max-width: 600px) { .tabletabs{ margin-left: -50px;} }
 
@@ -147,10 +152,11 @@
 
               <ul>
                     <a href="class_page.php"> <button id="b1" type="submit">  <b>      Class Record   </b> </button>  </a>
-                    <a href="attendence_display_monthly.php"> <button id="b2" type="submit">  <b>      Attendence     </b>  </button> </a>
+                    <a href="attendence_display_monthly.php"> <button id="b2" type="submit">  <b>      Attendance     </b>  </button> </a>
                     <a href="assignment_display.php"> <button id="b3" type="submit">  <b>      Assignments    </b>  </button> </a>
-                    <a href="quize_display.php"> <button id="b4" type="submit">  <b>      Quizes         </b>  </button> </a>
+                    <a href="quize_display.php"> <button id="b4" type="submit">  <b>      Quizzes         </b>  </button> </a>
                     <a href="presentation_display.php"> <button id="b5" type="submit">  <b>      Presentation   </b>  </button> </a>
+                    <a href="exam_marks_display.php"> <button id="b6" type="submit">  <b>      Exam Marks   </b>  </button> </a>
 
               </ul>
 
@@ -166,10 +172,11 @@
                           <button class="dropbtn"><span class="glyphicon glyphicon-list" ></span> </button>
                           <div class="dropdown-content">
                             <a href="class_page.php"><button name="class_r_view" style="background: none ; border: none"> Class Records </button></a>
-                            <a href="attendence_display_monthly.php"><button name="att_r_view" style="background: none ; border: none"> Attendence    </button></a>
+                            <a href="attendence_display_monthly.php"><button name="att_r_view" style="background: none ; border: none"> Attendance    </button></a>
                             <a href="assignment_display.php"><button name="ass_r_view" style="background: none ; border: none"> Assignment    </button></a>
-                            <a href="quize_display.php"><button name="quize_r_view" style="background: none ; border: none"> Quizes        </button></a>
+                            <a href="quize_display.php"><button name="quize_r_view" style="background: none ; border: none"> Quizzes        </button></a>
                             <a href="presentation_display.php"><button name="pre_r_view" style="background: none ; border: none"> Presentation  </button></a>
+                            <a href="exam_marks_display.php"><button name="exam_marks" style="background: none ; border: none"> Exam Marks  </button></a>
 
                           </div>
                         </div>

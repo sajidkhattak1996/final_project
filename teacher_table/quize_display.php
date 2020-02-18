@@ -18,6 +18,9 @@
 
   </head>
 <body>
+  <!--===============below loader are include =================-->
+  <?php include('../plugins/loader/loader1.html'); ?>
+  <!--=================ended==================================-->
 <!--=========top nvagation menu ==========-->
 <?php  include('top_info.php');  ?>
 <!--=========top nvagation menu endeddd ==========-->
@@ -52,9 +55,8 @@
     <div class="about">
         <h2>About this page </h2>
         <p class="text">
-          This is your Teacher Class Record Homepage. The page show the Class records of all Students such is Attendence , quize , Presentation and Quizes.
-          The Homepage display all the previous records of the Students.Click on Eye Open (view) to display that particular records of
-          that Student.The Button Attendence , quize , Quizes and Presentation display that Particular Records of Students.
+          This is your class record Quize Display Homepage. This page display the Quizzes of the all Class Students which are register with this class.
+          You can also Search for the particular student in search box.
 
 
         </p>
@@ -92,6 +94,9 @@
   border:solid 1px rgba(127,243,228,0.52);
   border-radius: 7px 7px 0px 0px;
 }
+#b4 {
+  pointer-events: none;
+}
 </style>
 
 
@@ -111,8 +116,13 @@
 <div id="active_class">
     <div class="tstart" >
       <h2 class="text-left">Institute Name:  <?php  echo $_SESSION['institute']; ?> </h2>
+      <div class="pb-5">
+        <a href="quiz_ratio.php?cid=<?php echo $cid; ?>"><button type="button" class="btn btn-md btn-outline-light float-right mr-3" name="button">Calculate Ratio</button></a>
+        <form method="post"  action="export_quize.php"><button type="submit" class="btn btn-outline-light" name="export" value="<?php echo $cid; ?>" style="float: right;margin-right: 2%;">Export as CSV File</button> </form>
 
-<form method="post">
+      </div>
+
+<form method="post" style="padding-top: 20px">
     <table id="example1" class="table table-striped  table-bordered table-hover table-sm">
         <thead class="bg-info">
                 <tr>
@@ -129,43 +139,64 @@
             <tbody class="bg-light">
               <?php
                   if (isset($con)) {
-                        $check_register="SELECT S_id FROM register WHERE Class_id='$cid'";
-                        $exe_check=mysqli_query($con ,$check_register);
-                        if(mysqli_num_rows($exe_check)>0)
-                        {
-                          $query1="SELECT quiz_record.S_id,quize.q_topic,quize.q_date,quiz_record.qo_marks,quize.qt_marks FROM quize INNER JOIN quiz_record ON quiz_record.Q_id=quize.Q_id WHERE quiz_record.Class_id='$cid' ORDER BY quize.q_date DESC";
-                          $exe_query1=mysqli_query($con ,$query1);
-                          while ($row=mysqli_fetch_assoc($exe_query1)) {
-                                $st_id=$row['S_id'];
-                                 $st_name_query="SELECT register.Reg_no,student.student_name FROM register INNER JOIN student ON register.S_id=student.S_id WHERE register.Class_id='$cid' AND register.S_id='$st_id'";
-                                 $exe_st=mysqli_query($con ,$st_name_query);
-                                 $r=mysqli_fetch_array($exe_st);
-                                 ?>
-                                  <tr>
-                                        <td><?php echo $r['Reg_no'];  ?></td>
-                                        <td><?php echo $r['student_name'];  ?></td>
-                                        <td><?php echo $row['q_topic']; ?></td>
-                                        <td><?php echo $row['q_date']; ?></td>
-                                        <td><?php echo $row['qo_marks']; ?></td>
-                                        <td><?php echo $row['qt_marks']; ?></td>
-                                  </tr>
+                          $check_register="SELECT S_id FROM register WHERE Class_id='$cid' ORDER BY Reg_no ASC";
+                          $exe_check=mysqli_query($con ,$check_register);
+                          if (mysqli_num_rows($exe_check)>0) {
+                            //this query check if class have no quize of all student
+                            $stmt_check_attendence="SELECT * FROM quize INNER JOIN quiz_record ON quiz_record.Q_id=quize.Q_id WHERE quiz_record.Class_id='$cid'";
+                            $exe_attd=mysqli_query($con ,$stmt_check_attendence);
+                                if (mysqli_num_rows($exe_attd)>0 ) {
+                                  while ($std_id=mysqli_fetch_assoc($exe_check)) {
+                                    $std_name=mysqli_fetch_array(mysqli_query($con ,"SELECT register.Reg_no ,student.student_name FROM register INNER JOIN student ON register.S_id=student.S_id WHERE register.Class_id='$cid' AND register.S_id='".$std_id['S_id']."'"));
 
-                              <?php
+                                    // $quize=mysqli_query($con ,"SELECT assignment.a_name,assignment.a_date,assignment.at_marks,assignment_record.ao_marks FROM assignment INNER JOIN assignment_record ON assignment_record.A_id=assignment.A_id WHERE assignment_record.Class_id='$cid' AND assignment_record.S_id='".$std_id['S_id']."'");
+                                    $quize=mysqli_query($con ,"SELECT quize.q_topic,quize.q_date,quize.qt_marks,quiz_record.qo_marks FROM quize INNER JOIN quiz_record ON quiz_record.Q_id=quize.Q_id WHERE quiz_record.Class_id='$cid' AND quiz_record.S_id='".$std_id['S_id']."'");
+                                    $quize_row=mysqli_num_rows($quize);
+                                    $quize_padding=0;
+                                    if($quize_row==1){$quize_padding=0;}else {$quize_padding=(($quize_row)*0.7); }
+                                    if ($quize_row>0) {
+                                      echo "<tr>";
+                                      echo "<td rowspan='".$quize_row."' style='padding-top:".$quize_padding."%;border-bottom:solid 1px #008c7e;border-left:solid 1px #008c7e'>".$std_name['Reg_no']."</td>";
+                                      echo "<td rowspan='".$quize_row."' style='padding-top:".$quize_padding."%;border-bottom:solid 1px #008c7e;'>".$std_name['student_name']."</td>";
+                                      $count=0;
+                                      while ($quize_result=mysqli_fetch_assoc($quize)) {    $count++;
+                                        if($count==$quize_row){ ?>
+                                          <td style="border-bottom:solid 1px #008c7e"><?php echo $quize_result['q_topic']; ?></td>
+                                          <td style="border-bottom:solid 1px #008c7e"><?php echo $quize_result['q_date']; ?></td>
+                                          <td style="border-bottom:solid 1px #008c7e"><?php echo $quize_result['qo_marks']; ?></td>
+                                          <td style="border-bottom:solid 1px #008c7e"><?php echo $quize_result['qt_marks']; ?></td>
+                                        <?php  }else {
+                                          ?>
+                                          <td ><?php echo $quize_result['q_topic']; ?></td>
+                                          <td ><?php echo $quize_result['q_date']; ?></td>
+                                          <td ><?php echo $quize_result['qo_marks']; ?></td>
+                                          <td ><?php echo $quize_result['qt_marks']; ?></td>
+                                        </tr>
+                                        <?php
+                                      }
+                                    }
+                                  }else {
+                                    echo "<tr>";
+                                    echo "<td colspan='6' class='alert-warning text-center'>NO Quize</td>";
+                                    echo "</tr>";
+                                  }
                                 }
-                            }else {
-                              ?>
+                                }else {?>
                                 <tr>
-                                    <td colspan="6" class="alert alert-warning" style="text-align: center; font-weight: bold"> <?php echo "NO Students are Register to the Class.";  ?></td>
+                                  <td colspan="6" class="text-center alert alert-warning"> <?php echo "No Quize of the Class Students."; ?>  </td>
                                 </tr>
-                              <?php
-                            }
-
+                                <?php
+                                }
+                          }else {
+                            echo "<tr>";
+                            echo "<td colspan='6' class='alert-warning text-center'>No student are register with this class</td>";
+                            echo "</tr>";
+                          }
                   }
                   else {
                     echo "<script>  alert('Error Occur while connecting to the Database!');   </script>".mysqli_error($con);
                   }
                ?>
-
               </tbody>
 
 
@@ -186,11 +217,11 @@
   $(function () {
   //  $("#example1").DataTable();
     $('#example1').DataTable({
-      "paging": true,
-      "lengthChange": true,
-      "searching": true,
-      "ordering": true,
-      "info": true,
+      "paging": false,
+      "lengthChange": false,
+      "searching": false,
+      "ordering": false,
+      "info": false,
       "autoWidth": false,
     });
   });

@@ -1,0 +1,104 @@
+.ab{
+	font-family:arial;
+	position: absolute;
+	left: 50%;
+	transform: translate(-50%,-500px);
+	width: 100%;
+	height: auto;
+	box-sizing: border-box;
+	background: rgba(0,166,138,1.0);
+	padding: 10px;  /*it inside increase the padding */
+ border-radius: 20px;
+}
+#c1{
+	background: #13bca4;
+	border:solid 1px #008c7e;
+	border-radius: 6px;
+	margin-top: 5px;
+	opacity: 0.8
+}
+#r{
+	margin: 0 auto;
+}
+#r2{
+		margin: 0 auto;
+	margin-top: 20px;
+	background: #13bca4;
+	border:solid 1px #008c7e;
+	border-radius: 6px;
+	opacity: 0.9
+}
+#abdiv{padding-top: 0px;padding-bottom: 10px}
+@media(max-width: 960px){#abdiv{padding-top: 0px;padding-bottom: 0px} .ab{margin-top: 150px}
+ .ab{
+		font-family:arial;
+		position: absolute;
+		left: 50%;
+		transform: translate(-50%,-500px);
+		width: 100%;
+		height: auto;
+		box-sizing: border-box;
+		background: rgba(0,166,138,1.0);
+		padding: 10px;  /*it inside increase the padding */
+	 border-radius: 20px;
+	}
+
+}
+#login_heading{
+	font-family: monospace;
+	text-align: center;
+	color: #fff;
+	font-size: 23px;
+	border-color: #fff;
+	border-bottom:solid 1px #fff;
+}
+.login_inputdiv input:hover{
+	border-color: blue;
+	box-shadow: 0px 0px 5px 0.1px blue;
+}
+#sel1:hover{
+	border-color: blue;
+	box-shadow: 0px 0px 5px 0.1px blue;
+}
+#login_btn{
+	margin-top: 20px;
+	width: 30%;
+	height: 40px;
+	font-size: 20px;
+	font-family: monospace;
+	border-color: #fff;
+	background-color: #fff;
+}
+#login_btn:hover{
+	background-color: #02594f;
+	color: #fff;
+	border: solid 1px #fff;
+ }
+ #recover_pass{
+ 	margin-top: 20px;
+ 	height: 40px;
+ 	font-size: 20px;
+ 	font-family: monospace;
+ 	background-color: #fff;
+	border: solid 1px blue;
+ }
+ #recover_pass:hover{
+ 	background-color: #02594f;
+ 	color: #fff;
+ 	border: solid 1px #fff;
+  }
+
+
+ .pp{
+	font-size: 1.0em;
+	word-spacing: 0.1em;
+	letter-spacing: 0.04em;
+	color: #fff;
+}
+.pp a{ color: blue;}
+.pp a:hover{color: #fff;font-size: 1.2em;}
+
+@media (min-width: 405px) and (max-width: 575px) { #login_btn{ width: 35% }  #recover_pass{ width: 70% }  }
+@media (min-width: 325px) and (max-width: 405px) { #login_btn{ width: 45% }  #recover_pass{ width: 80%;height: 35px;font-size: 16px}  }
+@media (min-width: 258px) and (max-width: 325px) {  #login_btn{ width: 55% } #recover_pass{ width: 80%;height: 30px;font-size: 14px} }   }
+@media (max-width: 257px) { #login_btn{ width: 90%}  #recover_pass{ width: 50%;height: 20px;font-size: 10px}  }

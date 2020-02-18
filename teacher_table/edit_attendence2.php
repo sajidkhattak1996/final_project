@@ -4,6 +4,9 @@ if (isset($_GET['id'])) {
   ?>
   <?php
     include('top_info.php');
+    // <!--===============below loader are include =================-->
+     include('../plugins/loader/loader1.html');
+    // <!--=================ended==================================-->
     if (isset($_SESSION['email']) && isset($_SESSION['pass'])) { ?>
       <!DOCTYPE html>
         <html lang="en" dir="ltr">
@@ -53,7 +56,7 @@ if (isset($_GET['id'])) {
                     <td>Class ID:&nbsp;&nbsp;&nbsp;<span style="color: blue"><?php echo $cid;  ?></span></td>
                     <td>Class Name:&nbsp;&nbsp;&nbsp;<span style="color: blue"><?php echo $r1['Name'];  ?></span></td>
                     <td>Subject Name:&nbsp;&nbsp;&nbsp;<span style="color: deeppink;letter-spacing:1px"><?php echo $r2['subject_name'];  ?></span></td>
-                    <td><a href="attendence.php" class="btn btn-primary">  Attendence   </a></td>
+                    <td><a href="attendence.php" class="btn btn-primary">  Attendance   </a></td>
                 </tr>
                 <?php
                 $sid=0;
@@ -66,16 +69,19 @@ if (isset($_GET['id'])) {
                 <tr>
                     <td style="color: #fff;">Class No:&nbsp;&nbsp;<?php echo $r3['Reg_no'];  ?></td>
                     <td style="color: #fff;">Student Name:&nbsp;&nbsp;<span style="text-transform: capitalize"><?php echo $r3['student_name'];  ?></span></td>
-                    <td><a href="self_add_attendence.php?id=<?php echo $sid; ?>"><button type="button" name="add_new" class="btn btn-outline-light">Add New Addendence</button></a></td>
+                    <td><a href="self_add_attendence.php?id=<?php echo $sid; ?>"><button type="button" name="add_new" class="btn btn-outline-light">Add New Attendance</button></a></td>
                 </tr>
               </thead>
         </table>
     </div>
+    <p><b>Note: </b><small>When You Click the Edit icon and change the Status of Attendance, To display this change ,You need to refresh the page. Thank You</small></p>
   <div id="spn" class="text-center"></div>
       <table id="example1" class="table table-straped ">
+
           <thead class="bg-info">
+            <a href=""><button type="button" class="btn btn-md btn-secondary float-right" name="button">Refresh  <i class="fas fa-redo-alt"></i></button></a>
               <tr>
-                  <th width="30%">Attendence Date</th>
+                  <th width="30%">Attendance Date</th>
                   <th width="10%">Status</th>
                   <th><div id="att1" style="display:none">Change Status</div></th>
                   <th width="5%">Edit</th>
@@ -88,56 +94,63 @@ if (isset($_GET['id'])) {
                 <?php
                     $sql9="SELECT attendence_record.AT_date,attendence.status FROM attendence_record INNER JOIN attendence ON attendence_record.AT_id=attendence.AT_id WHERE attendence_record.Class_id='$cid' AND attendence_record.S_id='$sid' ORDER BY attendence_record.AT_date DESC";
                     $exe9=mysqli_query($con ,$sql9);
-                    $i=1;
-                    while ($r9=mysqli_fetch_assoc($exe9)) {
-                      ?>
-                      <tr>
-                        <td><?php echo $r9['AT_date']; ?></td>
-                        <td><?php echo $r9['status']; ?></td>
-                        <td >
-                          <div id="att1<?php echo $r9['AT_date']; ?>" style="display:none">
-                        <?php
-                        // the strcmp function return 0 if both string are match with each other
-                        if (strcmp($r9['status'] ,"P")==0) {?>
-                          Present &nbsp;&nbsp;<input type="radio" value="1" onclick="update('<?php echo $i; ?>1','<?php echo $r9['AT_date']; ?>','<?php echo $cid; ?>','<?php echo $r3['S_id']; ?>')" id="aid<?php echo $i; ?>1" checked  name="atd<?php echo $i; ?>" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                          Absent  &nbsp;&nbsp;<input type="radio" value="2" onclick="update('<?php echo $i; ?>2','<?php echo $r9['AT_date']; ?>','<?php echo $cid; ?>','<?php echo $r3['S_id']; ?>')" id="aid<?php echo $i; ?>2"  name="atd<?php echo $i; ?>" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                          Leave   &nbsp;&nbsp;<input type="radio" value="3" onclick="update('<?php echo $i; ?>3','<?php echo $r9['AT_date']; ?>','<?php echo $cid; ?>','<?php echo $r3['S_id']; ?>')" id="aid<?php echo $i; ?>3"  name="atd<?php echo $i; ?>" />
-                          <?php
-                        }
-                        if (strcmp($r9['status'] ,"A")==0) {?>
-                          Present &nbsp;&nbsp;<input type="radio" value="1" onclick="update('<?php echo $i; ?>1','<?php echo $r9['AT_date']; ?>','<?php echo $cid; ?>','<?php echo $r3['S_id']; ?>')"  id="aid<?php echo $i; ?>1"  name="atd<?php echo $i; ?>" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                          Absent &nbsp;&nbsp;<input type="radio"  value="2" onclick="update('<?php echo $i; ?>2','<?php echo $r9['AT_date']; ?>','<?php echo $cid; ?>','<?php echo $r3['S_id']; ?>')"  id="aid<?php echo $i; ?>2" checked  name="atd<?php echo $i; ?>" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                          Leave &nbsp;&nbsp;<input type="radio"   value="3" onclick="update('<?php echo $i; ?>3','<?php echo $r9['AT_date']; ?>','<?php echo $cid; ?>','<?php echo $r3['S_id']; ?>')"  id="aid<?php echo $i; ?>3"  name="atd<?php echo $i; ?>" />
-                            <?php
-                        }
+                    if (mysqli_num_rows($exe9)>0) {
+                      $i=1;
+                      while ($r9=mysqli_fetch_assoc($exe9)) {
+                        ?>
+                        <tr>
+                          <td><?php echo $r9['AT_date']; ?></td>
+                          <td><?php echo $r9['status']; ?></td>
+                          <td >
+                            <div id="att1<?php echo $r9['AT_date']; ?>" style="display:none">
+                              <?php
+                              // the strcmp function return 0 if both string are match with each other
+                              if (strcmp($r9['status'] ,"P")==0) {?>
+                                Present &nbsp;&nbsp;<input type="radio" value="1" onclick="update('<?php echo $i; ?>1','<?php echo $r9['AT_date']; ?>','<?php echo $cid; ?>','<?php echo $r3['S_id']; ?>')" id="aid<?php echo $i; ?>1" checked  name="atd<?php echo $i; ?>" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                Absent  &nbsp;&nbsp;<input type="radio" value="2" onclick="update('<?php echo $i; ?>2','<?php echo $r9['AT_date']; ?>','<?php echo $cid; ?>','<?php echo $r3['S_id']; ?>')" id="aid<?php echo $i; ?>2"  name="atd<?php echo $i; ?>" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                Leave   &nbsp;&nbsp;<input type="radio" value="3" onclick="update('<?php echo $i; ?>3','<?php echo $r9['AT_date']; ?>','<?php echo $cid; ?>','<?php echo $r3['S_id']; ?>')" id="aid<?php echo $i; ?>3"  name="atd<?php echo $i; ?>" />
+                                <?php
+                              }
+                              if (strcmp($r9['status'] ,"A")==0) {?>
+                                Present &nbsp;&nbsp;<input type="radio" value="1" onclick="update('<?php echo $i; ?>1','<?php echo $r9['AT_date']; ?>','<?php echo $cid; ?>','<?php echo $r3['S_id']; ?>')"  id="aid<?php echo $i; ?>1"  name="atd<?php echo $i; ?>" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                Absent &nbsp;&nbsp;<input type="radio"  value="2" onclick="update('<?php echo $i; ?>2','<?php echo $r9['AT_date']; ?>','<?php echo $cid; ?>','<?php echo $r3['S_id']; ?>')"  id="aid<?php echo $i; ?>2" checked  name="atd<?php echo $i; ?>" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                Leave &nbsp;&nbsp;<input type="radio"   value="3" onclick="update('<?php echo $i; ?>3','<?php echo $r9['AT_date']; ?>','<?php echo $cid; ?>','<?php echo $r3['S_id']; ?>')"  id="aid<?php echo $i; ?>3"  name="atd<?php echo $i; ?>" />
+                                <?php
+                              }
 
-                        if (strcmp($r9['status'] ,"L")==0) {?>
-                          Present &nbsp;&nbsp;<input type="radio" value="1" onclick="update('<?php echo $i; ?>1','<?php echo $r9['AT_date']; ?>','<?php echo $cid; ?>','<?php echo $r3['S_id']; ?>')"  id="aid<?php echo $i; ?>1"  name="atd<?php echo $i; ?>" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                          Absent &nbsp;&nbsp;<input type="radio"  value="2" onclick="update('<?php echo $i; ?>2','<?php echo $r9['AT_date']; ?>','<?php echo $cid; ?>','<?php echo $r3['S_id']; ?>')"  id="aid<?php echo $i; ?>2"  name="atd<?php echo $i; ?>" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                          Leave &nbsp;&nbsp;<input type="radio"   value="3" onclick="update('<?php echo $i; ?>3','<?php echo $r9['AT_date']; ?>','<?php echo $cid; ?>','<?php echo $r3['S_id']; ?>')"  id="aid<?php echo $i; ?>3" checked  name="atd<?php echo $i; ?>" />
-                            <?php
-                        }
+                              if (strcmp($r9['status'] ,"L")==0) {?>
+                                Present &nbsp;&nbsp;<input type="radio" value="1" onclick="update('<?php echo $i; ?>1','<?php echo $r9['AT_date']; ?>','<?php echo $cid; ?>','<?php echo $r3['S_id']; ?>')"  id="aid<?php echo $i; ?>1"  name="atd<?php echo $i; ?>" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                Absent &nbsp;&nbsp;<input type="radio"  value="2" onclick="update('<?php echo $i; ?>2','<?php echo $r9['AT_date']; ?>','<?php echo $cid; ?>','<?php echo $r3['S_id']; ?>')"  id="aid<?php echo $i; ?>2"  name="atd<?php echo $i; ?>" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                Leave &nbsp;&nbsp;<input type="radio"   value="3" onclick="update('<?php echo $i; ?>3','<?php echo $r9['AT_date']; ?>','<?php echo $cid; ?>','<?php echo $r3['S_id']; ?>')"  id="aid<?php echo $i; ?>3" checked  name="atd<?php echo $i; ?>" />
+                                <?php
+                              }
 
-                         ?>
-                       </div>
-                       </td>
-                        <form action="" method="post">
-                          <td>
-                            <button type="button" id="edit1<?php echo $i; ?>" class="btn btn-lg text-primary" onclick="document.getElementById('att1<?php echo $r9['AT_date']; ?>').style.display='block';document.getElementById('att1').style.display='block';this.style.display='none';"><span class="glyphicon glyphicon-pencil"></span></button>
+                              ?>
+                            </div>
                           </td>
-                        </form>
-                        <style media="screen">
+                          <form action="" method="post">
+                            <td>
+                              <button type="button" id="edit1<?php echo $i; ?>" class="btn btn-lg text-primary" onclick="document.getElementById('att1<?php echo $r9['AT_date']; ?>').style.display='block';document.getElementById('att1').style.display='block';this.style.display='none';"><span class="glyphicon glyphicon-pencil"></span></button>
+                            </td>
+                          </form>
+                          <style media="screen">
                           #cd<?php echo $i; ?>{
                             display: none;
                           }
-                        </style>
-                        <td>
-                          <button class="btn btn-lg text-danger" onclick="this.style.display='none';document.getElementById('cd<?php echo $i;?>').style.display='block';"><span class="glyphicon glyphicon-trash"></span></button>
-                          <button type="button" class="btn btn-danger" onclick="fn_delete('<?php echo $r9['AT_date']; ?>','<?php  echo $cid; ?>','<?php echo $sid; ?>')" name="c_delete<?php echo $i; ?>" id="cd<?php echo $i; ?>" >Conform</button>
-                        </td>
-                      </tr>
-                      <?php
-                      $i++;
+                          </style>
+                          <td>
+                            <button class="btn btn-lg text-danger" onclick="this.style.display='none';document.getElementById('cd<?php echo $i;?>').style.display='block';"><span class="glyphicon glyphicon-trash"></span></button>
+                            <button type="button" class="btn btn-danger" onclick="fn_delete('<?php echo $r9['AT_date']; ?>','<?php  echo $cid; ?>','<?php echo $sid; ?>')" name="c_delete<?php echo $i; ?>" id="cd<?php echo $i; ?>" >Conform</button>
+                          </td>
+                        </tr>
+                        <?php
+                        $i++;
+                      }
+                    }else {?>
+                          <tr>
+                            <td colspan="5" class="alert alert-warning text-center">No Attendance Records Yet.</td>
+                          </tr>
+                          <?php
                     }
                  ?>
           </tbody>

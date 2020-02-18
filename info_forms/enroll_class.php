@@ -13,6 +13,9 @@
 
   </head>
 <body>
+  <?php   // <!--===============below loader are include =================-->
+     include('../plugins/loader/loader1.html');
+    // <!--=================ended==================================--> ?>
 <!--=============top menus=========================================================================-->
 <?php include('std_top_menu.php'); ?>
 <style media="screen">  #b22{ background: #fff; color: #000 ;font-weight: bold;}</style>
@@ -35,8 +38,8 @@
     <div class="about">
         <h2>About this page </h2>
         <p class="text">
-          To Enroll in Class , enter the Class Id and Enrollment Key and Click Submit , If you donot have the Class ID and
-          Enrollment key , Contact your Teacher for this Information.
+          To Enroll in Class , enter the Class Id and Enrollment Key and Click Submit , If you do not have the Class ID and
+          Enrollment key , Contact with your Teacher for this Information.
 
         </p>
 

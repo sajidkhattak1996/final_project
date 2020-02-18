@@ -1,19 +1,24 @@
+
 <?php
-  include('top_info.php');
-  if (isset($_SESSION['email']) && isset($_SESSION['pass'])) { ?>
+include('top_info.php');
+  if (isset($_SESSION['email']) && isset($_SESSION['pass'])) {
+    // echo "<pre>".print_r($_SESSION ,TRUE)."</pre>";
+      ?>
     <!DOCTYPE html>
       <html lang="en" dir="ltr">
         <head>
-          <meta http-equiv="refresh" content="200">
+
           <meta charset="utf-8">
           <meta http-equiv="X-UA-Compatible" content="IE=edge">
           <meta name="viewport" content="width=device-width, initial-scale=1">
           <meta name="description" content="">
 
           <title>welcome to webside as a teacher  </title>
-
           </head>
       <body>
+        <!--===============below loader are include =================-->
+        <?php include('../plugins/loader/loader1.html'); ?>
+        <!--=================ended==================================-->
 
       <!-- below area and button such classes helps etc -->
       <div class="bttn" style="background: #008c7e;">
@@ -38,17 +43,15 @@
           <div class="about">
               <h2>About this page </h2>
               <p class="text">
-                This is your Teacher Homepage. The Homepage show the classes you are Created and along with the Start and Expire date. You can also Add,Drop ,Edit Add Slides to the Class
-                Details. Your Expired Classes are move to the Expired Classes Area.You see Class inside details by clicking on the Class Name.
-
-                you'r Class records.
+                This is your Teacher Homepage. The Homepage show the classes you are Created and along with the Start and Expire date. You can also Add,Drop ,Edit and Add Slides to the Class
+                .The Teacher can also inform students through a notification. Your Expire Class are move to the Expired Classes Area.The Teacher can view the class detail by clicking the Name
+                of the class.The teacher can add class room records by click on Subject name.
 
               </p>
 
           </div>
 
       </div>
-
 
 
 
@@ -62,7 +65,6 @@
                     <ul>
                           <button id="b1" type="submit" name="bb1">   <b>     All Active Classes     </b> </button>
                            <a href=""><button id="b2" type="submit" name="btnexpire" >  <b>  Expired Classes  </b>  </button>  </a>
-                            <!-- <a href="" >         <button id="b3">  <b>      Helps        </b> </button>  </a> -->
 
                     </ul>
                 </form>
@@ -93,7 +95,8 @@
 
 
                 </div> <!--ended-->
-
+                <?php include('../footer.php');  ?>
+                <link rel="stylesheet" href="../Admin_Site/plugins/fontawesome-free/css/all.min.css">
         </body>
       </html>
   <?php   }

@@ -14,7 +14,9 @@ session_start();
 
           </head>
         <body>
-
+          <?php   // <!--===============below loader are include =================-->
+             include('../plugins/loader/loader1.html');
+            // <!--=================ended==================================--> ?>
     <!--=================== the top nevagation menu=======================================----------->
           <?php  include('std_top_menu.php');  ?>
     <!--============ ended==================================================================== -->
@@ -41,7 +43,7 @@ session_start();
             <div class="about">
                 <h2>About this page </h2>
                 <p class="text">
-                  This is Attagement Homepage.In this page you can view your Class Attagement which are share by your Teacher or Instructor.
+                  This is Attachment Homepage.In this page you can view your Class Attachment which are share by your Teacher or Instructor.
 
                 </p>
             </div>
@@ -113,13 +115,13 @@ session_start();
 
                             }else { ?>
                                 <tr>
-                                    <td colspan="4" class="text-center alert alert-warning">No Slides or Cource Topics are Uploaded.</td>
+                                    <td colspan="4" class="text-center alert alert-warning">No Slides or Course Topics are Uploaded.</td>
                                 </tr>
                             <?php  }
 
                       ?>
                       <tr>
-                          <td colspan="4" class="alert alert-warning text-center"> <b>Below are Links to download notes or cource Data. <i class="fas fa-caret-down"></i></b> </td>
+                          <td colspan="4" class="alert alert-warning text-center"> <b>Below are Links to download notes or course Data. <i class="fas fa-caret-down"></i></b> </td>
                       </tr>
                       <!-- the below are written for the links   -->
                       <?php
@@ -137,7 +139,7 @@ session_start();
                                 }
                               }else { ?>
                                   <tr>
-                                      <td colspan="4" class="text-center alert alert-warning">No Links are Uploaded for Class Slides or Cource topic.</td>
+                                      <td colspan="4" class="text-center alert alert-warning">No Links are Uploaded for Class Slides or Course topic.</td>
                                   </tr>
                               <?php   }
 
@@ -150,9 +152,8 @@ session_start();
               </tbody>
         </table>
   </div>
-
-
 </div>
+<br>
 </body>
 </html>
 

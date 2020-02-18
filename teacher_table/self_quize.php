@@ -18,6 +18,9 @@
 
   </head>
 <body>
+  <!--===============below loader are include =================-->
+  <?php include('../plugins/loader/loader1.html'); ?>
+  <!--=================ended==================================-->
 <!--=========top nvagation menu ==========-->
 <?php  include('top_info.php');  ?>
 <!--=========top nvagation menu endeddd ==========-->
@@ -60,9 +63,8 @@
     <div class="about">
         <h2>About this page </h2>
         <p class="text">
-          This is your Teacher Class Record Homepage. The page show the Class records of all Students such is Attendence , quize , Presentation and Quizes.
-          The Homepage display all the previous records of the Students.Click on Eye Open (view) to display that particular records of
-          that Student.The Button Attendence , quize , Quizes and Presentation display that Particular Records of Students.
+          This is your class record Quize Display Homepage. This page display the Quize of particular Students which are register with this class.
+          You can also Search for the particular record in search box.
 
 
         </p>
@@ -99,6 +101,9 @@
   color: #6f9de8;
   border:solid 1px rgba(127,243,228,0.52);
   border-radius: 7px 7px 0px 0px;
+}
+#b4 {
+  pointer-events: none;
 }
 </style>
 

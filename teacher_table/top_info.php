@@ -3,29 +3,29 @@ session_start();
 if (isset($_SESSION['email']) &&  isset($_SESSION['pass']) )
   {
   $em  =$_SESSION['email'];
-  $pass=$_SESSION['pass'];
-  $con =mysqli_connect("localhost","root","","project_db");
-    if ($con) {
-        $query1 ="SELECT * FROM teacher WHERE Email ='$em' AND Password ='$pass'";
+  $password=$_SESSION['pass'];
 
+
+  include('../db_connection.php');
+
+    if ($con) {
+        $query1 ="SELECT * FROM teacher WHERE Email ='".$em."' AND Password ='".$password."'";
         $executeq1 =mysqli_query($con, $query1);
         if ($executeq1) {
           //it extract the record inthe form of associative array or key index array
             $row =mysqli_fetch_array($executeq1);
-              //the above record are use inthe below html code
+              // the above record are use inthe below html code
               $_SESSION['t_id']= $row['T_id'];
               $_SESSION['institute'] = $row['Institute_name'];
-
+              // echo "<pre>".print_r($_SESSION ,TRUE)."</pre>";
         }
         else {
           echo "<script> alert('Problem Occur while Extreting record from databse '); </script>";
         }
-
     }
     else {
       echo "<script> alert('Problem Occur while Connecting to the Database!... '); </script>";
     }
-
   ?>
   <!DOCTYPE html>
     <html lang="en" dir="ltr">
@@ -41,9 +41,9 @@ if (isset($_SESSION['email']) &&  isset($_SESSION['pass']) )
 
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="bootstrap 4/css/glyphicon.css">
+    <link rel="stylesheet" href="../Admin_Site/plugins/fontawesome-free/css/all.min.css">
 
     <script src="js/jquery.js"></script>
-
     	<link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/defaults.css">
         <link rel="stylesheet" href="css/nav1-core.css">
@@ -190,8 +190,8 @@ function f(){
     <nav1 class="nav1">
         <ul>
             <li   style="text-transform: capitalize"><a href="#" onclick="show_hide()"><?php echo $row['Name']; ?> &nbsp;&nbsp; <span class="glyphicon glyphicon-info-sign"></span>    </a></li>
-            <li onclick="hide_fn()" style="cursor:defaults;background:none;border:none"><?php echo $row['Email']; ?></li>
-            <li onclick="hide_fn()" style="text-transform: capitalize ;" ><?php echo $row['Country']; ?></li>
+            <li onclick="hide_fn()" style="cursor:defaults;background:none;border:none"><?php echo $row['Email']; ?>  <i class="fas fa-user"></i></li>
+            <li onclick="hide_fn()" style="text-transform: capitalize ;" ><?php echo $row['Country']; ?> <i class="fas fa-map-marker-alt"></i> </li>
             <style >
               #lout:hover{ background: #ca0b00;font-weight: bolder;}
             </style>
@@ -244,19 +244,17 @@ function f(){
                         </div>
                           <div class="row" id="x2" style="display:none">
                               <div class="col-sm alert alert-primary" title="Email are not Editable!"><b>Email </b><span><?php echo $r['Email']; ?></span>  </div>
-                              <div class="col-sm" ><b>Password </b><input type="password" name="pass" onkeyup="f()" value="<?php echo $r['Password']; ?>" id="pp" class="form-control "> </div>
+                              <div class="col-sm" ><b>Password </b><input type="password" name="pass" onkeyup="f()" value="<?php echo $r['Password']; ?>" id="pp" class="form-control " title="Password must be Greater then or Equal to 8 character." minlength="8"  > </div>
                               <input type="checkbox" onclick="myFn()" style="margin-left: 18px">show password
                           </div>
 
                           <div class="row" id="r">
                             <div class="col-sm" id="r5c1">
-                              <!-- <button type="button" name="button" id="edit_btn" onclick="fn3()" class="btn btn-primary btn-lg">Click To Edit</button> -->
                               <button type="button" name="b2" id="email_edit" onclick="fn2()" value="<?php echo $tid; ?>" class="btn btn-primary btn-lg " style="margin-left: 10px">Change Password</button>
                             </div>
 
                             <div class="col-sm" id="bbb" style="display:none"><button type="submit" name="bsave" value="<?php echo $r['Email']; ?>" class="btn btn-primary btn-lg">Save Change</button></div>
                           </div>
-
 
                       </form>
                   </div>
@@ -265,12 +263,14 @@ function f(){
 <!--========== ended =============================================================================================== -->
 <?php
       if (isset($_POST['bsave'])) {
-        include('db_connection.php');
+        include('../db_connection.php');
         if ($con) {
 
               $sql="UPDATE teacher SET Name='".$_POST['name']."' ,Contact_no='".$_POST['contact']."',Cnic='".$_POST['cnic']."',Institute_name='".$_POST['institute']."',Country='".$_POST['country']."',City='".$_POST['city']."',Password='".$_POST['pass']."' WHERE T_id='".$_SESSION['t_id']."' AND Email='".$_POST['bsave']."'";
               if (mysqli_query($con ,$sql)) {
                   echo "<script> alert('Record are success Successfully Updated.'); </script>";
+                  $_SESSION['email']=$_POST['bsave'];
+                  $_SESSION['pass']=$_POST['pass'];
                   echo "<meta http-equiv='refresh' content='0'>";
 
               }else {

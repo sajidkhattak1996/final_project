@@ -1,5 +1,8 @@
 <?php
-  include('top_info.php');
+include('top_info.php');
+// <!--===============below loader are include =================-->
+ include('../plugins/loader/loader1.html');
+// <!--=================ended==================================-->
   if (isset($_SESSION['email']) && isset($_SESSION['pass'])) { ?>
     <!DOCTYPE html>
       <html lang="en" dir="ltr">
@@ -34,11 +37,9 @@
             <div class="about">
                 <h2>About this page </h2>
                 <p class="text">
-                  This is your Teacher Homepage. The Homepage show the classes you are Created and along with the Start and Expire date. You can also Add,Drop ,Edit Add Slides to the Class
-                  Details. Your Expired Classes are move to the Expired Classes Area.You see Class inside details by clicking on the Class Name.
-
-                  you'r Class records.
-
+                  This is Teacher Share Information Homepage. In this Page you can share/upload the course slides/notes or external link for the
+                  course content and also Delete record of them.You can also create Notification by click on Share Information to inform your's
+                  student of that class and you can also view your information and slides.
                 </p>
 
             </div>
@@ -53,8 +54,6 @@
             #f2{ display: none}
 
 </style>
-
-
 
   <div class="container-fluid" id="table_maindiv">
         <?php
@@ -84,7 +83,6 @@
                                     <div class="col-sm">  <span>Subject Name: <?php echo $row['subject_name']; unset($row); ?> </span>  </div>
                               </div>
                             </h2>
-
                           </div> <!--ended-->
                                 <?php  include 'share_navagation_menu.php';  ?>
                                 <style media="screen">
@@ -155,16 +153,10 @@
                                                   <button type="submit" style="margin-top:20px" class="btn btn-info btn-lg" name="save" id="save" title="Click here to Save your link." value="<?php echo $_SESSION['class_id']; ?>">Save Link</button>
                                                 </div>
                                                 <div class="col-sm" id="c" style="margin-top:18px;margin-left:5px">
-                                                  <button type="button" name="btn_link" onclick="fn2()" class="btn btn-outline-primary btn-lg" >Click to Upload File </button>
+                                                  <button type="button" name="btn_link" onclick="fn2()" class="btn btn-outline-primary btn-lg" >Click to Upload Link </button>
                                                 </div>
                                               </div>
                                         </form>
-
-
-
-
-
-
 
 
                             </div>
@@ -219,13 +211,6 @@
                   border-radius: 7px 7px 0px 0px;
                 }
         </style>
-
-
-
-
-
-
-
 
                   <div style="margin-top:10px;">
                         <table id="example6" class="table table-straped table-hover table-bordered table-sm">
@@ -322,9 +307,6 @@
     });
   });
 </script>
-
-
-
 
           </body>
         </html>

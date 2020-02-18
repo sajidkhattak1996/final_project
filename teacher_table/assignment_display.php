@@ -18,6 +18,9 @@
 
   </head>
 <body>
+  <!--===============below loader are include =================-->
+  <?php include('../plugins/loader/loader1.html'); ?>
+  <!--=================ended==================================-->
 <!--=========top nvagation menu ==========-->
 <?php  include('top_info.php');  ?>
 <!--=========top nvagation menu endeddd ==========-->
@@ -51,9 +54,8 @@
     <div class="about">
         <h2>About this page </h2>
         <p class="text">
-          This is your Teacher Class Record Homepage. The page show the Class records of all Students such is Attendence , Assignment , Presentation and Quizes.
-          The Homepage display all the previous records of the Students.Click on Eye Open (view) to display that particular records of
-          that Student.The Button Attendence , Assignment , Quizes and Presentation display that Particular Records of Students.
+          This is your class record Assignment Display Homepage. This page display the Assignment of the all Class Students which are register with this class.
+          You can also Search for the particular student in search box.
 
 
         </p>
@@ -91,6 +93,9 @@
   border:solid 1px rgba(127,243,228,0.52);
   border-radius: 7px 7px 0px 0px;
 }
+#b3 {
+  pointer-events: none;
+}
 </style>
 
 
@@ -106,13 +111,17 @@
         background-image: linear-gradient(0deg,rgba(172,239,224,0.66) 21.76%,rgba(0,140,126,0.90) 98.45%);
       }
 </style>
-
-<div id="active_class">
+<div id="active_class ">
     <div class="tstart" >
       <h2 class="text-left">Institute Name:  <?php  echo $_SESSION['institute']; ?> </h2>
+      <div class="pb-5">
+        <a href="assignment_ratio.php?cid=<?php echo $cid; ?>"><button type="button" class="btn btn-md btn-outline-light float-right mr-3" name="button">Calculate Ratio</button></a>
+        <form method="post"  action="export_assignment.php"><button type="submit" class="btn btn-outline-light" name="export_assignment" value="<?php echo $cid; ?>" style="float: right;margin-right: 2%;">Export as CSV File</button> </form>
 
-<form method="post">
-    <table id="example1" class="table table-striped  table-bordered table-hover table-sm">
+      </div>
+<!-- <input type="text" id="filter1" name="" placeholder="Search..."> -->
+<form method="post" style="padding-top: 20px">
+    <table id="example" class="table table-striped  table-bordered table-hover table-sm table-responsive-sm">
         <thead class="bg-info">
                 <tr>
                   <th scope="col" scope="row">Class No</th>
@@ -125,84 +134,67 @@
 
                 </tr>
           </thead>
-            <tbody class="bg-light">
+            <tbody class="bg-light" id="data">
               <?php
                   if (isset($con)) {
-                          $check_register="SELECT S_id FROM register WHERE Class_id='$cid'";
+                          $check_register="SELECT S_id FROM register WHERE Class_id='$cid' ORDER BY Reg_no ASC";
                           $exe_check=mysqli_query($con ,$check_register);
-                          if(mysqli_num_rows($exe_check)>0)
-                          {
-                          $ass_query1="SELECT assignment_record.S_id,assignment.a_name,assignment.a_date,assignment_record.ao_marks,assignment.at_marks FROM assignment INNER JOIN assignment_record ON assignment_record.A_id=assignment.A_id WHERE assignment_record.Class_id='$cid' ORDER BY assignment.a_date DESC";
-                          $exe_ass_query1=mysqli_query($con ,$ass_query1);
-                          while ($row=mysqli_fetch_assoc($exe_ass_query1)) {
-                                $st_id=$row['S_id'];
-                                 $st_name_query="SELECT register.Reg_no,student.student_name FROM register INNER JOIN student ON register.S_id=student.S_id WHERE register.Class_id='$cid' AND register.S_id='$st_id'";
-                                 $exe_st=mysqli_query($con ,$st_name_query);
-                                 if (mysqli_num_rows($exe_st)>0) {
+                          if (mysqli_num_rows($exe_check)>0) {
+                            //this query check if class have no assignment of all student
+                            $stmt_check_attendence="SELECT * FROM assignment INNER JOIN assignment_record ON assignment_record.A_id=assignment.A_id WHERE assignment_record.Class_id='$cid'";
+                            $exe_attd=mysqli_query($con ,$stmt_check_attendence);
+                                if (mysqli_num_rows($exe_attd)>0 ) {
+                                  while ($std_id=mysqli_fetch_assoc($exe_check)) {
+                                    $std_name=mysqli_fetch_array(mysqli_query($con ,"SELECT register.Reg_no ,student.student_name FROM register INNER JOIN student ON register.S_id=student.S_id WHERE register.Class_id='$cid' AND register.S_id='".$std_id['S_id']."'"));
 
-                                 $r22=mysqli_fetch_array($exe_st);
-                                 ?>
-                            <tr>
-                                  <td><?php echo $r22['Reg_no'];  ?></td>
-                                  <td><?php echo $r22['student_name'];  ?></td>
-                                  <td><?php echo $row['a_name']; ?></td>
-                                  <td><?php echo $row['a_date']; ?></td>
-                                  <td><?php echo $row['ao_marks']; ?></td>
-                                  <td><?php echo $row['at_marks']; ?></td>
-                            </tr>
+                                    $assignment=mysqli_query($con ,"SELECT assignment.a_name,assignment.a_date,assignment.at_marks,assignment_record.ao_marks FROM assignment INNER JOIN assignment_record ON assignment_record.A_id=assignment.A_id WHERE assignment_record.Class_id='$cid' AND assignment_record.S_id='".$std_id['S_id']."'");
+                                    $assi_row=mysqli_num_rows($assignment);
+                                    $assignment_padding=0;
+                                    if($assi_row==1){$assignment_padding=0;}else {$assignment_padding=(($assi_row)*0.7); }
+                                    if ($assi_row>0) {
+                                      echo "<tr>";
+                                      echo "<td rowspan='".$assi_row."' style='padding-top:".$assignment_padding."%;border-bottom:solid 1px #008c7e;border-left:solid 1px #008c7e'>".$std_name['Reg_no']."</td>";
+                                      echo "<td rowspan='".$assi_row."' style='padding-top:".$assignment_padding."%;border-bottom:solid 1px #008c7e;'>".$std_name['student_name']."</td>";
+                                      $count=0;
+                                      while ($ass_result=mysqli_fetch_assoc($assignment)) {    $count++;
+                                        if($count==$assi_row){ ?>
+                                          <td style="border-bottom:solid 1px #008c7e"><?php echo $ass_result['a_name']; ?></td>
+                                          <td style="border-bottom:solid 1px #008c7e"><?php echo $ass_result['a_date']; ?></td>
+                                          <td style="border-bottom:solid 1px #008c7e"><?php echo $ass_result['ao_marks']; ?></td>
+                                          <td style="border-bottom:solid 1px #008c7e"><?php echo $ass_result['at_marks']; ?></td>
+                                        <?php  }else {
+                                          ?>
+                                          <td ><?php echo $ass_result['a_name']; ?></td>
+                                          <td ><?php echo $ass_result['a_date']; ?></td>
+                                          <td ><?php echo $ass_result['ao_marks']; ?></td>
+                                          <td ><?php echo $ass_result['at_marks']; ?></td>
+                                        </tr>
+                                        <?php
+                                      }
 
-                          <?php }else {  ?>
-                                            
-                          <?php }
-
-
-
-                            }
+                                    }
+                                  }else {
+                                    echo "<tr>";
+                                    echo "<td colspan='6' class='alert-warning text-center'>NO Assignment</td>";
+                                    echo "</tr>";
+                                  }
+                                }
+                                }else {?>
+                                <tr>
+                                  <td colspan="6" class="text-center alert alert-warning"> <?php echo "No Assignment of the Class Students."; ?>  </td>
+                                </tr>
+                                <?php
+                                }
                           }else {
-                            ?>
-                              <tr>
-                                  <td colspan="6" class="alert alert-warning" style="text-align: center; font-weight: bold"> <?php echo "NO Students are Register to the Class.";  ?></td>
-                              </tr>
-                            <?php
+                            echo "<tr>";
+                            echo "<td colspan='6' class='alert-warning text-center'>No student are register with this class</td>";
+                            echo "</tr>";
                           }
-
-
-                    //the below query extract all the student sttndence records of that class and subject
-                        // $stmt1="SELECT assignment_record.S_id FROM assignment_record INNER JOIN assignment ON assignment_record.A_id=assignment.A_id WHERE assignment_record.Class_id='1245142' AND assignment_record.Subject_id='29'  ORDER BY assignment.a_date";
-                        // $exe_stmt1=mysqli_query($con ,$stmt1);
-                        // $r=(mysqli_num_rows($exe_stmt1))/30;
-                        // // echo "<h1>Number of Records ===".(mysqli_num_rows($exe_stmt1))."</h1>";
-                        // // echo "<h1>after division with 30  ===".$r."</h1>";
-                        // // echo "<h2>Now remove the redundent values </h2>";
-                        // $sid_array=[];
-                        // $a=0;
-                        // while ($row=mysqli_fetch_assoc($exe_stmt1)) {
-                        //   $sid_array[$a]=$row['S_id'];
-                        //   $a++;
-                        // }
-                        // $z=array_unique($sid_array);
-                        // $c=count($sid_array);
-                        // $ss=0;
-                        // if ($c !=0) {
-                        //   $ss=$c/count($z);       //it generate an error of division by zero
-                        // }
-                        //
-                        // // echo "<h1>Number of after the unique funcion apply to them ==".count($z)."</h1>";
-                        // // echo "<h1>now 148 divided by 4(total no student) have attende days==".$ss."</h1>";
-                        //
-                        // for ($i=0; $i <count($z) ; $i++) {
-                        // $student_id=$z[$i];               //array which store the unique student of that class and subject
-                        //
-                        //
-                        // }
-
-
                   }
                   else {
                     echo "<script>  alert('Error Occur while connecting to the Database!');   </script>".mysqli_error($con);
                   }
                ?>
-
               </tbody>
 
 
@@ -222,19 +214,10 @@
  ?>
   </body>
 </html>
+<script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script src="http://cdn.datatables.net/1.10.7/js/jquery.dataTables.js"></script>
+<script src="../plugins/dataTables.rowsGroup.js"></script>
+<script type="text/javascript">
 
-<script src="../datatables/jquery.dataTables.js"></script>
-<script src="../datatables-bs4/js/dataTables.bootstrap4.js"></script>
-<script>
-  $(function () {
-  //  $("#example1").DataTable();
-    $('#example1').DataTable({
-      "paging": true,
-      "lengthChange": true,
-      "searching": true,
-      "ordering": true,
-      "info": true,
-      "autoWidth": false,
-    });
-  });
+
 </script>

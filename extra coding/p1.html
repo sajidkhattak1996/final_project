@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="jquery-2.1.4.js"></script>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <style media="screen">
+      body {
+              margin: 0;
+              padding: 0;
+              width:100vw;
+              height: 100vh;
+              background-color: #eee;
+            }
+            .content {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              width:100%;
+              height:100%;
+            }
+            .loader-wrapper {
+              width: 100%;
+              height: 100%;
+              position: absolute;
+              top: 0;
+              left: 0;
+              background-color: #242f3f;
+              display:flex;
+              justify-content: center;
+              align-items: center;
+            }
+            .loader {
+              display: inline-block;
+              width: 30px;
+              height: 30px;
+              position: relative;
+              border: 4px solid #Fff;
+              animation: loader 2s infinite ease;
+            }
+            .loader-inner {
+              vertical-align: top;
+              display: inline-block;
+              width: 100%;
+              background-color: #fff;
+              animation: loader-inner 2s infinite ease-in;
+            }
+            @keyframes loader {
+              0% { transform: rotate(0deg);}
+              25% { transform: rotate(180deg);}
+              50% { transform: rotate(180deg);}
+              75% { transform: rotate(360deg);}
+              100% { transform: rotate(360deg);}
+            }
+            @keyframes loader-inner {
+              0% { height: 0%;}
+              25% { height: 0%;}
+              50% { height: 100%;}
+              75% { height: 100%;}
+              100% { height: 0%;}
+            }
+    </style>
+  </head>
+  <body>
+    <div class="content">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3307.845510580229!2d71.53481481460042!3d33.996501728114175!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38d917bd4b2c575b%3A0xaf098e12e0354042!2sBilour%20Plaza%20Peshawar!5e0!3m2!1sen!2s!4v1579944001688!5m2!1sen!2s" width="800" height="600" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+    </div>
+    <div class="loader-wrapper">
+      <span class="loader"><span class="loader-inner"></span></span>
+      <div class="spinner-border text-primary" role="status">
+  <span class="sr-only">Loading...</span>
+</div>
+
+<div class="spinner-grow" role="status">
+  <span class="sr-only">Loading...</span>
+</div>
+
+    </div>
+
+<script type="text/javascript" src="mdb/js/jquery.js">
+
+</script>
+    <script>
+        $(window).on("load",function(){
+          $(".loader-wrapper").fadeOut("slow");
+        });
+    </script>
+  </body>
+</html>

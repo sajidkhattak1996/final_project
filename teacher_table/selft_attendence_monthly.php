@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
 
-    <title>attendence of the Student are  </title>
+    <title>attendance of the Student are  </title>
 	<link href="teacher_css.css" rel="stylesheet" type="text/css">
 
 <link rel="stylesheet" href="css/bootstrap.css">
@@ -18,6 +18,9 @@
 
   </head>
 <body>
+  <!--===============below loader are include =================-->
+  <?php include('../plugins/loader/loader1.html'); ?>
+  <!--=================ended==================================-->
 <!--=========top nvagation menu ==========-->
 <?php  include('top_info.php');  ?>
 <!--=========top nvagation menu endeddd ==========-->
@@ -62,9 +65,9 @@
     <div class="about">
         <h2>About this page </h2>
         <p class="text">
-          This is your Teacher Class Record Homepage. The page show the Class records of all Students such is Attendence , Assignment , Presentation and Quizes.
-          The Homepage display all the previous records of the Students.Click on Eye Open (view) to display that particular records of
-          that Student.The Button Attendence , Assignment , Quizes and Presentation display that Particular Records of Students.
+          This is your Teacher Class Attendance Records Homepage. The page show the attendance of the particular student which are register with this class.
+          this page default display the  attendance monthly wise .You can also click on All Attendance to view the details attendance of the student.
+          The Teacher can also search for student and also Export the Records as CSV File.
 
 
         </p>
@@ -99,6 +102,9 @@
   border:solid 1px rgba(127,243,228,0.52);
   border-radius: 7px 7px 0px 0px;
 }
+#b2 {
+  pointer-events: none;
+}
 </style>
 
 
@@ -119,19 +125,24 @@
 <div id="active_class">
     <div class="tstart" >
       <h2 class="text-left">Institute Name:  <?php  echo $_SESSION['institute']; ?> </h2>
-      <a href=""><button type="button" name="button" class="btn btn-light">Attendence Monthly Wise</button>  </a>
-      <a href="selft_attendence_all.php"><button type="button" name="button" class="btn btn-outline-light" style="margin-left: 10px;margin-right: 5px">All Attendence </button>  </a>
+      <a href=""><button type="button" name="button" class="btn btn-light">Attendance Monthly Wise</button>  </a>
+      <a href="selft_attendence_all.php"><button type="button" name="button" class="btn btn-outline-light" style="margin-left: 10px;margin-right: 5px">All Attendance </button>  </a>
       <div style="padding-left: 30%;color: #fff" >
         <span><strong>  Student Class No: <?php   echo $reg_no; ?>  </strong> </span>
         <span style="padding-left: 10%"> <strong>  Student Name: <?php   echo $name; ?>  </strong> </span>
       </div>
+      <form method="post"  action="self_export_file.php">
+        <button type="submit" class="btn btn-outline-light" name="export" value="<?php echo $cid; ?>" style="float: right;margin-right: 2%;">Export as CSV File</button>
+        <input type="text" name="sid" value="<?php echo $student_id; ?>" style="display:none">
+      </form>
+
 <form method="post">
     <table id="example1" class="table table-striped  table-bordered table-hover table-sm">
         <thead class="bg-info">
                 <tr>
 
-                  <th scope="col">Attendence Date</th>
-                  <th scope="col">Attendence Status</th>
+                  <th scope="col">Attendance Date</th>
+                  <th scope="col">Attendance Persentage</th>
 
 
                 </tr>
@@ -140,78 +151,80 @@
               <?php
 
                   if (isset($con)) {
-                        $stmt3="SELECT attendence.AT_id,attendence_record.AT_date FROM attendence INNER JOIN attendence_record on attendence_record.AT_id=attendence.AT_id WHERE Class_id='$cid' AND S_id='$student_id' ORDER BY attendence_record.AT_date DESC";
-                        $exe3=mysqli_query($con , $stmt3);
-                        $nr=mysqli_num_rows($exe3);
-                        if ($nr>0) {
-                              $t=0;
-                              $t2=0;
-                              $Aid_array[]=0;
-                              $Adate_array[]=0;
-                              while ($row=mysqli_fetch_assoc($exe3)) {
-                                    $Aid_array[$t]=$row['AT_id'];
-                                    $Adate_array[$t]=$row['AT_date'];
-                                    $t++;
-                                    }
-                                    $temp=($t/30);
-                                    $temp_round=ceil($temp);
-                                    for ($i=0; $i <$temp_round ; $i++) {
-                                                          $p=0;
-                                                          $a=0;
-                                                          $l=0;
-                                                          $lp=0;
-                                                          echo "<tr>";
-                                                          ?><td><?php  echo $Adate_array[$t2]; ?></td><?php
-                                                          while ($lp<30 && $t>0) {
-                                                            // echo "okkkkkkkkkkkkkkkkkkkkkkk<br>";
-                                                            // echo "t2===".$t2;
-                                                              if ($Aid_array[$t2]==1) {
-                                                                $p++;
-                                                              }
-                                                              if ($Aid_array[$t2]==2) {
-                                                                $a++;
-                                                              }
-                                                              if ($Aid_array[$t2]==3) {
-                                                                $l++;
-                                                              }
-                                                              $lp++;
-                                                              $t--;
-                                                              $t2++;
-                                                              // echo "<h1>".$std_id."date==".$r['AT_date']."</h1>";
-                                                          }
-                                                          $total=$p+$a+$l;
-                                                          $ap=0;
-                                                          if ($p==0) {  ?>
-                                                                <td>
-                                                                <?php  echo $ap;  ?>&nbsp;%  And <?php echo $l; ?> L &nbsp;&nbsp;
-                                                                </td>
-                                                                <?php
-                                                          }else {
-                                                            $ap=(($p/$total)*100);
-                                                            $n=number_format($ap,1);           //the number_format are use to display the digit after decimal point
-                                                              ?>
+                    /*============================get the only year of particular class and students=============================================================================================================================================*/
+                                              $sql_year="SELECT year(attendence_record.AT_date) FROM attendence_record WHERE attendence_record.Class_id='$cid' AND attendence_record.S_id='".$student_id."' GROUP BY year(attendence_record.AT_date)";
+                                              if (mysqli_num_rows(mysqli_query($con ,$sql_year))>0) {
+                                                $e=mysqli_query($con ,$sql_year);
+                                                while ($y=mysqli_fetch_array($e)) {
+                    /*=============================get the all months record of students========================================================================================================================================================================================================*/
+                                                  $stmt3="SELECT month(attendence_record.AT_date) FROM attendence_record WHERE attendence_record.Class_id='$cid' AND attendence_record.S_id='".$student_id."' AND year(attendence_record.AT_date)='".$y[0]."' GROUP BY month(attendence_record.AT_date)";
+                                                  $exe3=mysqli_query($con , $stmt3);
+                                                  $nr=mysqli_num_rows($exe3);
+                                                  $padding=($nr*10);
+                                                  if ($nr>0) {
+                                                    echo "<tr>";
 
-                                                                <td >
-                                                                <?php  echo $n;  ?>&nbsp;%  And <?php echo $l; ?> L &nbsp;&nbsp;
-                                                                </td>
-                                                            <?php
-                                                          }
-                                                          echo "</tr>";
+                                                    $count=0;
+                                                    while ($m=mysqli_fetch_array($exe3)) {  $count++;
+                                                      echo "<td>";
+                                                      echo $y[0]."   -  ";
+                                                      if($m[0]==1){ echo "January"; }
+                                                      if($m[0]==2){ echo "Februray"; }
+                                                      if($m[0]==3){ echo "March"; }
+                                                      if($m[0]==4){ echo "April"; }
+                                                      if($m[0]==5){ echo "May"; }
+                                                      if($m[0]==6){ echo "June"; }
+                                                      if($m[0]==7){ echo "July"; }
+                                                      if($m[0]==8){ echo "August"; }
+                                                      if($m[0]==9){ echo "September"; }
+                                                      if($m[0]==10){ echo "October"; }
+                                                      if($m[0]==11){ echo "November"; }
+                                                      if($m[0]==12){ echo "December"; }
 
-                                            }
+                                                      echo "</td>";
+                                                      $record="SELECT attendence_record.AT_id FROM attendence_record INNER JOIN attendence ON attendence_record.AT_id=attendence.AT_id WHERE attendence_record.Class_id='$cid' AND attendence_record.S_id='".$student_id."' AND month(attendence_record.AT_date)='".$m[0]."'";
+                                                      //the above query gives us the attendence records of month
+                                                      $exe_record=mysqli_query($con,$record);
+                                                      if (mysqli_num_rows($exe_record)>0) {
+                                                        $p=0;
+                                                        $a=0;
+                                                        $l=0;
+                                                        while ($atd_row=mysqli_fetch_assoc($exe_record)) {
+                                                          if ($atd_row['AT_id']==1) {   $p++;  }
+                                                          if ($atd_row['AT_id']==2) {   $a++;  }
+                                                          if ($atd_row['AT_id']==3) {   $l++;  }
 
+                                                        }//end while of attendence recrds
+                                                        if ($p==0) {
+                                                          echo "<td>";
+                                                          echo $p." %  &nbsp;&nbsp; & L= ".$l."</td>";  //display percentage
+                                                        }else {
+                                                          $total=($p+$a+$l);
+                                                          $per=(($p/$total)*100);
+                                                          $per_formate=number_format($per ,1);
+                                                          echo "<td>";
+                                                          echo $per_formate." %  &nbsp;&nbsp; & L= ".$l."</td>";  //display percentage
+                                                        }
 
-
-                        }else { ?>
-                              <tr>
-                                  <td colspan="2" class="alert alert-warning text-center"><?php  echo "No Attendence"; ?></td>
-                              </tr>
-                        <?php  }
+                                                        echo "</tr>";
+                                                      }else {
+                                                        echo "no attendance for that months ";
+                                                      }
+                                                    }//end while month
+                                                  }else {
+                                                    echo "no attendance for that year";
+                                                  }
+                /*====================================================================================================================================================================================================================================================================================*/
 
 
-
-                    }
-                  else {
+                                  } //end while year
+                                }else {
+                                  echo "<tr>";
+                                    echo "<td colspan='2' class='alert-warning text-center'>No Attendance</td>";
+                                  echo "</tr>";
+                                }
+                    /*===========================================================================================================================================================================================================================*/
+                  }else {
                     echo "<script>  alert('Error Occur while connecting to the Database!');   </script>".mysqli_error($con);
                   }
                ?>

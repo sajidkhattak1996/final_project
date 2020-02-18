@@ -14,7 +14,9 @@ session_start();
 
           </head>
         <body>
-
+          <?php   // <!--===============below loader are include =================-->
+             include('../plugins/loader/loader1.html');
+            // <!--=================ended==================================--> ?>
     <!--=================== the top nevagation menu=======================================----------->
           <?php  include('std_top_menu.php');  ?>
     <!--============ ended==================================================================== -->
@@ -41,7 +43,7 @@ session_start();
             <div class="about">
                 <h2>About this page </h2>
                 <p class="text">
-                  This is Attagement Homepage.In this page you can view your Class Attagement which are share by your Teacher or Instructor.
+                  This is Attachment Homepage.In this page you can view your Class Attachment which are share by your Teacher or Instructor.
 
                 </p>
             </div>
@@ -128,11 +130,9 @@ session_start();
      ?>
 
    </table>
-
   </div>
-
-
 </div>
+<br>
 </body>
 </html>
 

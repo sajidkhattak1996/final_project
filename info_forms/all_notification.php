@@ -14,7 +14,9 @@ session_start();
 
           </head>
         <body>
-
+          <?php   // <!--===============below loader are include =================-->
+             include('../plugins/loader/loader1.html');
+            // <!--=================ended==================================--> ?>
     <!--=================== the top nevagation menu=======================================----------->
           <?php  include('std_top_menu.php');  ?>
     <!--============ ended==================================================================== -->
@@ -144,6 +146,7 @@ session_start();
    </div>
   </div>
 </div>
+<br>
 </body>
 </html>
 

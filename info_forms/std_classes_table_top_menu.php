@@ -149,10 +149,11 @@
 
               <ul>
                     <a href="std_class.php"> <button id="b1" type="submit">  <b>      Class Record   </b> </button>  </a>
-                    <a href="attendence_display_monthly.php"> <button id="b2" type="submit">  <b>      Attendence     </b>  </button> </a>
+                    <a href="attendence_display_monthly.php"> <button id="b2" type="submit">  <b>      Attendance     </b>  </button> </a>
                     <a href="assignment_display.php"> <button id="b3" type="submit">  <b>      Assignments    </b>  </button> </a>
-                    <a href="quize_display.php"> <button id="b4" type="submit">  <b>      Quizes         </b>  </button> </a>
+                    <a href="quize_display.php"> <button id="b4" type="submit">  <b>      Quizzes         </b>  </button> </a>
                     <a href="presentation_display.php"> <button id="b5" type="submit">  <b>      Presentation   </b>  </button> </a>
+                    <a href="result_display.php"> <button id="b5" type="submit">  <b>      Exam Marks   </b>  </button> </a>
 
               </ul>
 
@@ -168,10 +169,11 @@
                           <button class="dropbtn"><span class="glyphicon glyphicon-list" ></span> </button>
                           <div class="dropdown-content">
                             <a href="std_class.php"><button name="class_r_view" style="background: none ; border: none"> Class Records </button></a>
-                            <a href="attendence_display_monthly.php"><button name="att_r_view" style="background: none ; border: none"> Attendence    </button></a>
+                            <a href="attendence_display_monthly.php"><button name="att_r_view" style="background: none ; border: none"> Attendance    </button></a>
                             <a href="assignment_display.php"><button name="ass_r_view" style="background: none ; border: none"> Assignment    </button></a>
-                            <a href="quize_display.php"><button name="quize_r_view" style="background: none ; border: none"> Quizes        </button></a>
+                            <a href="quize_display.php"><button name="quize_r_view" style="background: none ; border: none"> Quizzes        </button></a>
                             <a href="presentation_display.php"><button name="pre_r_view" style="background: none ; border: none"> Presentation  </button></a>
+                            <a href="result_display.php"><button name="pre_r_view" style="background: none ; border: none"> Exam Marks  </button></a>
 
                           </div>
                         </div>

@@ -1,9 +1,10 @@
 <?php
 if (isset($_GET['id'])) {
 
-  ?>
-  <?php
     include('top_info.php');
+    // <!--===============below loader are include =================-->
+     include('../plugins/loader/loader1.html');
+    // <!--=================ended==================================-->
     if (isset($_SESSION['email']) && isset($_SESSION['pass'])) { ?>
       <!DOCTYPE html>
         <html lang="en" dir="ltr">
@@ -57,7 +58,7 @@ if (isset($_GET['id'])) {
   <div class="container-fluid" style="padding-bottom: 10px">
     <div class="tend"  style="border-radius: 0px 0px 15px 15px;margin-bottom: 8px;height: auto;padding-bottom:3px;padding-top: 0px">
       <div class="text-primary">
-          <h2>Add Attendece to <?php echo $r3['student_name'];  ?> </h2>
+          <h2>Add Attendace to <?php echo $r3['student_name'];  ?> </h2>
       </div>
         <table class="table table-straped">
               <thead>
@@ -65,17 +66,17 @@ if (isset($_GET['id'])) {
                     <td>Class ID:&nbsp;&nbsp;&nbsp;<span style="color: blue"><?php echo $cid;  ?></span></td>
                     <td>Class Name:&nbsp;&nbsp;&nbsp;<span style="color: blue"><?php echo $r1['Name'];  ?></span></td>
                     <td>Subject Name:&nbsp;&nbsp;&nbsp;<span style="color: deeppink;letter-spacing:1px"><?php echo $r2['subject_name'];  ?></span></td>
-                    <td><a href="attendence.php" class="btn btn-primary">  Attendence   </a></td>
+                    <td><a href="attendence.php" class="btn btn-primary">  Attendance   </a></td>
                 </tr>
                 <tr>
                     <td style="color: #fff;">Class No:&nbsp;&nbsp;<?php echo $r3['Reg_no'];  ?></td>
                     <td style="color: #fff;">Student Name :&nbsp;&nbsp;<span style="text-transform: capitalize"><?php echo $r3['student_name'];  ?></span></td>
-                    <td><a href="edit_attendence2.php?id=<?php  echo $sid; ?>" class="btn btn-outline-light"> Edit Attendence   </a></td>
+                    <td><a href="edit_attendence2.php?id=<?php  echo $sid; ?>" class="btn btn-outline-light"> Edit Attendance   </a></td>
                     <td></td>
                 </tr>
                 <form action="" method="post">
                 <tr style="height: 30px;">
-                  <td><span  class="text-light">Select Date:</span>&nbsp;<input type="date" name="att_date" title="Enter the Attendence Date" required style="border-radius:5px;font-family: arial;border: solid 1px #fff;" required ></td>
+                  <td><span  class="text-light">Select Date:</span>&nbsp;<input type="date" name="att_date" value="<?php if(isset($_POST['btn_save'])){ echo $_POST['att_date']; } ?>" title="Enter the Attendance Date" required style="border-radius:5px;font-family: arial;border: solid 1px #fff;" required ></td>
                   <td>
                             <span style="font-size: 16px">Present:</span>     <input type="radio"  name="r" checked value="1" style="width:8%;height:13px;">&nbsp;&nbsp;&nbsp;
                             <span style="font-size: 16px">Absent:</span>      <input type="radio"  name="r" value="2" style="width:8%;height:13px;">&nbsp;&nbsp;&nbsp;
@@ -107,18 +108,18 @@ if (isset($_GET['id'])) {
     $r=mysqli_fetch_array($exe);
     if ($r['AT_date']==$att_date) {
       ?>
-      <script> document.getElementById('att_msg').innerHTML='<div class="alert alert-danger text-center"> You Cannot Perform this Action Because One  Attendece Record are Present on this Date. </div>'; setTimeout(h ,3000); </script>
+      <script> document.getElementById('att_msg').innerHTML='<div class="alert alert-danger text-center"> You Cannot Perform this Action Because One  Attendance Record are Present on this Date. </div>'; setTimeout(h ,3000); </script>
       <?php
     }else {
       $sql_att="INSERT INTO `attendence_record`(`AT_id`, `AT_date`, `Class_id`, `S_id`) VALUES ('$r_value','$att_date','$cid','$sid')";
       $e=mysqli_query($con ,$sql_att);
       if ($e) {
         ?>
-        <script> document.getElementById('att_msg').innerHTML='<div class="alert alert-primary text-center"> Attendece Record are Successfully Inserted. </div>'; setTimeout(h ,3000); </script>
+        <script> document.getElementById('att_msg').innerHTML='<div class="alert alert-primary text-center"> Attendance Record are Successfully Inserted. </div>'; setTimeout(h ,3000); </script>
         <?php
       }else {
         ?>
-        <script> document.getElementById('att_msg').innerHTML='<div class="alert alert-danger text-center"> Attendece Record Insertion Failed! Try Again. </div>'; setTimeout(h ,3000); </script>
+        <script> document.getElementById('att_msg').innerHTML='<div class="alert alert-danger text-center"> Attendance Record Insertion Failed! Try Again. </div>'; setTimeout(h ,3000); </script>
         <?php
       }
     }

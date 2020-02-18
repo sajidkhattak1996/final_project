@@ -19,6 +19,9 @@
   </head>
 <body>
   <?php session_start(); ?>
+  <?php   // <!--===============below loader are include =================-->
+     include('../plugins/loader/loader1.html');
+    // <!--=================ended==================================--> ?>
   <!--=================== the top nevagation menu=======================================----------->
         <?php  include('std_top_menu.php');  ?>
   <!--============ ended==================================================================== -->
@@ -64,7 +67,7 @@
     <div class="about">
         <h2>About this page </h2>
         <p class="text">
-          This is Your Presentation Record Homepage, Here You Can See Your Class Presentation Record. For more Infomation Click on Helps Button.
+          This is Your Presentation Record Homepage, Here You Can See Your Class Presentation Record.
 
         </p>
 

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 26, 2019 at 05:09 PM
+-- Generation Time: Jan 12, 2020 at 04:39 PM
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.3.11
 
@@ -62,7 +62,8 @@ CREATE TABLE `assignment` (
 
 INSERT INTO `assignment` (`A_id`, `a_name`, `a_date`, `a_time`, `at_marks`) VALUES
 (20, 'Histry Of Pakistan', '2019-12-10', 1576748621388073984, 50),
-(21, 'Histry of JavaScript', '2019-12-04', 1576748771231247872, 30);
+(21, 'Histry of JavaScript', '2019-12-04', 1576748771231247872, 30),
+(22, 'c_plus plus', '2020-01-08', 1578559143028992000, 50);
 
 -- --------------------------------------------------------
 
@@ -122,7 +123,27 @@ INSERT INTO `assignment_record` (`A_id`, `Subject_id`, `Class_id`, `S_id`, `ao_m
 (21, 0, 1227, 3, 17),
 (21, 0, 1227, 7, 18),
 (21, 0, 1227, 5, 16),
-(21, 0, 1227, 6, 15);
+(21, 0, 1227, 6, 15),
+(22, 0, 1227, 16, 30),
+(22, 0, 1227, 23, 45),
+(22, 0, 1227, 15, 30),
+(22, 0, 1227, 17, 45),
+(22, 0, 1227, 22, 48),
+(22, 0, 1227, 11, 12),
+(22, 0, 1227, 18, 30),
+(22, 0, 1227, 12, 40),
+(22, 0, 1227, 9, 12),
+(22, 0, 1227, 19, 30),
+(22, 0, 1227, 8, 40),
+(22, 0, 1227, 14, 14),
+(22, 0, 1227, 10, 45),
+(22, 0, 1227, 20, 46),
+(22, 0, 1227, 21, 48),
+(22, 0, 1227, 13, 30),
+(22, 0, 1227, 3, 20),
+(22, 0, 1227, 7, 15),
+(22, 0, 1227, 5, 24),
+(22, 0, 1227, 6, 25);
 
 -- --------------------------------------------------------
 
@@ -265,7 +286,7 @@ INSERT INTO `attendence_record` (`AT_id`, `AT_date`, `Class_id`, `S_id`) VALUES
 (1, '2019-11-21', 1227, 6),
 (1, '2019-11-21', 1227, 14),
 (1, '2019-11-22', 1227, 16),
-(2, '2019-11-22', 1227, 23),
+(1, '2019-11-22', 1227, 23),
 (1, '2019-11-22', 1227, 15),
 (1, '2019-11-22', 1227, 17),
 (1, '2019-11-22', 1227, 22),
@@ -325,7 +346,7 @@ INSERT INTO `attendence_record` (`AT_id`, `AT_date`, `Class_id`, `S_id`) VALUES
 (1, '2019-12-23', 1227, 5),
 (1, '2019-12-23', 1227, 6),
 (1, '2019-11-23', 1227, 16),
-(2, '2019-11-23', 1227, 23),
+(1, '2019-11-23', 1227, 23),
 (1, '2019-11-23', 1227, 15),
 (1, '2019-11-23', 1227, 17),
 (1, '2019-11-23', 1227, 22),
@@ -345,7 +366,7 @@ INSERT INTO `attendence_record` (`AT_id`, `AT_date`, `Class_id`, `S_id`) VALUES
 (1, '2019-11-23', 1227, 5),
 (1, '2019-11-23', 1227, 6),
 (2, '2019-11-24', 1227, 16),
-(2, '2019-11-24', 1227, 23),
+(1, '2019-11-24', 1227, 23),
 (2, '2019-11-24', 1227, 15),
 (1, '2019-11-24', 1227, 17),
 (1, '2019-11-24', 1227, 22),
@@ -365,7 +386,7 @@ INSERT INTO `attendence_record` (`AT_id`, `AT_date`, `Class_id`, `S_id`) VALUES
 (1, '2019-11-24', 1227, 5),
 (1, '2019-11-24', 1227, 6),
 (1, '2019-11-25', 1227, 16),
-(2, '2019-11-25', 1227, 23),
+(3, '2019-11-25', 1227, 23),
 (2, '2019-11-25', 1227, 15),
 (2, '2019-11-25', 1227, 17),
 (1, '2019-11-25', 1227, 22),
@@ -385,7 +406,7 @@ INSERT INTO `attendence_record` (`AT_id`, `AT_date`, `Class_id`, `S_id`) VALUES
 (3, '2019-11-25', 1227, 5),
 (1, '2019-11-25', 1227, 6),
 (1, '2019-11-26', 1227, 16),
-(2, '2019-11-26', 1227, 23),
+(3, '2019-11-26', 1227, 23),
 (1, '2019-11-26', 1227, 15),
 (1, '2019-11-26', 1227, 17),
 (1, '2019-11-26', 1227, 22),
@@ -525,7 +546,7 @@ INSERT INTO `attendence_record` (`AT_id`, `AT_date`, `Class_id`, `S_id`) VALUES
 (1, '2019-11-09', 1227, 5),
 (1, '2019-11-09', 1227, 6),
 (1, '2019-11-12', 1227, 16),
-(2, '2019-11-12', 1227, 23),
+(1, '2019-11-12', 1227, 23),
 (1, '2019-11-12', 1227, 15),
 (1, '2019-11-12', 1227, 17),
 (1, '2019-11-12', 1227, 22),
@@ -545,7 +566,7 @@ INSERT INTO `attendence_record` (`AT_id`, `AT_date`, `Class_id`, `S_id`) VALUES
 (1, '2019-11-12', 1227, 5),
 (1, '2019-11-12', 1227, 6),
 (2, '2019-11-13', 1227, 16),
-(2, '2019-11-13', 1227, 23),
+(1, '2019-11-13', 1227, 23),
 (1, '2019-11-13', 1227, 15),
 (2, '2019-11-13', 1227, 17),
 (1, '2019-11-13', 1227, 22),
@@ -565,7 +586,7 @@ INSERT INTO `attendence_record` (`AT_id`, `AT_date`, `Class_id`, `S_id`) VALUES
 (2, '2019-11-13', 1227, 5),
 (3, '2019-11-13', 1227, 6),
 (1, '2019-11-14', 1227, 16),
-(2, '2019-11-14', 1227, 23),
+(1, '2019-11-14', 1227, 23),
 (1, '2019-11-14', 1227, 15),
 (1, '2019-11-14', 1227, 17),
 (1, '2019-11-14', 1227, 22),
@@ -585,7 +606,7 @@ INSERT INTO `attendence_record` (`AT_id`, `AT_date`, `Class_id`, `S_id`) VALUES
 (1, '2019-11-14', 1227, 5),
 (1, '2019-11-14', 1227, 6),
 (1, '2019-11-15', 1227, 16),
-(2, '2019-11-15', 1227, 23),
+(1, '2019-11-15', 1227, 23),
 (1, '2019-11-15', 1227, 15),
 (2, '2019-11-15', 1227, 17),
 (2, '2019-11-15', 1227, 22),
@@ -605,7 +626,7 @@ INSERT INTO `attendence_record` (`AT_id`, `AT_date`, `Class_id`, `S_id`) VALUES
 (2, '2019-11-15', 1227, 5),
 (1, '2019-11-15', 1227, 6),
 (1, '2019-11-16', 1227, 16),
-(2, '2019-11-16', 1227, 23),
+(1, '2019-11-16', 1227, 23),
 (1, '2019-11-16', 1227, 15),
 (1, '2019-11-16', 1227, 17),
 (1, '2019-11-16', 1227, 22),
@@ -625,7 +646,7 @@ INSERT INTO `attendence_record` (`AT_id`, `AT_date`, `Class_id`, `S_id`) VALUES
 (1, '2019-11-16', 1227, 5),
 (1, '2019-11-16', 1227, 6),
 (1, '2019-11-18', 1227, 16),
-(2, '2019-11-18', 1227, 23),
+(1, '2019-11-18', 1227, 23),
 (1, '2019-11-18', 1227, 15),
 (1, '2019-11-18', 1227, 17),
 (1, '2019-11-18', 1227, 22),
@@ -645,7 +666,7 @@ INSERT INTO `attendence_record` (`AT_id`, `AT_date`, `Class_id`, `S_id`) VALUES
 (1, '2019-11-18', 1227, 5),
 (1, '2019-11-18', 1227, 6),
 (1, '2019-11-19', 1227, 16),
-(2, '2019-11-19', 1227, 23),
+(1, '2019-11-19', 1227, 23),
 (1, '2019-11-19', 1227, 15),
 (1, '2019-11-19', 1227, 17),
 (1, '2019-11-19', 1227, 22),
@@ -963,7 +984,56 @@ INSERT INTO `attendence_record` (`AT_id`, `AT_date`, `Class_id`, `S_id`) VALUES
 (1, '2019-12-16', 1227, 7),
 (1, '2019-12-16', 1227, 5),
 (1, '2019-12-16', 1227, 6),
-(3, '2019-12-26', 1227, 23);
+(3, '2019-12-26', 1227, 23),
+(1, '2019-11-01', 1227, 16),
+(3, '2019-11-04', 1227, 16),
+(2, '2019-11-05', 1227, 16),
+(1, '2019-11-06', 1227, 16),
+(2, '2019-11-07', 1227, 16),
+(2, '2019-11-08', 1227, 16),
+(2, '2019-11-10', 1227, 16),
+(1, '2019-11-11', 1227, 16),
+(1, '2019-11-30', 1227, 16),
+(2, '2019-12-09', 1227, 16),
+(2, '2019-12-11', 1227, 16),
+(1, '2019-12-12', 1227, 16),
+(1, '2019-12-17', 1227, 16),
+(3, '2019-12-18', 1227, 16),
+(3, '2019-12-19', 1227, 16),
+(3, '2019-12-20', 1227, 16),
+(3, '2019-12-21', 1227, 16),
+(1, '2019-12-24', 1227, 16),
+(3, '2019-12-25', 1227, 16),
+(1, '2019-12-26', 1227, 16),
+(2, '2019-12-27', 1227, 16),
+(1, '2019-12-28', 1227, 16),
+(1, '2019-12-29', 1227, 16),
+(1, '2019-11-01', 1227, 23),
+(1, '2019-11-04', 1227, 23),
+(1, '2019-11-05', 1227, 23),
+(1, '2019-11-06', 1227, 23),
+(1, '2019-11-07', 1227, 23),
+(2, '2019-11-08', 1227, 23),
+(1, '2019-11-10', 1227, 23),
+(1, '2019-11-11', 1227, 23),
+(1, '2019-11-17', 1227, 23),
+(1, '2019-11-20', 1227, 23),
+(1, '2019-11-21', 1227, 23),
+(1, '2019-11-30', 1227, 23),
+(1, '2019-12-09', 1227, 23),
+(1, '2019-12-11', 1227, 23),
+(1, '2019-12-12', 1227, 23),
+(1, '2019-12-17', 1227, 23),
+(1, '2019-12-18', 1227, 23),
+(1, '2019-12-19', 1227, 23),
+(1, '2019-12-20', 1227, 23),
+(1, '2019-12-21', 1227, 23),
+(1, '2019-12-24', 1227, 23),
+(1, '2019-12-25', 1227, 23),
+(1, '2019-12-27', 1227, 23),
+(1, '2019-12-28', 1227, 23),
+(1, '2019-12-29', 1227, 23),
+(1, '2019-12-31', 1227, 23);
 
 -- --------------------------------------------------------
 
@@ -977,7 +1047,7 @@ CREATE TABLE `class` (
   `Enrollment_key` varchar(50) NOT NULL DEFAULT '',
   `Class_session` varchar(30) DEFAULT NULL,
   `Start_date` date NOT NULL,
-  `currenttime` time NOT NULL,
+  `currenttime` varchar(15) NOT NULL DEFAULT current_timestamp(),
   `Expire_date` date NOT NULL,
   `T_id` bigint(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -987,10 +1057,15 @@ CREATE TABLE `class` (
 --
 
 INSERT INTO `class` (`Class_id`, `Name`, `Enrollment_key`, `Class_session`, `Start_date`, `currenttime`, `Expire_date`, `T_id`) VALUES
-(1225, 'msc_final', 'final2018', '2017-2018', '2019-12-16', '11:04:28', '2019-12-15', 4),
-(1226, 'Bscs', 'sajid96', '2019-2020', '2019-12-17', '07:41:04', '2019-12-31', 4),
-(1227, 'msc_final', 'cs-2019', '2019-2020`', '2019-12-17', '12:32:43', '2019-12-31', 4),
-(1229, 'bs_chemistry', 'msc-18', '2017-2018', '2019-12-21', '10:01:53', '2020-06-18', 4);
+(1225, 'msc_final', 'final2018', '2017-2018', '2019-12-16', '2019-12-30', '2019-12-15', 4),
+(1226, 'Bscs', 'sajid96', '2019-2020', '2019-12-17', '2019-12-30', '2019-12-31', 4),
+(1227, 'msc_final', 'cs-2019', '2019-2020`', '2019-12-17', '2019-12-30', '2020-02-29', 4),
+(1229, 'bs_chemistry', 'msc-18', '2017-2018', '2019-12-21', '2019-12-30', '2020-06-18', 4),
+(1231, 'BCS-1st-Semister', 'bcs-2019', '2019-2020', '2019-12-29', '2019-12-30', '2020-06-26', 4),
+(1232, 'Bs_1st_Semister', 'bs1-2019', '2019-2020', '2019-12-29', '2019-12-30', '2020-06-26', 4),
+(1240, 'MA-English', 'ma-2019', '2019-2020', '2019-12-30', '10:59:52 AM', '2019-12-31', 4),
+(1241, 'msc_previous', 'kashif-2020', '2020-2021', '2020-01-03', '08:11:50 AM', '2020-07-01', 6),
+(1242, 'bs_simister_1', 'bs2020', '2019-2020', '2020-01-07', '11:46:12 AM', '2020-07-05', 7);
 
 -- --------------------------------------------------------
 
@@ -1010,7 +1085,7 @@ CREATE TABLE `have` (
 
 INSERT INTO `have` (`Subject_id`, `Class_id`, `S_id`) VALUES
 (2, 1225, 0),
-(3, 1226, 0),
+(3, 1226, 3),
 (1, 1227, 5),
 (1, 1227, 6),
 (1, 1227, 7),
@@ -1031,7 +1106,12 @@ INSERT INTO `have` (`Subject_id`, `Class_id`, `S_id`) VALUES
 (1, 1227, 21),
 (1, 1227, 22),
 (1, 1227, 23),
-(5, 1229, 0);
+(5, 1229, 3),
+(7, 1231, 3),
+(8, 1232, 24),
+(9, 1240, 0),
+(11, 1241, 0),
+(12, 1242, 0);
 
 -- --------------------------------------------------------
 
@@ -1053,7 +1133,10 @@ CREATE TABLE `links` (
 
 INSERT INTO `links` (`L_id`, `link`, `description`, `ldate`, `Class_id`) VALUES
 (5, 'https://www.google.com/', 'google', '2019-12-17', 1226),
-(6, 'https://cs.stanford.edu/people/eroberts/courses/soco/projects/1998-99/robotics/history.html', 'Histry of Robot', '2019-12-17', 1226);
+(6, 'https://cs.stanford.edu/people/eroberts/courses/soco/projects/1998-99/robotics/history.html', 'Histry of Robot', '2019-12-17', 1226),
+(7, 'https://fontawesome.com/', 'font awesome icons', '2019-12-28', 1227),
+(9, 'https://www.w3resource.com/php/function-reference/array_unique.php', 'PHP: Removes duplicate values from an array', '2019-12-29', 1229),
+(10, 'https://fontawesome.com/', 'special icon links', '2019-12-29', 1229);
 
 -- --------------------------------------------------------
 
@@ -1063,8 +1146,8 @@ INSERT INTO `links` (`L_id`, `link`, `description`, `ldate`, `Class_id`) VALUES
 
 CREATE TABLE `notification` (
   `id` int(20) NOT NULL,
-  `title` varchar(80) NOT NULL,
-  `msg` varchar(300) NOT NULL,
+  `title` varchar(200) NOT NULL,
+  `msg` varchar(800) NOT NULL,
   `cdate` date NOT NULL,
   `expire_date` date NOT NULL,
   `Class_id` bigint(30) NOT NULL
@@ -1076,7 +1159,22 @@ CREATE TABLE `notification` (
 
 INSERT INTO `notification` (`id`, `title`, `msg`, `cdate`, `expire_date`, `Class_id`) VALUES
 (2, 'Robotic', 'Robotics is an interdisciplinary branch of engineering and science that includes mechanical engineering, electronic engineering, information engineering, computer science, and others. Robotics deals with the design, construction, operation, and use of robots, as well as computer systems for their co', '2019-12-18', '2019-12-28', 1226),
-(3, 'What is CSV file?', 'CSV is a simple file format used to store tabular data, such as a spreadsheet or database. Files in the CSV format can be imported to and exported from programs that store data in tables, such as Microsoft Excel or OpenOffice Calc. CSV stands for \"comma-separated values\".', '2019-12-19', '2019-12-29', 1226);
+(3, 'What is CSV file?', 'CSV is a simple file format used to store tabular data, such as a spreadsheet or database. Files in the CSV format can be imported to and exported from programs that store data in tables, such as Microsoft Excel or OpenOffice Calc. CSV stands for \"comma-separated values\".', '2019-12-19', '2019-12-29', 1226),
+(12, 'What is CSV file?', 'CSV Stand for Comma , Saperated , Value file  and are the microsoft exel file.', '2019-12-28', '2020-01-07', 1227),
+(13, 'main components of communication process ', '1.	Context - Communication is affected by the context in which it takes place. This context may be physical, social, chronological or cultural. Every communication proceeds with context. The sender chooses the message to communicate within a context.\r\n2.	Sender / Encoder - Sender / Encoder is a person who sends the message. A sender makes use of symbols (words or graphic or visual aids) to convey the message and produce the required response. For instance - a training manager conducting training for new batch of employees. Sender may be an individual or a group or an organization. The views, background, approach, skills, competencies, and knowledge of the sender have a great impact on the message. The verbal and non verbal symbols chosen are essential in ascertaining interpretation of the ', '2019-12-28', '2020-01-07', 1227),
+(14, 'PHP: Removes duplicate values from an array', 'The array_unique() is used to remove duplicate values from an array.\r\nNote: The keys are preserved. array_unique() sorts the values treated as a string at first, then will keep the first key encountered for every value, and ignore all following keys. It does not mean that the key of the first related value from the unsorted array will be kept.\r\n', '2019-12-29', '2020-01-08', 1226),
+(15, 'PHP: array_key_exists() function', 'PHP: Checks if the given key or index exists in an array\r\nThe array_key_exists() function is used to check whether a specified key is present in an array or not.\r\n\r\nThe function returns TRUE if the given key is set in the array. The key can be any value possible for an array index.\r\n\r\nVersion:\r\n\r\n(PHP 4 and above)\r\n\r\nSyntax:\r\n\r\narray_key_exists(array_key, array_name)', '2019-12-29', '2020-01-08', 1229),
+(16, 'Histry of Font Awesome', 'Freemium. Website. fontawesome.com. Font Awesome is a font and icon toolkit based on CSS and LESS. It was made by Dave Gandy for use with Twitter Bootstrap, and later was incorporated into the BootstrapCDN', '2019-12-29', '2020-01-08', 1229),
+(17, 'Testing', '<h1>Wellcome to the Testing && we check the upload condition</h1>', '2019-12-29', '2020-01-08', 1229),
+(18, 'HTML', 'Note: if Your Information contain the Web Languages Systex It well be Display  according to the we web sytex . eg is i use simple html tag .\r\neg: <h3 style=\"color: deeppink\">This is html heading h3 & color is deeppink </h3>', '2019-12-29', '2020-01-08', 1229),
+(19, 'php function which remove the index which has no value.', 'You can use the PHP<h2 class=\"bg-warning\"> array_filter()</h2> function remove empty array elements or values from an array in PHP. This will also remove blank, null, false, 0 (zero) values.Dec 4, 2018\r\n', '2019-12-29', '2020-01-08', 1231),
+(20, 'Testing', 'dssf', '2019-12-29', '2020-01-08', 1231),
+(22, 'Testing', 'aliquip jean shorts ullamco ad vinyl cillum PBR. Homo nostrud organic,jkl', '2019-12-29', '2020-01-08', 1231),
+(23, 'This is Malik Pandey ', 'HI I am malik pandey.', '2020-01-07', '2020-01-17', 1242),
+(24, 'Robotic', 'this is notification', '2020-01-09', '2020-01-19', 1227),
+(25, 'Histry of Computer', 'Charles Babbage, an English mechanical engineer and polymath, originated the concept of a programmable computer. Considered the \"father of the computer\", he conceptualized and invented the first mechanical computer in the early 19th century. ... The machine was about a century ahead of its time', '2020-01-12', '2020-01-22', 1227),
+(26, 'Generation of Computer', 'First Generation (1940-1956)\r\nThe first generation computers had the following features and components −\r\n\r\nHardware\r\nThe hardware used in the first generation of computers was: Vacuum Tubes and Punch Cards.\r\n\r\nFeatures\r\nFollowing are the features of first generation computers −\r\n\r\nIt supported machine language.\r\n\r\nIt had slow performance\r\n\r\nIt occupied large size due to the use of vacuum tubes.\r\n\r\nIt had a poor storage capacity.\r\n\r\nIt consumed a lot of electricity and generated a lot of heat.\r\n\r\nMemory\r\nThe memory was of 4000 bits.\r\n\r\nData Input\r\nThe input was only provided through hard-wired programs in the computer, mostly through punched cards and paper tapes.\r\n\r\nExamples\r\nThe examples of first generation computers are −\r\n\r\nENIAC\r\nUNIVACTBM 701\r\nSecond Generation (1956-1963)\r\nSeveral a', '2020-01-12', '2020-01-22', 1227),
+(27, 'Computer Concepts - History of Computers', '<h2 style=\"color: deeppink\">The history of the computer dates back to several years. </h2>', '2020-01-12', '2020-01-22', 1227);
 
 -- --------------------------------------------------------
 
@@ -1158,7 +1256,8 @@ CREATE TABLE `quize` (
 --
 
 INSERT INTO `quize` (`Q_id`, `q_topic`, `q_date`, `q_time`, `qt_marks`) VALUES
-(9, 'Histry of AI', '2019-12-13', 1576748834991684864, 20);
+(9, 'Histry of AI', '2019-12-13', 1576748834991684864, 20),
+(10, 'History of Computer Architecture', '2020-01-12', 1578828991659905024, 20);
 
 -- --------------------------------------------------------
 
@@ -1198,7 +1297,27 @@ INSERT INTO `quiz_record` (`Q_id`, `Subject_id`, `Class_id`, `S_id`, `qo_marks`)
 (9, 0, 1227, 3, 13),
 (9, 0, 1227, 7, 14),
 (9, 0, 1227, 5, 15),
-(9, 0, 1227, 6, 18);
+(9, 0, 1227, 6, 18),
+(10, 0, 1227, 16, 12),
+(10, 0, 1227, 23, 13),
+(10, 0, 1227, 15, 15),
+(10, 0, 1227, 17, 10),
+(10, 0, 1227, 22, 14),
+(10, 0, 1227, 11, 12),
+(10, 0, 1227, 18, 16),
+(10, 0, 1227, 12, 18),
+(10, 0, 1227, 9, 14),
+(10, 0, 1227, 19, 15),
+(10, 0, 1227, 8, 16),
+(10, 0, 1227, 14, 10),
+(10, 0, 1227, 10, 8),
+(10, 0, 1227, 20, 5),
+(10, 0, 1227, 21, 3),
+(10, 0, 1227, 13, 0),
+(10, 0, 1227, 3, 14),
+(10, 0, 1227, 7, 1),
+(10, 0, 1227, 5, 0),
+(10, 0, 1227, 6, 8);
 
 -- --------------------------------------------------------
 
@@ -1218,6 +1337,7 @@ CREATE TABLE `register` (
 --
 
 INSERT INTO `register` (`Class_id`, `S_id`, `Reg_no`, `Enrollment_key`) VALUES
+(1226, 3, 2, 'sajid96'),
 (1227, 3, 18, 'cs-2019'),
 (1227, 5, 20, 'cs-2019'),
 (1227, 6, 21, 'cs-2019'),
@@ -1237,7 +1357,10 @@ INSERT INTO `register` (`Class_id`, `S_id`, `Reg_no`, `Enrollment_key`) VALUES
 (1227, 20, 15, 'cs-2019'),
 (1227, 21, 16, 'cs-2019'),
 (1227, 22, 5, 'cs-2019'),
-(1227, 23, 2, 'cs-2019');
+(1227, 23, 2, 'cs-2019'),
+(1229, 3, 29, 'msc-18'),
+(1231, 3, 29, 'bcs-2019'),
+(1232, 24, 43, 'bs1-2019');
 
 -- --------------------------------------------------------
 
@@ -1260,7 +1383,13 @@ CREATE TABLE `slide` (
 INSERT INTO `slide` (`id`, `topic`, `c_date`, `file`, `Class_id`) VALUES
 (8, 'recurrence relation', '2019-12-18', '1-recurrence related Question solved (1) (1).docx', 1226),
 (9, 'morphem', '2019-12-18', '3-morphemes (1).docx', 1226),
-(10, 'context free graimar', '2019-12-18', 'CNF and PDA.pdf', 1226);
+(10, 'context free graimar', '2019-12-18', 'CNF and PDA.pdf', 1226),
+(11, 'chapter:1', '2019-12-28', 'E-commerce 1.ppt', 1227),
+(12, 'chapter:1,topic 2', '2019-12-28', 'E-commerce 2 e-Business Models (2).ppt', 1227),
+(13, 'chapter:1 ,topic 3', '2019-12-28', 'E-commerce 3 e-Business Models.ppt', 1227),
+(14, 'chapter:1 ,topic 4', '2019-12-28', 'E-commerce 4 Revenue Models.ppt', 1227),
+(15, 'chapter:2 topic 1', '2019-12-28', 'E-commerce 5 HTML 1.ppt', 1227),
+(16, 'chapter:6 ,topic1', '2019-12-29', 'E-commerce 28 Security 1.ppt', 1229);
 
 -- --------------------------------------------------------
 
@@ -1302,7 +1431,8 @@ INSERT INTO `student` (`S_id`, `student_name`, `Email`, `password`) VALUES
 (20, 'Zar Muhammad', 'zar@gmail.com', '1234567890'),
 (21, 'Sara  hussain', 'sara123@gmail.com', '1234567890'),
 (22, 'Arfan khan', 'arfan@gamil.com', 'qazwsxedc'),
-(23, 'Muhammad Sajid', 'sajidktk@gmail.com', 'sajidkhattak');
+(23, 'Muhammad Sajid', 'sajidktk@gmail.com', 'sajidkhattak'),
+(24, 'Aziz ullah', 'aziz@gmail.com', '123456789');
 
 -- --------------------------------------------------------
 
@@ -1325,7 +1455,13 @@ INSERT INTO `subject` (`Subject_id`, `subject_name`) VALUES
 (3, 'Compiler Construction'),
 (4, 'php 6 Advance'),
 (5, 'biochemistry'),
-(6, 'angular js');
+(6, 'angular js'),
+(7, 'Intruduction to Java'),
+(8, 'Database'),
+(9, 'Intruduction to English'),
+(10, 'maths'),
+(11, 'C++'),
+(12, 'C Sharp');
 
 -- --------------------------------------------------------
 
@@ -1351,7 +1487,9 @@ CREATE TABLE `teacher` (
 
 INSERT INTO `teacher` (`T_id`, `Name`, `Contact_no`, `Cnic`, `Institute_name`, `Country`, `City`, `Email`, `Password`) VALUES
 (4, 'sajid ktk', 3102145236, '1234115241521', 'University of pehawar', 'pakistan', 'peshawar', 'sajid@gmail.com', '1234567890'),
-(5, 'Ihsan_Marwat', 3102345124, '1421545869216', 'Islamia college peshawar', 'Pakistan', 'Lakkii', 'ihsanadamzai@gmail.com', '1234567890');
+(5, 'Ihsan_Marwat', 3102345124, '1421545869216', 'Islamia college peshawar', 'Pakistan', 'Lakkii', 'ihsanadamzai@gmail.com', '1234567890'),
+(6, 'Kashif Rehman', 3484888557, '1420213501197', 'khushal Khan University', 'Pakistan', 'karak', 'kashif@gmail.com', '123456789'),
+(7, 'Ihsan Ullah', 3102514367, '1120113124152', 'Cs department UOP', 'Pakistan', 'Lakki Marwat', 'ihsanullah@gmail.com', '1234567890');
 
 --
 -- Indexes for dumped tables
@@ -1464,7 +1602,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `assignment`
 --
 ALTER TABLE `assignment`
-  MODIFY `A_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `A_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `attendence`
@@ -1476,19 +1614,19 @@ ALTER TABLE `attendence`
 -- AUTO_INCREMENT for table `class`
 --
 ALTER TABLE `class`
-  MODIFY `Class_id` bigint(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1231;
+  MODIFY `Class_id` bigint(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1243;
 
 --
 -- AUTO_INCREMENT for table `links`
 --
 ALTER TABLE `links`
-  MODIFY `L_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `L_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `notification`
 --
 ALTER TABLE `notification`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `presentation`
@@ -1500,31 +1638,31 @@ ALTER TABLE `presentation`
 -- AUTO_INCREMENT for table `quize`
 --
 ALTER TABLE `quize`
-  MODIFY `Q_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `Q_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `slide`
 --
 ALTER TABLE `slide`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `student`
 --
 ALTER TABLE `student`
-  MODIFY `S_id` bigint(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `S_id` bigint(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `subject`
 --
 ALTER TABLE `subject`
-  MODIFY `Subject_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `Subject_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `teacher`
 --
 ALTER TABLE `teacher`
-  MODIFY `T_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `T_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

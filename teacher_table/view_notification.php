@@ -34,10 +34,9 @@
             <div class="about">
                 <h2>About this page </h2>
                 <p class="text">
-                  This is your Teacher Homepage. The Homepage show the classes you are Created and along with the Start and Expire date. You can also Add,Drop ,Edit Add Slides to the Class
-                  Details. Your Expired Classes are move to the Expired Classes Area.You see Class inside details by clicking on the Class Name.
-
-                  you'r Class records.
+                  This is Teacher Share Information Homepage. In this Page you can share/upload the course slides/notes or external link for the
+                  course content and also Delete record of them.You can also create Notification by click on Share Information to inform your's
+                  student of that class and you can also view your information and slides.
 
                 </p>
 

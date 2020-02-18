@@ -37,11 +37,11 @@
 <!-- started -->
 <span id="spn"></span>
 <!-- below table which display the student record which are enroll in the this class which are clicked    -->
-<div class="container-fluid">
+<div class="container-fluid ">
   <!-- <div class="tend"  style="border-radius: 10px 10px 0px 0px"><it the div give the above beautiful style to the table top ></div> -->
 
 
-  <table id="example1" class="table table-striped table-bordered table-hover table-xl table-light" >
+  <table id="example1" class="table table-striped table-bordered table-hover table-xl table-light table-responsive-sm" >
 
             <thead class="bg-info">
                 <tr>
@@ -119,7 +119,7 @@
 
       }
       });
-      setTimeout(myFn ,2000);
+      setTimeout(myFn ,3000);
   }
 
  function myFn(){  document.getElementById("spn").innerHTML='';}  //use th empty the msg field

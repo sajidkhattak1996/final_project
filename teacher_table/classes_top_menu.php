@@ -28,9 +28,9 @@
 
                             // php code for help button
                             if (isset($_POST['help'])) {
-                                if(isset($_SESSION['class_id'])){  unset($_SESSION['class_id']);  }
-                                if(isset($_SESSION['subject_id'])){  unset($_SESSION['subject_id']); }
-                                if (isset($_SESSION['Class_name'])) { unset($_SESSION['Class_name']);  }
+                                // if(isset($_SESSION['class_id'])){  unset($_SESSION['class_id']);  }
+                                // if(isset($_SESSION['subject_id'])){  unset($_SESSION['subject_id']); }
+                                // if (isset($_SESSION['Class_name'])) { unset($_SESSION['Class_name']);  }
 
                               echo "<script> window.location.href='helps.php'; </script>";
                             }

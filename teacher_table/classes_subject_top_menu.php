@@ -37,27 +37,30 @@
 <!--============================== ended ===============================================-->
 
 <!--=========================== subject top menu are started  =========================-->
-  <div class="container-fluid" id="table_maindiv" >
+  <div class="container-fluid " id="table_maindiv" >
             <div id="expire_class" style="display: block;">
                 <div class="tstart" style="padding-top:5px;margin-top: 20px;padding-bottom: 2px">
                       <h2 class="text-left">&nbsp;Institute Name: <?php echo $_SESSION['institute']; ?> </h2>
                         <div class="">
                                   <form class="" action="" method="post">
-                                          <table class="table">
+                                          <table class="table table-responsive-sm">
                                                         <tr>
                                                               <th scope="col">Class Student</th>
-                                                              <th scope="col">Attendence</th>
+                                                              <th scope="col">Attendance</th>
                                                               <th scope="col">Assignment</th>
                                                               <th scope="col">Presentation</th>
                                                               <th scope="col">Quizes</th>
+                                                              <th scope="col">Exam Marks</th>
                                                         </tr>
                                                   <tbody>
                                                         <tr>
-                                                              <td scope="col"><button class="btn btn-primary btn-lg" name="btn_all_std" id="cls">&nbsp;&nbsp;    Click   &nbsp;&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-eye-open"></span> </button>   </td>
-                                                              <td scope="col"><button class="btn btn-primary btn-lg" name="btn_attendence" id="att">&nbsp; ADD  &nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-plus"></span> </button></td>
-                                                              <td scope="col"><button class="btn btn-primary btn-lg" name="btn_assignment" id="ass">&nbsp; ADD  &nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-plus"></span>  </button></td>
-                                                              <td scope="col"><button class="btn btn-primary btn-lg" name="btn_presentation" id="pre">&nbsp; ADD  &nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-plus"></span>  </button></td>
-                                                              <td scope="col"><button class="btn btn-primary btn-lg" name="btn_quize"  id="quz"> &nbsp; ADD  &nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-plus"></span> </button></td>
+                                                              <td scope="col"><button class="btn btn-primary btn-lg" name="btn_all_std" id="cls">   Click   <span class="glyphicon glyphicon-eye-open"></span> </button>   </td>
+                                                              <td scope="col"><button class="btn btn-primary btn-lg" name="btn_attendence" id="att"> ADD <span class="glyphicon glyphicon-plus"></span> </button></td>
+                                                              <td scope="col"><button class="btn btn-primary btn-lg" name="btn_assignment" id="ass"> ADD <span class="glyphicon glyphicon-plus"></span>  </button></td>
+                                                              <td scope="col"><button class="btn btn-primary btn-lg" name="btn_presentation" id="pre"> ADD <span class="glyphicon glyphicon-plus"></span>  </button></td>
+                                                              <td scope="col"><button class="btn btn-primary btn-lg" name="btn_quize"  id="quz"> ADD <span class="glyphicon glyphicon-plus"></span> </button></td>
+                                                              <td scope="col"><button class="btn btn-primary btn-lg" name="exam_marks"  id="exam"> ADD <span class="glyphicon glyphicon-plus"></span> </button></td>
+
                                                         </tr>
                                                 </tbody>
                                         </table>
@@ -73,6 +76,7 @@
       if (isset($_POST['btn_assignment'])) { echo "<script> window.location.href='assignment.php'; </script>"; }
       if (isset($_POST['btn_presentation'])) { echo "<script> window.location.href='presentation.php'; </script>"; }
       if (isset($_POST['btn_quize'])) { echo "<script> window.location.href='quize.php'; </script>"; }
+      if (isset($_POST['exam_marks'])) { echo "<script> window.location.href='add_exam_marks.php'; </script>"; }
 
  ?>
 <!--================= subject tom menu are ended ===========================================================================-->

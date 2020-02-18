@@ -27,13 +27,7 @@
         <link rel="stylesheet" href="css/nav1-core.css">
         <link rel="stylesheet" href="css/nav1-layout.css">
 
-        <link rel="stylesheet" href="../AdminLTE-master/plugins/fontawesome-free/css/all.min.css">
-
-        <!--[if lt IE 9]>
-        <link rel="stylesheet" href="css/ie8-core.min.css">
-        <link rel="stylesheet" href="css/ie8-layout.min.css">
-        <script src="js/html5shiv.min.js"></script>
-        <![endif]-->
+        <link rel="stylesheet" href="../Admin_Site/plugins/fontawesome-free/css/all.min.css">
 
         <script src="js/rem.min.js"></script>
 
@@ -108,7 +102,7 @@
         #nt_show:hover{background: #13bca4}
       </style>
 <?php
-
+// notification area
 //sql query for the total number of  notificaion show
   $stmt_noti="SELECT have.Class_id ,notification.id ,notification.expire_date FROM have INNER JOIN notification on have.Class_id=notification.Class_id WHERE have.S_id='".$result1['S_id']."' AND notification.expire_date>=CURRENT_DATE";
   $exe_noti=mysqli_query($con ,$stmt_noti);
@@ -177,11 +171,13 @@
                 <?php
               }
               ?>
-
-            <li><a href="#" onclick="show_hide()"> <?php echo $result1['student_name'];  ?>&nbsp; <span class="glyphicon glyphicon-info-sign"></span></a></li>
-            <li onclick="hide_fn()"> <?php echo $result1['Email'];  ?></li>
+<!-- notificaion ended================================================================================================================================================= -->
+            <!-- information  of user ============================================================================================================================================================== -->
+            <li><a href="#" onclick="show_hide()" style="text-transform: capitalize"> <?php echo $result1['student_name'];  ?>&nbsp; <span class="glyphicon glyphicon-info-sign"></span></a></li>
+            <li onclick="hide_fn()"> <?php echo $result1['Email'];  ?> <i class="fas fa-user"></i> </li>
             <li><a href="" id="lout"> <button type="submit" name="log_out" style="background: none;border: none;" > Log out &nbsp;&nbsp;<span class="glyphicon glyphicon-log-out"></span></button> </a></li>
         </ul>
+  <!--==========ended ============================================================================================================================================================== -->
     </nav1>
     <a href="#" class="nav1-close">Close Menu</a>
     <!--information menu are ended -->
@@ -238,6 +234,8 @@
               $sql="UPDATE student SET student_name='".$_POST['name']."',password='".$_POST['pass']."' WHERE S_id='".$_POST['bsave']."'";
               if (mysqli_query($con ,$sql)) {
                   echo "<script> alert('Record are success Successfully Updated.'); </script>";
+                  $_SESSION['email']=$result1['Email'];
+                  $_SESSION['pass']=$_POST['pass'];
                   echo "<meta http-equiv='refresh' content='0'>";
 
               }else {
@@ -275,4 +273,4 @@
    ?>
 
     <!-- Bootstrap 4 -->
-    <script src="../AdminLTE-master/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../Admin_Site/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>

@@ -24,9 +24,6 @@
                             }
                             // php code for help button
                             if (isset($_POST['help'])) {
-                              unset($_SESSION['class_id']);
-                              unset($_SESSION['subject_id']);
-
                               echo "<script> window.location.href='helps.php'; </script>";
                             }
                       ?>

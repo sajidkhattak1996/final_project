@@ -19,6 +19,9 @@
   </head>
 <body>
   <?php session_start(); ?>
+  <?php   // <!--===============below loader are include =================-->
+     include('../plugins/loader/loader1.html');
+    // <!--=================ended==================================--> ?>
   <!--=================== the top nevagation menu=======================================----------->
         <?php  include('std_top_menu.php');  ?>
   <!--============ ended==================================================================== -->
@@ -62,8 +65,8 @@
     <div class="about">
         <h2>About this page </h2>
         <p class="text">
-          This is Student Assignment Homepage.In this page You Can See Your Assignment Records. You Can Also See Your other Class Records By Clicking the Button.
-          To Enroll in a new Class Click the Enroll in Class .For more Information Click For Helps.
+          This is your Class Assignment Record Homepage.This page show your assignment records of the class.
+
         </p>
 
     </div>

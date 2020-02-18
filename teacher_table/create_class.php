@@ -26,13 +26,15 @@
 <body>
 <?php include('top_info.php');  ?>
 
-
+<?php    // <!--===============below loader are include =================-->
+   include('../plugins/loader/loader1.html');
+  // <!--=================ended==================================--> ?>
 <!-- below area and button such classes helps etc -->
 <div class="bttn" style="background: #008c7e;">
 		      <ul>
               <a href="tmain_table.php">  <button class="btn btn-outline-light btn-lg ">        All Classes           </button> </a>
                  <a href=""><button class="btn btn-outline-light btn-lg bg-light text-dark">    Create New Class    </button>  </a>
-                  <a href="helps.php" >         <button class="btn btn-outline-light btn-lg">        Helps         </button>  </a>
+                  <a href="help1.php" >         <button class="btn btn-outline-light btn-lg">        Helps         </button>  </a>
 
           </ul>
 	</div>
@@ -50,9 +52,9 @@
         <h2>About this page </h2>
         <p class="text">
               This is your Create Class Homepage. Here you can Create New Class for your's students.Provide the required information for the
-              Creatation of New Class.provide the suitable Enrollment Key for Class and Remember them to Give to Your Students to Enroll in
-              Your Class and Also Remember your Class ID which given by you to your Students to Enroll in Your Class.After Complete all
-              the requirements Click the Submit to Create the Class.
+              Creatation of New Class.provide the suitable Enrollment Key for Class. <b>Note:</b> Remember the Class ID and Enrollment Key and give it to your
+              Students to enroll it in your class,Without Enrollment key Class ID they can't Enroll to your Class.After Complete all the requirements Click the
+               Submit to Create the Class.
 
         </p>
 
@@ -147,7 +149,8 @@
 <?php
       if (isset($_POST['create_class'])) {
         // variables for the create class are
-        $class_name  = $_POST['cname'];
+        $cname  = $_POST['cname'];
+        $class_name=ucwords($cname);
         $enroll_key  = $_POST['enroll_key'];
         $class_session=$_POST['c_session'];
         $current_date =date("Y-m-d");

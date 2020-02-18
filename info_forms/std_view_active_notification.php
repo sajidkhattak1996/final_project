@@ -14,7 +14,9 @@ session_start();
 
           </head>
         <body>
-
+          <?php   // <!--===============below loader are include =================-->
+             include('../plugins/loader/loader1.html');
+            // <!--=================ended==================================--> ?>
     <!--=================== the top nevagation menu=======================================----------->
           <?php  include('std_top_menu.php');  ?>
     <!--============ ended==================================================================== -->
@@ -41,7 +43,7 @@ session_start();
             <div class="about">
                 <h2>About this page </h2>
                 <p class="text">
-                  This is Attagement Homepage.In this page you can view your Class Attagement which are share by your Teacher or Instructor.
+                  This is Attachment Homepage.In this page you can view your Class Attachment which are share by your Teacher or Instructor.
 
                 </p>
             </div>
@@ -85,7 +87,7 @@ session_start();
         <div class="col-sm" style="text-transform: capitalize">Teacher : <?php  echo $tn;  ?></div>
   </div>
 </div>
-<div class="" style="width:98%;margin:0 auto;border:solid 1px #13bca4;border-radius: 0px 0px 10px 10px;height:auto">
+<div class="" style="width:98%;margin:0 auto;border:solid 1px #13bca4;border-radius: 0px 0px 10px 10px;height:auto;">
 
   <div style="margin-top:0px;padding-bottom:0px">
     <table class="table table-straped ">
@@ -97,9 +99,7 @@ session_start();
             <th> Expire Date</th>
           </tr>
       </thead>
-
     <?php
-
           if (isset($con)) {
                 // $sql="SELECT id,title, msg , cdate , expire_date ,Class_id  FROM notification WHERE Class_id='".$cid."' ORDER BY expire_date DESC"; it display all notificaion of that class
                 $sql="SELECT id,title, msg , cdate , expire_date ,Class_id  FROM notification WHERE Class_id='".$cid."' AND expire_date>=CURRENT_DATE ORDER BY expire_date ASC";
@@ -119,21 +119,16 @@ session_start();
                   <tr>
                         <td colspan="4" class="alert alert-warning text-center"> <?php  echo "No Active Notification.";  ?> </td>
                   </tr>
-
                   <?php
                 }
-
           }else {
             echo "problem occur in database connection ";
           }
      ?>
-
    </table>
-
   </div>
-
-
 </div>
+<br>
 </body>
 </html>
 

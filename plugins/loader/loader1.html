@@ -1,0 +1,22 @@
+
+<!--===loader start ======================================================================================================================================-->
+<link rel="stylesheet" href="../plugins/loader/css/loader1_css.css" />
+<div id="load">
+  <div class="loader">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+  <script type="text/javascript" src="../js/jquery.js"></script>
+  <script>
+  document.onreadystatechange = function () {
+    var state = document.readyState
+    if (state == 'complete') {
+           document.getElementById('interactive');
+           document.getElementById('load').style.visibility="hidden";
+    }
+  }
+  </script>
+<!--=======ended==========================================================================================================================================-->

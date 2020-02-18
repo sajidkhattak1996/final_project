@@ -29,7 +29,13 @@
 <?php  include('display table/display_classes_top_menu.php');  ?>
 <!--=========ended ================-->
 <?php
-  $cid=$_SESSION['class_id'];
+  $cid=null;
+  if (isset($_SESSION['class_id'])) {
+    $cid=$_SESSION['class_id'];
+  }
+  if (isset($_POST['class_name'])) {
+    $cid=$_POST['class_name'];
+  }
   $tid=$_SESSION['t_id'];
   $iname=$_SESSION['institute'];
   $query1 ="SELECT Name FROM class WHERE Class_id='$cid' AND T_id='$tid'";
@@ -53,15 +59,13 @@
     <div class="about">
         <h2>About this page </h2>
         <p class="text">
-          This is your Teacher Class Record Homepage. The page show the Class records of all Students such is Attendence , Assignment , Presentation and Quizes.
-          The Homepage display all the previous records of the Students.Click on Eye Open (view) to display that particular records of
-          that Student.The Button Attendence , Assignment , Quizes and Presentation display that Particular Records of Students.
+          This is your Teacher Class Record Homepage. The page show the Class records of all Students such is Attendance , Assignment , Presentation and Quizes.
+          <b>Note </b>This page display the Attendance percentage of Student Upto Current Date. The Assignment,Quiz and Presentation of Student last time are displayed.
+          Click on Eye Open (view) to display that particular records of the Student.
 
 
         </p>
-
     </div>
-
 </div>
 
 <!--=========including the top classes button below the top navagation menu ================-->
@@ -79,7 +83,9 @@
         background-image: -o-linear-gradient(0deg,rgba(172,239,224,0.66) 21.76%,rgba(0,140,126,0.90) 98.45%);
         background-image: linear-gradient(0deg,rgba(172,239,224,0.66) 21.76%,rgba(0,140,126,0.90) 98.45%);
       }
-
+      #b1 {
+        pointer-events: none;
+      }
 </style>
 
 <div id="active_class">
@@ -92,9 +98,9 @@
                 <tr>
                   <th scope="col" scope="row">Class No</th>
                   <th scope="col">Name</th>
-                  <th scope="col">Attendence</th>
+                  <th scope="col">Attendance</th>
                   <th scope="col">Assignment</th>
-                  <th scope="col">Quiz</th>
+                  <th scope="col">Quize</th>
                   <th scope="col">Presentation</th>
 
                 </tr>
@@ -103,10 +109,9 @@
               <?php
                   if (isset($con)) {
 
-                    $sql1="SELECT S_id,Reg_no FROM register WHERE Class_id='".$_SESSION['class_id']."'";
+                    $sql1="SELECT S_id,Reg_no FROM register WHERE Class_id='$cid'";
                     $row=mysqli_query($con ,$sql1);
                     if (mysqli_num_rows($row)>0) {
-
                         while ($r=mysqli_fetch_assoc($row)) {
                               echo "<tr>";
                               $sql2="SELECT student_name FROM student WHERE S_id='".$r['S_id']."'";
@@ -115,7 +120,7 @@
                               echo "<td>".$r['Reg_no']."</td>";
                               echo "<td>".$r2['student_name']."</td>";
                               //okkkkkkk
-                              $sql3="SELECT AT_id, AT_date FROM attendence_record WHERE Class_id='".$_SESSION['class_id']."' AND S_id='".$r['S_id']."' ORDER BY AT_date DESC";
+                              $sql3="SELECT AT_id, AT_date FROM attendence_record WHERE Class_id='$cid' AND S_id='".$r['S_id']."' ORDER BY AT_date DESC";
                               $exe_at=mysqli_query($con ,$sql3);
                               if (mysqli_num_rows($exe_at)>0) {
                               /*===============  attendence calculate================*/
@@ -155,17 +160,15 @@
                                       <?php
                                     }
 
-
-
                               }else {  ?>
                                 <td>
-                                No Attendence <button type="submit" name="att_view" value="<?php echo $r['S_id']; ?>" class="btn btn-outline-primary"  style="margin-right: 30%;float: right;"> <span class="glyphicon glyphicon-eye-open" style="color: black;"></span></button>
+                                No Attendance <button type="submit" name="att_view" value="<?php echo $r['S_id']; ?>" class="btn btn-outline-primary"  style="margin-right: 30%;float: right;"> <span class="glyphicon glyphicon-eye-open" style="color: black;"></span></button>
                                 </td>
                                 <?php
                               }
           /*===================== here attendece calculation are ended ================================================================================================================================================================================================================================================================================================================*/
                               /*assignment are start below============*/
-                              $st2="SELECT assignment.a_date,assignment.at_marks,assignment.A_id,assignment_record.ao_marks,assignment_record.S_id FROM assignment INNER JOIN assignment_record ON assignment_record.A_id=assignment.A_id WHERE assignment_record.Class_id='".$_SESSION['class_id']."' AND assignment_record.S_id='".$r['S_id']."' ORDER BY assignment.a_date DESC";
+                              $st2="SELECT assignment.a_date,assignment.at_marks,assignment.A_id,assignment_record.ao_marks,assignment_record.S_id FROM assignment INNER JOIN assignment_record ON assignment_record.A_id=assignment.A_id WHERE assignment_record.Class_id='$cid' AND assignment_record.S_id='".$r['S_id']."' ORDER BY assignment.a_date DESC";
                               $exe_st2=mysqli_query($con ,$st2);
                               if ($nrow=mysqli_num_rows($exe_st2)>0) {
                                     $ass_record=mysqli_fetch_array($exe_st2);
@@ -185,7 +188,7 @@
                               <?php  }
             /*===========================Assignment ended==================================================================================================================================================================================================================================================================================================================================*/
                   /*=============below are Quize start============================================================================================================================================================================================================================================================================================================================================*/
-                                  $st33="SELECT quize.q_date,quize.qt_marks,quize.Q_id,quiz_record.qo_marks,quiz_record.S_id FROM quize INNER JOIN quiz_record ON quize.Q_id=quiz_record.Q_id WHERE quiz_record.Class_id='".$_SESSION['class_id']."' AND quiz_record.S_id='".$r['S_id']."' ORDER BY quize.q_date DESC";
+                                  $st33="SELECT quize.q_date,quize.qt_marks,quize.Q_id,quiz_record.qo_marks,quiz_record.S_id FROM quize INNER JOIN quiz_record ON quize.Q_id=quiz_record.Q_id WHERE quiz_record.Class_id='$cid' AND quiz_record.S_id='".$r['S_id']."' ORDER BY quize.q_date DESC";
                                   $exe_st33=mysqli_query($con ,$st33);
                                   if (mysqli_num_rows($exe_st33)>0) {
                                         $qr=mysqli_fetch_array($exe_st33);
@@ -203,7 +206,7 @@
                                   <?php  }
   /*======================================ended=================================================================================================================================================================================================================================================================================================================================================*/
         /*---------------------------below are presentation last record  start ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
-                                        $st4="SELECT presentation.p_date,presentation.pt_marks,presentation.P_id,presentation_record.po_marks,presentation_record.S_id FROM presentation INNER JOIN presentation_record ON presentation_record.P_id=presentation.P_id WHERE presentation_record.Class_id='".$_SESSION['class_id']."' AND presentation_record.S_id='".$r['S_id']."' ORDER BY presentation.p_date DESC";
+                                        $st4="SELECT presentation.p_date,presentation.pt_marks,presentation.P_id,presentation_record.po_marks,presentation_record.S_id FROM presentation INNER JOIN presentation_record ON presentation_record.P_id=presentation.P_id WHERE presentation_record.Class_id='$cid' AND presentation_record.S_id='".$r['S_id']."' ORDER BY presentation.p_date DESC";
                                         $exe4=mysqli_query($con ,$st4);
                                         if (mysqli_num_rows($exe4)>0) {
                                             $pr=mysqli_fetch_array($exe4);
@@ -233,9 +236,6 @@
                       </tr>
                       <?php
                     };
-
-
-
 
                   }
                   else {
@@ -288,10 +288,6 @@
             <script> window.location.href='self_presentation.php';  </script>
             <?php
           } //ended
-
-
-
-
 
  ?>
   </body>

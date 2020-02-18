@@ -13,10 +13,26 @@
             <link href="sajid_tcss.css" rel="stylesheet" type="text/css">
             <link rel="stylesheet" href="../menu css and js/bootstrap 4/css/glyphicon.css">
             <link rel="stylesheet" href="../datatables-bs4/css/dataTables.bootstrap4.css">
+<style media="screen">
+.blinking{
+  animation:blinkingText 1.2s infinite;
 
+
+}
+
+@keyframes blinkingText{
+  0%{     color: deeppink;    }
+  49%{    color: red; }
+  60%{    color: transparent; }
+  99%{    color:transparent;  }
+  100%{   color: red;    }
+}
+</style>
             </head>
           <body>
-
+<?php   // <!--===============below loader are include =================-->
+   include('../plugins/loader/loader1.html');
+  // <!--=================ended==================================--> ?>
       <!--=================== the top nevagation menu=======================================----------->
             <?php  include('std_top_menu.php');  ?>
       <!--============ ended==================================================================== -->
@@ -36,11 +52,47 @@
                   <h2>About this page </h2>
                   <p class="text">
                     This is your Student Homepage. The Homepage show the classes you are enrolled in. To enroll in a new class,
-                    click the Enroll in Class Button. To View your Class Record Click the Name of Class.To View the Notificaion and Slides/Notes Related to the Class
-                    Click the Eye Icon to View them.
+                    click the Enroll in Class Button. To View your Class Record Click the Name of Class.To View the Attachment (Slides/Notes) Related to the Class
+                    Click the View button  to View them.The Right side Bell icon Display the latest notification/information Related to that class.
 
                   </p>
               </div>
+              <!--===========marquee ============================================= -->
+              <?php
+              $cid=$result1['S_id'];
+              $sql_exam="
+              SELECT exam_record.Class_id,exam.exam_term,exam.exam_date FROM exam
+              INNER JOIN exam_record ON exam_record.E_id=exam.E_id
+              INNER JOIN class ON exam_record.Class_id=class.Class_id
+              WHERE class.Expire_date>CURRENT_DATE
+              AND exam_record.S_id='$cid'
+              ";
+              $exe_exam=mysqli_query($con ,$sql_exam);
+              if (mysqli_num_rows($exe_exam)>0) {
+                    ?>
+                    <div class="container-fluid">
+                      <marquee id="marquee">
+                        <p>
+                      <span class="blinking font-weight-bold">New!  &nbsp;&nbsp;&nbsp; </span>
+                      <?php
+                        while ($row=mysqli_fetch_assoc($exe_exam)) {
+                          ?>
+                          <span><?php echo $row['Class_id'].":  ".$row['exam_term']."    Exam Result are Uploaded."; ?>
+                            <a href="result_display.php?cid=<?php echo $row['Class_id']; ?>">click</a>
+                            &nbsp;&nbsp;&nbsp;
+                           </span>
+                          <?php
+                        }
+                       ?>
+                       </p>
+                      </marquee>
+                    </div>
+
+                    <?php
+              }
+              ?>
+
+              <!-- ================ended ==================================================-->
         </div>
 <form action="" method="post" id="ff">
             <div class="container-fluid" id="divtable" >
@@ -57,7 +109,7 @@
                                                   <th scope="col">Subject</th>
                                                   <th scope="col">Start Date</th>
                                                   <th scope="col">Expire Date</th>
-                                                  <th scope="col" width="10%">Attagement&nbsp;&nbsp;&nbsp;<i class="glyphicon glyphicon-paperclip"></i></th>
+                                                  <th scope="col" width="10%">Attachment&nbsp;&nbsp;&nbsp;<i class="glyphicon glyphicon-paperclip"></i></th>
                                               </tr>
                                             </thead>
                                           <tbody>
@@ -144,13 +196,20 @@
                         <div class="tend" id="eee">    </div>
             </div>
       </form>
+      <?php include('../footer.php'); ?>
   </body>
 </html
 
         <script type="text/javascript" src="js/jquery.js"></script>
         <script src="../datatables/jquery.dataTables.js"></script>
         <script src="../datatables-bs4/js/dataTables.bootstrap4.js"></script>
-
+        <script type="text/javascript">
+        $("#marquee").hover(function () {
+          this.stop();
+        }, function () {
+          this.start();
+        });
+        </script>
         <script>
           $(function () {
 
@@ -181,14 +240,6 @@
 
       }
 
-      // slides button
-          // if (isset($_POST['btn_attagement'])) {
-          //   $cid= $_POST['btn_attagement'];
-          //   // $sid= $_POST['s'];
-          //
-          //   echo "<h1>".$cid."</h1>";
-          //   // echo "<h1>".$sid."</h1>";
-          // }
 
 //class name click
           if (isset($_POST['class_name'])) {

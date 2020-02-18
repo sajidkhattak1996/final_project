@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
 
-    <title>self all attendence of student </title>
+    <title>self all attendance of student </title>
 	<link href="teacher_css.css" rel="stylesheet" type="text/css">
 
 <link rel="stylesheet" href="css/bootstrap.css">
@@ -18,6 +18,9 @@
 
   </head>
 <body>
+  <!--===============below loader are include =================-->
+  <?php include('../plugins/loader/loader1.html'); ?>
+  <!--=================ended==================================-->
 <!--=========top nvagation menu ==========-->
 <?php  include('top_info.php');  ?>
 <!--=========top nvagation menu endeddd ==========-->
@@ -60,9 +63,9 @@
     <div class="about">
         <h2>About this page </h2>
         <p class="text">
-          This is your Teacher Class Record Homepage. The page show the Class records of all Students such is Attendence , Assignment , Presentation and Quizes.
-          The Homepage display all the previous records of the Students.Click on Eye Open (view) to display that particular records of
-          that Student.The Button Attendence , Assignment , Quizes and Presentation display that Particular Records of Students.
+          This is your Teacher Class Attendance Records Homepage. The page show the attendance of the particular student which are register with this class.
+          This Page Display the Full details of Attendance of the Students & you can click on Attendance Monthly Wise  to view the attendance of student Monthly Wise.
+          The Teacher can also search for student and also Export the Records as CSV File.
 
 
         </p>
@@ -97,6 +100,9 @@
   border:solid 1px rgba(127,243,228,0.52);
   border-radius: 7px 7px 0px 0px;
 }
+#b2 {
+  pointer-events: none;
+}
 </style>
 
 
@@ -116,8 +122,8 @@
 <div id="active_class">
     <div class="tstart" >
       <h2 class="text-left">Institute Name:  <?php  echo $_SESSION['institute']; ?> </h2>
-      <a href="selft_attendence_monthly.php"><button type="button" name="button" class="btn btn-outline-light">Attendence Monthly Wise</button>  </a>
-      <a href=""><button type="button" name="button" class="btn btn-light" style="margin-left: 10px;margin-right: 5px">Attendence All</button>  </a>
+      <a href="selft_attendence_monthly.php"><button type="button" name="button" class="btn btn-outline-light">Attendance Monthly Wise</button>  </a>
+      <a href=""><button type="button" name="button" class="btn btn-light" style="margin-left: 10px;margin-right: 5px">Attendance All</button>  </a>
       <div style="padding-left: 30%;color: #fff" >
         <span><strong>  Student Class No: <?php   echo $reg_no; ?>  </strong> </span>
         <span style="padding-left: 10%"> <strong>  Student Name: <?php   echo $name; ?>  </strong> </span>
@@ -127,8 +133,8 @@
         <thead class="bg-info">
                 <tr>
 
-                  <th scope="col">Attendence Date</th>
-                  <th scope="col">Attendence Status</th>
+                  <th scope="col">Attendance Date</th>
+                  <th scope="col">Attendance Status</th>
 
 
                 </tr>

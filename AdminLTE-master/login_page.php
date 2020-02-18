@@ -49,15 +49,6 @@
 		</div>
 
 	</div>
-	<form class="" action="" method="post">
-				<button type="submit" name="b">ccccc</button>
-	</form>
 
-	<?php
-	if (isset($_POST['b'])) {
-		echo "btn are press";
-		echo "<script> window.location.href='index.php'; </script>";
-	}
-	 ?>
 </body>
 </html>

@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
+    <!--===============below loader are include =================-->
+    <?php include('../plugins/loader/loader1.html'); ?>
+    <!--=================ended==================================-->
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,16 +17,20 @@
 <link rel="stylesheet" href="bootstrap 4/css/glyphicon.css">
 
 
+<style media="screen">
 
 
+</style>
   </head>
 <body>
+
+
 <!--=========top nvagation menu ==========-->
+
 <?php  include('top_info.php');  ?>
 <!--=========top nvagation menu endeddd ==========-->
 
 <!-- the below css link have high periority then above top_info.php file  -->
-<link rel="stylesheet" href="../datatables-bs4/css/dataTables.bootstrap4.css">
 
 <!--=========including the top classes button below the top navagation menu ================-->
 <?php  include('display table/display_classes_top_menu.php');  ?>
@@ -51,9 +58,10 @@
     <div class="about">
         <h2>About this page </h2>
         <p class="text">
-          This is your Teacher Class Record Homepage. The page show the Class records of all Students such is Attendence , Assignment , Presentation and Quizes.
-          The Homepage display all the previous records of the Students.Click on Eye Open (view) to display that particular records of
-          that Student.The Button Attendence , Assignment , Quizes and Presentation display that Particular Records of Students.
+          This is your Teacher Class Attendance Records Homepage. The page show the attendance of all the student which are register with this class.
+          This Page Display the Full details of Attendance of the Students & you can click on Attendance Monthly Wise  to view the attendance of student Monthly Wise,
+           You can also Calculate the Persentage Upto your selected date by click on Calculate Persentage. The Teacher can also search for student and also Export the Records
+          as CSV File.
 
 
         </p>
@@ -91,6 +99,10 @@
   border:solid 1px rgba(127,243,228,0.52);
   border-radius: 7px 7px 0px 0px;
 }
+#b2 {
+  pointer-events: none;
+}
+
 </style>
 
 
@@ -105,95 +117,77 @@
         background-image: -o-linear-gradient(0deg,rgba(172,239,224,0.66) 21.76%,rgba(0,140,126,0.90) 98.45%);
         background-image: linear-gradient(0deg,rgba(172,239,224,0.66) 21.76%,rgba(0,140,126,0.90) 98.45%);
       }
+      #search_text:hover{
+        box-shadow: 1px 1px 10px 1px blue;
+      }
 </style>
 
 <div id="active_class">
     <div class="tstart" >
       <h2 class="text-left">Institute Name:  <?php  echo $_SESSION['institute']; ?> </h2>
-      <a href="attendence_display_monthly.php"><button type="button" name="button" class="btn btn-outline-light">Attendence Monthly Wise</button>  </a>
-      <a href=""><button type="button" name="button" class="btn btn-light" style="margin-left: 10px;margin-right: 5px">Attendence All</button>  </a>
-
-<form method="post">
-    <table id="example1" class="table table-striped  table-bordered table-hover table-sm">
-        <thead class="bg-info">
-                <tr>
-                  <th scope="col" scope="row">Class No</th>
-                  <th scope="col">Name</th>
-                  <th scope="col">Attendence Date</th>
-                  <th scope="col">Attendence Status</th>
+      <a href="attendence_display_monthly.php"><button type="button" name="button" class="btn btn-outline-light">Attendance Monthly Wise</button>  </a>
+      <a href=""><button type="button" name="button" class="btn btn-light" style="margin-left: 10px;margin-right: 5px">Attendance All</button>  </a>
+      <a href="calculate_percentage.php"><button type="button" class="btn btn-outline-light" name="button">Calculate Persentage</button>  </a>
 
 
-                </tr>
-          </thead>
-            <tbody class="bg-light">
-              <?php
-                  if (isset($con)) {
-                    //the below query extract all the student sttndence records of that class and subject
-                        $stmt1="SELECT attendence_record.S_id,attendence_record.AT_date,attendence.status FROM attendence INNER JOIN attendence_record ON attendence.AT_id=attendence_record.AT_id WHERE attendence_record.Class_id='$cid' ORDER BY attendence_record.AT_date DESC";
-                        $exe_stmt1=mysqli_query($con ,$stmt1);
-                        if(mysqli_num_rows($exe_stmt1)>0)
-                        {
-                            while($result1=mysqli_fetch_assoc($exe_stmt1)) {
-                                  $s=$result1['S_id'];
-
-                                  $stmt2="SELECT register.Reg_no ,student.student_name FROM register INNER JOIN student ON register.S_id=student.S_id WHERE register.Class_id='$cid' AND register.S_id='$s'";
-                                  $exe_stmt2=mysqli_query($con ,$stmt2);
-                                  $r=mysqli_fetch_assoc($exe_stmt2);
-                                  ?>
-
-                                  <tr>
-                                      <td> <?php  echo $r['Reg_no']; ?></td>
-                                      <td> <?php  echo $r['student_name']; ?></td>
-                                      <td> <?php  echo $result1['AT_date']; ?></td>
-                                      <td> <?php  echo $result1['status']; ?></td>
-                                  </tr>
-
-
-                                <?php  }
-                           }else {
-                             ?>
-                             <tr>
-                               <td colspan="4" style="text-align: center"><?php echo "No Student are Register to the Class" ?></td>
-                             </tr>
-                             <?php
-                           }
-
-
-
-
-
-                  }
-                  else {
-                    echo "<script>  alert('Error Occur while connecting to the Database!');   </script>".mysqli_error($con);
-                  }
-               ?>
-
-              </tbody>
-
-
-      </table>
-      </form>
+<div class="row mt-5  col-12">
+  <div class="col-lg-6">
+    <div class="form-group">
+      <div class="input-group">
+        <span class="input-group-addon">Search</span>
+        <input type="text" name="search_text" id="search_text" placeholder="Search by Student name or class no" class="form-control "   />
+        <input type="text" name=""  id="cid" value="<?php echo $cid; ?>" style="display:none">
+      </div>
+    </div>
+  </div>
+    <div class="col-lg-6">
+    <a href="export_attendence_all.php?cid=<?php echo $cid; ?>" style="float: right;"><button type="button" class="btn btn-outline-light" name="export_file">Export as CSV File</button>  </a>
+    </div>
 </div>
+<div class="">
+  <div class="">
+
+    <div id="result">   </div>
+  </div>
+  <div style="clear:both"></div>
+</div>
+
+  </div>
         <div class="tend"></div>  <!--it cover and highliting buttom area of the table -->
-
-
     </div>
 
   </body>
 </html>
 
-<script src="../datatables/jquery.dataTables.js"></script>
-<script src="../datatables-bs4/js/dataTables.bootstrap4.js"></script>
 <script>
-  $(function () {
-  //  $("#example1").DataTable();
-    $('#example1').DataTable({
-      "paging": true,
-      "lengthChange": true,
-      "searching": true,
-      "ordering": true,
-      "info": true,
-      "autoWidth": false,
-    });
-  });
+$(document).ready(function(){
+	var i =$('#cid').val();
+	load_data('',i);
+	function load_data(query,id)
+	{
+		$.ajax({
+			url:"fetch_attendance_all.php",
+			method:"post",
+			data:{query:query,id:id},
+			success:function(data)
+			{
+				$('#result').html(data);
+			}
+		});
+	}
+
+	$('#search_text').keyup(function(){
+		var search = $(this).val();
+		var i =$('#cid').val();
+
+		if(search != '')
+		{
+			load_data(search,i);
+		}
+		else
+		{
+			load_data('',i);
+		}
+	});
+});
 </script>

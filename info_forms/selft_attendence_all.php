@@ -19,6 +19,9 @@
   </head>
 <body>
   <?php session_start(); ?>
+  <?php   // <!--===============below loader are include =================-->
+     include('../plugins/loader/loader1.html');
+    // <!--=================ended==================================--> ?>
   <!--=================== the top nevagation menu=======================================----------->
         <?php  include('std_top_menu.php');  ?>
   <!--============ ended==================================================================== -->
@@ -64,10 +67,8 @@
     <div class="about">
         <h2>About this page </h2>
         <p class="text">
-          This is your Class Attendence Recod Homepage.This Page  Show the Full Details of Attendence.
-          To Enroll in a new Class Click the Enroll in Class.Below Table Show the Student Least previous Records.To View the Detail Click on the Eye Icon.
-          To View the Full Records Click for the Following Button.
-          For Help Click the Helps Button.
+          This is your Class Attendance Record Homepage.This Page Show Your Full Attendance Records. You Can also view the Attendance Monthly Wise By click on Attendance Monthly Wise .
+          To Enroll in a new Class Click the Enroll in Class .  Below Table Show the Student attendance Monthly wise.
 
         </p>
 
@@ -126,8 +127,8 @@
 <div id="active_class">
     <div class="tstart" >
       <h2 class="text-left" style="padding-top: 5px;padding-left: 5px;padding-bottom: 10px;text-transform: capitalize">Student Name: <?php echo $result1['student_name'];  ?> </h2>
-      <a href="selft_attendence_monthly.php"><button type="button" name="button" class="btn btn-outline-light">Attendence Monthly Wise</button>  </a>
-      <a href=""><button type="button" name="button" class="btn btn-light" style="margin-left: 10px;margin-right: 5px">Attendence All</button>  </a>
+      <a href="selft_attendence_monthly.php"><button type="button" name="button" class="btn btn-outline-light">Attendance Monthly Wise</button>  </a>
+      <a href=""><button type="button" name="button" class="btn btn-light" style="margin-left: 10px;margin-right: 5px">Attendance All</button>  </a>
       <div style="padding-left: 30%;color: #fff" >
         <span><strong>  Student Class No: <?php   echo $reg_no; ?>  </strong> </span>
         <span style="padding-left: 10%"> <strong>  Student Name: <?php   echo $name; ?>  </strong> </span>
