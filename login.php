@@ -28,11 +28,11 @@
                     <div class=" col-sm " style="padding-left: 23%;border-left:solid 2px #fff;border-right:solid 2px #fff;border-bottom:solid 2px #fff;border-radius: 8px">
                       <label style="color: yellow" id="emsg"></label><br>
                       <label><b>Email Address</b></label>
-                      <input type="email" class="form-control w-75 py-4 justify-content-center" name="lgemail" value="<?php if(isset($_POST['btn_login'])){ echo $_POST['lgemail']; } ?>" placeholder="Email:" required>
+                      <input type="email" class="form-control w-75 py-4 justify-content-center font-weight-bold" name="lgemail" value="<?php if(isset($_POST['btn_login'])){ echo $_POST['lgemail']; } ?>" placeholder="Email:" required>
                       <br><br>
                       <label style="color: yellow" id="pmsg"></label><br>
                       <label><b>Password</b></label>
-                      <input type="password" class="form-control w-75 py-4 " name="lgpassword" value="<?php if(isset($_POST['btn_login'])){ echo $_POST['lgpassword']; } ?>" placeholder="Password:" required>
+                      <input type="password" class="form-control w-75 py-4 font-weight-bold " name="lgpassword" value="<?php if(isset($_POST['btn_login'])){ echo $_POST['lgpassword']; } ?>" placeholder="Password:" required>
 
                       <input type="submit" class="btn btn-lg  xl-w-25 mt-5" value="Log in" name="btn_login" id="login_btn">
                       <div class="pp pt-5" >
@@ -124,21 +124,14 @@
                                               if ($te>0  &&  $se >0  && $tp==0 && $sp==0 )
                                               {
                                                 // echo "<h2> password are wrong!!!... </h2>";
-                                                echo "<script> document.getElementById('pmsg').innerHTML ='Password is Wrong!'; </script>";
+                                                echo "<script> document.getElementById('pmsg').innerHTML ='Email or Password is Wrong!'; </script>";
 
                                               }else {echo "<script> document.getElementById('pmsg').innerHTML =''; </script>";}
-                                              if (($te >0 &&  $se==0 && $tp==0) || ($se>0  && $te==0 && $sp==0) ) {
-                                                // echo "<h2>teacher email password are wrong!!!... </h2>";
-                                                  echo "<script> document.getElementById('pmsg').innerHTML ='Password is Wrong!'; </script>";
-                                              }else {echo "<script> document.getElementById('pmsg').innerHTML =''; </script>";}
+
                                               /*condition for email wrong */
                                               if ($te==0 && $se==0 && $tp==0 && $sp==0) {  /* use if both fields are wrong */
                                                 echo "<script> document.getElementById('emsg').innerHTML ='Email and Password doesnot exist!'; </script>";
                                               }else {echo "<script> document.getElementById('emsg').innerHTML =''; </script>";}
-                                              if (($te==0  && $se==0 &&  $tp>0  && $sp>0 ) || ($te==0 && $se==0  && $tp>0 && $sp==0) || ($te==0  && $se==0 && $sp>0  && $tp==0) ) {
-                                                  echo "<script> document.getElementById('emsg').innerHTML ='Email is Wrong!'; </script>";
-                                              }else {echo "<script> document.getElementById('emsg').innerHTML =''; </script>";}
-
 
                                           }
                                           else {

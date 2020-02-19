@@ -158,7 +158,6 @@
         $ctime  =date("h:i:s A");
         $expire_date  =$_POST['expire_date'];
         $subject_name =$_POST['subject_name'];
-
         $status_subject=0;
 
 
@@ -190,7 +189,7 @@
 
                 if ($status_subject==1) {
                   $tid=$_SESSION['t_id'];
-                  $stmt11 ="INSERT INTO class (Name,Enrollment_key,Class_session,Start_date,currenttime,Expire_date,T_id) VALUES ('$class_name', '$enroll_key', '$class_session', '$current_date', '$ctime', '$expire_date', '$tid')";
+                  $stmt11 ="INSERT INTO class (Name,Enrollment_key,Class_session,Start_date,currenttime,Expire_date,reg_status,T_id) VALUES ('$class_name', '$enroll_key', '$class_session', '$current_date', '$ctime', '$expire_date','1','$tid')";
                   $exe_stmt11=mysqli_query($con,$stmt11);
                       if ($exe_stmt11) {
 

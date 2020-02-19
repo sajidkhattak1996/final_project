@@ -23,10 +23,10 @@
             <h5>NOW VIEWING :>
               <strong>
               <a href="tmain_table.php" style="color: black"> All  Classes &nbsp; </a>:>  &nbsp;&nbsp;
-              <a href="" style="color: blue"> <?php echo $r1['Name'];  ?>  </a>
+              <a href="class_page.php" style="color: blue"> <?php echo $r1['Name'];  ?>  </a>
             </h5>
 
-            <h5 style="padding-top: 10px;">Subject Name :>&nbsp;&nbsp; <span href="" style="color: deeppink;font-weight: bolder;letter-spacing: 0.8px"><?php echo $r2['subject_name'];  ?> </span></h5>
+            <h5 style="padding-top: 10px;">Subject Name :>&nbsp;&nbsp; <span  style="color: deeppink;font-weight: bolder;letter-spacing: 0.8px"><?php echo $r2['subject_name'];  ?> </span></h5>
           </div>
       </div>
           <?php

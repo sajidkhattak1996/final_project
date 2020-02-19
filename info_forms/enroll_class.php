@@ -97,16 +97,20 @@ include('db_connection.php');
                 $e2=mysqli_fetch_array($exe2);
                 if ($enroll_key==$e2['Enrollment_key']) {
                   // echo "<h1>enrollment key matcheddddddddddd!</h1>";
-                  $stmt_subid="SELECT Subject_id FROM have WHERE Class_id='$cid'";
-                  $exe_subid=mysqli_query($con,$stmt_subid);
-                  $es=mysqli_fetch_array($exe_subid);
+                  $reg_state=mysqli_query($con ,"SELECT reg_status FROM class WHERE Class_id='' AND reg_status='1'");
+                  if (mysqli_num_rows($reg_state)==1) {
+
+
+                    $stmt_subid="SELECT Subject_id FROM have WHERE Class_id='$cid'";
+                    $exe_subid=mysqli_query($con,$stmt_subid);
+                    $es=mysqli_fetch_array($exe_subid);
 
 
 
-                  // if ($subid==$es['Subject_id']) {
+                    // if ($subid==$es['Subject_id']) {
 
 
-                      $subid=$es['Subject_id'];
+                    $subid=$es['Subject_id'];
                     //okkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk
                     $stmt_check="SELECT Subject_id,Class_id,S_id FROM have WHERE Subject_id='$subid' AND Class_id='$cid'";
                     $exe_check=mysqli_query($con ,$stmt_check);
@@ -119,96 +123,108 @@ include('db_connection.php');
                       $stmt_reg_check="SELECT Class_id,S_id,Enrollment_key FROM register WHERE Class_id='$cid'  AND S_id='$S_id'  AND Enrollment_key='$enroll_key'";
                       $exe_reg1=mysqli_query($con ,$stmt_reg_check);
                       $e_row=mysqli_fetch_array($exe_reg1);
-                          if ($cid==$e_row['Class_id']  && $enroll_key==$e_row['Enrollment_key'] && $S_id=$e_row['S_id']) {  ?>
-                                  <script type="text/javascript">
-                                      document.getElementById("msg1").innerHTML='Your are Successfully Enroll to the Class.';
-                                      setTimeout(fn ,5000);
-                                      function fn(){
-                                        document.getElementById("msg1").innerHTML='';
-                                      }
-                                  </script>
-                          <?php      /* echo "updated and inserted data in hava table only "; */
-                          }else {
-                            $stmt_register="INSERT INTO register(Class_id, S_id,Reg_no, Enrollment_key) VALUES ('$cid','$S_id','$class_no','$enroll_key')";
-                            $exe_r=mysqli_query($con,$stmt_register);
-                              // echo "updated and inserted data  in both  ";
-                              ?>
-                              <script type="text/javascript">
-                                  document.getElementById("msg1").innerHTML='Your are Successfully Enroll to the Class.';
-                                  setTimeout(fn ,5000);
-                                  function fn(){
-                                    document.getElementById("msg1").innerHTML='';
-                                  }
-                              </script>
+                      if ($cid==$e_row['Class_id']  && $enroll_key==$e_row['Enrollment_key'] && $S_id=$e_row['S_id']) {  ?>
+                        <script type="text/javascript">
+                        document.getElementById("msg1").innerHTML='Your are Successfully Enroll to the Class.';
+                        setTimeout(fn ,5000);
+                        function fn(){
+                          document.getElementById("msg1").innerHTML='';
+                        }
+                        </script>
+                        <?php      /* echo "updated and inserted data in hava table only "; */
+                      }else {
+                        $stmt_register="INSERT INTO register(Class_id, S_id,Reg_no, Enrollment_key) VALUES ('$cid','$S_id','$class_no','$enroll_key')";
+                        $exe_r=mysqli_query($con,$stmt_register);
+                        // echo "updated and inserted data  in both  ";
+                        ?>
+                        <script type="text/javascript">
+                        document.getElementById("msg1").innerHTML='Your are Successfully Enroll to the Class.';
+                        setTimeout(fn ,5000);
+                        function fn(){
+                          document.getElementById("msg1").innerHTML='';
+                        }
+                        </script>
 
-                              <?php
-                          }
+                        <?php
+                      }
 
 
                     }
                     else {
-                          $q1="SELECT Subject_id,Class_id,S_id FROM have WHERE Subject_id='$subid'  AND Class_id='$cid' AND S_id='$S_id'";
-                          $q2="SELECT Class_id,S_id,Enrollment_key FROM register WHERE Class_id='$cid' AND S_id='$S_id' AND Enrollment_key='$enroll_key'";
-                          $eq1=mysqli_query($con,$q1);
-                          $eq2=mysqli_query($con,$q2);
+                      $q1="SELECT Subject_id,Class_id,S_id FROM have WHERE Subject_id='$subid'  AND Class_id='$cid' AND S_id='$S_id'";
+                      $q2="SELECT Class_id,S_id,Enrollment_key FROM register WHERE Class_id='$cid' AND S_id='$S_id' AND Enrollment_key='$enroll_key'";
+                      $eq1=mysqli_query($con,$q1);
+                      $eq2=mysqli_query($con,$q2);
 
-                          $r1=mysqli_num_rows($eq1);
-                          $r2=mysqli_num_rows($eq2);
+                      $r1=mysqli_num_rows($eq1);
+                      $r2=mysqli_num_rows($eq2);
 
-                          if ($r1>0 && $r2>0 ) { ?>
-                                    <!-- echo "<h1>you are allready resgister with this class </h1>"; -->
-                                    <script type="text/javascript">
-                                        document.getElementById("msg2").innerHTML='Your are allready registed with this class ! please try another...';
-                                        setTimeout(fn ,5000);
-                                        function fn(){
-                                          document.getElementById("msg2").innerHTML='';
-                                        }
-                                    </script>
-                                  <?php }
-                          else {
-                            //this mean the the student are not register with the this class
-                            $stmt_reg_check="SELECT Class_id,S_id,Enrollment_key FROM register WHERE Class_id='$cid'  AND S_id='$S_id'  AND Enrollment_key='$enroll_key'";
-                            $exe_reg1=mysqli_query($con ,$stmt_reg_check);
-                            $e_row=mysqli_fetch_array($exe_reg1);
-                                        if ($cid==$e_row['Class_id']  && $enroll_key==$e_row['Enrollment_key'] && $S_id=$e_row['S_id']) {
-                                               $q="INSERT INTO have(Subject_id, Class_id, S_id) VALUES ('$subid','$cid','$S_id')";
-                                               mysqli_query($con ,$q);
-                                               echo "inserted data in hava table only ";
-                                               ?>
-                                               <script type="text/javascript">
-                                                   document.getElementById("msg1").innerHTML='Your are Successfully Enroll to the Class.';
-                                                   setTimeout(fn ,5000);
-                                                   function fn(){
-                                                     document.getElementById("msg1").innerHTML='';
-                                                   }
-                                               </script>
-
-                                               <?php
-                                         }
-                                         else {
-                                           $q="INSERT INTO have(Subject_id, Class_id, S_id) VALUES ('$subid','$cid','$S_id')";
-                                           $e=mysqli_query($con ,$q);
-                                           $stmt_register="INSERT INTO register(Class_id,S_id, Reg_no,Enrollment_key) VALUES ('$cid','$S_id','$class_no','$enroll_key')";
-                                           $exe_r=mysqli_query($con,$stmt_register);
-                                                  if ($e && $exe_r) {
-                                                    ?>
-                                                    <script type="text/javascript">
-                                                        document.getElementById("msg1").innerHTML='Your are Successfully Enroll to the Class.';
-                                                        setTimeout(fn ,5000);
-                                                        function fn(){
-                                                          document.getElementById("msg1").innerHTML='';
-                                                        }
-                                                    </script>
-
-                                                    <?php
-                                                  }
-                                         }
-
+                      if ($r1>0 && $r2>0 ) { ?>
+                        <!-- echo "<h1>you are allready resgister with this class </h1>"; -->
+                        <script type="text/javascript">
+                          document.getElementById("msg2").innerHTML='Your are allready registed with this class ! please try another...';
+                          setTimeout(fn ,5000);
+                          function fn(){
+                            document.getElementById("msg2").innerHTML='';
                           }
+                        </script>
+                      <?php }
+                      else {
+                        //this mean the the student are not register with the this class
+                        $stmt_reg_check="SELECT Class_id,S_id,Enrollment_key FROM register WHERE Class_id='$cid'  AND S_id='$S_id'  AND Enrollment_key='$enroll_key'";
+                        $exe_reg1=mysqli_query($con ,$stmt_reg_check);
+                        $e_row=mysqli_fetch_array($exe_reg1);
+                        if ($cid==$e_row['Class_id']  && $enroll_key==$e_row['Enrollment_key'] && $S_id=$e_row['S_id']) {
+                          $q="INSERT INTO have(Subject_id, Class_id, S_id) VALUES ('$subid','$cid','$S_id')";
+                          mysqli_query($con ,$q);
+                          echo "inserted data in hava table only ";
+                          ?>
+                          <script type="text/javascript">
+                            document.getElementById("msg1").innerHTML='Your are Successfully Enroll to the Class.';
+                            setTimeout(fn ,5000);
+                            function fn(){
+                              document.getElementById("msg1").innerHTML='';
+                            }
+                          </script>
 
-                            // echo "not zerooooooooooooooooooooooooooooooooooooo";
+                          <?php
+                        }
+                        else {
+                          $q="INSERT INTO have(Subject_id, Class_id, S_id) VALUES ('$subid','$cid','$S_id')";
+                          $e=mysqli_query($con ,$q);
+                          $stmt_register="INSERT INTO register(Class_id,S_id, Reg_no,Enrollment_key) VALUES ('$cid','$S_id','$class_no','$enroll_key')";
+                          $exe_r=mysqli_query($con,$stmt_register);
+                          if ($e && $exe_r) {
+                            ?>
+                            <script type="text/javascript">
+                              document.getElementById("msg1").innerHTML='Your are Successfully Enroll to the Class.';
+                              setTimeout(fn ,5000);
+                              function fn(){
+                                document.getElementById("msg1").innerHTML='';
+                              }
+                            </script>
 
+                            <?php
                           }
+                        }
+
+                      }
+
+                      // echo "not zerooooooooooooooooooooooooooooooooooooo";
+
+                    }
+
+
+                  }else {  ?>
+                    <script type="text/javascript">
+                        document.getElementById("msg2").innerHTML='Registration Status is Off';
+                        setTimeout(fn ,5000);
+                        function fn(){
+                          document.getElementById("msg2").innerHTML='';
+                        }
+                    </script>
+                    <?php
+                  }
 
 
                 }

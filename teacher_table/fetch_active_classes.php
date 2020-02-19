@@ -10,12 +10,12 @@ date_default_timezone_set("Asia/Karachi");
 $current_date =date("Y-m-d");
 
 $teacher_id=$_SESSION['t_id'];
-
-$conn=mysqli_connect("localhost","root","","project_db");
-$totalClassSQL = "SELECT Class_id,Name,Start_date,Expire_date from class WHERE T_id='$teacher_id' AND Expire_date >= '$current_date' ";
+include('../db_connection.php');
+$conn=$con;
+$totalClassSQL = "SELECT Class_id,Name,Start_date,Expire_date,reg_status from class WHERE T_id='$teacher_id' AND Expire_date >= '$current_date' ";
 $ClassResult = mysqli_query($conn, $totalClassSQL);
 ?>
-<form method="post" >
+<form action="#" method="post" >
   <?php
 /*===========edit buttons div class ===========================================================================================================================================================================
 =========================================================================================================================================================================================================*/
@@ -54,6 +54,7 @@ $ClassResult = mysqli_query($conn, $totalClassSQL);
 
 
     </style>
+
     <div id="edit" >
       <?php
       if (isset($_POST['btn1_close'])) {
@@ -105,6 +106,7 @@ $ClassResult = mysqli_query($conn, $totalClassSQL);
                     <th scope="col">Subject</th>
                     <th scope="col">Start Date</th>
                     <th scope="col">Expire Date</th>
+                    <th scope="col">Reg_Status</th>
                     <th scope="col">Share &nbsp;&nbsp;<span class="glyphicon glyphicon-share-alt"></span>  </th>
                     <th scope="col">Edit</th>
                     <th scope="col">Drop</th>
@@ -112,9 +114,10 @@ $ClassResult = mysqli_query($conn, $totalClassSQL);
           </thead>
             <tbody>
 <?php
-while($class = mysqli_fetch_assoc($ClassResult)){
+$i=0;
+while($class = mysqli_fetch_assoc($ClassResult)){ $i++;
 ?>
-<tr>
+<tr id="row<?php echo $i; ?>">
 <th scope="row"><?php echo $class['Class_id']; ?></th>
 
 <td><style> #classbtn{background:none;border:none;color: blue} #classbtn:hover{border-bottom: solid 2px blue;} </style>
@@ -129,6 +132,32 @@ while($class = mysqli_fetch_assoc($ClassResult)){
 
 <td><?php echo $class['Start_date']; ?></td>
 <td><?php echo $class['Expire_date']; ?></td>
+<td>
+  <?php
+    if ($class['reg_status']==1) {
+      ?>
+      <div class="onoffswitch" title="Registration Status for the Students to allow them for registration or not">
+        <input type="checkbox" name="onoffswitch<?php echo $i;  ?>" class="onoffswitch-checkbox" onchange="me('<?php echo $class['Class_id'];  ?>',this)" id="myonoffswitch<?php echo $i; ?>"  checked title="Registration Status for Student to allow and deny Registration of Student.">
+        <label class="onoffswitch-label" for="myonoffswitch<?php echo $i; ?>">
+          <span class="onoffswitch-inner"></span>
+          <span class="onoffswitch-switch"></span>
+        </label>
+      </div>
+      <?php
+    }else {
+      ?>
+      <div class="onoffswitch" title="Registration Status for the Students to allow them for registration or not">
+        <input type="checkbox" name="onoffswitch<?php echo $i;  ?>" class="onoffswitch-checkbox" onchange="me('<?php echo $class['Class_id'];  ?>',this)" id="myonoffswitch<?php echo $i; ?>"  title="Registration Status for Student to allow and deny Registration of Student.">
+        <label class="onoffswitch-label" for="myonoffswitch<?php echo $i; ?>">
+          <span class="onoffswitch-inner"></span>
+          <span class="onoffswitch-switch"></span>
+        </label>
+      </div>
+      <?php
+    }
+
+  ?>
+</td>
 <?php
 //functions call
 
@@ -145,14 +174,62 @@ Delete($class['Class_id'],$class['Name']);
 
 </div>
 
+<style>
+.onoffswitch {
+    position: relative; width: 55px;
+    -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
+}
+.onoffswitch-checkbox {
+    display: none;
+}
+.onoffswitch-label {
+    display: block; overflow: hidden; cursor: pointer;
+    border: 2px solid #0B9978; border-radius: 14px;
+}
+.onoffswitch-inner {
+    display: block; width: 200%; margin-left: -100%;
+    transition: margin 0.3s ease-in 0s;
+}
+.onoffswitch-inner:before, .onoffswitch-inner:after {
+    display: block; float: left; width: 50%; height: 12px; padding: 0; line-height: 12px;
+    font-size: 14px; color: white; font-family: Trebuchet, Arial, sans-serif; font-weight: bold;
+    box-sizing: border-box;
+}
+.onoffswitch-inner:before {
+    content: "ON";
+    padding-left: 5px;
+    background-color: #0010F5; color: #FFFFFF;
+}
+.onoffswitch-inner:after {
+    content: "OFF";
+    padding-right: 5px;
+    background-color: #F0114C; color: #FFFFFF;
+    text-align: right;
+}
+.onoffswitch-switch {
+    display: block; width: 15px; margin: -1.5px;
+    background: #13F5DB;
+    position: absolute; top: 0; bottom: 0;
+    right: 39px;
+    border: 2px solid #0B9978; border-radius: 14px;
+    transition: all 0.3s ease-in 0s;
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
+    margin-left: 0;
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
+    right: 0px;
+}
 
+
+</style>
 
 
 
 <?php
 // function which display the slide button
   function mysubject($b){
-    $con =mysqli_connect("localhost","root","","project_db");
+    include('../db_connection.php');
     if ($con) {
         $stmt_hh="SELECT Subject_id FROM have WHERE Class_id='$b'";
         $exe_hh=mysqli_query($con ,$stmt_hh);
@@ -189,7 +266,7 @@ Delete($class['Class_id'],$class['Name']);
 
 // function which display the edit buttons icons
           function Edit($i){ ?>
-          <td><form action="" method="post">
+          <td><form action="#edit" method="post">
             <button class="btn btn-outline-primary" name="btn_edit" value="<?php echo $i; ?>" style="border:none"> <span class="glyphicon glyphicon-pencil" style="font-size: 14px"></span></button>
             </form>
 
@@ -199,13 +276,15 @@ Delete($class['Class_id'],$class['Name']);
     // function which display the delete buttons icons
               function Delete($i,$j){ ?>
                 <style> #cd<?php echo $i; ?>{display: none} </style>
-              <td>
+                <form name="form<?php echo $i; ?>" action="#f<?php echo $i; ?>" method="post">
+              <td id="f<?php  echo $i;  ?>">
 
                     <input type="text" name="cn" id="gg" value="<?php echo $j; ?>" style="display:none">
                     <button id="dd<?php echo $i;?>" type="submit" class="btn btn-outline-danger" name="btn_delete" value="<?php echo $i; ?>" style="border:none"> <span class="glyphicon glyphicon-trash" style="font-size: 14px"></span></button>
                     <button id="cd<?php echo $i; ?>" type="submit" class="btn btn-danger btn-sm" name="c_delete"  value="<?php echo $i; ?>">conform</button>
 
                 </td>
+              </form>
               </tr>
 
               <?php  }
@@ -293,7 +372,41 @@ if (isset($_POST['class_name'])) {
 <script src="../datatables-bs4/js/dataTables.bootstrap4.js"></script>
 
 <script>
+
+  function me(class_id,obj){
+    var cid=class_id;
+    var st=0
+    if (obj.checked ==true) {
+        st=1;
+    }else {
+      st=0;
+    }
+
+    $.ajax({
+      url:'update_status.php',
+      type:'POST',
+      data:{cid,st},
+      success:function(data){
+      if(data=="yes"){
+        alert('You Registration Status are Successfully Changed');
+        // alert('Update Sucessfully');
+      // $('#spn').html('<small id="smid" style="color:green;margin-left:100px"><b>Update Sucessfully<b></small>');
+      // setTimeout(myFn,2000);
+      }
+      else if(data=="no"){
+        alert('Registration Update Failed! try again');
+      // $('#spn').html('<small id="smid" style="color:red;margin-left:100px"><b>Update Failed</b></small>');
+      // alert('Update Failed');
+      // setTimeout(myFn,2000);
+      }
+      }
+
+    });
+  }
+
+
   $(function () {
+
 
     $('#example2').DataTable({
       "paging": true,

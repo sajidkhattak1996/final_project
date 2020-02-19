@@ -334,7 +334,6 @@ if (isset($_POST['lg'])) {
                       $te=mysqli_num_rows($tr1);
                       $tp=mysqli_num_rows($tr2);
 
-
                       /* student */
                       $semail ="select Email FROM student WHERE Email ='$em'";
                       $spass ="select Password from student WHERE Password='$password'";
@@ -350,20 +349,14 @@ if (isset($_POST['lg'])) {
                           if ($te>0  &&  $se >0  && $tp==0 && $sp==0 )
                           {
                             // echo "<h2> password are wrong!!!... </h2>";
-                            echo "<script> document.getElementById('m').innerHTML ='Password is Wrong!'; </script>";
+                            echo "<script> document.getElementById('m').innerHTML ='Email or Password is Wrong!'; </script>";
                           }
-                          if (($te >0 &&  $se==0 && $tp==0) || ($se>0  && $te==0 && $sp==0) ) {
-                            // echo "<h2>teacher email password are wrong!!!... </h2>";
-                              echo "<script> document.getElementById('m').innerHTML ='Password is Wrong!'; </script>";
-                          }
+                  
                           /*condition for email wrong */
                           if ($te==0 && $se==0 && $tp==0 && $sp==0) {  /* use if both fields are wrong */
                             echo "<script> document.getElementById('m').innerHTML ='Email and Password doesnot exist!'; </script>";
                           }
-                          if (($te==0  && $se==0 &&  $tp>0  && $sp>0 ) || ($te==0 && $se==0  && $tp>0 && $sp==0) || ($te==0  && $se==0 && $sp>0  && $tp==0) ) {
-                              echo "<script> document.getElementById('m').innerHTML ='Email is Wrong!'; </script>";
 
-                          }
 
                       }
                       else {
