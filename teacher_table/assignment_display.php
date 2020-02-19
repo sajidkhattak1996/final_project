@@ -175,7 +175,11 @@
                                     }
                                   }else {
                                     echo "<tr>";
-                                    echo "<td colspan='6' class='alert-warning text-center'>NO Assignment</td>";
+                                    ?>
+                                    <td> <?php  echo $std_name['Reg_no'];  ?> </td>
+                                    <td> <?php  echo $std_name['student_name'];   ?> </td>
+                                    <?php
+                                    echo "<td colspan='4' class='alert-warning text-center'>NO Assignment</td>";
                                     echo "</tr>";
                                   }
                                 }

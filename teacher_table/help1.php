@@ -47,8 +47,8 @@
 
     </div>
 <div class="container-fluid " >
-        <img src="../pic/help/create class step 1.jpg" class="img-fluid  pb-2" alt="Responsive image"  style=" height: auto;border: solid 1px blue;border-radius: 26px;box-shadow: 1px 1px 12px 1px ">
-        <img src="../pic/help/create class step 2.jpg" class="img-fluid  pb-2" alt="Responsive image"  style=" height: auto;border: solid 1px blue;border-radius: 26px;box-shadow: 1px 1px 12px 1px ">
+        <a href="../pic/help/create class step 1.jpg"><img src="../pic/help/create class step 1.jpg" class="img-fluid  pb-2" alt="Responsive image"  style=" height: auto;border: solid 1px blue;border-radius: 26px;box-shadow: 1px 1px 12px 1px "></a>
+        <a href="../pic/help/create class step 2.jpg"><img src="../pic/help/create class step 2.jpg" class="img-fluid  pb-2" alt="Responsive image"  style=" height: auto;border: solid 1px blue;border-radius: 26px;box-shadow: 1px 1px 12px 1px "></a>
 </div>
 
 </div>

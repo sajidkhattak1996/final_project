@@ -31,6 +31,10 @@ include('db_connection.php');
      @media (max-width: 960px){
        #mmm{ display: none;}
      }
+		@media (max-width: 575px){
+			#webhead{display: none}
+			
+		}
     </style>
     <link href="menu css and js/css/sajid.css" rel="stylesheet" type="text/css">
 

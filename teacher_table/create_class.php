@@ -87,7 +87,7 @@
 
                 <div class="col-6" id="col2">
                   <label >Enrollment key:</label><br>
-                  <input type="text" name="enroll_key" title="Enter Enrollment key"  required pattern="^[a-zA-Z][a-zA-Z0-9-_\s.]{2,40}$" title="Enrollment key shoud start from Alphabet and  between three to twenty character long.">
+                  <input type="text" name="enroll_key" class="form-control" title="Enter Enrollment key"  required pattern="^[a-zA-Z][a-zA-Z0-9-_\s.]{2,40}$" title="Enrollment key shoud start from Alphabet and  between three to twenty character long.">
                 </div>
             </div>
 

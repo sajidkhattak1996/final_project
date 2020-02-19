@@ -98,7 +98,7 @@ $ClassResult = mysqli_query($conn, $totalClassSQL);
   }
 /*==========ended==============================================================================================================================================================================================*/
 ?>
-<table id="example2" class="table table-striped table-bordered table-hover table-sm table-light" >
+<table id="example2" class="table table-striped table-bordered table-hover table-sm table-light table-responsive-sm" >
           <thead class="bg-info">
               <tr>
                     <th scope="col" scope="row">Class ID</th>

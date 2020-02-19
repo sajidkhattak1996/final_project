@@ -2258,6 +2258,43 @@ if (isset($_POST['btn_lg'])) {
     </body>
     </html>
     <script>
+//delete the student
+function Fn_Delete_student(id,name){
+  $.confirm({
+      title: 'Delete Student!',
+      content: "Are You Sure You want to Delete this Student? <h5>"+name+" </h5> ",
+      type: 'red',
+      typeAnimated: true,
+      buttons: {
+          tryAgain: {
+              text: 'Click To Continue',
+              btnClass: 'btn-red',
+              action: function(){
+                $.ajax({
+                  url:'my_pages/delete_student.php',
+                  type:'POST',
+                  data:{id},
+                  success: function(data){
+                    if (data=="yes") {
+                      alert("Student are Successfully Deleted.");
+                      var a=0;
+                      if (a==0) {
+                         a++;   window.location.reload();  }
+                    }else if (data=="no") {
+                      alert("Student Deletion Failed! Try again.");
+                    }
+
+                  }
+                });
+              }
+          },
+          close: function () {
+          }
+      }
+  });
+
+}
+
 
 
     //delete function
