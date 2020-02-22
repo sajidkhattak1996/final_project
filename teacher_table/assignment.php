@@ -76,7 +76,7 @@
               <!-- below table which display the student record which are enroll in the this class which are clicked    -->
               <div class="container-fluid" style="padding-bottom: 10px">
                 <div class="tend"  style="border-radius: 10px 10px 0px 0px;margin-bottom: 8px;height: auto;padding-bottom:3px;padding-top: 0px">
-                    <table class="table table-straped">
+                    <table class="table table-straped table-responsive-sm">
                           <thead>
                             <tr>
                                 <td>

@@ -124,7 +124,7 @@
                     <tbody>
                       <div class="alert alert-warning font-weight-bold">
                         <b>Note:</b><br>
-                        IF You Edit the Presentation ,the Presentation total marks will not be editable for lover value and the Presentation change are applayed to all student of class.
+                        IF You Edit the Presentation ,the Presentation total marks will not be editable for lower value and the Presentation change are applayed to all student of class.
                         <p>If You Delete Presentation , the records for that Particular Presentation are Also deleted.</p>
                       </div>
                       <?php

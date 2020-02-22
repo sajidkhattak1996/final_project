@@ -122,7 +122,7 @@
 
       </div>
 <form method="post" style="padding-top: 20px">
-    <table id="example1" class="table table-striped  table-bordered table-hover table-sm">
+    <table id="example1" class="table table-striped  table-bordered table-hover table-sm table-responsive-sm">
         <thead class="bg-info">
                 <tr>
                   <th scope="col" scope="row">Reg.No</th>

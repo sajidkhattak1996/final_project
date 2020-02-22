@@ -103,7 +103,7 @@ session_start();
 
 <div id="ff">
   <div style="margin-top:0px;padding-bottom:0px">
-    <table class="table table-straped ">
+    <table class="table table-straped table-responsive-sm">
       <thead id="bb">
           <tr>
             <th width="5%">Class ID</th>

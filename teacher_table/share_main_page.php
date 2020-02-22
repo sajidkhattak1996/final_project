@@ -39,7 +39,7 @@ include('top_info.php');
                 <p class="text">
                   This is Teacher Share Information Homepage. In this Page you can share/upload the course slides/notes or external link for the
                   course content and also Delete record of them.You can also create Notification by click on Share Information to inform your's
-                  student of that class and you can also view your information and slides.
+                  student of that class and you can also view your information and slides.<p> <b class="text-danger">Note: </b>The Maximum size of 10 MB  of file are allowed for upload.  </p>
                 </p>
 
             </div>
@@ -104,9 +104,11 @@ include('top_info.php');
                                 </style>
 
                           <div class="tend" style="border-radius: 10px 10px 0px 0px">   </div>
+                          <div id="file_msg"> </div>
                             <div class="row" style="margin-top: 0px;margin-left: 0px;margin-right: 0px;border:solid 1px #13bca4;border-radius: 0px 0px 10px 10px;height:auto">
                                         <form id="form3" enctype="multipart/form-data" method="post" action="share_main_page.php" style="margin:0 auto;padding-top:10px">
                                               <div class="row" style="padding-bottom:10px">
+
                                                 <div class="col-sm" id="c" style="margin-right: 50px;margin-bottom:5px">
                                                       <input type="file" name="file" id="file"  class=" form-control-file"  title="Click here to select file to upload." required />
                                                 </div>
@@ -137,7 +139,6 @@ include('top_info.php');
                                     }
 
                             </script>
-
 
                                         <form id="f2" method="post" action="save_link.php" style="margin:0 auto;padding-top:10px">
                                               <div class="row" style="padding-bottom:10px">
@@ -172,26 +173,83 @@ include('top_info.php');
           echo('Could not connect: ' . mysql_error());
         else
         {
-          if (file_exists("download/" . $_FILES["file"]["name"]))
-          {
-            echo '<script language="javascript">alert(" Sorry!! Filename Already Exists...")</script>';
+          $f=$_FILES["file"]["name"];
+          if($_FILES['file']['size'] > 10485760) { //10 MB (size is also in bytes)
+            // echo "file is tooo big";
+          ?>  <script>
+            // alert(" Sorry!! Filename Already Exists...")
+              var m=document.getElementById("file_msg");
+              m.innerHTML="<div class='alert alert-danger text-center'> Your File Size is too Big  </div>";
+              setTimeout(fh ,5000);
+              function fh(){
+                m.innerHTML="";
+              }
+            </script>
+            <?php
           }
-          else
-          {
-            date_default_timezone_set("Asia/Karachi");
-            $current_date =date("Y-m-d");
-            move_uploaded_file($_FILES["file"]["tmp_name"],"download/" . $_FILES["file"]["name"]) ;
-            $sql="INSERT INTO slide(topic, c_date, file, Class_id) VALUES ('" . $_POST["sub"] ."','" . $current_date . "','" .$_FILES["file"]["name"] ."','".$_SESSION['class_id']."')";
 
-            if (!mysqli_query($con,$sql))
-              echo('Error : ' . mysqli_error());
-            else ?>
-              <script language="javascript">
-              alert("Your File are Successfully Uploded");
-              window.location.href='share_main_page.php';
-              </script>
-              <?php
+      else {
+              $file_extension=explode(".",$f);
+              $ext=end($file_extension);
+              $allowed = array('gif', 'png', 'jpg','pfd','PDF','doc','DOC','docx','DOCX','csv','CSV','ppt','pptx','xml','xps','sql');
+              if (!in_array($ext, $allowed)) {
+                  // echo 'not allowed error';
+                  ?>  <script>
+                    // alert(" Sorry!! Filename Already Exists...")
+                      var m=document.getElementById("file_msg");
+                      m.innerHTML="<div class='alert alert-danger text-center'> This Extension of file are not allowed!.  </div>";
+                      setTimeout(fh ,5000);
+                      function fh(){
+                        m.innerHTML="";
+                      }
+                    </script>
+                    <?php
+              }
+
+            else {
+              if (file_exists("download/" . $_FILES["file"]["name"]))
+              {?>
+                <script>
+                //// alert(" Sorry!! Filename Already Exists...")
+                  var m=document.getElementById("file_msg");
+                  m.innerHTML="<div class='alert alert-danger text-center'> Sorry!! Filename Already Exists...  </div>";
+                  setTimeout(fh ,4000);
+                  function fh(){
+                    m.innerHTML="";
+                  }
+                </script>
+                <?php
+              }
+              else
+              {
+                date_default_timezone_set("Asia/Karachi");
+                $current_date =date("Y-m-d");
+                move_uploaded_file($_FILES["file"]["tmp_name"],"download/" . $_FILES["file"]["name"]) ;
+                $sql="INSERT INTO slide(topic, c_date, file, Class_id) VALUES ('" . $_POST["sub"] ."','" . $current_date . "','" .$_FILES["file"]["name"] ."','".$_SESSION['class_id']."')";
+
+                if (!mysqli_query($con,$sql))
+                  echo('Error : ' . mysqli_error());
+                else ?>
+                  <script language="javascript">
+                  // //alert("Your File are Successfully Uploded");
+                  // //window.location.href='share_main_page.php';
+
+                  var m=document.getElementById("file_msg");
+                  m.innerHTML="<div class='alert alert-success text-center'> Your File are Successfully Uploded  </div>";
+                  setTimeout(fh ,4000);
+                  function fh(){
+                    m.innerHTML="";
+                  }
+                  </script>
+                  <?php
+                }
+
             }
+
+
+
+
+          }
         }
         mysqli_close($con);
         }

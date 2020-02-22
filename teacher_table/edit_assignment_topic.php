@@ -121,7 +121,7 @@
                     <tbody>
                       <div class="alert alert-warning font-weight-bold">
                         <b>Note:</b><br>
-                        IF You Edit the Assignment ,the assignment total marks will not be editable for lover value and the Assignment change are applayed to all student of class.
+                        IF You Edit the Assignment ,the assignment total marks will not be editable for lower value and the Assignment change are applayed to all student of class.
                         <p>If You Delete Assignment , the records for that Particular Assignment are Also deleted.</p>
                       </div>
                       <?php

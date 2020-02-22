@@ -124,7 +124,7 @@
                     <tbody>
                       <div class="alert alert-warning font-weight-bold">
                         <b>Note:</b><br>
-                        IF You Edit the Quize ,the Quize total marks will not be editable for lover value and the Quize change are applayed to all student of class.
+                        IF You Edit the Quize ,the Quize total marks will not be editable for lower value and the Quize change are applayed to all student of class.
                         <p>If You Delete Quize , the records for that Particular Quize are Also deleted.</p>
                       </div>
                       <?php

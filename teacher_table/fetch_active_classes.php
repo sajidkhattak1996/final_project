@@ -243,7 +243,6 @@ Delete($class['Class_id'],$class['Name']);
         ?>
            <style> #sbb{background:none;border:none;color: blue;} #sbb:hover{ border-bottom:solid 2px deeppink }  </style>
             <td>
-              <!-- <input type="text" name="subjectid" value="<?php echo $sid ?>" style="display: none;border:none;background:none"> -->
                 <button type="submit" name="btn_subject" id="sbb" value="<?php echo $b ?>"><?php echo $sn;  ?></button>
             </td>
 

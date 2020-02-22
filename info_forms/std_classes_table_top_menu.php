@@ -32,7 +32,7 @@
 
                     border-radius: 7px 7px 0px 0px;
                   }
-                  #b2,#b3,#b4,#b5{
+                  #b2,#b3,#b4,#b5,#b6{
                       background-image: -webkit-linear-gradient(270deg,rgba(127,243,228,0.52) 0%,rgba(237,251,249,0.81) 100%);
                       background-image: -moz-linear-gradient(270deg,rgba(127,243,228,0.52) 0%,rgba(237,251,249,0.81) 100%);
                       background-image: -o-linear-gradient(270deg,rgba(127,243,228,0.52) 0%,rgba(237,251,249,0.81) 100%);
@@ -70,6 +70,13 @@
                       color: #1f5de8;
                   }
                   #b5:hover{
+                     background-image: -webkit-linear-gradient(270deg,rgba(127,243,228,0.9) 0%,rgba(237,251,249,0.9) 100%);
+                      background-image: -moz-linear-gradient(270deg,rgba(127,243,228,0.9) 0%,rgba(237,251,249,0.9) 100%);
+                      background-image: -o-linear-gradient(270deg,rgba(127,243,228,0.9) 0%,rgba(237,251,249,0.9) 100%);
+                      background-image: linear-gradient(180deg,rgba(127,243,228,0.9) 0%,rgba(237,251,249,0.9) 100%);
+                      color: #1f5de8;
+                  }
+                  #b6:hover{
                      background-image: -webkit-linear-gradient(270deg,rgba(127,243,228,0.9) 0%,rgba(237,251,249,0.9) 100%);
                       background-image: -moz-linear-gradient(270deg,rgba(127,243,228,0.9) 0%,rgba(237,251,249,0.9) 100%);
                       background-image: -o-linear-gradient(270deg,rgba(127,243,228,0.9) 0%,rgba(237,251,249,0.9) 100%);
@@ -153,7 +160,7 @@
                     <a href="assignment_display.php"> <button id="b3" type="submit">  <b>      Assignments    </b>  </button> </a>
                     <a href="quize_display.php"> <button id="b4" type="submit">  <b>      Quizzes         </b>  </button> </a>
                     <a href="presentation_display.php"> <button id="b5" type="submit">  <b>      Presentation   </b>  </button> </a>
-                    <a href="result_display.php"> <button id="b5" type="submit">  <b>      Exam Marks   </b>  </button> </a>
+                    <a href="result_display.php"> <button id="b6" type="submit">  <b>      Exam Marks   </b>  </button> </a>
 
               </ul>
 

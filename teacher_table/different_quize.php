@@ -108,7 +108,7 @@
                <div id="m2" class="alert alert-danger text-center" style="display:none"></div>
 
                  <div id="yes_table">
-                   <table id="example1" class="table table-striped table-bordered table-hover table-xl table-light" >
+                   <table id="example1" class="table table-striped table-bordered table-hover table-xl table-light table-responsive-sm" >
 
                           <thead class="bg-info">
                               <tr>

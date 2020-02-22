@@ -946,7 +946,7 @@ if (isset($_POST['btn_lg'])) {
 
                       }else {?>
                         <tr>
-                          <td colspan="6" class="text-center alert alert-warning">Sorry No Students are Register.</td>
+                          <td colspan="7" class="text-center alert alert-warning">Sorry No Students are Register.</td>
                         </tr>
                       <?php }
                     }
@@ -1029,7 +1029,7 @@ if (isset($_POST['btn_lg'])) {
 
                         }else {?>
                           <tr>
-                            <td colspan="6" class="text-center alert alert-warning">Sorry No Teacher are Register.</td>
+                            <td colspan="12" class="text-center alert alert-warning">Sorry No Teacher are Register.</td>
                           </tr>
                         <?php }
                       }
@@ -1162,7 +1162,7 @@ if (isset($_POST['btn_lg'])) {
 
                             }else {?>
                               <tr>
-                                <td colspan="9" class="text-center alert alert-warning">Sorry No Admin are Register.</td>
+                                <td colspan="10" class="text-center alert alert-warning">Sorry No Admin are Register.</td>
                               </tr>
                             <?php }
                           }
@@ -1231,7 +1231,7 @@ if (isset($_POST['btn_lg'])) {
 
                               }else {?>
                                 <tr>
-                                  <td colspan="6" class="text-center alert alert-warning">Sorry No Records.</td>
+                                  <td colspan="9" class="text-center alert alert-warning">Sorry No Records.</td>
                                 </tr>
                               <?php }
                             }
@@ -1300,7 +1300,7 @@ if (isset($_POST['btn_lg'])) {
 
                                 }else {?>
                                   <tr>
-                                    <td colspan="6" class="text-center alert alert-warning">Sorry No Records.</td>
+                                    <td colspan="9" class="text-center alert alert-warning">Sorry No Records.</td>
                                   </tr>
                                 <?php }
                               }
@@ -1354,7 +1354,7 @@ if (isset($_POST['btn_lg'])) {
 
                                   }else {?>
                                     <tr>
-                                      <td colspan="6" class="text-center alert alert-warning">Sorry No Records.</td>
+                                      <td colspan="2" class="text-center alert alert-warning">Sorry No Records.</td>
                                     </tr>
                                   <?php }
                                 }
@@ -1428,7 +1428,7 @@ if (isset($_POST['btn_lg'])) {
 
                                     }else {?>
                                       <tr>
-                                        <td colspan="6" class="text-center alert alert-warning">Sorry No Records.</td>
+                                        <td colspan="7" class="text-center alert alert-warning">Sorry No Records.</td>
                                       </tr>
                                     <?php }
                                   }
@@ -1570,7 +1570,7 @@ if (isset($_POST['btn_lg'])) {
 
                                         }else {?>
                                           <tr>
-                                            <td colspan="6" class="text-center alert alert-warning">Sorry No Records.</td>
+                                            <td colspan="11" class="text-center alert alert-warning">Sorry No Records.</td>
                                           </tr>
                                         <?php }
                                       }

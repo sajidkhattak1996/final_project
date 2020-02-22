@@ -46,6 +46,7 @@
       $cid=0;
       if (isset($_GET['cid'])) {
         $cid=$_GET['cid'];
+        $_SESSION['Class_id'] =$_GET['cid'];
       }elseif (isset($_SESSION['Class_id'])) {
         $cid=$_SESSION['Class_id'];
       }
@@ -115,7 +116,35 @@
 
               <!-- ================ended ==================================================-->
         </div>
+<!--=========including the top classes button below the top navagation menu ================-->
+        <?php  include('std_classes_table_top_menu.php'); ?>
+<!--=========ended =====================================================================-->
+<style media="screen">
+#b6{
+  background-image: -webkit-linear-gradient(180deg,rgba(172,239,224,0.66) 21.76%,rgba(0,140,126,1.00) 98.45%);
+  background-image: -moz-linear-gradient(180deg,rgba(172,239,224,0.66) 21.76%,rgba(0,140,126,1.00) 98.45%);
+  background-image: -o-linear-gradient(180deg,rgba(172,239,224,0.66) 21.76%,rgba(0,140,126,1.00) 98.45%);
+  background-image: linear-gradient(180deg,rgba(172,239,224,0.66) 21.76%,rgba(0,140,126,1.00) 98.45%);
+  color: blue;
+  border-left: solid 1px rgba(172,239,224,0.66);
+  border-top: solid 1px rgba(172,239,224,0.66);
+  border-right: solid 1px rgba(172,239,224,0.66);
 
+  border-radius: 7px 7px 0px 0px;
+}
+#b1{
+  background-image: -webkit-linear-gradient(270deg,rgba(127,243,228,0.52) 0%,rgba(237,251,249,0.81) 100%);
+  background-image: -moz-linear-gradient(270deg,rgba(127,243,228,0.52) 0%,rgba(237,251,249,0.81) 100%);
+  background-image: -o-linear-gradient(270deg,rgba(127,243,228,0.52) 0%,rgba(237,251,249,0.81) 100%);
+  background-image: linear-gradient(180deg,rgba(127,243,228,0.52) 0%,rgba(237,251,249,0.81) 100%);
+  color: #6f9de8;
+  border:solid 1px rgba(127,243,228,0.52);
+  border-radius: 7px 7px 0px 0px;
+}
+#b6 {
+  pointer-events: none;
+}
+</style>
 <div class="">
   <div class="tstart" style="padding-top:5px;">
     <h2 class="text-left" style="height: 20px;text-transform: capitalize">Student Name: <?php echo $result1['student_name'];  ?> </h2>

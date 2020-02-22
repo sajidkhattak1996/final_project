@@ -119,22 +119,20 @@
       <a href="attendence_display_monthly.php"><button type="button" name="button" class="btn btn-light">Attendance Monthly Wise</button>  </a>
       <a href="attendence_display_all.php"><button type="button" name="button" class="btn btn-outline-light" style="margin-left: 10px;margin-right: 5px">All Attendance </button>  </a>
       <a href="calculate_percentage.php"><button type="button" class="btn btn-outline-light" name="button">Calculate Persentage</button>  </a>
-      <form method="post"  action="export_file.php"><button type="submit" class="btn btn-outline-light" name="export" value="<?php echo $cid; ?>" style="float: right;margin-right: 2%;">Export as CSV File</button> </form>
+      <form method="post"  action="export_file.php" class="py-4"><button type="submit" class="btn btn-outline-light " name="export" value="<?php echo $cid; ?>" style="float: right;margin-right: 2%;">Export as CSV File</button> </form>
 
 
 <form method="post">
-    <table id="" class="table table-striped  table-bordered table-hover table-sm table-responsive-sm">
-        <thead class="bg-info">
+    <table id="" class="table   table-sm  mt-5 ">
+        <thead class="bg-info table-bordered">
                 <tr>
-                  <th scope="col" scope="row">Class No</th>
-                  <th scope="col">Name</th>
-                  <th scope="col">Attendance Month</th>
-                  <th scope="col">Attendance percentage</th>
+                  <th class="float-right " width="40%">Attendance Month</th>
+                  <th >Attendance percentage</th>
 
 
                 </tr>
           </thead>
-            <tbody class="bg-light">
+            <tbody class="bg-light" >
               <?php
                   if (isset($con)) {
                         $sid_stmt="SELECT S_id FROM register WHERE Class_id='$cid' ORDER BY Reg_no ASC";
@@ -154,20 +152,30 @@
                                   /*============================get the only year of particular class and students=============================================================================================================================================*/
                                   $sql_year="SELECT year(attendence_record.AT_date) FROM attendence_record WHERE attendence_record.Class_id='$cid' AND attendence_record.S_id='".$sid_row['S_id']."' GROUP BY year(attendence_record.AT_date)";
                                   if (mysqli_num_rows(mysqli_query($con ,$sql_year))>0) {
+                                    $z=0;
+                                    if ($z<1) { $z++;
+                                      ?>
+                                      <tr class="alert-primary">
+                                        <td colspan="2"><i class="mr-5">Class No: <b><?php  echo $sn_row[0];  ?></b></i>  <i class="pl-5"> Name:  <b class="pl-2">  <?php  echo $sn_row[1];  ?> </b></i></td>
+                                      </tr>
+                                      <?php
+                                    }
+
+
                                     $e=mysqli_query($con ,$sql_year);
                                     while ($y=mysqli_fetch_array($e)) {
                                       /*=============================get the all months record of students========================================================================================================================================================================================================*/
                                       $stmt3="SELECT month(attendence_record.AT_date) FROM attendence_record WHERE attendence_record.Class_id='$cid' AND attendence_record.S_id='".$sid_row['S_id']."' AND year(attendence_record.AT_date)='".$y[0]."' GROUP BY month(attendence_record.AT_date)";
                                       $exe3=mysqli_query($con , $stmt3);
-                                      $nr=mysqli_num_rows($exe3);
+                                      $nr=(mysqli_num_rows($exe3)*(mysqli_num_rows($e)));
                                       $padding=($nr*10);
                                       if ($nr>0) {
-                                        echo "<tr style='border:solid 1px #13bca4'>";
-                                        echo "<td rowspan='".$nr."' style='padding-top: ".$padding."px;border-bottom: solid 1px #008c7e'>".$sn_row[0]."</td>";
-                                        echo "<td rowspan='".$nr."' style='padding-top: ".$padding."px;border-bottom: solid 1px #008c7e'>".$sn_row[1]."</td>";
                                         $count=0;
                                         while ($m=mysqli_fetch_array($exe3)) {  $count++;
-                                          if($count==$nr){ echo "<td style='border-bottom:solid 1px #008c7e'>";  }else { echo "<td>";  }
+                                          ?>  <tr>
+                                            <td class="float-right" width="40%">
+                                             <?php
+                                          // if($count==$nr){ echo "<td style='border-bottom:solid 1px #008c7e'>";  }else { echo "<td>";  }
 
                                           echo $y[0]."   -  ";
                                           if($m[0]==1){ echo "January"; }
@@ -296,7 +304,7 @@
 <script>
   $(function () {
   //  $("#example1").DataTable();
-    $('#example1').DataTable({
+    $('#testing1').DataTable({
       "paging": true,
       "lengthChange": true,
       "searching": true,

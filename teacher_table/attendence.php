@@ -50,22 +50,20 @@ function empty(){
 <!-- below table which display the student record which are enroll in the this class which are clicked    -->
 <div class="container-fluid" style="padding-bottom: 10px">
   <div class="tend"  style="border-radius: 10px 10px 0px 0px;margin-bottom: 8px;height: auto;padding-bottom:3px;padding-top: 0px">
-      <table class="table table-straped">
-            <thead>
-              <tr>
-                  <td>Class Name:&nbsp;&nbsp;&nbsp;<span style="color: blue"><?php echo $r1['Name'];  ?></span></td>
-                  <td>Subject Name:&nbsp;&nbsp;&nbsp;<span style="color: deeppink;letter-spacing:1px"><?php echo $r2['subject_name'];  ?></span></td>
-                  <form method="post">
-                    <td>
-                        Attendance Date:&nbsp;&nbsp;&nbsp;
-                        <input type="date" name="AT_date" id="at_date" onblur="fn()" value="<?php echo date('Y-m-d'); ?>" style="background: lightblue;border: solid 1px #008c7e;border-radius:5px"><br>
-                        <span id="dmsg" style="color: yellow"></span>
-                    </td>
-                  </form>
-                  <td><a href="edit_attendence.php?id=<?php  echo $cid; ?>" class="btn btn-primary"> Edit Attendance   </a></td>
-              </tr>
-            </thead>
-      </table>
+
+      <div class="row container-fuid py-5">
+        <div class="col-lg-3"> Class Name:&nbsp;&nbsp;&nbsp;<span style="color: blue"><?php echo $r1['Name'];  ?></span> </div>
+        <div class="col-lg-3"> Subject Name:&nbsp;&nbsp;&nbsp;<span style="color: deeppink;letter-spacing:1px"><?php echo $r2['subject_name'];  ?></span>  </div>
+        <div class="col-lg-3">
+          <form method="post">
+                Attendance Date:&nbsp;&nbsp;&nbsp;
+                <input type="date" name="AT_date" id="at_date" onblur="fn()" value="<?php echo date('Y-m-d'); ?>" style="background: lightblue;border: solid 1px #008c7e;border-radius:5px"><br>
+                <span id="dmsg" style="color: yellow"></span>
+          </form>
+         </div>
+          <div class="col-lg-3"> <a href="edit_attendence.php?id=<?php  echo $cid; ?>" class="btn btn-primary float-right mr-lg-2"> Edit Attendance   </a> </div>
+      </div>
+
   </div>
 <script>
      function fn()
@@ -112,10 +110,17 @@ function empty(){
 
                         <td scope="col" ><?php  echo $row['student_name']; ?> </td>
                         <td>      <input type="text" name="student_id<?php echo $a; ?>" value="<?php echo $row['S_id']; ?>" style="display:none">
-                                  <span style="font-size: 16px">Present:</span>     <input type="radio"  name="r<?php echo $a; ?>" checked value="1" style="width:5%;height:15px;">&nbsp;&nbsp;&nbsp;
-                                  <span style="font-size: 16px">Absent:</span>  <input type="radio"  name="r<?php echo $a; ?>" value="2" style="width:5%;height:15px;">&nbsp;&nbsp;&nbsp;
-                                  <span style="font-size: 16px">Leave:</span>       <input type="radio"  name="r<?php echo $a; ?>" value="3" style="width:5%;height:15px;">&nbsp;&nbsp;&nbsp;
 
+
+                                  <label class="radio-inline">
+                                    Present:     <input type="radio"  name="r<?php echo $a; ?>" checked value="1" >
+                                  </label>&nbsp;&nbsp;&nbsp;
+                                  <label class="radio-inline">
+                                     Absent:  <input type="radio"  name="r<?php echo $a; ?>" value="2" >
+                                  </label>&nbsp;&nbsp;&nbsp;
+                                  <label class="radio-inline">
+                                     Leave:       <input type="radio"  name="r<?php echo $a; ?>" value="3" >
+                                  </label>&nbsp;&nbsp;&nbsp;
                         </td>
                   </tr>
                    <?php }

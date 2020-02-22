@@ -58,6 +58,7 @@ if (isset($_GET['id'])) {
                     <td>Class Name:&nbsp;&nbsp;&nbsp;<span style="color: blue"><?php echo $r1['Name'];  ?></span></td>
                     <td>Subject Name:&nbsp;&nbsp;&nbsp;<span style="color: deeppink;letter-spacing:1px"><?php echo $r2['subject_name'];  ?></span></td>
                     <td><a href="attendence.php" class="btn btn-primary">  Attendance   </a></td>
+                    <td><a href="edit_attendance_date.php?id=<?php echo $cid; ?>" class="btn btn-primary">  Edit Attendance Date   </a></td>
                 </tr>
               </thead>
         </table>
