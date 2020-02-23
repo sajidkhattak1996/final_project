@@ -222,10 +222,24 @@
                       $sql ="INSERT INTO teacher (Name, Contact_no, Cnic, Institute_name, Country, City, Email, Password,security_question,question_answer) VALUES ('$name', '$cont', '$cnic', '$intitute', '$country', '$city', '$email', '$pass','$question','$answer')";
 
                         if(mysqli_query($con, $sql)) {
-                          echo "<script> alert('your account are created ....') </script>";
-                          $_SESSION['email']= $email;
-                          $_SESSION['pass']=$pass;
-                          echo "<script> document.location.assign('teacher_table/tmain_table.php'); </script>";
+                          // echo "<script> alert('your account are created ....') </script>";
+                          // $_SESSION['email']= $email;
+                          // $_SESSION['pass']=$pass;
+                          // echo "<script> document.location.assign('teacher_table/tmain_table.php'); </script>";
+                          ?>
+                          <script type="text/javascript">
+                          alert('Your Account are Successfully Created.');
+                          var a=confirm('Do you want to Login to your Account.');
+                          if (a==true) {
+                            // console.log('ok are pess');
+                            window.location.href='login.php';
+                          }
+                          else {
+                            // console.log('canncel are press');
+                            window.location.href='index.php';
+                          }
+                          </script>
+                          <?php
                           mysqli_close($con);
                         }
                         else {

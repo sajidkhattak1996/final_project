@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.1
+-- version 4.9.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 21, 2020 at 08:10 AM
--- Server version: 10.4.8-MariaDB
--- PHP Version: 7.3.11
+-- Generation Time: Feb 19, 2020 at 12:16 PM
+-- Server version: 10.4.11-MariaDB
+-- PHP Version: 7.3.13
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -65,11 +65,7 @@ INSERT INTO `assignment` (`A_id`, `a_name`, `a_date`, `a_time`, `at_marks`) VALU
 (21, 'Histry of JavaScript', '2019-12-04', 1576748771231247872, 30),
 (22, 'c_plus plus', '2020-01-08', 1578559143028992000, 50),
 (23, 'Histry Of Pakistan', '2020-01-08', 1579200070763761920, 500),
-(29, 'Test2', '2020-01-18', 1579319881755011072, 500),
-(37, 'opp', '2020-01-18', 1579372982953283072, 30),
-(38, 'php', '2020-01-18', 1579372982963213056, 20),
-(39, 'html', '2020-01-18', 1579372982969337088, 20),
-(40, 'Histry Of Pakistan', '2020-01-21', 1579585978581965056, 12);
+(46, 'java', '2020-02-14', 1581690957423156992, 10);
 
 -- --------------------------------------------------------
 
@@ -79,7 +75,6 @@ INSERT INTO `assignment` (`A_id`, `a_name`, `a_date`, `a_time`, `at_marks`) VALU
 
 CREATE TABLE `assignment_record` (
   `A_id` bigint(20) NOT NULL,
-  `Subject_id` bigint(20) NOT NULL,
   `Class_id` bigint(20) NOT NULL,
   `S_id` bigint(30) NOT NULL,
   `ao_marks` int(10) NOT NULL
@@ -89,99 +84,90 @@ CREATE TABLE `assignment_record` (
 -- Dumping data for table `assignment_record`
 --
 
-INSERT INTO `assignment_record` (`A_id`, `Subject_id`, `Class_id`, `S_id`, `ao_marks`) VALUES
-(20, 0, 1227, 0, 0),
-(20, 0, 1227, 0, 0),
-(20, 0, 1227, 0, 0),
-(20, 0, 1227, 0, 0),
-(20, 0, 1227, 0, 0),
-(20, 0, 1227, 0, 0),
-(20, 0, 1227, 0, 0),
-(20, 0, 1227, 0, 0),
-(20, 0, 1227, 0, 0),
-(20, 0, 1227, 0, 0),
-(20, 0, 1227, 8, 45),
-(20, 0, 1227, 14, 35),
-(20, 0, 1227, 10, 30),
-(20, 0, 1227, 20, 10),
-(20, 0, 1227, 21, 39),
-(20, 0, 1227, 13, 35),
-(20, 0, 1227, 3, 40),
-(20, 0, 1227, 7, 45),
-(20, 0, 1227, 5, 33),
-(20, 0, 1227, 6, 22),
-(21, 0, 1227, 16, 22),
-(21, 0, 1227, 23, 10),
-(21, 0, 1227, 15, 4),
-(21, 0, 1227, 17, 20),
-(21, 0, 1227, 22, 25),
-(21, 0, 1227, 11, 23),
-(21, 0, 1227, 18, 12),
-(21, 0, 1227, 12, 21),
-(21, 0, 1227, 9, 24),
-(21, 0, 1227, 19, 25),
-(21, 0, 1227, 8, 23),
-(21, 0, 1227, 14, 29),
-(21, 0, 1227, 10, 25),
-(21, 0, 1227, 20, 26),
-(21, 0, 1227, 21, 24),
-(21, 0, 1227, 13, 23),
-(21, 0, 1227, 3, 17),
-(21, 0, 1227, 7, 18),
-(21, 0, 1227, 5, 16),
-(21, 0, 1227, 6, 15),
-(22, 0, 1227, 16, 30),
-(22, 0, 1227, 23, 45),
-(22, 0, 1227, 15, 30),
-(22, 0, 1227, 17, 45),
-(22, 0, 1227, 22, 48),
-(22, 0, 1227, 11, 12),
-(22, 0, 1227, 18, 30),
-(22, 0, 1227, 12, 40),
-(22, 0, 1227, 9, 12),
-(22, 0, 1227, 19, 30),
-(22, 0, 1227, 8, 40),
-(22, 0, 1227, 14, 14),
-(22, 0, 1227, 10, 45),
-(22, 0, 1227, 20, 46),
-(22, 0, 1227, 21, 48),
-(22, 0, 1227, 13, 30),
-(22, 0, 1227, 3, 20),
-(22, 0, 1227, 7, 15),
-(22, 0, 1227, 5, 24),
-(22, 0, 1227, 6, 25),
-(23, 0, 1232, 24, 6000),
-(24, 0, 1244, 28, 500),
-(24, 0, 1244, 25, 10),
-(24, 0, 1244, 26, 60),
-(26, 0, 1244, 28, 20),
-(26, 0, 1244, 25, 15),
-(26, 0, 1244, 26, 10),
-(27, 0, 1244, 28, 20),
-(27, 0, 1244, 25, 10),
-(27, 0, 1244, 26, 20),
-(28, 0, 1244, 28, 200),
-(28, 0, 1244, 25, 300),
-(28, 0, 1244, 26, 15),
-(29, 0, 1244, 28, 200),
-(29, 0, 1244, 25, 442),
-(29, 0, 1244, 26, 15),
-(33, 0, 1244, 28, 88),
-(33, 0, 1244, 25, 25),
-(33, 0, 1244, 26, 22),
-(34, 0, 1244, 28, 40),
-(34, 0, 1244, 25, 36),
-(34, 0, 1244, 26, 9),
-(35, 0, 1244, 28, 5),
-(35, 0, 1244, 25, 12),
-(35, 0, 1244, 26, 3),
-(37, 0, 1244, 28, 15),
-(38, 0, 1244, 25, 20),
-(39, 0, 1244, 26, 10),
-(40, 0, 1244, 27, 4),
-(40, 0, 1244, 28, 4),
-(40, 0, 1244, 25, 5),
-(40, 0, 1244, 26, 2);
+INSERT INTO `assignment_record` (`A_id`, `Class_id`, `S_id`, `ao_marks`) VALUES
+(20, 1227, 0, 0),
+(20, 1227, 0, 0),
+(20, 1227, 0, 0),
+(20, 1227, 0, 0),
+(20, 1227, 0, 0),
+(20, 1227, 0, 0),
+(20, 1227, 0, 0),
+(20, 1227, 0, 0),
+(20, 1227, 0, 0),
+(20, 1227, 0, 0),
+(20, 1227, 8, 45),
+(20, 1227, 14, 35),
+(20, 1227, 10, 30),
+(20, 1227, 20, 10),
+(20, 1227, 21, 39),
+(20, 1227, 13, 35),
+(20, 1227, 3, 40),
+(20, 1227, 7, 45),
+(20, 1227, 5, 33),
+(20, 1227, 6, 22),
+(21, 1227, 16, 22),
+(21, 1227, 23, 10),
+(21, 1227, 15, 4),
+(21, 1227, 17, 20),
+(21, 1227, 22, 25),
+(21, 1227, 11, 23),
+(21, 1227, 18, 12),
+(21, 1227, 12, 21),
+(21, 1227, 9, 24),
+(21, 1227, 19, 25),
+(21, 1227, 8, 23),
+(21, 1227, 14, 29),
+(21, 1227, 10, 25),
+(21, 1227, 20, 26),
+(21, 1227, 21, 24),
+(21, 1227, 13, 23),
+(21, 1227, 3, 17),
+(21, 1227, 7, 18),
+(21, 1227, 5, 16),
+(21, 1227, 6, 15),
+(22, 1227, 16, 30),
+(22, 1227, 23, 45),
+(22, 1227, 15, 30),
+(22, 1227, 17, 45),
+(22, 1227, 22, 48),
+(22, 1227, 11, 12),
+(22, 1227, 18, 30),
+(22, 1227, 12, 40),
+(22, 1227, 9, 12),
+(22, 1227, 19, 30),
+(22, 1227, 8, 40),
+(22, 1227, 14, 14),
+(22, 1227, 10, 45),
+(22, 1227, 20, 46),
+(22, 1227, 21, 48),
+(22, 1227, 13, 30),
+(22, 1227, 3, 20),
+(22, 1227, 7, 15),
+(22, 1227, 5, 24),
+(22, 1227, 6, 25),
+(23, 1232, 24, 6000),
+(24, 1244, 28, 500),
+(24, 1244, 25, 10),
+(24, 1244, 26, 60),
+(26, 1244, 28, 20),
+(26, 1244, 25, 15),
+(26, 1244, 26, 10),
+(27, 1244, 28, 20),
+(27, 1244, 25, 10),
+(27, 1244, 26, 20),
+(28, 1244, 28, 200),
+(28, 1244, 25, 300),
+(28, 1244, 26, 15),
+(33, 1244, 28, 88),
+(33, 1244, 25, 25),
+(33, 1244, 26, 22),
+(34, 1244, 28, 40),
+(34, 1244, 25, 36),
+(34, 1244, 26, 9),
+(35, 1244, 28, 5),
+(35, 1244, 25, 12),
+(35, 1244, 26, 3),
+(46, 1229, 3, 7);
 
 -- --------------------------------------------------------
 
@@ -1071,7 +1057,24 @@ INSERT INTO `attendence_record` (`AT_id`, `AT_date`, `Class_id`, `S_id`) VALUES
 (1, '2019-12-27', 1227, 23),
 (1, '2019-12-28', 1227, 23),
 (1, '2019-12-29', 1227, 23),
-(1, '2019-12-31', 1227, 23);
+(1, '2019-12-31', 1227, 23),
+(1, '2020-01-01', 1244, 25),
+(1, '2020-01-01', 1244, 26),
+(2, '2020-01-02', 1244, 25),
+(1, '2020-01-02', 1244, 26),
+(3, '2020-01-03', 1244, 25),
+(3, '2020-01-03', 1244, 26),
+(1, '2020-01-04', 1244, 25),
+(1, '2020-01-04', 1244, 26),
+(1, '2020-01-05', 1244, 25),
+(1, '2020-01-05', 1244, 26),
+(0, '2020-01-21', 1246, 0),
+(0, '2020-01-21', 1246, 0),
+(0, '2020-01-21', 1246, 0),
+(0, '2020-01-21', 1246, 0),
+(2, '2020-01-21', 1244, 25),
+(1, '2020-01-21', 1244, 26),
+(1, '2020-02-14', 1229, 3);
 
 -- --------------------------------------------------------
 
@@ -1085,8 +1088,9 @@ CREATE TABLE `class` (
   `Enrollment_key` varchar(50) NOT NULL DEFAULT '',
   `Class_session` varchar(30) DEFAULT NULL,
   `Start_date` date NOT NULL,
-  `currenttime` varchar(15) NOT NULL DEFAULT current_timestamp(),
+  `currenttime` varchar(15) NOT NULL,
   `Expire_date` date NOT NULL,
+  `reg_status` tinyint(1) NOT NULL,
   `T_id` bigint(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -1094,19 +1098,88 @@ CREATE TABLE `class` (
 -- Dumping data for table `class`
 --
 
-INSERT INTO `class` (`Class_id`, `Name`, `Enrollment_key`, `Class_session`, `Start_date`, `currenttime`, `Expire_date`, `T_id`) VALUES
-(1225, 'msc_final', 'final2018', '2017-2018', '2019-12-16', '2019-12-30', '2019-12-15', 4),
-(1226, 'Bscs', 'sajid96', '2019-2020', '2019-12-17', '2019-12-30', '2019-12-31', 4),
-(1227, 'msc_final', 'cs-2019', '2019-2020`', '2019-12-17', '2019-12-30', '2020-02-29', 4),
-(1229, 'bs_chemistry', 'msc-18', '2017-2018', '2019-12-21', '2019-12-30', '2020-06-18', 4),
-(1231, 'BCS-1st-Semister', 'bcs-2019', '2019-2020', '2019-12-29', '2019-12-30', '2020-06-26', 4),
-(1232, 'Bs_1st_Semister', 'bs1-2019', '2019-2020', '2019-12-29', '2019-12-30', '2020-06-26', 4),
-(1240, 'MA-English', 'ma-2019', '2019-2020', '2019-12-30', '10:59:52 AM', '2019-12-31', 4),
-(1241, 'msc_previous', 'kashif-2020', '2020-2021', '2020-01-03', '08:11:50 AM', '2020-07-01', 6),
-(1242, 'bs_simister_1', 'bs2020', '2019-2020', '2020-01-07', '11:46:12 AM', '2020-07-05', 7),
-(1243, 'Testing Class for Csv', 'Angular2019', '2018-2019', '2020-01-13', '11:00:21 AM', '2020-07-11', 4),
-(1244, 'Faheem', 'uop', '2020', '2020-01-14', '10:03:18 PM', '2020-07-12', 14),
-(1245, 'MA-English', 'ma-2020', '2019-2020', '2020-01-17', '05:22:28 PM', '2020-07-15', 0);
+INSERT INTO `class` (`Class_id`, `Name`, `Enrollment_key`, `Class_session`, `Start_date`, `currenttime`, `Expire_date`, `reg_status`, `T_id`) VALUES
+(1225, 'msc_final', 'final2018', '2017-2018', '2019-12-16', '2019-12-30', '2019-12-15', 0, 4),
+(1226, 'Bscs', 'sajid96', '2019-2020', '2019-12-17', '2019-12-30', '2019-12-31', 0, 4),
+(1227, 'msc_final', 'cs-2019', '2019-2020`', '2019-12-17', '2019-12-30', '2020-02-29', 1, 4),
+(1229, 'bs_chemistry', 'msc-18', '2017-2018', '2019-12-21', '2019-12-30', '2020-06-18', 0, 4),
+(1231, 'BCS-1st-Semister', 'bcs-2019', '2019-2020', '2019-12-29', '2019-12-30', '2020-06-26', 1, 4),
+(1232, 'Bs_1st_Semister', 'bs1-2019', '2019-2020', '2019-12-29', '2019-12-30', '2020-06-26', 0, 4),
+(1240, 'MA-English', 'ma-2019', '2019-2020', '2019-12-30', '10:59:52 AM', '2019-12-31', 0, 4),
+(1241, 'msc_previous', 'kashif-2020', '2020-2021', '2020-01-03', '08:11:50 AM', '2020-07-01', 0, 6),
+(1242, 'bs_simister_1', 'bs2020', '2019-2020', '2020-01-07', '11:46:12 AM', '2020-07-05', 0, 7),
+(1243, 'Testing Class for Csv', 'Angular2019', '2018-2019', '2020-01-13', '11:00:21 AM', '2020-07-11', 1, 4),
+(1244, 'Faheem', 'uop', '2020', '2020-01-14', '10:03:18 PM', '2020-01-01', 0, 14),
+(1246, 'msc_final', 'cs-2020', '2019-2020', '2020-01-21', '05:03:15 PM', '2020-07-19', 0, 14),
+(1247, 'msc_final', 'final2018', '2019-2020', '2020-01-26', '10:42:12 AM', '2020-07-24', 0, 14),
+(1251, 'Testing Msc Final', 'testing-2020', '2020', '2020-02-18', '11:14:16 AM', '2020-08-16', 0, 17);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `exam`
+--
+
+CREATE TABLE `exam` (
+  `E_id` int(30) NOT NULL,
+  `exam_term` varchar(50) NOT NULL,
+  `exam_date` date NOT NULL,
+  `total_marks` int(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `exam`
+--
+
+INSERT INTO `exam` (`E_id`, `exam_term`, `exam_date`, `total_marks`) VALUES
+(1, 'Final Term', '2020-02-05', 20),
+(3, 'Final', '2020-02-10', 100),
+(4, 'Final Term', '2020-02-06', 80),
+(8, 'Final Term', '2020-02-09', 80),
+(9, 'Final Term', '2020-02-14', 75);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `exam_record`
+--
+
+CREATE TABLE `exam_record` (
+  `E_id` int(30) NOT NULL,
+  `Class_id` bigint(30) NOT NULL,
+  `S_id` bigint(30) NOT NULL,
+  `obtained_marks` int(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `exam_record`
+--
+
+INSERT INTO `exam_record` (`E_id`, `Class_id`, `S_id`, `obtained_marks`) VALUES
+(0, 1232, 24, 15),
+(3, 1227, 16, 95),
+(3, 1227, 23, 79),
+(3, 1227, 15, 30),
+(3, 1227, 17, 55),
+(3, 1227, 22, 45),
+(3, 1227, 11, 45),
+(3, 1227, 18, 60),
+(3, 1227, 12, 45),
+(3, 1227, 9, 19),
+(3, 1227, 19, 45),
+(3, 1227, 8, 45),
+(3, 1227, 14, 60),
+(3, 1227, 10, 54),
+(3, 1227, 20, 54),
+(3, 1227, 21, 30),
+(3, 1227, 13, 29),
+(3, 1227, 3, 54),
+(3, 1227, 7, 5),
+(3, 1227, 5, 45),
+(3, 1227, 6, 33),
+(4, 1231, 3, 55),
+(8, 1231, 3, 79),
+(9, 1229, 3, 60);
 
 -- --------------------------------------------------------
 
@@ -1158,7 +1231,10 @@ INSERT INTO `have` (`Subject_id`, `Class_id`, `S_id`) VALUES
 (13, 1244, 26),
 (13, 1244, 27),
 (13, 1244, 28),
-(14, 1245, 0);
+(14, 1245, 0),
+(15, 1246, 0),
+(16, 1247, 0),
+(73, 1251, 0);
 
 -- --------------------------------------------------------
 
@@ -1222,7 +1298,11 @@ INSERT INTO `notification` (`id`, `title`, `msg`, `cdate`, `expire_date`, `Class
 (25, 'Histry of Computer', 'Charles Babbage, an English mechanical engineer and polymath, originated the concept of a programmable computer. Considered the \"father of the computer\", he conceptualized and invented the first mechanical computer in the early 19th century. ... The machine was about a century ahead of its time', '2020-01-12', '2020-01-22', 1227),
 (26, 'Generation of Computer', 'First Generation (1940-1956)\r\nThe first generation computers had the following features and components −\r\n\r\nHardware\r\nThe hardware used in the first generation of computers was: Vacuum Tubes and Punch Cards.\r\n\r\nFeatures\r\nFollowing are the features of first generation computers −\r\n\r\nIt supported machine language.\r\n\r\nIt had slow performance\r\n\r\nIt occupied large size due to the use of vacuum tubes.\r\n\r\nIt had a poor storage capacity.\r\n\r\nIt consumed a lot of electricity and generated a lot of heat.\r\n\r\nMemory\r\nThe memory was of 4000 bits.\r\n\r\nData Input\r\nThe input was only provided through hard-wired programs in the computer, mostly through punched cards and paper tapes.\r\n\r\nExamples\r\nThe examples of first generation computers are −\r\n\r\nENIAC\r\nUNIVACTBM 701\r\nSecond Generation (1956-1963)\r\nSeveral a', '2020-01-12', '2020-01-22', 1227),
 (27, 'Computer Concepts - History of Computers', '<h2 style=\"color: deeppink\">The history of the computer dates back to several years. </h2>', '2020-01-12', '2020-01-22', 1227),
-(28, 'Testing', ' or external link for the cource content a', '2020-01-17', '2020-01-27', 1244);
+(28, 'Testing', ' or external link for the cource content a', '2020-01-17', '2020-01-27', 1244),
+(29, 'jQuery Animation Effects', 'The jQuery animate() method is used to create custom animations. The animate() method is typically used to animate numeric CSS properties, for example, width, height, margin, padding, opacity, top, left, etc. but the non-numeric properties such as color or background-color cannot be animated using the basic jQuery functionality.', '2020-01-27', '2020-02-06', 1227),
+(30, 'Ajax', 'Ajax stands for Asynchronous JavaScript and XML. Ajax is a group of interrelated web development techniques used on the client side to create interactive web application. It uses a combination of HTML and CSS to markup and style information. It is about of updating parts of web page without reloading the whole page. Ajax combine a set of known technologies in order to create faster and more user friendly WebPages. It allows the web page to change it content without reloading the whole page. Ajax provides functionality to create a robust web application. If an Ajax web application is coded properly it will run faster than and secure as a non-Ajax program. Ajax operates more like an application rather than standalone program.', '2020-01-27', '2020-02-06', 1227),
+(31, 'Testing', 'hi', '2020-02-17', '2020-02-27', 1227),
+(32, 'GET value from radio button', 'sdfyghjk', '2020-02-18', '2020-02-28', 1249);
 
 -- --------------------------------------------------------
 
@@ -1244,9 +1324,7 @@ CREATE TABLE `presentation` (
 
 INSERT INTO `presentation` (`P_id`, `p_topic`, `p_date`, `p_time`, `pt_marks`) VALUES
 (8, 'intruduction to computer', '2019-12-01', 1576750136815732992, 20),
-(16, 'histry of urdu', '2020-01-01', 1579582467611887104, 20),
-(17, 'histry of urdu', '2020-01-07', 1579589282304288000, 10),
-(18, 'histry of urdu', '2020-01-21', 1579589453282298112, 10);
+(40, 'intr', '2020-02-14', 1581690972952553984, 20);
 
 -- --------------------------------------------------------
 
@@ -1256,7 +1334,6 @@ INSERT INTO `presentation` (`P_id`, `p_topic`, `p_date`, `p_time`, `pt_marks`) V
 
 CREATE TABLE `presentation_record` (
   `P_id` bigint(20) NOT NULL,
-  `Subject_id` bigint(20) NOT NULL,
   `Class_id` bigint(30) NOT NULL,
   `S_id` bigint(30) NOT NULL,
   `po_marks` int(10) NOT NULL
@@ -1266,39 +1343,28 @@ CREATE TABLE `presentation_record` (
 -- Dumping data for table `presentation_record`
 --
 
-INSERT INTO `presentation_record` (`P_id`, `Subject_id`, `Class_id`, `S_id`, `po_marks`) VALUES
-(8, 0, 1227, 16, 12),
-(8, 0, 1227, 23, 15),
-(8, 0, 1227, 15, 18),
-(8, 0, 1227, 17, 17),
-(8, 0, 1227, 22, 16),
-(8, 0, 1227, 11, 14),
-(8, 0, 1227, 18, 12),
-(8, 0, 1227, 12, 13),
-(8, 0, 1227, 9, 19),
-(8, 0, 1227, 19, 17),
-(8, 0, 1227, 8, 18),
-(8, 0, 1227, 14, 15),
-(8, 0, 1227, 10, 12),
-(8, 0, 1227, 20, 14),
-(8, 0, 1227, 21, 16),
-(8, 0, 1227, 13, 13),
-(8, 0, 1227, 3, 15),
-(8, 0, 1227, 7, 1),
-(8, 0, 1227, 5, 11),
-(8, 0, 1227, 6, 5),
-(16, 0, 1244, 27, 12),
-(16, 0, 1244, 28, 3),
-(16, 0, 1244, 25, 20),
-(16, 0, 1244, 26, 45),
-(17, 0, 1244, 27, 1),
-(17, 0, 1244, 28, 4),
-(17, 0, 1244, 25, 7),
-(17, 0, 1244, 26, 5),
-(18, 0, 1244, 27, 1),
-(18, 0, 1244, 28, 4),
-(18, 0, 1244, 25, 5),
-(18, 0, 1244, 26, 6);
+INSERT INTO `presentation_record` (`P_id`, `Class_id`, `S_id`, `po_marks`) VALUES
+(8, 1227, 16, 20),
+(8, 1227, 23, 15),
+(8, 1227, 15, 18),
+(8, 1227, 17, 17),
+(8, 1227, 22, 16),
+(8, 1227, 11, 14),
+(8, 1227, 18, 12),
+(8, 1227, 12, 13),
+(8, 1227, 9, 19),
+(8, 1227, 19, 17),
+(8, 1227, 8, 18),
+(8, 1227, 14, 15),
+(8, 1227, 10, 12),
+(8, 1227, 20, 14),
+(8, 1227, 21, 16),
+(8, 1227, 13, 13),
+(8, 1227, 3, 15),
+(8, 1227, 7, 1),
+(8, 1227, 5, 11),
+(8, 1227, 6, 5),
+(40, 1229, 3, 15);
 
 -- --------------------------------------------------------
 
@@ -1320,9 +1386,7 @@ CREATE TABLE `quize` (
 
 INSERT INTO `quize` (`Q_id`, `q_topic`, `q_date`, `q_time`, `qt_marks`) VALUES
 (9, 'Histry of AI', '2019-12-13', 1576748834991684864, 20),
-(10, 'History of Computer Architecture', '2020-01-12', 1578828991659905024, 20),
-(14, 'Histry Of JavaScript', '2020-01-01', 1579585320768871936, 20),
-(16, 'Histry Of JavaScript', '2020-01-21', 1579590614956634112, 20);
+(10, 'History of Computer Architecture', '2020-01-12', 1578828991659905024, 20);
 
 -- --------------------------------------------------------
 
@@ -1332,7 +1396,6 @@ INSERT INTO `quize` (`Q_id`, `q_topic`, `q_date`, `q_time`, `qt_marks`) VALUES
 
 CREATE TABLE `quiz_record` (
   `Q_id` bigint(20) NOT NULL,
-  `Subject_id` bigint(20) NOT NULL,
   `Class_id` bigint(30) NOT NULL,
   `S_id` bigint(30) NOT NULL,
   `qo_marks` int(10) NOT NULL
@@ -1342,55 +1405,47 @@ CREATE TABLE `quiz_record` (
 -- Dumping data for table `quiz_record`
 --
 
-INSERT INTO `quiz_record` (`Q_id`, `Subject_id`, `Class_id`, `S_id`, `qo_marks`) VALUES
-(9, 0, 1227, 16, 2),
-(9, 0, 1227, 23, 15),
-(9, 0, 1227, 15, 12),
-(9, 0, 1227, 17, 10),
-(9, 0, 1227, 22, 13),
-(9, 0, 1227, 11, 1),
-(9, 0, 1227, 18, 18),
-(9, 0, 1227, 12, 17),
-(9, 0, 1227, 9, 19),
-(9, 0, 1227, 19, 16),
-(9, 0, 1227, 8, 15),
-(9, 0, 1227, 14, 14),
-(9, 0, 1227, 10, 13),
-(9, 0, 1227, 20, 12),
-(9, 0, 1227, 21, 10),
-(9, 0, 1227, 13, 12),
-(9, 0, 1227, 3, 13),
-(9, 0, 1227, 7, 14),
-(9, 0, 1227, 5, 15),
-(9, 0, 1227, 6, 18),
-(10, 0, 1227, 16, 12),
-(10, 0, 1227, 23, 13),
-(10, 0, 1227, 15, 15),
-(10, 0, 1227, 17, 10),
-(10, 0, 1227, 22, 14),
-(10, 0, 1227, 11, 12),
-(10, 0, 1227, 18, 16),
-(10, 0, 1227, 12, 18),
-(10, 0, 1227, 9, 14),
-(10, 0, 1227, 19, 15),
-(10, 0, 1227, 8, 16),
-(10, 0, 1227, 14, 10),
-(10, 0, 1227, 10, 8),
-(10, 0, 1227, 20, 5),
-(10, 0, 1227, 21, 3),
-(10, 0, 1227, 13, 0),
-(10, 0, 1227, 3, 14),
-(10, 0, 1227, 7, 1),
-(10, 0, 1227, 5, 0),
-(10, 0, 1227, 6, 8),
-(14, 0, 1244, 27, 12),
-(14, 0, 1244, 28, 125),
-(14, 0, 1244, 25, 20),
-(14, 0, 1244, 26, 22),
-(16, 0, 1244, 27, 10),
-(16, 0, 1244, 28, 2),
-(16, 0, 1244, 25, 1),
-(16, 0, 1244, 26, 2);
+INSERT INTO `quiz_record` (`Q_id`, `Class_id`, `S_id`, `qo_marks`) VALUES
+(9, 1227, 16, 2),
+(9, 1227, 23, 15),
+(9, 1227, 15, 12),
+(9, 1227, 17, 10),
+(9, 1227, 22, 13),
+(9, 1227, 11, 1),
+(9, 1227, 18, 18),
+(9, 1227, 12, 17),
+(9, 1227, 9, 19),
+(9, 1227, 19, 16),
+(9, 1227, 8, 15),
+(9, 1227, 14, 14),
+(9, 1227, 10, 13),
+(9, 1227, 20, 12),
+(9, 1227, 21, 10),
+(9, 1227, 13, 12),
+(9, 1227, 3, 13),
+(9, 1227, 7, 14),
+(9, 1227, 5, 15),
+(9, 1227, 6, 18),
+(10, 1227, 16, 12),
+(10, 1227, 23, 13),
+(10, 1227, 15, 15),
+(10, 1227, 17, 10),
+(10, 1227, 22, 14),
+(10, 1227, 11, 12),
+(10, 1227, 18, 16),
+(10, 1227, 12, 18),
+(10, 1227, 9, 14),
+(10, 1227, 19, 15),
+(10, 1227, 8, 16),
+(10, 1227, 14, 10),
+(10, 1227, 10, 8),
+(10, 1227, 20, 5),
+(10, 1227, 21, 3),
+(10, 1227, 13, 0),
+(10, 1227, 3, 14),
+(10, 1227, 7, 1),
+(10, 1227, 5, 0),
+(10, 1227, 6, 8);
 
 -- --------------------------------------------------------
 
@@ -1462,11 +1517,11 @@ INSERT INTO `slide` (`id`, `topic`, `c_date`, `file`, `Class_id`) VALUES
 (9, 'morphem', '2019-12-18', '3-morphemes (1).docx', 1226),
 (10, 'context free graimar', '2019-12-18', 'CNF and PDA.pdf', 1226),
 (11, 'chapter:1', '2019-12-28', 'E-commerce 1.ppt', 1227),
-(12, 'chapter:1,topic 2', '2019-12-28', 'E-commerce 2 e-Business Models (2).ppt', 1227),
 (13, 'chapter:1 ,topic 3', '2019-12-28', 'E-commerce 3 e-Business Models.ppt', 1227),
-(14, 'chapter:1 ,topic 4', '2019-12-28', 'E-commerce 4 Revenue Models.ppt', 1227),
 (15, 'chapter:2 topic 1', '2019-12-28', 'E-commerce 5 HTML 1.ppt', 1227),
-(16, 'chapter:6 ,topic1', '2019-12-29', 'E-commerce 28 Security 1.ppt', 1229);
+(16, 'chapter:6 ,topic1', '2019-12-29', 'E-commerce 28 Security 1.ppt', 1229),
+(17, 'testing1', '2020-01-27', 'Screenshot (5).png', 1231),
+(18, 't2', '2020-01-27', 'Screenshot (9).png', 1231);
 
 -- --------------------------------------------------------
 
@@ -1488,16 +1543,15 @@ CREATE TABLE `student` (
 --
 
 INSERT INTO `student` (`S_id`, `student_name`, `Email`, `password`, `security_question`, `question_answer`) VALUES
-(1, 'M. Owais khan', 'owais@gmail.com', '123456789123456789', '', ''),
-(2, 'Faheem ullah', 'faheem@gmail.com', 'asdfghjkl', '', ''),
-(3, 'ihsan ullah', 'ihsan@gmail.com', 'asdfghjkl', '', ''),
-(4, 'Habib ur rehman', 'habib@gmail.com', 'asdfghjkl', '', ''),
-(5, 'Nasir Iqbal', 'nasir@gmial.com', 'nasir12345', '', ''),
-(6, 'Bilal khan', 'bilal@gmail.com', '1234567890', '', ''),
-(7, 'Faisal ktk', 'faisal@gmail.com', 'qwertyuiop', '', ''),
-(8, 'Ibrar khan', 'ibrar@gmail.com', '1234567890', '', ''),
-(9, 'Reyaz iqbal', 'rayaz@gmail.com', '1234567890', '', ''),
-(10, 'Sajjad iqbal', 'sajjad@gmail.com', 'qwertyuiop', '', ''),
+(2, 'Faheem ullah', 'faheem@gmail.com', 'asdfghjkl', 'What is your favorite food?', 'Alu Prata'),
+(3, 'ihsan ullah', 'ihsan@gmail.com', 'asdfghjkl', 'What is Your Childhood School name?', 'uop'),
+(4, 'Habib ur rehman', 'habib@gmail.com', 'asdfghjkl', 'What is your bestfriend name?', 'N'),
+(5, 'Nasir Iqbal', 'nasir@gmial.com', 'nasir12345', 'What is your favorite food?', 'Mango'),
+(6, 'Bilal khan', 'bilal@gmail.com', '1234567890', 'What Is your favorite book?', 'Zoology'),
+(7, 'Faisal ktk', 'faisal@gmail.com', 'qwertyuiop', 'What city were you born in?', 'karak'),
+(8, 'Ibrar khan', 'ibrar@gmail.com', '1234567890', 'What city were you born in?', 'Lakki marwat'),
+(9, 'Reyaz iqbal', 'rayaz@gmail.com', '1234567890', 'What city were you born in?', 'charsada'),
+(10, 'Sajjad iqbal', 'sajjad@gmail.com', 'qwertyuiop', 'Where is your favorite place to vacation?', 'bajour'),
 (11, 'Qasir khan', 'qasir@gmail.com', '1234567890', '', ''),
 (12, 'Amana bibi', 'amna@gmail.com', '1234567890', '', ''),
 (13, 'Sara Hussan', 'sara@gmail.com', 'qwertyuiop', '', ''),
@@ -1515,7 +1569,9 @@ INSERT INTO `student` (`S_id`, `student_name`, `Email`, `password`, `security_qu
 (25, 'faheem2 ktk', 'faheem2@gmail.com', 'faheem2@gmail.com', '', ''),
 (26, 'Fahad Aslam', 'fahad@gmail.com', 'fahad@gmail.com', 'What is your favorite food?', 'parata'),
 (27, 'Muhammad  Sajid', 'sajid@gmail.com', '1234567890', 'What city were you born in?', 'karak'),
-(28, 'Gulzar khan', 'gulzar@gmail.com', 'qazwsxedc', 'What Is your favorite book?', 'c++');
+(28, 'Gulzar khan', 'gulzar@gmail.com', 'qazwsxedc', 'What Is your favorite book?', 'c++'),
+(29, 'Testing  One', 'testing@gmail.com', 'testing@gmail.com', 'What Is your favorite book?', 'ppp'),
+(30, 'Testing Khan Ktk', 'khan@gmail.com', 'khan@gmail.com', 'Where is your favorite place to vacation?', 'khan@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -1536,17 +1592,20 @@ INSERT INTO `subject` (`Subject_id`, `subject_name`) VALUES
 (1, 'intruduction to computer'),
 (2, 'mthematic'),
 (3, 'Compiler Construction'),
-(4, 'php 6 Advance'),
 (5, 'biochemistry'),
 (6, 'angular js'),
 (7, 'Intruduction to Java'),
 (8, 'Database'),
 (9, 'Intruduction to English'),
-(10, 'maths'),
 (11, 'C++'),
 (12, 'C Sharp'),
 (13, 'Electro Maganatisim'),
-(14, 'english');
+(14, 'english'),
+(15, 'Html'),
+(16, 'physics'),
+(71, 'js'),
+(72, 'maths'),
+(73, 'urdu');
 
 -- --------------------------------------------------------
 
@@ -1573,13 +1632,15 @@ CREATE TABLE `teacher` (
 --
 
 INSERT INTO `teacher` (`T_id`, `Name`, `Contact_no`, `Cnic`, `Institute_name`, `Country`, `City`, `Email`, `Password`, `security_question`, `question_answer`) VALUES
-(4, 'sajid ktk', 3102145236, '1234115241521', 'University of pehawar', 'pakistan', 'peshawar', 'sajid@gmail.com', '1234567890', '', ''),
-(5, 'Ihsan_Marwat', 3102345124, '1421545869216', 'Islamia college peshawar', 'Pakistan', 'Lakkii', 'ihsanadamzai@gmail.com', '1234567890', '', ''),
-(6, 'Kashif Rehman', 3484888557, '1420213501197', 'khushal Khan University', 'Pakistan', 'karak', 'kashif@gmail.com', '123456789', '', ''),
-(7, 'Ihsan Ullah', 3102514367, '1120113124152', 'Cs department UOP', 'Pakistan', 'Lakki Marwat', 'ihsanullah@gmail.com', '1234567890', '', ''),
-(8, 'Owais Khan', 3102051458, '2123445847596', 'Islamia University Peshawar', 'Pakistan', 'Noshera', 'owais@gmail.com', '123456789', '', ''),
+(4, 'sajid ktk', 3102145236, '1234115241521', 'University of pehawar', 'pakistan', 'peshawar', 'sajid@gmail.com', '123456789', 'What Is your favorite book?', 'php'),
+(5, 'Ihsan_Marwat', 3102345124, '1421545869216', 'Islamia college peshawar', 'Pakistan', 'Lakkii', 'ihsanadamzai@gmail.com', '1234567890', 'What is Your Childhood School name?', 'uop'),
+(6, 'Kashif Rehman', 3484888557, '1420213501197', 'khushal Khan University', 'Pakistan', 'karak', 'kashif@gmail.com', '123456789', 'What is your favorite food?', 'lobyaa'),
+(7, 'Ihsan Ullah', 3102514367, '1120113124152', 'Cs department UOP', 'Pakistan', 'Lakki Marwat', 'ihsanullah@gmail.com', '1234567890', 'What is Your Childhood School name?', 'panday'),
+(8, 'Owais Khan', 3102051458, '2123445847596', 'Islamia University Peshawar', 'Pakistan', 'Noshera', 'owais@gmail.com', '123456789', 'What city were you born in?', 'Noshera'),
 (14, 'Faheem Ullah', 3102041521, '14202458741586', 'Govrnment Degree College', 'Pakistan', 'Karak', 'faheem@gmail.com', 'faheem@gmail.com', 'What Is your favorite book?', 'Testing Software'),
-(15, 'Sajid Khattak', 3102093992, '1420279089405', 'University of Peshawar', 'Pakistan', 'Karak', 'sajidkhattak@gmail.com', 'sajidkhattak@gmail.com', 'What Is your favorite book?', 'php');
+(15, 'Sajid Khattak', 3102093992, '1420279089405', 'University of Peshawar', 'Pakistan', 'Karak', 'sajidkhattak@gmail.com', 'sajidkhattak@gmail.com', 'What Is your favorite book?', 'php'),
+(16, 'Malak Panday', 3485520120, '13201139154834', 'Islamia College', 'Pakistan', 'Lakki Marwat', 'malakpanday@gmail.com', '12345678', 'What is Your Childhood School name?', 'ghs'),
+(17, 'Ibrar Hussain', 3485869652, '1120199013985', 'Univeisity Of Peshawar', 'Pakistani', 'Lakki Marwat', 'ibrarkhan@gmail.com', '123456789', 'What is your favorite food?', 'lubya');
 
 --
 -- Indexes for dumped tables
@@ -1612,6 +1673,12 @@ ALTER TABLE `class`
   ADD KEY `Enrollment_key` (`Enrollment_key`),
   ADD KEY `Enrollment_key_2` (`Enrollment_key`),
   ADD KEY `Enrollment_key_3` (`Enrollment_key`);
+
+--
+-- Indexes for table `exam`
+--
+ALTER TABLE `exam`
+  ADD PRIMARY KEY (`E_id`);
 
 --
 -- Indexes for table `have`
@@ -1692,7 +1759,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `assignment`
 --
 ALTER TABLE `assignment`
-  MODIFY `A_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `A_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
 -- AUTO_INCREMENT for table `attendence`
@@ -1704,7 +1771,13 @@ ALTER TABLE `attendence`
 -- AUTO_INCREMENT for table `class`
 --
 ALTER TABLE `class`
-  MODIFY `Class_id` bigint(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1246;
+  MODIFY `Class_id` bigint(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1258;
+
+--
+-- AUTO_INCREMENT for table `exam`
+--
+ALTER TABLE `exam`
+  MODIFY `E_id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `links`
@@ -1716,43 +1789,43 @@ ALTER TABLE `links`
 -- AUTO_INCREMENT for table `notification`
 --
 ALTER TABLE `notification`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT for table `presentation`
 --
 ALTER TABLE `presentation`
-  MODIFY `P_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `P_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- AUTO_INCREMENT for table `quize`
 --
 ALTER TABLE `quize`
-  MODIFY `Q_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `Q_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `slide`
 --
 ALTER TABLE `slide`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `student`
 --
 ALTER TABLE `student`
-  MODIFY `S_id` bigint(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `S_id` bigint(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `subject`
 --
 ALTER TABLE `subject`
-  MODIFY `Subject_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `Subject_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=74;
 
 --
 -- AUTO_INCREMENT for table `teacher`
 --
 ALTER TABLE `teacher`
-  MODIFY `T_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `T_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

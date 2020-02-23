@@ -148,7 +148,7 @@ include('top_info.php');
                                                 </div>
                                                 <div class="col-sm "id="c" style="margin-right: 50px;margin-bottom:5px">
                                                       Enter Description:
-                                                      <input type="text" name="des" id="sub" class="input-medium form-control" required  placeholder="Enter the Description of your link. "/>
+                                                      <input type="text" name="des" id="sub" class="input-medium form-control"  placeholder="Enter the Description of your link. "  required >
                                                 </div>
                                                 <div class="col-sm " id="c">
                                                   <button type="submit" style="margin-top:20px" class="btn btn-info btn-lg" name="save" id="save" title="Click here to Save your link." value="<?php echo $_SESSION['class_id']; ?>">Save Link</button>

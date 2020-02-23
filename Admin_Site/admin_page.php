@@ -1,6 +1,6 @@
 <?php
 if (isset($_POST['btn_lg'])) {
-  $sql="SELECT name,Email, password FROM admin WHERE Email='".$_POST['email']."' AND password='".$_POST['pass']."'";
+  $sql="SELECT id,name,Email, password FROM admin WHERE Email='".$_POST['email']."' AND password='".$_POST['pass']."'";
   include('../db_connection.php');
   $exe=mysqli_query($con ,$sql);
   $r=mysqli_fetch_array($exe);
@@ -213,10 +213,32 @@ if (isset($_POST['btn_lg'])) {
           <!-- Sidebar user panel (optional) -->
           <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
-              <img src="../pic/sajid.jpg" class="img-rounded " alt="User Image" >
+            <?php
+              if ($r['id']==1) {
+                ?>
+                <a href="../pic/sajid.jpg" class="d-block">  <img src="../pic/sajid.jpg" class="img-rounded " alt="User Image" ></a>
+                <?php
+              }else if ($r['id']==2) {
+                ?>
+                <a href="#" class="d-block">
+                  <!-- <img src="../pic/sajid.jpg" class="img-rounded " alt="User Image" > -->
+                  <i class="fas fa-user" style="font-size: 45px"></i>
+                </a>
+                <?php
+              }
+              else if ($r['id']==3) {
+                ?>
+                <a href="#" class="d-block">
+                  <!-- <img src="../pic/sajid.jpg" class="img-rounded " alt="User Image" > -->
+                  <i class="fas fa-user" style="font-size: 45px"></i>
+                </a>
+                <?php
+              }
+
+             ?>
             </div>
             <div class="info">
-              <a href="../pic/sajid.jpg" class="d-block"><?php echo $admin_name; ?> </a>
+            <a href="#">  <?php echo $admin_name; ?>  </a>
             </div>
           </div>
 

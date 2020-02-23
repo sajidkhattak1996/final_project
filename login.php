@@ -38,7 +38,7 @@
                       <div class="pp pt-5" >
                           <p>Forgot your password?  <a href="forgot_password.php"> Click here</a></p>
                           <!-- <p><b>New User ?  </b>  <a href=""> <button type="button" name="new_user_btn" onclick="return hide()" style="background:none;border:none">Click here</button> </a>  </p -->
-                          <p> <b> Pivacy Policy </b>
+                          <p> <b> Privacy Policy </b>
                             <p style="font-size: 1.0em">
                             We take your privacy very seriously.
                             We do not share your detail for marketing

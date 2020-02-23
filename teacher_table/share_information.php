@@ -136,16 +136,16 @@
                                   <div class="" style="margin-top: 10px;margin-left: 20px;">
                                           <div class="col-sm">
                                                     <label><b>Enter Title <b></label>
-                                                    <input type="text" name="t" class="form-control" value="">
+                                                    <input type="text" name="t" class="form-control" value="" required>
 
                                           </div>
                                           <div class="col-sm">
                                                 <label>Enter Your Message</label>
-                                                <textarea name="msg" rows="3" cols="300" class="form-control"></textarea>
+                                                <textarea name="msg" rows="3" cols="300" class="form-control" required></textarea>
                                           </div>
                                           <div class="col-sm">
                                                 <label>Expire Date</label>
-                                                <input type="date" name="edate" value="<?php echo $exp_date;  ?>" class="form-control" title="The Default Expire Date are Taken 10 days Farword on the Current Date . You Also Change this">
+                                                <input type="date" name="edate" value="<?php echo $exp_date;  ?>" class="form-control" title="The Default Expire Date are Taken 10 days Farword on the Current Date . You Also Change this" required>
                                           </div>
                                   </div>
                                   <div class="col-10" style="margin: 0 auto;margin-top: 10px">
