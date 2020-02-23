@@ -220,17 +220,25 @@ if (isset($_POST['btn_lg'])) {
                 <?php
               }else if ($r['id']==2) {
                 ?>
-                <a href="#" class="d-block">
-                  <!-- <img src="../pic/sajid.jpg" class="img-rounded " alt="User Image" > -->
-                  <i class="fas fa-user" style="font-size: 45px"></i>
+                <a href="../pic/faheem.jpg" class="d-block">
+                  <img src="../pic/faheem.jpg" class="img-rounded " alt="User Image" >
+                  <!-- <i class="fas fa-user" style="font-size: 45px"></i> -->
                 </a>
                 <?php
               }
               else if ($r['id']==3) {
                 ?>
-                <a href="#" class="d-block">
-                  <!-- <img src="../pic/sajid.jpg" class="img-rounded " alt="User Image" > -->
-                  <i class="fas fa-user" style="font-size: 45px"></i>
+                <a href="../pic/kashif.jpg" class="d-block">
+                  <img src="../pic/kashif.jpg" class="img-rounded " alt="User Image" >
+                  <!-- <i class="fas fa-user" style="font-size: 45px"></i> -->
+                </a>
+                <?php
+              }
+              else if ($r['id']==4) {
+                ?>
+                <a href="../pic/ihsan.jpg" class="d-block">
+                  <img src="../pic/ihsan.jpg" class="img-rounded " alt="User Image" >
+                  <!-- <i class="fas fa-user" style="font-size: 45px"></i> -->
                 </a>
                 <?php
               }
@@ -466,6 +474,17 @@ if (isset($_POST['btn_lg'])) {
                   </p>
                 </a>
               </li>
+
+
+              <li class="nav-item has-treeview" >
+                <a href="admin_page.php" class="nav-link text-warning" >
+                  <i class="fas fa-sign-out-alt" ></i>
+                  <p>
+                    Log out
+                  </p>
+                </a>
+              </li>
+
 <!--
               <li class="nav-header">MISCELLANEOUS</li>
               <li class="nav-item">
