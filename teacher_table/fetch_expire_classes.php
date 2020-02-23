@@ -371,7 +371,7 @@ function me(class_id,obj){
     data:{cid,st},
     success:function(data){
     if(data=="yes"){
-      alert('You Registration Status are Successfully Changed');
+      // alert('You Registration Status are Successfully Changed');
       // alert('Update Sucessfully');
     // $('#spn').html('<small id="smid" style="color:green;margin-left:100px"><b>Update Sucessfully<b></small>');
     // setTimeout(myFn,2000);

@@ -1099,7 +1099,7 @@ if (isset($_POST['btn_lg'])) {
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body table-responsive">
-                      <table id="example" class="table  table-sm table-bordered table-striped">
+                      <table id="example_admin" class="table  table-sm table-bordered table-striped">
                         <thead>
                         <tr>
                           <th>Admin_ID</th>
@@ -2508,41 +2508,22 @@ function Fn_Delete_student(id,name){
           "info": true,
           "autoWidth": true,
         });
-        //for table total slide stored
-        $("#example13").DataTable({
-          "paging": true,
-          "pageLength": 1,
-          "lengthMenu": [ [1,5,10, 500, 5000, -1], [1,5,10, 500, 5000, "All"] ],
-          "lengthChange": true,
-          "searching": true,
-          "ordering": true,
-          "info": true,
-          "autoWidth": true,
-        });
-        //for table total links upload
-        $("#example14").DataTable({
-          "paging": true,
-          "pageLength": 1,
-          "lengthMenu": [ [1,5,10, 500, 5000, -1], [1,5,10, 500, 5000, "All"] ],
-          "lengthChange": true,
-          "searching": true,
-          "ordering": true,
-          "info": true,
-          "autoWidth": true,
-        });
 
-        //for table total attendance Entry
-        $("#example15").DataTable({
-          "paging": true,
-          "pageLength": 1,
-          "lengthMenu": [ [1,5,10, 500, 5000, -1], [1,5,10, 500, 5000, "All"] ],
-          "lengthChange": true,
-          "searching": true,
-          "ordering": true,
-          "info": true,
-          "autoWidth": true,
-        });
 
+
+
+
+
+
+
+
+
+
+
+//ended=========================================================================================
+      });
+
+      $(document).ready( function () {
         //for table total attendance entry
         $("#testing1").DataTable({
           "paging": true,
@@ -2554,58 +2535,97 @@ function Fn_Delete_student(id,name){
           "info": true,
           "autoWidth": true,
         });
+} );
 
-        //for table total Quizzes entry
-        $("#testing2").DataTable({
-          "paging": true,
-          "pageLength": 1,
-          "lengthMenu": [ [1,5,10, 500, 5000, -1], [1,5,10, 500, 5000, "All"] ],
-          "lengthChange": true,
-          "searching": true,
-          "ordering": true,
-          "info": true,
-          "autoWidth": true,
-        });
 
-        //for table total presentation entry
-        $("#testing3").DataTable({
-          "paging": true,
-          "pageLength": 1,
-          "lengthMenu": [ [1,5,10, 500, 5000, -1], [1,5,10, 500, 5000, "All"] ],
-          "lengthChange": true,
-          "searching": true,
-          "ordering": true,
-          "info": true,
-          "autoWidth": true,
-        });
+$(document).ready( function () {
+  //for table total Assignment entry
+  $("#testing4").DataTable({
+    "paging": true,
+    "pageLength": 1,
+    "lengthMenu": [ [1,5,10, 500, 5000, -1], [1,5,10, 500, 5000, "All"] ],
+    "lengthChange": true,
+    "searching": true,
+    "ordering": true,
+    "info": true,
+    "autoWidth": true,
+  });
+} );
 
-        //for table total Assignment entry
-        $("#testing4").DataTable({
-          "paging": true,
-          "pageLength": 1,
-          "lengthMenu": [ [1,5,10, 500, 5000, -1], [1,5,10, 500, 5000, "All"] ],
-          "lengthChange": true,
-          "searching": true,
-          "ordering": true,
-          "info": true,
-          "autoWidth": true,
-        });
-//ended=========================================================================================
-      });
+$(document).ready( function () {
+  //for table total presentation entry
+  $("#testing3").DataTable({
+    "paging": true,
+    "pageLength": 1,
+    "lengthMenu": [ [1,5,10, 500, 5000, -1], [1,5,10, 500, 5000, "All"] ],
+    "lengthChange": true,
+    "searching": true,
+    "ordering": true,
+    "info": true,
+    "autoWidth": true,
+  });
+} );
 
-//       $(document).ready( function () {
-//     $('#example1111').DataTable({
-//       "paging": true,
-//        "pageLength": 1,
-//        "lengthMenu": [ [1,5,10, 500, 5000, -1], [1,5,10, 500, 5000, "All"] ],
-//        "lengthChange": true,
-//        "searching": true,
-//        "ordering": true,
-//        "info": true,
-//        "autoWidth": true,
-//
-//     });
-// } );
+
+$(document).ready( function () {
+  //for table total Quizzes entry
+  $("#testing2").DataTable({
+    "paging": true,
+    "pageLength": 1,
+    "lengthMenu": [ [1,5,10, 500, 5000, -1], [1,5,10, 500, 5000, "All"] ],
+    "lengthChange": true,
+    "searching": true,
+    "ordering": true,
+    "info": true,
+    "autoWidth": true,
+  });
+} );
+
+
+$(document).ready( function () {
+  //for table total links upload
+  $("#example14").DataTable({
+    "paging": true,
+    "pageLength": 1,
+    "lengthMenu": [ [1,5,10, 500, 5000, -1], [1,5,10, 500, 5000, "All"] ],
+    "lengthChange": true,
+    "searching": true,
+    "ordering": true,
+    "info": true,
+    "autoWidth": true,
+  });
+} );
+
+
+$(document).ready( function () {
+  //for table total slide stored
+  $("#example13").DataTable({
+    "paging": true,
+    "pageLength": 1,
+    "lengthMenu": [ [1,5,10, 500, 5000, -1], [1,5,10, 500, 5000, "All"] ],
+    "lengthChange": true,
+    "searching": true,
+    "ordering": true,
+    "info": true,
+    "autoWidth": true,
+  });
+} );
+
+$(document).ready( function () {
+  //for table total slide stored
+  $("#example_admin").DataTable({
+    "paging": true,
+    "pageLength": 1,
+    "lengthMenu": [ [1,5,10, 500, 5000, -1], [1,5,10, 500, 5000, "All"] ],
+    "lengthChange": true,
+    "searching": true,
+    "ordering": true,
+    "info": true,
+    "autoWidth": true,
+  });
+} );
+
+
     </script>
 
 

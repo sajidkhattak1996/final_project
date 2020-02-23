@@ -72,49 +72,49 @@
     </div>
 <div class="container-fluid " >
         <figure class="figure" id="fig1">
-           <img src="../pic/help/all classes main page step1.jpg" class="figure-img img-fluid  pb-2" alt="Responsive image"  >
+           <a href="../pic/help/all classes main page step1.jpg"><img src="../pic/help/all classes main page step1.jpg" class="figure-img img-fluid  pb-2" alt="Responsive image"></a>
            <figcaption class="figure-caption" ><b> Figure 1 </b>:Contain the Information about the Homepage Display to the Teacher.</figcaption>
         </figure>
 
         <figure class="figure" id="fig1.1">
-          <img src="../pic/help/info icon click step 2.jpg" class="figure-img img-fluid " alt="Responsive image" >
+          <a href="../pic/help/info icon click step 2.jpg"><img src="../pic/help/info icon click step 2.jpg" class="figure-img img-fluid " alt="Responsive image" ></a>
           <figcaption class="figure-caption" ><b> Figure 1.1 </b>: Display the screen When Click on the User name/info icon in the nevagation.To edit his/her information.</figcaption>
         </figure>
 
         <figure class="figure" id="fig1.2">
-          <img src="../pic/help/class name step 1.jpg" class="figure-img img-fluid " alt="Responsive image" >
+          <a href="../pic/help/class name step 1.jpg"><img src="../pic/help/class name step 1.jpg" class="figure-img img-fluid " alt="Responsive image" ></a>
           <figcaption class="figure-caption" ><b> Figure 1.2 </b>: Contain the Information about Class Name Clicked. </figcaption>
         </figure>
               <figure class="figure" id="fig1.2.1">
-                <img src="../pic/help/class name step 1.1.jpg" class="figure-img img-fluid " alt="Responsive image" >
+                <a href="../pic/help/class name step 1.1.jpg"><img src="../pic/help/class name step 1.1.jpg" class="figure-img img-fluid " alt="Responsive image" ></a>
                 <figcaption class="figure-caption" ><b> Figure 1.2.1 </b> :To Display the all students records click for particular tabs for particular records.</figcaption>
               </figure>
 
               <figure class="figure" id="fig1.2.2">
-                <img src="../pic/help/class name step 1.2.jpg" class="figure-img img-fluid " alt="Responsive image" >
+                <a href="../pic/help/class name step 1.2.jpg"><img src="../pic/help/class name step 1.2.jpg" class="figure-img img-fluid " alt="Responsive image" ></a>
                 <figcaption class="figure-caption" ><b> Figure 1.2.2 </b>: When Class Name is Clicked the Following Displayed and it Contained Information are. </figcaption>
               </figure>
 
               <figure class="figure" id="fig1.2.3">
-                <img src="../pic/help/class name step 1.3.jpg" class="figure-img img-fluid " alt="Responsive image" >
+                <a href="../pic/help/class name step 1.3.jpg"><img src="../pic/help/class name step 1.3.jpg" class="figure-img img-fluid " alt="Responsive image" ></a>
                 <figcaption class="figure-caption" ><b> Figure 1.2.3 </b>:Display the Information about Eye Open Icon in the Class Record Homepage. </figcaption>
               </figure>
 
         <figure class="figure" id="fig1.3">
-          <img src="../pic/help/subject step1.jpg" class="figure-img img-fluid " alt="Responsive image" >
+          <a href="../pic/help/subject step1.jpg"><img src="../pic/help/subject step1.jpg" class="figure-img img-fluid " alt="Responsive image" ></a>
           <figcaption class="figure-caption" ><b> Figure 1.3 </b>: Contain the Information about Class Subject Clicked. </figcaption>
         </figure>
             <figure class="figure" id="fig1.3.1">
-              <img src="../pic/help/subject step 1.1.jpg" class="figure-img img-fluid " alt="Responsive image" >
+              <a href="../pic/help/subject step 1.1.jpg"><img src="../pic/help/subject step 1.1.jpg" class="figure-img img-fluid " alt="Responsive image" ></a>
               <figcaption class="figure-caption" ><b> Figure 1.3.1 </b>: To ADD Attendance , presentation ,Quize & Assignment Click on Particular button. </figcaption>
             </figure>
        <figure class="figure" id="fig1.4">
-         <img src="../pic/help/share icon step 2.jpg" class="figure-img img-fluid " alt="Responsive image" >
+         <a href="../pic/help/share icon step 2.jpg"><img src="../pic/help/share icon step 2.jpg" class="figure-img img-fluid " alt="Responsive image" ></a>
          <figcaption class="figure-caption" ><b> Figure 1.4 </b>: Share Icon Contained the following Information about Class. </figcaption>
        </figure>
 
              <figure class="figure" id="fig1.4.1">
-               <img src="../pic/help/share icon step 2.1.jpg" class="figure-img img-fluid " alt="Responsive image" >
+               <a href="../pic/help/share icon step 2.1.jpg"><img src="../pic/help/share icon step 2.1.jpg" class="figure-img img-fluid " alt="Responsive image" ></a>
                <figcaption class="figure-caption" ><b> Figure 1.4.1 </b>: When Clicked on Share icon following information are Displayed. </figcaption>
              </figure>
 

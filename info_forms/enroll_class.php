@@ -97,7 +97,7 @@ include('db_connection.php');
                 $e2=mysqli_fetch_array($exe2);
                 if ($enroll_key==$e2['Enrollment_key']) {
                   // echo "<h1>enrollment key matcheddddddddddd!</h1>";
-                  $reg_state=mysqli_query($con ,"SELECT reg_status FROM class WHERE Class_id='' AND reg_status='1'");
+                  $reg_state=mysqli_query($con ,"SELECT reg_status FROM class WHERE Class_id='$cid' AND reg_status='1'");
                   if (mysqli_num_rows($reg_state)==1) {
 
 
